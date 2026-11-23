@@ -1,0 +1,575 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Hafalan Akidah Akhlak XI</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: aplikasi belajar satu kolom, satu halaman per materi, header lengket dengan tombol mode hafal. */
+:root{--bg:#F1F4F1;--surface:#FFFFFF;--ink:#14231C;--mute:#566A60;--line:#D5DDD7;--accent:#0B6B55;--on-accent:#FFFFFF;--key-bg:#FBEFCF;--key-ink:#5C3F06;--ok:#1B7A44;--ok-bg:#DDF1E4;--bad:#B3362B;--bad-bg:#F8E1DE;--f-head:"Bricolage Grotesque",system-ui,sans-serif;--f-body:"Public Sans",system-ui,sans-serif;--f-ar:"Amiri","Noto Naskh Arabic",serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1512;--surface:#15211C;--ink:#E5EEE8;--mute:#9AAEA3;--line:#26372F;--accent:#43C7A0;--on-accent:#06231B;--key-bg:#3B2F12;--key-ink:#F3CF7A;--ok:#5FD08A;--ok-bg:#12321F;--bad:#F08A7E;--bad-bg:#3A1A17;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D1512;--surface:#15211C;--ink:#E5EEE8;--mute:#9AAEA3;--line:#26372F;--accent:#43C7A0;--on-accent:#06231B;--key-bg:#3B2F12;--key-ink:#F3CF7A;--ok:#5FD08A;--ok-bg:#12321F;--bad:#F08A7E;--bad-bg:#3A1A17;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 3rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;max-width:760px;margin:0 auto}
+.brand{font:700 1rem var(--f-head);text-decoration:none;color:var(--ink)}
+.tg{font:500 .8rem var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;border-radius:999px;cursor:pointer}
+.tg[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+#app{max-width:760px;margin:0 auto;padding-top:20px;min-width:0}
+h1{font:700 clamp(1.7rem,6vw,2.4rem)/1.15 var(--f-head);margin:.2em 0 .4em;text-wrap:balance}
+h2{font:700 1.2rem/1.3 var(--f-head);margin:0 0 .6em;text-wrap:balance}
+h3{font:600 1rem var(--f-body);margin:1em 0 .3em}
+section{margin:0 0 28px}
+p{margin:.5em 0}
+ul,ol{padding-left:1.25em;margin:.4em 0}
+li{margin:.3em 0}
+.crumb{font-size:.85rem;color:var(--mute);margin:0}
+.crumb a{color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:.3em 0 1.2em}
+.chip{font-size:.75rem;font-weight:600;letter-spacing:.03em;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:2px 10px;color:var(--mute)}
+mark.k{background:var(--key-bg);color:var(--key-ink);border-radius:4px;padding:0 .25em;font-weight:600}
+.hide-keys mark.k{color:transparent;background:var(--line);cursor:pointer;user-select:none}
+.hide-keys mark.k.show{color:var(--key-ink);background:var(--key-bg);user-select:auto}
+.key{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.mn{background:var(--key-bg);color:var(--key-ink);border-radius:12px;padding:16px 18px}
+.mn h2{color:var(--key-ink)}
+.mn mark.k{background:transparent;color:inherit;text-decoration:underline;text-underline-offset:3px;padding:0}
+.hide-keys .mn mark.k{background:var(--line);color:transparent;text-decoration:none}
+.hide-keys .mn mark.k.show{background:transparent;color:var(--key-ink)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:.92rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;background:var(--bg);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.ar{font:400 1.5rem/1.9 var(--f-ar);direction:rtl;text-align:right;margin:.3em 0}
+.hint{color:var(--mute);font-size:.88rem;margin:0 0 10px}
+.fcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.fc{font:inherit;text-align:left;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;min-width:0}
+.fq{display:block;font-weight:600}
+.fa{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);color:var(--accent);font-weight:500}
+.fc.open .fa{display:block}
+.fc:not(.open) .fq::after{content:" ⌄";color:var(--mute)}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 12px}
+.q .qt{font-weight:600;margin:0 0 10px}
+.q .qn{font-size:.75rem;color:var(--mute);letter-spacing:.04em;text-transform:uppercase;margin:0 0 4px}
+.op{display:block;width:100%;text-align:left;font:inherit;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin:6px 0;cursor:pointer}
+.op:disabled{cursor:default}
+.op.ok{background:var(--ok-bg);border-color:var(--ok)}
+.op.bad{background:var(--bad-bg);border-color:var(--bad)}
+.ex{font-size:.9rem;margin:8px 0 0;color:var(--mute)}
+.res{background:var(--accent);color:var(--on-accent);border-radius:12px;padding:14px 16px;margin:12px 0}
+.btn{font:600 .95rem var(--f-body);background:var(--accent);color:var(--on-accent);border:0;border-radius:10px;padding:11px 18px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.alt{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.pn{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:20px}
+.lead{font-size:1.05rem;color:var(--mute);max-width:56ch}
+.bab{margin:28px 0 0}
+.bab h2{margin:0 0 4px}
+.lst{display:grid;gap:8px;margin-top:10px}
+.lk{display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 14px}
+.lk b{font-weight:600}
+.lk small{display:block;color:var(--mute);font-size:.78rem}
+.sc{font-size:.78rem;font-weight:600;color:var(--ok);white-space:nowrap}
+.map{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:6px;margin-top:10px}
+.map a{text-align:center;text-decoration:none;font-weight:600;font-size:.9rem;padding:8px 0;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.tab{font-variant-numeric:tabular-nums}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:12px}
+summary{cursor:pointer;font-weight:600}
+.ind{display:grid;grid-template-columns:2.2em 1fr;gap:4px 8px;margin-top:8px;font-size:.9rem}
+.ind a{grid-column:2;font-size:.78rem}
+.bar{height:6px;background:var(--line);border-radius:4px;overflow:hidden;margin:0 0 14px}
+.bar i{display:block;height:100%;background:var(--accent)}
+@media (prefers-reduced-motion:no-preference){.fc,.op,.lk,.btn{transition:background .15s,border-color .15s}}
+</style>
+<header class="top"><a class="brand" href="#">Akidah Akhlak XI</a><button id="hideBtn" class="tg" type="button" aria-pressed="false">Tutup kata kunci</button></header>
+<main id="app"></main>
+<script>
+const K=t=>'<mark class="k">'+t+'</mark>';
+const PAGES=[];
+PAGES.push({
+id:'kalam',bab:1,title:'Ilmu Kalam: pengertian, ruang lingkup, hikmah',kisi:[1,4],
+key:[`Kata ${K('kalam')} berasal dari <i>kallama</i>: ${K('berbicara / perkataan')}.`,
+`Istilah: ilmu yang membahas ${K('akidah (ketuhanan, kenabian, hari akhir, takdir)')} dengan dalil ${K('akal dan wahyu')}.`,
+`Nama lain: ilmu ${K('tauhid')}, ${K('ushuluddin')}, ${K('akidah')}, ${K('teologi Islam')}.`,
+`Titik awal munculnya aliran: terbunuhnya ${K('Utsman bin Affan')} (<i>al-fitnah al-kubra</i>).`],
+body:`<section><h2>Mengapa disebut "kalam"?</h2><ol>
+<li>Persoalan terpanas pada masanya adalah ${K('kalamullah')}: apakah Al-Qur'an qadim atau makhluk.</li>
+<li>Dalil akalnya disusun seperti ilmu ${K('logika (manthiq)')}, yaitu rangkaian kata dan argumen.</li>
+<li>Metodenya ${K('dialog dan debat')} untuk menjawab lawan pemikiran.</li></ol></section>
+<section><h2>Ruang lingkup (4 bagian)</h2><div class="tw"><table><tr><th>Bagian</th><th>Isi</th></tr>
+<tr><td>${K('Ilahiyyat')}</td><td>Wujud, sifat, dan perbuatan Allah</td></tr>
+<tr><td>${K('Nubuwwat')}</td><td>Kenabian, rasul, kitab suci</td></tr>
+<tr><td>${K('Ruhaniyyat')}</td><td>Alam gaib: malaikat, jin, iblis, roh</td></tr>
+<tr><td>${K("Sam'iyyat")}</td><td>Hal yang hanya diketahui lewat wahyu: kubur, kiamat, surga, neraka</td></tr></table></div>
+<p>Pembahasan lain: iman dan kufur, kehendak mutlak Allah dan perbuatan manusia, keadilan Allah, wahyu dan akal.</p></section>
+<section><h2>Alur sejarah singkat</h2><ol>
+<li>Masa Nabi sampai awal Utsman: satu corak pemahaman akidah.</li>
+<li>Utsman terbunuh, lalu Perang Jamal dan Perang Shiffin.</li>
+<li>Tahkim melahirkan ${K('Khawarij')}, Syiah, dan ${K('Murjiah')}.</li>
+<li>Muncul ${K('Jabariah')} dan ${K('Qadariah')} (soal takdir dan perbuatan manusia).</li>
+<li>Muncul ${K('Muktazilah')} (rasional), lalu ${K("Asy'ariyah")} dan ${K('Maturidiyah')} (jalan tengah).</li></ol></section>
+<section><h2>Hikmah mempelajari ilmu kalam</h2><ul>
+<li>Iman kokoh karena berdasar dalil, bukan ikut-ikutan.</li>
+<li>Menyikapi perbedaan secara ${K('moderat (wasathiyah) dan toleran')}, tidak mudah mengkafirkan.</li>
+<li>Mampu menjawab paham menyimpang dan keraguan (ateisme, liberalisme agama).</li>
+<li>Melatih berpikir kritis dan logis.</li>
+<li>Memahami latar belakang aliran sehingga tidak fanatik buta.</li></ul></section>`,
+mn:`<p><b>KALAM</b>: ${K('K')}okohkan iman, ${K('A')}sah akal kritis, ${K('L')}awan paham menyimpang, ${K('A')}kur dalam perbedaan, ${K('M')}oderat.</p><p>Ruang lingkup: <b>I-N-R-S</b> = Ilahiyyat, Nubuwwat, Ruhaniyyat, Sam'iyyat.</p>`,
+cards:[['Arti kata kallama?','Berbicara / berkata'],['Peristiwa tonggak lahirnya aliran?','Terbunuhnya Utsman (al-fitnah al-kubra)'],['Empat ruang lingkup ilmu kalam?','Ilahiyyat, Nubuwwat, Ruhaniyyat, Sam\'iyyat'],['Sikap hasil mempelajari ilmu kalam terhadap perbedaan?','Moderat dan toleran'],['Nama lain ilmu kalam?','Ilmu tauhid, ushuluddin, akidah, teologi']],
+quiz:[
+{q:'Secara etimologi, kata kallama yang menjadi akar "kalam" bermakna...',o:['Berbicara atau berkata','Berpikir mendalam','Berserah diri','Memutuskan perkara'],e:'Kalam berarti perkataan; ilmunya dinamai demikian karena banyak berupa dialog dan argumen.',k:1},
+{q:'Dalam menyikapi perbedaan pendapat akidah, hikmah mempelajari ilmu kalam yang paling tepat adalah...',o:['Bersikap moderat dan toleran sambil tetap berpegang pada dalil','Menganggap kelompok lain pasti sesat','Menghindari semua perdebatan ilmiah','Mengikuti pendapat mayoritas tanpa dalil'],e:'Ilmu kalam melatih menimbang dalil sehingga tidak mudah menyesatkan dan mengkafirkan.',k:4},
+{q:'Peristiwa yang menjadi tonggak munculnya kelompok-kelompok dalam Islam adalah...',o:['Terbunuhnya Utsman bin Affan','Wafatnya Rasulullah','Perang Badar','Hijrah ke Madinah'],e:'Peristiwa itu disebut al-fitnah al-kubra.',k:1},
+{q:'Pembahasan wujud, sifat, dan perbuatan Allah termasuk ruang lingkup...',o:['Ilahiyyat','Nubuwwat','Ruhaniyyat','Sam\'iyyat'],e:'Ilahiyyat = ketuhanan.',k:1}]
+},{
+id:'khawarij',bab:1,title:'Khawarij dan Murjiah',kisi:[3,9,11,13],
+key:[`${K('Khawarij')} dari <i>kharaja</i> = ${K('keluar')}: keluar dari barisan Ali bin Abi Thalib.`,
+`Pemicu: ${K('tahkim (arbitrase)')} pada ${K('Perang Shiffin')} (37 H), Ali melawan Muawiyah.`,
+`Doktrin pokok: pelaku ${K('dosa besar = kafir')}.`,
+`${K('Murjiah')} dari <i>irja'</i> = menunda: pelaku dosa besar ${K('tetap mukmin')}, urusannya diserahkan kepada Allah.`],
+body:`<section><h2>Kronologi lahirnya Khawarij</h2><ol>
+<li>Utsman terbunuh, Ali menjadi khalifah.</li>
+<li>Perang Jamal: Ali melawan Aisyah, Thalhah, dan Zubair.</li>
+<li>Perang Shiffin: Ali melawan Muawiyah. Pasukan Muawiyah mengangkat mushaf, tanda minta damai.</li>
+<li>${K('Tahkim')}: Abu Musa al-Asy'ari mewakili Ali, Amr bin Ash mewakili Muawiyah, di Daumatul Jandal.</li>
+<li>Sebagian pasukan Ali menolak dan keluar. Slogan mereka: <span class="ar" lang="ar">لَا حُكْمَ إِلَّا لِلَّهِ</span></li>
+<li>Ali memerangi mereka di Nahrawan. Ali kemudian dibunuh oleh Abdurrahman bin Muljam (Khawarij) pada 40 H.</li></ol></section>
+<section><h2>Doktrin Khawarij</h2><ul>
+<li>Pelaku dosa besar ${K('kafir')} dan kekal di neraka.</li>
+<li>Ali, Muawiyah, Amr bin Ash, Abu Musa, dan yang menerima tahkim dianggap kafir.</li>
+<li>Hukum hanya milik Allah, tahkim manusia ditolak.</li>
+<li>Khalifah dipilih bebas (tidak harus Quraisy) dan wajib dilawan bila zalim.</li>
+<li>Ciri: keras, literal, mudah ${K('takfir')} (mengkafirkan sesama muslim).</li></ul>
+<p>Sekte: Muhakkimah, Azariqah, Najdat, Sufriyah, Ibadiyah (paling moderat).</p></section>
+<section><h2>Murjiah dan penerapannya</h2><ul>
+<li>Sikap netral terhadap konflik politik sahabat.</li>
+<li>Pelaku dosa besar ${K('tetap mukmin')}; nasibnya ditunda sampai hukum Allah di akhirat.</li>
+<li>Penerapan: tidak menghakimi atau mengkafirkan sesama muslim, berprasangka baik, dan menyerahkan penilaian akhir kepada Allah.</li>
+<li>Kelemahan bila ekstrem: bisa meremehkan dosa karena menganggap iman cukup di hati.</li></ul></section>
+<section><h2>Kemiripan ideologi masa kini</h2><p>Kelompok yang ${K('mengkafirkan sesama muslim')} yang berbeda pandangan, menghalalkan kekerasan, dan memberontak pemerintah sah atas nama "hukum Allah" memiliki pola pikir mirip ${K('Khawarij')}.</p></section>`,
+mn:`<p>Tiga sikap terhadap dosa besar:</p><ul><li>${K('Khawarij')}: dosa besar = KAFIR.</li><li>${K('Murjiah')}: dosa besar = tetap MUKMIN, vonis DITUNDA.</li><li>${K('Muktazilah')}: dosa besar = DI ANTARA keduanya (fasik).</li></ul>`,
+cards:[['Khawarij artinya?','Mereka yang keluar'],['Peristiwa pemicu keluarnya Khawarij?','Tahkim (arbitrase) pada Perang Shiffin'],['Wakil Ali dan wakil Muawiyah saat tahkim?','Abu Musa al-Asy\'ari dan Amr bin Ash'],['Status pelaku dosa besar menurut Khawarij?','Kafir'],['Status pelaku dosa besar menurut Murjiah?','Tetap mukmin, urusan ditunda kepada Allah']],
+quiz:[
+{q:'Khawarij muncul karena sebagian pasukan Ali...',o:['Menolak tahkim di Perang Shiffin dan keluar dari barisannya','Mendukung Muawiyah menjadi khalifah','Menuntut Ali diganti oleh Aisyah','Menolak ikut Perang Jamal'],e:'Mereka menilai tahkim bertentangan dengan hukum Allah.',k:3},
+{q:'Peristiwa teologis-politik yang memicu keluarnya Khawarij dari barisan Ali adalah...',o:['Tahkim (arbitrase) setelah Perang Shiffin','Terbunuhnya Utsman','Perang Jamal','Baiat Saqifah'],e:'Tahkim dilakukan di Daumatul Jandal.',k:13},
+{q:'Dewi tidak pernah menjatuhkan vonis kafir kepada temannya yang bermaksiat dan menyerahkan urusannya kepada Allah. Sikap ini sesuai pemikiran...',o:['Murjiah','Khawarij','Muktazilah','Jabariah'],e:'Murjiah menunda (irja\') hukum pelaku dosa besar kepada Allah.',k:9},
+{q:'Kelompok yang mudah mengkafirkan sesama muslim dan menyerang pemerintah sah atas nama "hukum hanya milik Allah" mirip dengan aliran...',o:['Khawarij','Murjiah','Maturidiyah','Qadariah'],e:'Takfir dan pemberontakan adalah ciri khas Khawarij.',k:11}]
+},{
+id:'jabariah',bab:1,title:'Jabariah dan Qadariah',kisi:[2],
+key:[`${K('Jabariah')} dari <i>jabr</i> = ${K('terpaksa')}: manusia tidak punya kehendak, semua perbuatan dari Allah.`,
+`${K('Qadariah')} dari <i>qudrah</i> = ${K('kuasa')}: manusia bebas dan menciptakan perbuatannya sendiri.`,
+`Tokoh Jabariah ekstrem: ${K('Jahm bin Shafwan')}. Tokoh Qadariah: ${K("Ma'bad al-Juhani")} dan ${K('Ghailan ad-Dimasyqi')}.`],
+body:`<section><h2>Perbandingan</h2><div class="tw"><table><tr><th></th><th>Jabariah</th><th>Qadariah</th></tr>
+<tr><td>Asal kata</td><td>Jabr (terpaksa)</td><td>Qudrah (kuasa)</td></tr>
+<tr><td>Perbuatan manusia</td><td>Dipaksa Allah, manusia seperti wayang atau bulu ditiup angin</td><td>Manusia bebas dan mencipta sendiri</td></tr>
+<tr><td>Tokoh</td><td>Jahm bin Shafwan, Ja'd bin Dirham</td><td>Ma'bad al-Juhani, Ghailan ad-Dimasyqi</td></tr>
+<tr><td>Dalil yang dipakai</td><td>QS. Al-Anfal 17 (bukan kamu yang melempar, tetapi Allah)</td><td>QS. Ar-Ra'd 11 (Allah tidak mengubah nasib kaum sebelum mereka mengubahnya)</td></tr>
+<tr><td>Dampak</td><td>Fatalis, pasrah, malas, lepas tanggung jawab</td><td>Membatasi kekuasaan Allah</td></tr></table></div></section>
+<section><h2>Mengenali pola pikirnya</h2><ul>
+<li>"Percuma belajar, kalau sudah takdir pasti lulus sendiri." Ini pola ${K('Jabariah')}.</li>
+<li>"Nasibku sepenuhnya hasil usahaku, Allah tidak ikut campur." Ini pola ${K('Qadariah')}.</li>
+<li>"Aku berusaha maksimal, lalu bertawakal." Ini jalan tengah ${K('Ahlussunah')} (halaman berikutnya).</li></ul>
+<p>Jabariah moderat (An-Najjar, Dirar bin Amr) menerima ${K('kasb')} sehingga lebih dekat ke Ahlussunah.</p></section>`,
+mn:`<p>${K('JA')}bariah = ${K('JA')}di wayang (dipaksa). ${K('QA')}dariah = ${K('QA')}ya mencipta sendiri (kuasa).</p>`,
+cards:[['Jabariah berasal dari kata?','Jabr = terpaksa'],['Pandangan Jabariah tentang perbuatan manusia?','Semua dipaksa dan ditentukan Allah, manusia tak punya pilihan'],['Pandangan Qadariah?','Manusia bebas dan mencipta perbuatannya sendiri'],['Tokoh Jabariah ekstrem?','Jahm bin Shafwan']],
+quiz:[
+{q:'Seorang siswa berkata, "Semua sudah ditentukan Allah, aku tidak punya pilihan, jadi tidak perlu berusaha." Pola pikir ini sesuai doktrin...',o:['Jabariah','Qadariah','Murjiah','Maturidiyah'],e:'Jabariah menafikan kehendak dan usaha manusia.',k:2},
+{q:'Aliran yang meyakini manusia bebas menciptakan perbuatannya sendiri disebut...',o:['Qadariah','Jabariah','Khawarij','Asy\'ariyah'],e:'Qadariah dari qudrah (kuasa manusia).',k:2},
+{q:'Tokoh Jabariah ekstrem yang dikenal sebagai pendiri Jahmiyah adalah...',o:['Jahm bin Shafwan','Washil bin Atha','Abu Hasan al-Asy\'ari','Ma\'bad al-Juhani'],e:'Jahm bin Shafwan dengan paham manusia seperti bulu ditiup angin.',k:2}]
+},{
+id:'muktazilah',bab:1,title:'Muktazilah dan Ushul Khamsah',kisi:[5,6,8],
+key:[`${K("I'tazala")} = ${K('memisahkan diri')}. Pendirinya ${K('Washil bin Atha')}, murid ${K('Hasan al-Bashri')}.`,
+`Pemicu: beda pendapat soal ${K('status pelaku dosa besar')}.`,
+`Ajaran pokok disebut ${K('Ushul Khamsah')} (5 prinsip).`,
+`Paling ${K('rasional')}: akal didahulukan, Al-Qur'an dianggap ${K('makhluk')}.`],
+body:`<section><h2>Peristiwa lahirnya Muktazilah</h2><p>Seorang murid bertanya kepada Hasan al-Bashri tentang pelaku dosa besar: kafir (Khawarij) atau mukmin (Murjiah)? Sebelum sang guru menjawab, Washil menyatakan bahwa ia ${K('bukan mukmin dan bukan kafir')}, lalu menyingkir ke sudut masjid bersama Amr bin Ubaid. Hasan al-Bashri berkata <i>i'tazala 'anna Washil</i> (Washil telah memisahkan diri dari kita). Julukan lain mereka: <i>Ahlul 'Adl wat Tauhid</i>.</p></section>
+<section><h2>Ushul Khamsah</h2><div class="tw"><table><tr><th>No</th><th>Prinsip</th><th>Isi</th></tr>
+<tr><td>1</td><td>${K('At-Tauhid')}</td><td>Allah Maha Esa; sifat sama dengan zat; Al-Qur'an makhluk; Allah tak dapat dilihat di akhirat</td></tr>
+<tr><td>2</td><td>${K("Al-'Adl")}</td><td>Allah adil; tidak menciptakan keburukan; manusia pencipta perbuatannya; Allah wajib berbuat yang terbaik</td></tr>
+<tr><td>3</td><td>${K("Al-Wa'd wal Wa'id")}</td><td>Janji pahala dan ancaman siksa pasti terlaksana</td></tr>
+<tr><td>4</td><td>${K('Al-Manzilah bainal Manzilatain')}</td><td>Pelaku dosa besar di posisi antara mukmin dan kafir (fasik)</td></tr>
+<tr><td>5</td><td>${K("Al-Amr bil Ma'ruf wan Nahyi 'anil Munkar")}</td><td>Wajib mengajak kebaikan dan mencegah kemungkaran</td></tr></table></div></section>
+<section><h2>Ciri doktrin yang mengarah ke Muktazilah</h2><ul>
+<li>Akal mampu menilai baik dan buruk, wahyu sesudahnya.</li>
+<li>Al-Qur'an itu ${K('makhluk')} (baru).</li>
+<li>Pelaku dosa besar bukan mukmin dan bukan kafir.</li>
+<li>Manusia mencipta sendiri perbuatannya; Allah wajib berbuat terbaik.</li></ul>
+<p>Tokoh: Washil bin Atha, Amr bin Ubaid, Abu Huzail al-Allaf, an-Nazzam, al-Jahiz, az-Zamakhsyari.</p></section>`,
+mn:`<p><b>TAWMA</b>: ${K('T')}auhid, ${K("A")}dl, ${K('W')}a'd wal wa'id, ${K('M')}anzilah bainal manzilatain, ${K('A')}mar makruf nahi munkar.</p><p>Porsi akal besar ke kecil: ${K('Mu')}ktazilah &gt; ${K('Ma')}turidiyah &gt; ${K('As')}y'ariyah.</p>`,
+cards:[["Arti i'tazala?",'Memisahkan diri'],['Pendiri Muktazilah?','Washil bin Atha (murid Hasan al-Bashri)'],['Lima ajaran pokok disebut?','Ushul Khamsah'],['Posisi pelaku dosa besar menurut Muktazilah?','Al-manzilah bainal manzilatain (di antara dua posisi)'],['Status Al-Qur\'an menurut Muktazilah?','Makhluk']],
+quiz:[
+{q:'Aliran teologi yang terbentuk setelah Washil bin Atha memisahkan diri dari majelis Hasan al-Bashri adalah...',o:['Muktazilah','Khawarij','Maturidiyah','Jabariah'],e:'Hasan al-Bashri berkata i\'tazala anna Washil.',k:5},
+{q:'Ajaran Muktazilah bahwa pelaku dosa besar bukan mukmin dan bukan kafir disebut...',o:['Al-manzilah bainal manzilatain','At-tauhid','Al-wa\'d wal wa\'id','Al-amr bil ma\'ruf'],e:'Itu prinsip keempat Ushul Khamsah.',k:6},
+{q:'Aliran yang mengusung doktrin "Al-Qur\'an adalah makhluk dan akal menentukan baik-buruk" adalah...',o:['Muktazilah','Asy\'ariyah','Murjiah','Khawarij'],e:'Muktazilah paling mengutamakan akal.',k:8},
+{q:'Yang BUKAN termasuk Ushul Khamsah Muktazilah adalah...',o:['Al-Kasb','Al-Adl','At-Tauhid','Al-Wa\'d wal Wa\'id'],e:'Al-kasb adalah konsep Asy\'ariyah.',k:6}]
+},{
+id:'asyariyah',bab:1,title:"Asy'ariyah, Maturidiyah, dan Ahlussunah",kisi:[7,10,12],
+key:[`${K('Ahlussunah wal Jamaah')} kalam = ${K("Asy'ariyah")} dan ${K('Maturidiyah')}: jalan tengah antara Jabariah dan Qadariah, antara akal dan wahyu.`,
+`${K("Asy'ariyah")}: Abu al-Hasan al-Asy'ari (Basrah, bekas Muktazilah). ${K('Maturidiyah')}: Abu Mansur al-Maturidi (Samarkand, mazhab Hanafi).`,
+`${K('Kasb')} = memperoleh: Allah ${K('mencipta')} perbuatan, manusia ${K('mengusahakan / memilih')}.`,
+`Porsi akal lebih besar: ${K('Maturidiyah')} dibanding Asy'ariyah.`],
+body:`<section><h2>Perbandingan tiga aliran</h2><div class="tw"><table><tr><th></th><th>Muktazilah</th><th>Asy'ariyah</th><th>Maturidiyah</th></tr>
+<tr><td>Peran akal</td><td>Paling besar</td><td>Terbatas, wahyu utama</td><td>Lebih besar dari Asy'ariyah</td></tr>
+<tr><td>Wajib mengenal Allah</td><td>Akal</td><td>Syara' (wahyu)</td><td>Akal</td></tr>
+<tr><td>Baik-buruk</td><td>Ditentukan akal</td><td>Ditentukan syara'</td><td>Akal dapat mengetahui</td></tr>
+<tr><td>Perbuatan manusia</td><td>Manusia pencipta</td><td>Allah pencipta, manusia kasb</td><td>Manusia punya ikhtiar lebih besar</td></tr>
+<tr><td>Al-Qur'an</td><td>Makhluk</td><td>Qadim</td><td>Qadim</td></tr>
+<tr><td>Melihat Allah di akhirat</td><td>Mustahil</td><td>Mungkin</td><td>Mungkin</td></tr>
+<tr><td>Dosa besar</td><td>Antara dua posisi</td><td>Tetap mukmin</td><td>Tetap mukmin</td></tr></table></div></section>
+<section><h2>Konsep kasb dan perbuatan manusia</h2><ul>
+<li>Jabariah: manusia dipaksa. Qadariah: manusia pencipta perbuatannya.</li>
+<li>${K("Asy'ariyah")}: Allah pencipta perbuatan; manusia hanya ${K('memperoleh (kasb)')}; daya manusia tidak mewujudkan perbuatan.</li>
+<li>${K('Maturidiyah')}: manusia memilih, Allah menciptakan perbuatan sesuai pilihan; daya manusia berpengaruh.</li>
+<li>Contoh: Allah menciptakan gerak tangan, manusia memilih menggerakkannya atau tidak.</li>
+<li>Kesimpulan: kasb bukan menciptakan, melainkan ${K('usaha atau pilihan yang bertanggung jawab')}.</li></ul></section>
+<section><h2>Tokoh dan cabang</h2><ul>
+<li>Al-Asy'ari (260-324 H) keluar dari Muktazilah sekitar 300 H; dianut banyak pengikut mazhab Syafi'i.</li>
+<li>Al-Maturidi wafat 333 H; dianut pengikut mazhab Hanafi.</li>
+<li>Maturidiyah ${K('Samarkand')} lebih dekat ke Muktazilah; ${K('Bukhara')} (al-Bazdawi) lebih dekat ke Asy'ariyah.</li></ul></section>`,
+mn:`<p>Asy'ari: Allah cipta, hamba ${K('CARI')} (kasb = cari atau memperoleh).</p><p>Jalan tengah: Jabariah (hamba 0%) - Aswaja (ikhtiar + takdir) - Qadariah (hamba 100%).</p>`,
+cards:[['Aliran jalan tengah ikhtiar dan takdir?','Ahlussunah wal Jamaah (Asy\'ariyah dan Maturidiyah)'],['Arti kasb?','Memperoleh / mengusahakan perbuatan'],['Pendiri Maturidiyah dan kotanya?','Abu Mansur al-Maturidi, Samarkand'],['Mana porsi akalnya lebih besar, Asy\'ariyah atau Maturidiyah?','Maturidiyah'],['Wajib mengenal Allah menurut Asy\'ariyah?','Berdasarkan syara\' (wahyu)']],
+quiz:[
+{q:'Di antara Asy\'ariyah dan Maturidiyah, aliran yang memberi porsi akal lebih besar adalah...',o:['Maturidiyah','Asy\'ariyah','Khawarij','Jabariah'],e:'Maturidiyah (terutama Samarkand) menilai akal dapat mengetahui baik-buruk dan wajib mengenal Allah.',k:7},
+{q:'Kesimpulan yang tepat tentang konsep kasb Asy\'ariyah dibanding paham Qadariah adalah...',o:['Dalam kasb Allah mencipta perbuatan dan manusia memperolehnya; dalam Qadariah manusia mencipta sendiri','Kasb dan Qadariah sama-sama menyatakan manusia pencipta perbuatan','Kasb berarti manusia tidak punya pilihan sama sekali','Kasb berarti Allah tidak ikut campur'],e:'Kasb = jalan tengah antara paksaan (Jabariah) dan penciptaan sendiri (Qadariah).',k:10},
+{q:'Aliran jalan tengah yang menyeimbangkan ikhtiar manusia dan takdir Allah adalah...',o:['Ahlussunah wal Jamaah','Jabariah','Qadariah','Khawarij'],e:'Aswaja = Asy\'ariyah dan Maturidiyah.',k:12},
+{q:'Abu Mansur al-Maturidi berasal dari kota...',o:['Samarkand','Basrah','Madinah','Kufah'],e:'Pengikutnya mayoritas bermazhab Hanafi.',k:7}]
+});
+PAGES.push({
+id:'judi',bab:2,title:'Judi (maisir) dan judi online',kisi:[14,16,22],
+key:[`${K('Maisir')}: bahasa = ${K('mudah / gampang')}; istilah = ${K('untung tanpa usaha, dengan taruhan')}.`,
+`Dalil: QS. Al-Baqarah 219 dan QS. ${K('Al-Maidah 90-91')}: judi = ${K('rijs (kotor)')}, perbuatan setan.`,
+`Esensi judi menurut Imam Syafi'i dan jumhur: adanya ${K('taruhan (harta) dengan untung-rugi')}; yang menang mengambil harta yang kalah.`,
+`Judi online tetap maisir: haram karena ${K('taruhan, spekulasi, memakan harta batil')}, memicu ${K('permusuhan')}, dan ${K('melalaikan ibadah')}.`],
+body:`<section><h2>Unsur judi</h2><ol><li>${K('Taruhan')} (modal berupa harta).</li><li>${K('Untung-untungan')} (spekulasi, bukan usaha).</li><li>${K('Ada yang menang dan kalah')}.</li></ol>
+<p>Asal kata: judi zaman jahiliah memakai anak panah (azlam). Maisir disebut 3 kali dalam Al-Qur'an: Al-Baqarah 219, Al-Maidah 90 dan 91.</p>
+<p>Catatan Imam Syafi'i: permainan seperti catur tanpa taruhan, tanpa perkataan kasar, dan tidak melalaikan shalat bukan judi.</p></section>
+<section><h2>Mengapa judi online haram?</h2><ul>
+<li>Mengandung ${K('taruhan dan gharar')} (ketidakpastian), memakan harta orang lain tanpa hak.</li>
+<li>Menimbulkan ${K('permusuhan dan kebencian')} (Al-Maidah 91).</li>
+<li>${K('Melalaikan zikir dan shalat')}.</li>
+<li>Merusak etos kerja, melahirkan malas, utang, dan kejahatan.</li>
+<li>Game dengan chip berbayar atau hadiah acak juga termasuk maisir modern.</li></ul></section>
+<section><h2>Langkah bijak menanggulangi judi</h2><div class="tw"><table><tr><th>Level</th><th>Langkah</th></tr>
+<tr><td>Pribadi</td><td>Taubat nasuha, perkuat iman, jauhi lingkungan dan aplikasi judi, isi waktu produktif, cari nafkah halal, kelola keuangan</td></tr>
+<tr><td>Keluarga</td><td>Nasihat santun, pengawasan gawai, dampingi pelaku, jangan menutupi utang dengan berjudi lagi</td></tr>
+<tr><td>Masyarakat dan negara</td><td>Literasi digital, blokir dan lapor situs, penegakan hukum, rehabilitasi pecandu</td></tr></table></div></section>`,
+mn:`<p>Unsur judi <b>TUM</b>: ${K('T')}aruhan, ${K('U')}ntung-untungan, ${K('M')}enang-kalah.</p><p>Al-Maidah 91 menyebut 4 akibat: ${K('rijs, permusuhan, kebencian, lalai zikir dan shalat')}.</p>`,
+cards:[['Arti maisir menurut bahasa?','Mudah / gampang (untung tanpa usaha)'],['Esensi judi menurut jumhur termasuk Imam Syafi\'i?','Taruhan harta dengan untung-rugi'],['Ayat larangan judi dan khamr?','Al-Maidah 90-91'],['Tiga unsur judi?','Taruhan, untung-untungan, menang-kalah']],
+quiz:[
+{q:'Esensi utama perbuatan judi (maisir) menurut pendapat Imam Syafi\'i dan jumhur ulama adalah...',o:['Adanya taruhan harta yang untung-ruginya bergantung pada spekulasi','Dilakukan secara berkelompok','Dilakukan pada malam hari','Dimainkan dengan alat permainan tertentu'],e:'Taruhan adalah illat haramnya maisir; permainan tanpa taruhan tidak otomatis haram.',k:14},
+{q:'Alasan utama judi online diharamkan dalam syariat Islam adalah...',o:['Mengandung taruhan dan spekulasi yang memakan harta secara batil serta memicu permusuhan dan melalaikan ibadah','Karena dilakukan memakai internet','Karena belum memiliki izin pemerintah','Karena hanya dimainkan anak muda'],e:'Medianya berubah, hakikat maisirnya tetap sama.',k:16},
+{q:'Langkah solutif dan bijaksana mencegah dampak buruk judi adalah...',o:['Memperkuat iman, menjauhi lingkungan judi, dan mencari nafkah halal','Berjudi lagi untuk menutup kerugian','Membiarkan selama tidak merugikan orang lain','Mengucilkan pelaku selamanya'],e:'Pencegahan dimulai dari iman, lingkungan, dan nafkah halal.',k:22},
+{q:'Berikut yang BUKAN unsur judi adalah...',o:['Usaha dan kerja keras','Taruhan','Untung-untungan','Ada pihak menang dan kalah'],e:'Judi justru untung tanpa usaha.',k:14}]
+},{
+id:'khamr',bab:2,title:'Khamr, narkoba, dan mencuri atau plagiarisme',kisi:[15,17],
+key:[`${K('Khamr')} = segala yang ${K('memabukkan')} dan menutup akal. Illat-nya: ${K('iskar (merusak akal)')}.`,
+`Zat modern yang se-illat: ${K('narkoba')} (sabu, ganja, heroin, ekstasi) dan miras oplosan, hukumnya ${K('haram')} (qiyas).`,
+`${K('Mencuri (sariqah)')} = mengambil harta orang lain diam-diam dari tempat penyimpanannya.`,
+`${K('Plagiarisme')} = mencuri hak intelektual: akhlak tercela terhadap sesama (sariqah, dusta, khianat).`],
+body:`<section><h2>Khamr dan narkoba</h2><p class="ar" lang="ar">كُلُّ مُسْكِرٍ خَمْرٌ، وَكُلُّ خَمْرٍ حَرَامٌ</p><p>"Setiap yang memabukkan adalah khamr, dan setiap khamr haram." (HR. Muslim)</p>
+<div class="tw"><table><tr><th>Unsur qiyas</th><th>Isi</th></tr><tr><td>Asal (ashl)</td><td>Khamr</td></tr><tr><td>Cabang (far')</td><td>Narkoba, sabu, ganja, heroin, ekstasi</td></tr><tr><td>Illat</td><td>Memabukkan dan merusak akal</td></tr><tr><td>Hukum</td><td>Haram</td></tr></table></div>
+<h3>Empat tahap pengharaman khamr</h3><ol><li>An-Nahl 67: isyarat, ada yang memabukkan dan rezeki baik.</li><li>Al-Baqarah 219: dosanya lebih besar daripada manfaatnya.</li><li>An-Nisa 43: dilarang shalat dalam keadaan mabuk.</li><li>Al-Maidah 90-91: haram tegas, perbuatan setan.</li></ol>
+<p>Dampak: merusak akal dan kesehatan, menguras harta, memicu kejahatan, memutus hubungan sosial.</p></section>
+<section><h2>Mencuri dan plagiarisme</h2><ul>
+<li>Mencuri (sariqah): dalil Al-Maidah 38; hukuman potong tangan dengan syarat ketat (mencapai nisab, dari tempat penyimpanan, tanpa uzur).</li>
+<li>Plagiarisme: menyalin karya atau ide orang lain dan mengaku milik sendiri. Termasuk ${K('pencurian hak intelektual')}, ${K('dusta')}, dan khianat amanah ilmiah.</li>
+<li>Rasulullah menyamakan orang yang berpura-pura memiliki yang bukan miliknya dengan pemakai dua pakaian kepalsuan.</li>
+<li>Kategori: akhlak tercela terhadap ${K('sesama manusia (hak adami)')}.</li>
+<li>Solusi: sebutkan sumber, parafrase jujur, minta izin, kerjakan sendiri.</li></ul></section>`,
+mn:`<p>Urutan tahap khamr: <b>NA-BA-NI-MA</b> = An-${K('Na')}hl, Al-${K('Ba')}qarah, A${K('n-Ni')}sa, Al-${K('Ma')}idah.</p><p>Qiyas: asal khamr, cabang narkoba, illat ${K('iskar')}, hukum haram.</p>`,
+cards:[['Illat haramnya khamr?','Memabukkan (iskar), merusak akal'],['Zat modern se-illat dengan khamr?','Narkoba (sabu, ganja, heroin, dll.)'],['Ayat hukuman pencurian?','Al-Maidah 38'],['Plagiarisme termasuk jenis akhlak tercela apa?','Pencurian hak intelektual (sariqah), dusta, khianat']],
+quiz:[
+{q:'Mahasiswa menyalin skripsi orang lain dan mengakuinya sebagai karya sendiri. Perbuatan ini dikategorikan akhlak tercela berupa...',o:['Pencurian hak intelektual disertai dusta dan khianat','Riya','Hasad','Israf'],e:'Mengambil karya orang lain tanpa hak = sariqah ilmiah.',k:15},
+{q:'Zat modern yang memiliki kesamaan illat dengan khamr, yaitu merusak akal, sehingga haram dikonsumsi adalah...',o:['Narkotika jenis sabu','Air mineral','Madu','Susu'],e:'Qiyas: khamr dan narkoba sama-sama memabukkan.',k:17},
+{q:'Urutan tahap pengharaman khamr yang benar adalah...',o:['An-Nahl, Al-Baqarah, An-Nisa, Al-Maidah','Al-Maidah, An-Nisa, Al-Baqarah, An-Nahl','Al-Baqarah, An-Nahl, Al-Maidah, An-Nisa','An-Nisa, An-Nahl, Al-Baqarah, Al-Maidah'],e:'NA-BA-NI-MA.',k:17},
+{q:'Hukuman pencuri yang memenuhi syarat ketat disebut dalam surah...',o:['Al-Maidah 38','An-Nisa 10','Al-Baqarah 183','Al-Isra 23'],e:'Hukuman had sariqah.',k:15}]
+},{
+id:'lgbt',bab:2,title:'LGBT dan pendampingan yang bijak',kisi:[18,23],
+key:[`Perilaku sesama jenis disebut ${K('liwath')}, perbuatan ${K('kaum Nabi Luth')} (Al-A'raf 80-84, Hud 77-83).`,
+`Hukum perilakunya ${K('haram')}; Allah menciptakan manusia ${K('berpasangan')} (Adz-Dzariyat 49, Ar-Rum 21).`,
+`Dampak medis: risiko ${K('HIV/AIDS dan infeksi menular seksual')}. Dampak sosial: rusaknya ${K('keluarga dan keturunan')}, stigma, gangguan psikis.`,
+`Pendampingan: ${K('tolak perilakunya, rangkul orangnya')}.`],
+body:`<section><h2>Landasan</h2><ul><li>Kaum Luth dikecam karena melampaui batas dan akhirnya dibinasakan.</li><li>Islam membedakan ${K('kecenderungan')} (ujian yang dapat dikelola) dari ${K('perbuatan')} (yang diharamkan).</li><li>Tujuan pernikahan: ketenangan, kasih sayang, dan kelanjutan keturunan.</li></ul></section>
+<section><h2>Dampak nyata</h2><div class="tw"><table><tr><th>Medis</th><th>Sosial</th></tr><tr><td>Perilaku seks berisiko dan berganti pasangan memperbesar penularan HIV/AIDS, sifilis, gonore, hepatitis</td><td>Terputusnya keturunan, runtuhnya fungsi keluarga, stigma dan konflik, tekanan mental, merosotnya nilai moral</td></tr></table></div><p>Terkait maqashid: merusak ${K('hifdz an-nasl')} (menjaga keturunan) dan ${K('hifdz an-nafs')} (kesehatan jiwa).</p></section>
+<section><h2>Solusi pendampingan yang paling bijak</h2><ol>
+<li>Dekati dengan ${K('kasih sayang dan empati')}, bukan menghakimi atau mempermalukan.</li>
+<li>Beri ${K('konseling')} psikologis dan bimbingan agama.</li>
+<li>Libatkan keluarga dan lingkungan pergaulan yang positif.</li>
+<li>Dorong taubat, penguatan iman, dan rujukan ke tenaga profesional.</li>
+<li>Larang kekerasan, perundungan, dan main hakim sendiri.</li></ol></section>`,
+mn:`<p><b>RANGKUL</b>: ${K('R')}ahmah, ${K('A')}rahkan agama, ${K('N')}asihat santun, ${K('G')}andeng keluarga, ${K('K')}onseling profesional, ${K('U')}bah lingkungan, ${K('L')}atih iman dan taubat.</p>`,
+cards:[['Nama perbuatan kaum Nabi Luth?','Liwath (hubungan sesama jenis)'],['Aspek maqashid yang rusak?','Hifdz an-nasl (keturunan) dan hifdz an-nafs'],['Prinsip pendampingan?','Tolak perilakunya, rangkul orangnya'],['Dampak medis utama?','Risiko HIV/AIDS dan infeksi menular seksual']],
+quiz:[
+{q:'Analisis dampak nyata perilaku seks sesama jenis dari segi medis dan sosial yang paling tepat adalah...',o:['Berisiko tinggi menularkan HIV/AIDS dan penyakit seksual, serta merusak tatanan keluarga dan keturunan','Meningkatkan kesuburan dan keharmonisan keluarga','Hanya berdampak pada pelaku tanpa memengaruhi masyarakat','Tidak berdampak apa pun'],e:'Dampak medis dan sosial dijadikan hikmah larangan.',k:18},
+{q:'Solusi pendampingan yang paling bijaksana sesuai nilai Islam bagi seseorang yang terjerumus perilaku ini adalah...',o:['Merangkul dengan kasih sayang, konseling, bimbingan agama, dan melibatkan keluarga','Mengucilkan dan mempermalukannya di media sosial','Membiarkan karena urusan pribadi','Menghukumnya dengan kekerasan'],e:'Islam menolak perbuatannya, bukan membenci pribadinya.',k:23},
+{q:'Perbuatan sesama jenis adalah dosa yang menimpa kaum Nabi...',o:['Luth','Nuh','Hud','Shalih'],e:'Disebut di Al-A\'raf dan Hud.',k:18}]
+},{
+id:'pembunuhan',bab:2,title:'Membunuh, tawuran, dan harta anak yatim',kisi:[19,24],
+key:[`QS. ${K('Al-Maidah 32')}: membunuh satu jiwa tanpa hak = membunuh ${K('seluruh manusia')}.`,
+`QS. An-Nisa 93: ancaman ${K('Jahanam')}, murka dan laknat Allah bagi pembunuh mukmin dengan sengaja.`,
+`Dampak sosial terbesar pembunuhan dan tawuran: hilangnya ${K('rasa aman')} dan ${K('dendam berantai')}.`,
+`Memakan harta yatim secara zalim = ${K('menelan api dalam perutnya')} (QS. ${K('An-Nisa 10')}).`],
+body:`<section><h2>Membunuh dan tawuran</h2><ul>
+<li>Jenis: sengaja (qishas atau diyat), semi sengaja, tidak sengaja (diyat dan kafarat puasa dua bulan berturut-turut).</li>
+<li>Tawuran = perkelahian massal; korban luka, korban jiwa, kerusakan, pidana.</li>
+<li>Dampak sosial: ${K('rasa aman hilang')}, dendam turun-temurun, rusaknya hubungan sosial, hancurnya masa depan pelaku dan korban.</li>
+<li>Maqashid yang dilanggar: ${K('hifdz an-nafs')}.</li>
+<li>Pencegahan: kendali emosi, tabayun, musyawarah, mediasi guru dan orang tua, menjauhi provokasi.</li></ul></section>
+<section><h2>Harta anak yatim</h2><ul>
+<li>Yatim: anak yang ayahnya wafat sebelum baligh.</li>
+<li>An-Nisa 10: mereka menelan ${K('api')} dalam perutnya dan akan masuk ${K('neraka Sa\'ir')}.</li>
+<li>Al-An'am 152: jangan mendekati harta yatim kecuali dengan cara terbaik.</li>
+<li>An-Nisa 6: serahkan harta saat baligh dan cerdas mengelola.</li>
+<li>Termasuk tujuh dosa besar yang membinasakan.</li></ul>
+<h3>Tujuh dosa besar (HR. Bukhari-Muslim)</h3><ol><li>Syirik</li><li>Sihir</li><li>Membunuh jiwa tanpa hak</li><li>Riba</li><li>Memakan harta yatim</li><li>Lari dari medan perang</li><li>Menuduh zina wanita mukminah baik-baik</li></ol></section>`,
+mn:`<p>Tujuh dosa: ${K('Syirik')}, ${K('Sihir')}, ${K('Membunuh')}, ${K('Riba')}, ${K('Yatim')}, ${K('Lari perang')}, ${K('Tuduh zina')}.</p><p>Yatim: makan harta = makan ${K('API')}.</p>`,
+cards:[['Ayat satu jiwa = seluruh manusia?','Al-Maidah 32'],['Dampak sosial terbesar pembunuhan?','Hilangnya rasa aman dan dendam berantai'],['Azab memakan harta yatim?','Menelan api dalam perut (An-Nisa 10)'],['Ayat ancaman Jahanam bagi pembunuh?','An-Nisa 93']],
+quiz:[
+{q:'Dampak sosial terbesar dari tindak pembunuhan atau tawuran di masyarakat adalah...',o:['Hilangnya rasa aman dan munculnya dendam berkepanjangan','Bertambahnya lapangan kerja','Meningkatnya kerukunan','Berkurangnya biaya hidup'],e:'Kekerasan memicu rantai balas dendam.',k:19},
+{q:'Perumpamaan azab bagi orang yang memakan harta anak yatim secara zalim adalah...',o:['Menelan api ke dalam perutnya','Dipotong tangannya di dunia','Dijauhkan dari ilmu','Diusir dari kampung'],e:'QS. An-Nisa 10.',k:24},
+{q:'Membunuh satu jiwa tanpa hak seolah membunuh seluruh manusia disebutkan dalam...',o:['QS. Al-Maidah 32','QS. An-Nisa 10','QS. Al-Isra 23','QS. Al-Hujurat 13'],e:'Al-Maidah 32.',k:19}]
+},{
+id:'maqashid',bab:2,title:'Maqashid syariah dan tipu daya setan (Barsisha)',kisi:[20,21],
+key:[`Maqashid syariah = ${K('lima tujuan pokok syariat')}: ${K('din, nafs, aql, nasl, mal')}.`,
+`${K('Judi, mencuri, korupsi, makan harta yatim')} merusak ${K('hifdz al-mal')}; ${K('miras dan narkoba')} merusak ${K("hifdz al-'aql")}.`,
+`Kisah ${K('Barsisha')}: ahli ibadah yang terseret maksiat bertahap sampai ${K('kufur')} oleh bujukan setan.`,
+`Benteng: ${K("isti'adzah, zikir, ilmu, jauhi langkah awal maksiat")}, segera taubat.`],
+body:`<section><h2>Lima tujuan syariat</h2><div class="tw"><table><tr><th>Aspek</th><th>Dijaga dengan</th><th>Dirusak oleh</th></tr>
+<tr><td>${K('Hifdz ad-Din')} (agama)</td><td>Ibadah, dakwah</td><td>Syirik, murtad</td></tr>
+<tr><td>${K('Hifdz an-Nafs')} (jiwa)</td><td>Qishas, larangan membunuh</td><td>Pembunuhan, tawuran, bunuh diri</td></tr>
+<tr><td>${K("Hifdz al-'Aql")} (akal)</td><td>Ilmu, larangan khamr</td><td>Miras, narkoba</td></tr>
+<tr><td>${K('Hifdz an-Nasl')} (keturunan)</td><td>Nikah</td><td>Zina, LGBT</td></tr>
+<tr><td>${K('Hifdz al-Mal')} (harta)</td><td>Cari halal, larang mencuri</td><td>Judi, mencuri, riba, korupsi, harta yatim</td></tr></table></div></section>
+<section><h2>Kisah Barsisha: rantai kemaksiatan</h2><p>Menurut kisah dalam tafsir (sebagian dari riwayat Israiliyat, diambil pelajarannya), Barsisha adalah ahli ibadah Bani Israil. Setan menggodanya sedikit demi sedikit sampai berzina, membunuh untuk menutupi dosa, lalu bersujud kepada setan dan mati dalam kekufuran. Dikaitkan dengan QS. Al-Hasyr 16.</p>
+<ol><li>Merasa aman dan bangga dengan ibadah</li><li>Lengah menjaga diri</li><li>Tergoda dosa awal</li><li>Dosa kedua untuk menutupi</li><li>Membunuh</li><li>Kufur</li></ol>
+<h3>Cara membentengi diri dari tipu daya setan</h3><ul><li>Berlindung kepada Allah dan banyak zikir serta Al-Qur'an.</li><li>Perkuat iman dan ilmu.</li><li>Jangan mendekati langkah pertama maksiat (An-Nur 21).</li><li>Bergaul dengan orang saleh, hindari khalwat dan lingkungan buruk.</li><li>Segera taubat dan jangan menutup dosa dengan dosa.</li></ul></section>`,
+mn:`<p>Lima maqashid: ${K('Din - Nafs - Aql - Nasl - Mal')} dibaca <b>DI-NA-A-NA-MA</b>.</p><p>Pasangan: judi ${K('Mal')}, narkoba ${K('Aql')}, bunuh ${K('Nafs')}, zina ${K('Nasl')}, syirik ${K('Din')}.</p>`,
+cards:[['Lima maqashid syariah?','Din, nafs, aql, nasl, mal'],['Judi merusak aspek apa?','Hifdz al-mal'],['Narkoba merusak aspek apa?',"Hifdz al-'aql"],['Pelajaran Barsisha?','Setan menggoda bertahap; satu dosa menyeret dosa lain'],['Cara efektif membentengi diri?','Iman, ilmu, zikir, berlindung kepada Allah, jauhi langkah awal maksiat']],
+quiz:[
+{q:'Seorang remaja menghabiskan uang sakunya untuk judi online, lalu mengonsumsi narkoba. Aspek maqashid syariah yang dirusaknya secara berurutan adalah...',o:["Hifdz al-mal dan hifdz al-'aql",'Hifdz ad-din dan hifdz an-nafs','Hifdz an-nasl dan hifdz al-mal',"Hifdz al-'aql dan hifdz an-nasl"],e:'Judi = harta, narkoba = akal.',k:20},
+{q:'Cara paling efektif membentengi diri dari tipu daya setan seperti pada kisah Barsisha adalah...',o:['Menguatkan iman dan ilmu, berzikir, berlindung kepada Allah, serta menjauhi langkah awal maksiat','Merasa aman karena banyak beribadah','Menutupi dosa dengan dosa lain','Menyendiri tanpa belajar'],e:'Setan menggoda bertahap; kewaspadaan harus terus ada.',k:21},
+{q:'Yang BUKAN termasuk lima tujuan pokok maqashid syariah adalah...',o:['Menjaga kekuasaan','Menjaga agama','Menjaga jiwa','Menjaga keturunan'],e:'Lima: din, nafs, aql, nasl, mal.',k:20}]
+});
+PAGES.push({
+id:'pakaian',bab:3,title:'Adab berpakaian dan berhias',kisi:[25,28,29,31],
+key:[`${K('Emas dan sutra')}: ${K('haram bagi laki-laki')}, halal bagi perempuan (HR. Abu Dawud, Nasa'i, Ibnu Majah).`,
+`Prinsip berhias: ${K('bersih, sederhana (tidak berlebihan), menutup aurat, sesuai jenis kelamin, tanpa riya')}.`,
+`Dilarang: ${K('tasyabbuh')} (menyerupai lawan jenis), ${K('tabarruj')}, tato, mencabut alis, menyambung rambut: mengubah ciptaan Allah.`,
+`${K('Pakaian syuhrah')} (demi popularitas): Allah memakaikan ${K('pakaian kehinaan')} pada hari Kiamat (HR. Ibnu Majah).`],
+body:`<section><h2>Adab berpakaian</h2><ul>
+<li>Fungsi pakaian: menutup aurat dan perhiasan; pakaian takwa lebih baik (Al-A'raf 26).</li>
+<li>Aurat laki-laki: pusar sampai lutut. Perempuan: seluruh tubuh kecuali wajah dan telapak tangan.</li>
+<li>Bersih, rapi, tidak tipis atau ketat, tidak berlebihan (israf), tidak sombong.</li>
+<li>Mulai dari ${K('sebelah kanan')} saat memakai dan kiri saat melepas.</li>
+<li>Bersyukur dan berdoa saat memakai pakaian baru.</li></ul></section>
+<section><h2>Emas dan sutra</h2><ul>
+<li>Laki-laki: dilarang memakai ${K('emas')} (cincin, kalung, gelang) dan ${K('sutra asli')}. Perak (cincin) boleh.</li>
+<li>Perempuan: halal keduanya.</li>
+<li>Keringanan sutra: karena sakit kulit, atau hanya selebar dua sampai empat jari sebagai hiasan.</li></ul></section>
+<section><h2>Adab dan larangan berhias</h2><div class="tw"><table><tr><th>Dianjurkan</th><th>Dilarang</th></tr>
+<tr><td>Bersih, wangi, rapi (Allah indah dan menyukai keindahan)<br>Mengikuti fitrah: potong kuku, rapikan kumis, bersihkan bulu ketiak dan kemaluan<br>Sederhana dan sopan</td><td>${K('Tasyabbuh')}: laki-laki menyerupai perempuan dan sebaliknya<br>${K('Tabarruj')}: berhias berlebihan untuk dipamerkan<br>Tato, mencabut alis, mengikir gigi, menyambung rambut demi kecantikan</td></tr></table></div>
+<p>Alasan larangan: ${K('mengubah ciptaan Allah')} (An-Nisa 119), menyalahi fitrah dan identitas, serta menipu atau memamerkan diri.</p></section>
+<section><h2>Pakaian syuhrah</h2><p>Syuhrah = ketenaran. Pakaian yang dikenakan agar dipuji, baik karena sangat mewah maupun sengaja tampak lusuh demi dipandang saleh. Balasannya: ${K('pakaian kehinaan')} pada hari Kiamat; dalam sebagian riwayat disertai api (HR. Ibnu Majah, Abu Dawud, Ahmad).</p></section>`,
+mn:`<p><b>STAMP</b> adab berhias: ${K('S')}yar'i tutup aurat, ${K('T')}idak berlebihan, ${K('A')}sli gender (tanpa tasyabbuh), ${K('M')}enghindari riya dan syuhrah, ${K('P')}akai dari kanan.</p><p><b>ES</b> (Emas dan Sutra) hanya untuk perempuan.</p>`,
+cards:[['Hukum emas dan sutra bagi laki-laki?','Haram'],['Hukum bagi perempuan?','Halal'],['Apa itu tasyabbuh?','Menyerupai lawan jenis'],['Ancaman pakaian syuhrah di akhirat?','Dipakaikan pakaian kehinaan'],['Dari sisi mana memakai pakaian dimulai?','Sebelah kanan']],
+quiz:[
+{q:'Hukum syariat bagi laki-laki yang memakai perhiasan emas dan pakaian berbahan sutra adalah...',o:['Haram','Makruh','Mubah','Sunnah'],e:'Haram bagi laki-laki, halal bagi perempuan.',k:25},
+{q:'Rina berdandan secukupnya, rapi, menutup aurat, dan tidak berlebihan. Prinsip adab berhias yang diterapkannya adalah...',o:['Kesederhanaan, kebersihan, dan menutup aurat','Menarik perhatian lawan jenis','Mengikuti tren agar populer','Menyamarkan jati diri'],e:'Berhias dibolehkan selama sederhana dan syar\'i.',k:28},
+{q:'Laki-laki yang berdandan dan berpakaian seperti perempuan dilarang karena...',o:['Menyerupai lawan jenis berarti menyalahi fitrah dan dilaknat Rasulullah','Pakaian perempuan terlalu mahal','Warna pakaiannya mencolok','Dapat menghabiskan waktu'],e:'Tasyabbuh dilarang dalam hadis sahih.',k:29},
+{q:'Berdasarkan hadis riwayat Ibnu Majah, ancaman bagi pemakai pakaian syuhrah di hari Kiamat adalah...',o:['Dipakaikan pakaian kehinaan','Dijauhkan dari telaga','Dilarang masuk masjid','Dipotong gajinya'],e:'Syuhrah = mencari popularitas.',k:31}]
+},{
+id:'safar',bab:3,title:'Adab perjalanan (safar)',kisi:[26,34],
+key:[`Doa melangkah keluar rumah: ${K('Bismillah, tawakkaltu \'alallah, la haula wa la quwwata illa billah')}.`,
+`Sunnah pulang (HR. Bukhari): bertakbir lalu membaca ${K('Aayibuuna ta\'ibuuna \'aabiduuna lirabbina haamiduun')}.`,
+`Safar dianjurkan dengan ${K('tujuan baik')}, ${K('tidak sendirian')}, dan ${K('menunjuk pemimpin')} bila bertiga.`],
+body:`<section><h2>Sebelum berangkat</h2><ul><li>Niat dan tujuan halal, bertaubat, melunasi hak orang lain.</li><li>Berpamitan kepada keluarga, membawa bekal halal.</li><li>Berteman orang saleh; bila bertiga, angkat satu pemimpin.</li><li>Shalat istikharah; Nabi sering berangkat hari Kamis.</li></ul></section>
+<section><h2>Doa-doa</h2><h3>Saat melangkah keluar rumah (HR. Abu Dawud, Tirmidzi)</h3><p class="ar" lang="ar">بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</p><p>Artinya: dengan nama Allah, aku bertawakal kepada Allah, tiada daya dan kekuatan kecuali dengan pertolongan Allah.</p>
+<h3>Saat naik kendaraan (Az-Zukhruf 13-14)</h3><p class="ar" lang="ar">سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ، وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ</p>
+<h3>Saat pulang (HR. Bukhari)</h3><p class="ar" lang="ar">آيِبُونَ تَائِبُونَ عَابِدُونَ لِرَبِّنَا حَامِدُونَ</p><p>Artinya: kami pulang, bertaubat, beribadah, dan memuji Tuhan kami.</p></section>
+<section><h2>Di perjalanan dan saat pulang</h2><ul>
+<li>Musafir boleh ${K('menjamak dan mengqashar')} shalat; doa musafir mustajab.</li>
+<li>Menjauhi maksiat, menjaga shalat, bersabar.</li>
+<li>Saat pulang: ${K('segera kembali ke keluarga')} bila urusan selesai (HR. Bukhari).</li>
+<li>Singgah ke masjid shalat dua rakaat; memberi kabar dan tidak mengetuk keluarga mendadak di malam hari.</li></ul></section>`,
+mn:`<p>Doa pulang <b>A-T-A-H</b>: ${K('A')}yibuna, ${K('T')}a'ibuna, ${K('A')}bidun, ${K('H')}amidun.</p><p>Doa keluar rumah: ${K('Bismillah')} - ${K('Tawakkaltu')} - ${K('Tiada daya')}.</p>`,
+cards:[['Doa melangkah keluar rumah?','Bismillah tawakkaltu \'alallah la haula wa la quwwata illa billah'],['Doa pulang safar (HR. Bukhari)?','Aayibuuna ta\'ibuuna \'aabiduuna lirabbina haamiduun'],['Bila bepergian bertiga?','Angkat satu pemimpin'],['Shalat musafir?','Boleh dijamak dan diqashar']],
+quiz:[
+{q:'Bacaan doa yang dianjurkan saat hendak melangkah keluar rumah untuk bepergian adalah...',o:['Bismillahi tawakkaltu \'alallah la haula wa la quwwata illa billah','Alhamdulillahilladzi ahyana ba\'da ma amatana','Allahumma inni a\'udzubika minal khubutsi wal khaba\'its','Rabbana atina fid dunya hasanah'],e:'Doa keluar rumah (HR. Abu Dawud dan Tirmidzi).',k:26},
+{q:'Amalan sunnah saat pulang dari bepergian sesuai riwayat Bukhari adalah membaca...',o:['Aayibuuna ta\'ibuuna \'aabiduuna lirabbina haamiduun','Subhanallahi wa bihamdihi','Allahumma salli \'ala Muhammad','Hasbunallahu wa ni\'mal wakil'],e:'Disertai takbir.',k:34},
+{q:'Bila tiga orang bepergian bersama, yang dianjurkan adalah...',o:['Mengangkat salah seorang menjadi pemimpin','Berjalan sendiri-sendiri','Tidak perlu aturan','Menunda keberangkatan'],e:'Anjuran dalam hadis.',k:26}]
+},{
+id:'tamu',bab:3,title:'Adab bertamu dan menerima tamu',kisi:[27,30,32,33],
+key:[`Batas menginap tamu: ${K('3 hari')}; jamuan istimewa ${K('sehari semalam')}; selebihnya sedekah (HR. Bukhari-Muslim).`,
+`Salam dan minta izin ${K('3 kali')}; bila tidak diizinkan, ${K('pulang')} tanpa tersinggung.`,
+`Memuliakan tamu = tanda ${K('iman kepada Allah dan hari akhir')}.`,
+`Nilai utama: ${K('silaturahmi, ukhuwah, dan saling menghormati')}.`],
+body:`<section><h2>Adab bertamu</h2><ol>
+<li>Niat baik (silaturahmi), datang pada waktu yang pantas, berpakaian sopan.</li>
+<li>${K('Mengucap salam')} dan ${K('minta izin tiga kali')} (An-Nur 27-28).</li>
+<li>Jangan berdiri tepat di depan pintu dan jangan mengintip; sebut nama dengan jelas.</li>
+<li>Jika tidak ada jawaban atau diminta kembali, ${K('pulang')}; itu lebih suci.</li>
+<li>Duduk di tempat yang ditunjuk, tidak terlalu lama, tidak menyelidiki privasi.</li>
+<li>Menerima suguhan dan mendoakan tuan rumah.</li>
+<li>Menginap tidak lebih dari ${K('3 hari')} agar tidak memberatkan.</li></ol></section>
+<section><h2>Adab menerima tamu</h2><ul>
+<li>Menyambut dengan ${K('wajah ramah')} dan mempersilakan masuk.</li>
+<li>Menyuguhkan ${K('hidangan terbaik')} sesuai kemampuan, tanpa memaksakan diri (teladan Nabi Ibrahim, Adz-Dzariyat 24-27).</li>
+<li>Melayani dengan baik, berbicara santun, mengantar sampai pintu.</li>
+<li>Menyediakan tempat shalat atau menginap bila perlu.</li></ul></section>
+<section><h2>Nilai yang terkandung</h2><p>Memuliakan tamu menyambung ${K('silaturahmi')} (memperluas rezeki dan umur), mempererat ${K('ukhuwah Islamiyah')}, dan mencerminkan iman.</p></section>`,
+mn:`<p>Angka <b>3-3-1</b>: izin ${K('3')} kali, menginap ${K('3')} hari, jamuan istimewa ${K('1')} hari 1 malam.</p><p><b>SIAP</b>: ${K('S')}alam, ${K('I')}zin 3x, ${K('A')}tur waktu, ${K('P')}ulang bila tak diizinkan.</p>`,
+cards:[['Batas maksimal menginap tamu?','3 hari'],['Berapa kali meminta izin?','3 kali'],['Jamuan istimewa tuan rumah?','Sehari semalam'],['Bila tidak diizinkan masuk?','Pulang tanpa tersinggung']],
+quiz:[
+{q:'Batas maksimal waktu menginap bagi seorang tamu menurut adab Islam adalah...',o:['Tiga hari','Satu hari','Seminggu','Sebulan'],e:'Selebihnya dianggap sedekah dari tuan rumah.',k:27},
+{q:'Andi mengucap salam dan meminta izin tiga kali, tetapi tidak ada jawaban. Tindakan yang paling sesuai adab bertamu adalah...',o:['Pulang dan mengunjungi di lain waktu','Masuk tanpa izin','Berteriak memanggil terus','Mengintip lewat jendela'],e:'Itu tuntunan An-Nur 28 dan hadis.',k:30},
+{q:'Bu Aminah menyambut tamu dengan ramah dan menyuguhkan hidangan terbaik. Adab yang tercermin adalah...',o:['Memuliakan tamu','Pamer kekayaan','Menjaga gengsi','Menghemat biaya'],e:'Memuliakan tamu tanda iman.',k:32},
+{q:'Nilai utama dari interaksi antara tamu dan tuan rumah yang beradab adalah...',o:['Mempererat silaturahmi dan saling menghormati','Meningkatkan status sosial','Mendapatkan hadiah','Menghindari konflik politik'],e:'Silaturahmi dan ukhuwah.',k:33}]
+},{
+id:'uwais',bab:4,title:'Teladan Uwais Al-Qarni',kisi:[35,39],
+key:[`${K('Uwais bin Amir al-Qarani')}, ${K('tabiin')} dari ${K('Yaman')} (Qaran, suku Murad).`,
+`Teladan utama: ${K('berbakti kepada ibu')} sehingga tidak sempat berjumpa Rasulullah.`,
+`Pujian Nabi: ${K('sebaik-baik tabiin')}; jika ia bersumpah atas nama Allah, ${K('Allah mengabulkannya')} (HR. Muslim).`,
+`Nabi berpesan kepada Umar dan Ali: ${K('mintalah ia memohonkan ampunan')} untuk kalian.`],
+body:`<section><h2>Kisah ringkas</h2><ol>
+<li>Masuk Islam di zaman Nabi, tetapi merawat ibunya yang sudah tua dan lemah, sehingga tidak sempat bertemu Rasulullah.</li>
+<li>Menderita penyakit belang (barash); setelah berdoa sembuh, tersisa bekas putih sebesar dirham.</li>
+<li>Rasulullah memberi tahu Umar dan Ali tentang sosoknya dan berpesan agar meminta doanya.</li>
+<li>Umar mencarinya dan menemukannya sebagai orang sederhana yang menyembunyikan kemuliaan.</li>
+<li>Menurut riwayat, ia wafat di Perang Shiffin dalam barisan Ali.</li></ol>
+<p>Dalam kisah populer ia dijuluki "terkenal di langit, tak dikenal di bumi" dan diceritakan menggendong ibunya berhaji. Bagian ini berasal dari kisah yang tersebar luas, bukan inti hadis sahih.</p></section>
+<section><h2>Sifat yang diteladani</h2><ul><li>${K('Birrul walidain')}: berbakti kepada orang tua (Al-Isra 23).</li><li>${K('Zuhud dan tawadhu')}: sederhana dan rendah hati.</li><li>${K('Ikhlas')}: tidak mencari popularitas.</li><li>${K('Sabar')} menghadapi penyakit.</li><li>Cinta Rasulullah dan doa yang mustajab.</li></ul></section>`,
+mn:`<p><b>UWAIS</b>: ${K('U')}tamakan orang tua, ${K('W')}ara' (zuhud), ${K('A')}mal tersembunyi (ikhlas), ${K('I')}stighfar dan doa mustajab, ${K('S')}abar.</p>`,
+cards:[['Asal Uwais Al-Qarni?','Yaman (Qaran)'],['Teladan utamanya?','Berbakti kepada ibu'],['Julukan dari Nabi?','Sebaik-baik tabiin'],['Pujian tentang sumpahnya?','Jika bersumpah atas nama Allah, Allah mengabulkan'],['Pesan Nabi kepada Umar dan Ali?','Minta Uwais memohonkan ampunan']],
+quiz:[
+{q:'Seorang remaja merelakan kesempatan jalan-jalan agar bisa menemani dan merawat ibunya yang sakit. Sikap ini mengingatkan pada keteladanan...',o:['Uwais Al-Qarni','Abu Lahab','Ibnu Muljam','Washil bin Atha'],e:'Uwais terkenal dengan bakti kepada ibu.',k:35},
+{q:'Pujian Rasulullah yang menunjukkan tingginya kedudukan Uwais di sisi Allah adalah...',o:['Jika ia bersumpah atas nama Allah, Allah mengabulkannya','Ia lebih utama daripada seluruh sahabat','Ia adalah khalifah setelah Umar','Ia tidak pernah berbuat dosa'],e:'Sebaik-baik tabiin dengan doa mustajab.',k:39},
+{q:'Uwais Al-Qarni termasuk generasi...',o:['Tabiin','Sahabat Anshar','Tabiut tabiin','Khulafaur Rasyidin'],e:'Muslim pada masa Nabi tetapi tidak bertemu beliau.',k:35}]
+},{
+id:'fatimah',bab:4,title:'Teladan Fatimah Az-Zahra dan hikmah utama',kisi:[36,37,38,40],
+key:[`Putri bungsu Nabi dari ${K('Khadijah')}, istri ${K('Ali bin Abi Thalib')}, ibu ${K('Hasan dan Husain')}.`,
+`${K('Az-Zahra')} = ${K('yang bercahaya / berseri')}; juga Ath-Thahirah (suci), Al-Batul, penghulu wanita surga.`,
+`Rumah tangga: ${K('sederhana, mandiri, sabar, taat suami')}; mengerjakan pekerjaan rumah sendiri.`,
+`Hikmah utama bersama Uwais: kemuliaan diraih dengan ${K('takwa dan akhlak mulia')}, bukan harta atau ketenaran.`],
+body:`<section><h2>Profil singkat</h2><ul>
+<li>Putri Rasulullah dan Khadijah, lahir di Makkah; wafat sekitar enam bulan setelah Rasulullah.</li>
+<li>Menikah dengan Ali; anak: Hasan, Husain, Zainab, Ummu Kultsum.</li>
+<li>Rasulullah bersabda bahwa Fatimah bagian dari dirinya dan ${K('penghulu wanita penghuni surga')}.</li></ul></section>
+<section><h2>Keteladanan dalam rumah tangga</h2><ul>
+<li>${K('Hidup sederhana')}: Ali bekerja membawa air, Fatimah menggiling gandum dan membuat roti.</li>
+<li>${K('Mandiri dan rajin')} meski putri Nabi.</li>
+<li>${K('Sabar dan taat')} kepada suami, tidak menuntut berlebihan.</li>
+<li>Saat meminta pembantu, Nabi mengajarkan ${K('33 tasbih, 33 tahmid, 34 takbir')} sebelum tidur (HR. Bukhari-Muslim).</li>
+<li>Pemalu (haya'), dermawan, ahli ibadah, berbakti kepada ayah.</li></ul></section>
+<section><h2>Hikmah gabungan Fatimah dan Uwais</h2><div class="tw"><table><tr><th></th><th>Uwais</th><th>Fatimah</th></tr><tr><td>Latar</td><td>Miskin, tak dikenal</td><td>Putri Nabi</td></tr><tr><td>Teladan</td><td>Bakti, ikhlas, zuhud</td><td>Sederhana, sabar, mandiri</td></tr></table></div>
+<p>Pelajaran: kemuliaan di sisi Allah tidak ditentukan harta, keturunan, atau popularitas, melainkan ${K('takwa dan akhlak mulia')}. Teladani dalam bakti kepada orang tua, kesabaran, dan kesederhanaan sehari-hari.</p></section>`,
+mn:`<p><b>FATIMAH</b>: ${K('F')}okus ibadah, ${K('A')}yah dihormati, ${K('T')}aat suami, ${K('I')}khlas berbagi, ${K('M')}andiri, ${K('A')}mat sabar, ${K('H')}aya dan hidup sederhana.</p>`,
+cards:[['Arti Az-Zahra?','Yang bercahaya / berseri'],['Suami Fatimah?','Ali bin Abi Thalib'],['Dzikir ajaran Nabi untuk Fatimah?','33 tasbih, 33 tahmid, 34 takbir'],['Hikmah utama Fatimah dan Uwais?','Kemuliaan karena takwa dan akhlak mulia']],
+quiz:[
+{q:'Seorang remaja putri membantu ibunya mengerjakan pekerjaan rumah tanpa mengeluh dan hidup sederhana. Sifat Fatimah Az-Zahra yang diterapkan adalah...',o:['Mandiri, rajin, dan sederhana','Gemar bermewah-mewahan','Menuntut dilayani','Menghindari tanggung jawab'],e:'Fatimah menggiling gandum sendiri.',k:36},
+{q:'Salah satu bentuk keteladanan Fatimah dalam rumah tangga bersama Ali adalah...',o:['Sabar dan hidup sederhana serta taat kepada suami','Menuntut pembantu dan perhiasan','Meninggalkan pekerjaan rumah','Sering mengeluh kekurangan'],e:'Pasangan itu hidup seadanya.',k:37},
+{q:'Gelar "az-Zahra" yang disematkan kepada Fatimah berarti...',o:['Yang bercahaya atau berseri','Yang paling kaya','Yang pandai berperang','Yang suka berkelana'],e:'Mencerminkan kemuliaan pribadinya.',k:38},
+{q:'Hikmah utama meneladani kisah Fatimah Az-Zahra dan Uwais Al-Qarni adalah...',o:['Kemuliaan diraih dengan takwa dan akhlak mulia, bukan harta atau popularitas','Kemuliaan ditentukan keturunan','Harta adalah ukuran kemuliaan','Popularitas adalah tujuan hidup'],e:'Uwais miskin tak dikenal, Fatimah putri Nabi tetap sederhana.',k:40}]
+});
+const IND=['','Arti etimologi kata kallama','Doktrin Jabariah sesuai pola pikir','Latar belakang munculnya Khawarij','Hikmah ilmu kalam: sikap moderat','Peristiwa pembentuk Muktazilah','Istilah ajaran pokok Muktazilah','Aliran dengan porsi akal lebih besar','Aliran pengusung doktrin Muktazilah','Implementasi pemikiran Murjiah','Kasb dan perbuatan manusia','Kemiripan ideologi dengan Khawarij','Aliran jalan tengah ikhtiar dan takdir','Peristiwa pemicu keluarnya Khawarij','Esensi judi menurut Imam Syafi\'i','Mencuri dan plagiarisme: jenis akhlak tercela','Alasan haramnya judi online','Zat modern se-illat dengan khamr','Dampak medis dan sosial LGBT','Dampak sosial terbesar pembunuhan','Hifdz al-mal dan hifdz al-\'aql','Membentengi diri dari tipu daya setan','Langkah solutif mencegah dampak judi','Pendampingan kasus LGBT yang bijak','Perumpamaan azab memakan harta yatim','Hukum emas dan sutra bagi laki-laki','Doa keluar rumah untuk safar','Batas menginap tamu','Prinsip adab berhias','Alasan larangan berhias','Tindakan sesuai adab bertamu','Ancaman pakaian syuhrah (HR. Ibnu Majah)','Adab memuliakan tamu','Nilai utama interaksi tamu dan tuan rumah','Amalan sunnah pulang safar (HR. Bukhari)','Keteladanan Uwais Al-Qarni','Sifat keteladanan Fatimah','Keteladanan rumah tangga Fatimah dan Ali','Arti gelar az-Zahra','Pujian Rasulullah untuk Uwais','Hikmah utama kisah Fatimah dan Uwais'];
+const BAB=[{n:1,t:'Ilmu Kalam dan aliran teologi',ids:['kalam','khawarij','jabariah','muktazilah','asyariyah']},{n:2,t:'Menghindari akhlak tercela',ids:['judi','khamr','lgbt','pembunuhan','maqashid']},{n:3,t:'Adab berpakaian, safar, dan bertamu',ids:['pakaian','safar','tamu']},{n:4,t:'Kisah teladan',ids:['uwais','fatimah']}];
+const ORDER=BAB.flatMap(b=>b.ids);
+const BYID={};PAGES.forEach(p=>{BYID[p.id]=p});
+const KP={};PAGES.forEach(p=>p.kisi.forEach(n=>{KP[n]=p.id}));
+const app=document.getElementById('app');
+function el(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=a[i];a[i]=a[j];a[j]=t}return a}
+let store={scores:{},sim:null,hide:false};
+try{const s=localStorage.getItem('aa11');if(s)store=Object.assign(store,JSON.parse(s))}catch(e){}
+function save(){try{localStorage.setItem('aa11',JSON.stringify(store))}catch(e){}}
+function applyHide(){document.body.classList.toggle('hide-keys',!!store.hide);document.getElementById('hideBtn').setAttribute('aria-pressed',store.hide?'true':'false')}
+function title(id){return BYID[id].title}
+function home(){
+  const done=ORDER.filter(id=>store.scores[id]).length;
+  let h='<p class="crumb">ASAS Ganjil, Madrasah Aliyah</p><h1>Hafalan Akidah Akhlak kelas XI</h1>'
+  +'<p class="lead">40 butir kisi-kisi dipetakan ke '+ORDER.length+' halaman materi. Tiap halaman berisi inti hafalan, jembatan keledai, kartu hafalan, dan latihan soal.</p>'
+  +'<div class="bar"><i style="width:'+(done/ORDER.length*100)+'%"></i></div><p class="hint">'+done+' dari '+ORDER.length+' halaman sudah dilatih.</p>'
+  +'<section><h2>Cara memakai</h2><ol><li>Baca inti hafalan dan jembatan keledai.</li><li>Nyalakan "Tutup kata kunci" di pojok atas, lalu ingat kata yang tadinya disorot. Ketuk untuk memeriksa.</li><li>Ketuk kartu hafalan, kerjakan latihan, lalu tutup dengan simulasi.</li></ol></section>';
+  BAB.forEach(b=>{
+    h+='<section class="bab"><h2>Bab '+b.n+'. '+b.t+'</h2><div class="lst">';
+    b.ids.forEach(id=>{const p=BYID[id],s=store.scores[id];
+      h+='<a class="lk" href="#'+id+'"><span><b>'+p.title+'</b><small>Kisi-kisi no. '+p.kisi.join(', ')+'</small></span>'+(s?'<span class="sc tab">'+s.s+'/'+s.t+'</span>':'')+'</a>'});
+    h+='</div></section>'});
+  const nq=PAGES.reduce((a,p)=>a+p.quiz.length,0);
+  h+='<section><h2>Simulasi</h2><a class="lk" href="#simulasi"><span><b>Soal campuran '+nq+' butir</b><small>Urutan acak dari semua materi</small></span>'+(store.sim?'<span class="sc tab">'+store.sim.s+'/'+store.sim.t+'</span>':'')+'</a></section>';
+  h+='<section><h2>Peta 40 indikator</h2><p class="hint">Ketuk nomor untuk membuka halaman materinya.</p><div class="map">';
+  for(let n=1;n<=40;n++)h+='<a href="#'+KP[n]+'" title="'+IND[n]+'">'+n+'</a>';
+  h+='</div><details><summary>Lihat daftar lengkap</summary><div class="ind">';
+  for(let n=1;n<=40;n++)h+='<b class="tab">'+n+'</b><span>'+IND[n]+'</span><a href="#'+KP[n]+'">'+title(KP[n])+'</a>';
+  h+='</div></details></section>';
+  app.innerHTML=h}
+function buildQ(q,label,onAnswer){
+  const card=el('div','q');card.appendChild(el('p','qn',label));
+  const qt=el('p','qt');qt.textContent=q.q;card.appendChild(qt);
+  const opts=shuffle(q.o.map((t,j)=>({t:t,ok:j===0})));
+  const ex=el('p','ex');ex.hidden=true;
+  const btns=opts.map(o=>{const b=el('button','op');b.type='button';b.textContent=o.t;card.appendChild(b);return b});
+  btns.forEach((b,i)=>b.addEventListener('click',()=>{
+    btns.forEach((x,j)=>{x.disabled=true;if(opts[j].ok)x.classList.add('ok')});
+    if(!opts[i].ok)b.classList.add('bad');
+    ex.textContent=(opts[i].ok?'Benar. ':'Kurang tepat. Jawaban: '+q.o[0]+'. ')+q.e;ex.hidden=false;onAnswer(opts[i].ok)}));
+  card.appendChild(ex);return card}
+function mountList(box,qs,pid){
+  box.innerHTML='';let done=0,ok=0;
+  const res=el('div','res');res.hidden=true;
+  qs.forEach((q,i)=>box.appendChild(buildQ(q,'Soal '+(i+1)+' dari '+qs.length,r=>{
+    done++;if(r)ok++;
+    if(done===qs.length){
+      const old=store.scores[pid];
+      store.scores[pid]={s:Math.max(ok,old?old.s:0),t:qs.length};save();
+      res.innerHTML='<b>Skor '+ok+' dari '+qs.length+'.</b> '+(ok===qs.length?'Sempurna. Lanjut ke materi berikutnya.':'Baca ulang inti hafalan, lalu coba lagi.');
+      const again=el('button','btn alt','Ulangi latihan');again.type='button';again.style.marginLeft='0';again.style.marginTop='10px';again.style.display='block';
+      again.addEventListener('click',()=>mountList(box,shuffle(qs),pid));res.appendChild(again);res.hidden=false}})));
+  box.appendChild(res)}
+function page(p){
+  const i=ORDER.indexOf(p.id),prev=ORDER[i-1],next=ORDER[i+1];
+  let h='<article><p class="crumb"><a href="#">Beranda</a> / Bab '+p.bab+'</p><h1>'+p.title+'</h1><p class="chips">'+p.kisi.map(n=>'<span class="chip">Kisi-kisi no. '+n+'</span>').join('')+'</p>'
+  +'<section class="key"><h2>Inti yang harus nempel</h2><ul>'+p.key.map(x=>'<li>'+x+'</li>').join('')+'</ul></section>'
+  +p.body+'<section class="mn"><h2>Jembatan keledai</h2>'+p.mn+'</section>'
+  +'<section><h2>Kartu hafalan</h2><p class="hint">Jawab dalam hati, lalu ketuk kartu.</p><div class="fcs">'+p.cards.map(c=>'<button class="fc" type="button"><span class="fq">'+c[0]+'</span><span class="fa">'+c[1]+'</span></button>').join('')+'</div></section>'
+  +'<section><h2>Latihan soal</h2><div id="quiz"></div></section>'
+  +'<nav class="pn">'+(prev?'<a class="btn alt" href="#'+prev+'">Sebelumnya</a>':'<a class="btn alt" href="#">Beranda</a>')+(next?'<a class="btn" href="#'+next+'">Berikutnya</a>':'<a class="btn" href="#simulasi">Simulasi soal</a>')+'</nav></article>';
+  app.innerHTML=h;mountList(document.getElementById('quiz'),shuffle(p.quiz),p.id)}
+function sim(){
+  const all=[];PAGES.forEach(p=>p.quiz.forEach(q=>all.push(Object.assign({pid:p.id},q))));
+  app.innerHTML='<p class="crumb"><a href="#">Beranda</a></p><h1>Simulasi soal campuran</h1><p class="lead">'+all.length+' butir dari seluruh materi dalam urutan acak. Jawab satu per satu dan baca penjelasannya.</p>';
+  const box=el('div');app.appendChild(box);
+  const go=el('button','btn','Mulai simulasi');go.type='button';box.appendChild(go);
+  go.addEventListener('click',()=>run(box,shuffle(all)))}
+function run(box,qs){
+  let i=0,ok=0;const wrong=[];
+  function show(){
+    if(i>=qs.length)return finish();
+    box.innerHTML='<div class="bar"><i style="width:'+(i/qs.length*100)+'%"></i></div>';
+    const q=qs[i];
+    const card=buildQ(q,'Soal '+(i+1)+' dari '+qs.length,r=>{
+      if(r)ok++;else wrong.push(q.pid);
+      const nx=el('button','btn',i+1<qs.length?'Soal berikutnya':'Lihat hasil');nx.type='button';nx.style.marginTop='4px';
+      nx.addEventListener('click',()=>{i++;show();window.scrollTo(0,0)});box.appendChild(nx)});
+    box.appendChild(card)}
+  function finish(){
+    store.sim={s:Math.max(ok,store.sim?store.sim.s:0),t:qs.length};save();
+    const u=Array.from(new Set(wrong));
+    box.innerHTML='<div class="res"><b>Skor '+ok+' dari '+qs.length+'.</b> '+(u.length?'Pelajari ulang halaman di bawah ini.':'Semua benar.')+'</div>'
+    +(u.length?'<div class="lst">'+u.map(id=>'<a class="lk" href="#'+id+'"><span><b>'+title(id)+'</b></span></a>').join('')+'</div>':'')
+    +'<p><button class="btn" id="again" type="button">Ulangi simulasi</button> <a class="btn alt" href="#">Beranda</a></p>';
+    document.getElementById('again').addEventListener('click',()=>run(box,shuffle(qs)))}
+  show()}
+function route(){
+  const h=location.hash.slice(1);
+  if(BYID[h])page(BYID[h]);else if(h==='simulasi')sim();else home();
+  window.scrollTo(0,0)}
+document.addEventListener('click',e=>{
+  const m=e.target.closest('mark.k');
+  if(m&&document.body.classList.contains('hide-keys'))m.classList.toggle('show');
+  const f=e.target.closest('.fc');if(f)f.classList.toggle('open')});
+document.getElementById('hideBtn').addEventListener('click',()=>{store.hide=!store.hide;save();applyHide()});
+window.addEventListener('hashchange',route);
+applyHide();route();
+</script>
+
+</body></html>
