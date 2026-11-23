@@ -1,1 +1,370 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Kisi-Kisi Ujian</title>
+    <!-- Menggunakan Google Fonts (Plus Jakarta Sans) untuk tampilan modern dan bersih -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Variabel Desain Modern */
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-soft: #eff6ff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+            --radius-lg: 16px;
+            --radius-md: 12px;
+        }
 
+        /* Dukungan Otomatis Mode Gelap (Dark Mode) sesuai sistem pengguna */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #0b1120;
+                --bg-card: #1e293b;
+                --text-primary: #f8fafc;
+                --text-secondary: #94a3b8;
+                --border-color: #334155;
+                --accent-color: #3b82f6;
+                --accent-hover: #60a5fa;
+                --accent-soft: rgba(59, 130, 246, 0.15);
+                --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+                --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Container Utama */
+        .container {
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            flex: 1;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-soft);
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Kotak Pencarian Simpel */
+        .search-wrapper {
+            position: relative;
+            margin-bottom: 1.75rem;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--text-secondary);
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.85rem 1rem 0.85rem 2.75rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            outline: none;
+            box-shadow: var(--shadow-sm);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        /* Daftar / List Kisi-Kisi */
+        .kisi-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .kisi-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.15rem 1.35rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .kisi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+        }
+
+        .kisi-card:active {
+            transform: translateY(0);
+        }
+
+        .kisi-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .kisi-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background-color: var(--accent-soft);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .kisi-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.15rem;
+        }
+
+        .kisi-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .arrow-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--text-secondary);
+            transition: transform 0.2s ease, color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .kisi-card:hover .arrow-icon {
+            transform: translateX(4px);
+            color: var(--accent-color);
+        }
+
+        /* Pesan jika pencarian kosong */
+        .empty-state {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            color: var(--text-secondary);
+            display: none;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px dashed var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsif Mobile */
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            h1 {
+                font-size: 1.65rem;
+            }
+            .kisi-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Bagian Judul -->
+        <header>
+            <span class="badge">Persiapan Ujian</span>
+            <h1>Daftar Kisi-Kisi</h1>
+            <p>Pilih mata pelajaran di bawah untuk membuka halaman kisi-kisi.</p>
+        </header>
+
+        <!-- Input Pencarian Cepat -->
+        <div class="search-wrapper">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 103.5 10.5a7.5 7.5 0 0013.15 6.15z" />
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Cari mata pelajaran (misal: Akidah)..." aria-label="Cari kisi-kisi">
+        </div>
+
+        <!-- Daftar Link Kisi-Kisi (Dirender otomatis via JavaScript agar mudah ditambah/edit) -->
+        <main id="kisiList" class="kisi-list"></main>
+
+        <!-- Tampilan jika tidak ditemukan -->
+        <div id="emptyState" class="empty-state">
+            Kisi-kisi yang dicari tidak ditemukan.
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Portal Kisi-Kisi &bull; Semangat Belajar!
+    </footer>
+
+    <script>
+        /**
+         * DATA KISI-KISI
+         * Untuk menambah atau mengubah daftar kisi-kisi, cukup edit array di bawah ini.
+         * Pastikan file tujuan (misal: 'page/akidah.html') sudah ada di folder proyekmu.
+         */
+        const daftarKisiKisi = [
+            {
+                judul: "Akidah Akhlak",
+                deskripsi: "Materi pokok iman, sifat terpuji, dan adab",
+                kode: "AK",
+                url: "page/akidah.html"
+            },
+            {
+                judul: "Fiqih",
+                deskripsi: "Hukum ibadah, muamalah, dan tata cara bersuci",
+                kode: "FQ",
+                url: "page/fiqih.html"
+            },
+            {
+                judul: "PPKN",
+                deskripsi: "Dri sd belajar pkn masa ga bisa",
+                kode: "PKN",
+                url: "page/fiqih.html"
+            },
+            {
+                judul: "Qurdis",
+                deskripsi: "adab ama ortu, pacaran juga",
+                kode: "QS",
+                url: "page/fiqih.html"
+            },
+        ];
+
+        const kisiListContainer = document.getElementById('kisiList');
+        const searchInput = document.getElementById('searchInput');
+        const emptyState = document.getElementById('emptyState');
+
+        /**
+         * Fungsi untuk menampilkan daftar kartu kisi-kisi ke dalam HTML
+         * @param {Array} data - Array objek kisi-kisi yang akan dirender
+         */
+        function renderKisiList(data) {
+            try {
+                kisiListContainer.innerHTML = '';
+
+                if (data.length === 0) {
+                    emptyState.style.display = 'block';
+                    return;
+                }
+
+                emptyState.style.display = 'none';
+
+                data.forEach(item => {
+                    // Membuat elemen <a> yang mengarah ke page/nama-file.html
+                    const card = document.createElement('a');
+                    card.href = item.url;
+                    card.className = 'kisi-card';
+
+                    card.innerHTML = `
+                        <div class="kisi-info">
+                            <div class="kisi-icon">${item.kode}</div>
+                            <div>
+                                <div class="kisi-title">${item.judul}</div>
+                                <div class="kisi-desc">${item.deskripsi}</div>
+                            </div>
+                        </div>
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    `;
+
+                    kisiListContainer.appendChild(card);
+                });
+            } catch (error) {
+                console.error("Gagal memuat daftar kisi-kisi:", error);
+            }
+        }
+
+        // Event listener untuk fitur pencarian real-time
+        searchInput.addEventListener('input', (e) => {
+            const keyword = e.target.value.toLowerCase().trim();
+            const hasilFilter = daftarKisiKisi.filter(item => 
+                item.judul.toLowerCase().includes(keyword) || 
+                item.deskripsi.toLowerCase().includes(keyword)
+            );
+            renderKisiList(hasilFilter);
+        });
+
+        // Render pertama kali saat halaman dibuka
+        renderKisiList(daftarKisiKisi);
+    </script>
+</body>
+</html>
