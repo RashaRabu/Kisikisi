@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fikih XI Master — Peta Ingatan & Bank Soal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #020617;
+      color: #f1f5f9;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    /* Custom scrollbar for Dark Mode */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-950 text-slate-100 selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-30 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-slate-950 flex items-center justify-center font-extrabold text-lg shadow-lg shadow-emerald-500/20">
+          فقه
+        </div>
+        <div>
+          <h1 class="font-bold text-slate-50 text-base sm:text-lg leading-tight tracking-tight">Fikih XI Master</h1>
+          <p class="text-xs text-slate-400 hidden sm:block">Semester 1 • Peta Ingatan & Bank Soal Analisis Kasus</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800">
+        <button onclick="switchTab('cheatsheet')" id="tab-cheatsheet" class="tab-btn px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-slate-800 text-emerald-400 shadow-sm border border-slate-700/70">
+          🧠 Peta Hafalan
+        </button>
+        <button onclick="switchTab('flashcard')" id="tab-flashcard" class="tab-btn px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-400 hover:text-slate-100">
+          ⚡ Flashcard
+        </button>
+        <button onclick="switchTab('quiz')" id="tab-quiz" class="tab-btn px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-400 hover:text-slate-100">
+          🎯 Latihan Soal
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
+
+    <!-- ==================== TAB 1: SMART CHEAT SHEET (PETA HAFALAN) ==================== -->
+    <section id="view-cheatsheet" class="space-y-6">
+      <!-- Banner Intro -->
+      <div class="bg-gradient-to-br from-slate-900 via-emerald-950/70 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-emerald-500/20 shadow-xl shadow-black/40 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 max-w-2xl">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-semibold mb-3">
+            ✨ Metode Visual & Jembatan Keledai
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-50 mb-2">
+            Kuasai 4 Bab Utama Tanpa Menghafal Mati
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Seluruh 140 soal di bank soalmu menguji <strong class="text-emerald-300">analisis kasus</strong>. Pahami kata kunci dan pola perbedaannya di bawah ini, lalu langsung uji lewat Flashcard & Latihan Soal!
+          </p>
+        </div>
+        <div class="hidden md:flex absolute right-8 bottom-4 text-emerald-400/10 text-8xl font-black select-none pointer-events-none">
+          ١٤٠
+        </div>
+      </div>
+
+      <!-- Filter Bab for Cheat Sheet -->
+      <div class="flex flex-wrap gap-2">
+        <button onclick="filterBab('all')" class="bab-pill active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/15 transition">
+          Semua Bab (4)
+        </button>
+        <button onclick="filterBab('jinayah')" class="bab-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800 hover:text-white transition">
+          1. Jinayah (Qishash & Diyat)
+        </button>
+        <button onclick="filterBab('hudud')" class="bab-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800 hover:text-white transition">
+          2. Hudud (Zina, Qadzaf, Sariqah, Hirabah)
+        </button>
+        <button onclick="filterBab('bughat')" class="bab-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800 hover:text-white transition">
+          3. Bughat & Riddah
+        </button>
+        <button onclick="filterBab('qadha')" class="bab-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800 hover:text-white transition">
+          4. Peradilan Islam (Al-Qadha)
+        </button>
+      </div>
+
+      <!-- Cards Grid -->
+      <div id="cheatsheet-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Bab 1: Jinayah -->
+        <article data-bab="jinayah" class="bg-slate-900/90 rounded-2xl border border-slate-800 p-6 shadow-lg shadow-black/20 hover:border-slate-700 transition space-y-4">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Bab 1 • Sebaran 39 Soal</span>
+              <h3 class="text-xl font-bold text-slate-50 mt-0.5">Jinayah: Pembunuhan, Qishash & Diyat</h3>
+            </div>
+            <span class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold shrink-0">01</span>
+          </div>
+
+          <!-- Rumus Hafalan Cepat -->
+          <div class="bg-amber-950/35 border border-amber-500/25 rounded-xl p-4">
+            <div class="text-xs font-bold text-amber-400 uppercase tracking-wide mb-1.5">💡 Rumus Cepat 3 Jenis Pembunuhan</div>
+            <ul class="text-sm text-slate-200 space-y-2">
+              <li><strong class="text-amber-300">1. Qatl 'Amdi (Sengaja):</strong> Niat bunuh + alat mematikan (racun, pistol, sekap tanpa makan, paksa lompat ke sungai). <br><span class="text-xs text-slate-400">→ Sanksi: <strong class="text-slate-200">Qishash mati</strong>. Jika dimaafkan: <strong class="text-slate-200">Diyat Mughalladzah tunai</strong> dari harta pribadi pelaku.</span></li>
+              <li><strong class="text-amber-300">2. Qatl Syibhul 'Amdi (Semi Sengaja):</strong> Niat melukai/menakuti (bukan bunuh), alat biasanya tidak mematikan (lempar batu dari atap, kagetkan pengidap jantung). <br><span class="text-xs text-slate-400">→ Sanksi: <strong class="text-slate-200">Tidak Qishash</strong>, wajib <strong class="text-slate-200">Diyat Mughalladzah</strong> + Kafarat.</span></li>
+              <li><strong class="text-amber-300">3. Qatl Khata' (Tersalah):</strong> Tanpa niat sama sekali (berburu meleset, ketiduran menindih bayi, bercanda senapan dikira kosong, gali sumur tanpa tanda/<em>qatl bis-sabab</em>). <br><span class="text-xs text-slate-400">→ Sanksi: <strong class="text-slate-200">Diyat Mukhaffafah</strong> (diangsur 3 tahun oleh <em>'aqilah</em>/keluarga ayah) + <strong class="text-slate-200">Kafarat</strong> (merdekakan budak / puasa 2 bulan berturut-turut).</span></li>
+            </ul>
+          </div>
+
+          <!-- Detail Jebakan Soal -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="bg-slate-950/70 rounded-xl p-3.5 border border-slate-800">
+              <div class="font-bold text-slate-100 mb-1">🐪 Komposisi Diyat Mughalladzah</div>
+              <p class="text-slate-400 leading-relaxed">Total <strong class="text-slate-200">100 Ekor Unta</strong> = <strong class="text-emerald-400">30 Hiqqah</strong> + <strong class="text-emerald-400">30 Jadza'ah</strong> + <strong class="text-emerald-400">40 Khilfah</strong> (bunting). Atau setara <strong class="text-slate-200">1.000 Dinar / 12.000 Dirham</strong>. <em>(Bukan binta labun!)</em></p>
+            </div>
+            <div class="bg-slate-950/70 rounded-xl p-3.5 border border-slate-800">
+              <div class="font-bold text-slate-100 mb-1">🚫 Penghalang & Gugurnya Qishash</div>
+              <p class="text-slate-400 leading-relaxed">1) Orang tua membunuh anak (hubungan nasab). 2) <strong class="text-slate-200">Salah satu ahli waris saja memaafkan</strong> → Qishash gugur jadi diyat. 3) Pengeroyokan (<em>qatl al-jama'ah</em>) → Semua pelaku tetap diqishas!</p>
+            </div>
+          </div>
+
+          <div class="text-xs bg-emerald-950/40 text-emerald-200 p-3 rounded-xl border border-emerald-500/20">
+            <strong class="text-emerald-400">Diyat Anggota Tubuh:</strong> Sepasang organ (2 telinga, 2 mata) atau organ tunggal vital (lidah hingga bisu) = <strong>100 unta (Diyat Penuh)</strong>. Organ tunggal dari sepasang (1 tangan/1 mata) = <strong>50 unta</strong>.
+          </div>
+        </article>
+
+        <!-- Bab 2: Hudud -->
+        <article data-bab="hudud" class="bg-slate-900/90 rounded-2xl border border-slate-800 p-6 shadow-lg shadow-black/20 hover:border-slate-700 transition space-y-4">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-teal-400">Bab 2 • Sebaran 47 Soal</span>
+              <h3 class="text-xl font-bold text-slate-50 mt-0.5">Hudud: Zina, Qadzaf, Sariqah, Hirabah & Khamar</h3>
+            </div>
+            <span class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center font-bold shrink-0">02</span>
+          </div>
+
+          <div class="bg-sky-950/30 border border-sky-500/20 rounded-xl p-4 space-y-2">
+            <div class="text-xs font-bold text-sky-400 uppercase tracking-wide">⚡ Peta Hukuman Had (Pasti & Tidak Bisa Ditawar)</div>
+            <div class="grid grid-cols-1 gap-2 text-xs sm:text-sm text-slate-300">
+              <div class="bg-slate-950/75 p-2.5 rounded-lg border border-slate-800">
+                <strong class="text-sky-300">Zina:</strong> <em>Muhshan</em> (sudah menikah) = <strong class="text-slate-100">Rajam</strong> sampai mati. <em>Ghairu Muhshan</em> (lajang) = <strong class="text-slate-100">Dera 100x + Pengasingan (Taghrib) 1 tahun</strong>. Wajib <strong class="text-slate-100">4 saksi laki-laki adil</strong> (kurang 1 saksi → semua saksi kena Qadzaf!).
+              </div>
+              <div class="bg-slate-950/75 p-2.5 rounded-lg border border-slate-800">
+                <strong class="text-sky-300">Qadzaf (Tuduh Zina tanpa 4 saksi):</strong> <strong class="text-slate-100">Dera 80x</strong> + kesaksian ditolak + dicap fasik (QS. An-Nur: 4). <em>Gugur jika korban (maqdzuf) memaafkan</em>. Suami menuduh istri → jalan keluarnya <strong class="text-slate-100">Li'an</strong>.
+              </div>
+              <div class="bg-slate-950/75 p-2.5 rounded-lg border border-slate-800">
+                <strong class="text-sky-300">Sariqah (Mencuri):</strong> Nisab <strong class="text-slate-100">1/4 Dinar</strong> (atau 3,34 gram emas di soal hitungan). Syarat: barang terjaga (<em>hirz</em>) & bernilai halal. Jika di luar <em>hirz</em> (motor tanpa kunci, kotak amal terbuka), penggelapan (<em>khianat</em>), jambret (<em>ikhtilas</em>), atau anak curi harta ayah → <strong class="text-slate-100">Ta'zir (bukan potong tangan)</strong>.
+              </div>
+              <div class="bg-slate-950/75 p-2.5 rounded-lg border border-slate-800">
+                <strong class="text-sky-300">Hirabah (Merampok - QS. Al-Ma'idah: 33):</strong><br>
+                • Bunuh + ambil harta = <strong class="text-slate-100">Dibunuh & disalib</strong><br>
+                • Bunuh saja (harta tak terambil) = <strong class="text-slate-100">Dibunuh saja</strong><br>
+                • Ambil harta saja (tak membunuh) = <strong class="text-slate-100">Potong tangan kanan & kaki kiri bersilang</strong><br>
+                • Menakut-nakuti saja = <strong class="text-slate-100">Dipenjara / diasingkan (taghrib)</strong>
+              </div>
+              <div class="bg-slate-950/75 p-2.5 rounded-lg border border-slate-800">
+                <strong class="text-sky-300">Khamar:</strong> Sedikit atau banyak tetap haram. Had dera <strong class="text-slate-100">40x</strong> (riwayat Abu Bakar/Ali) atau <strong class="text-slate-100">80x</strong> (ijtihad Umar). Pengedar/produsen kena <strong class="text-slate-100">Ta'zir berat</strong>.
+              </div>
+            </div>
+          </div>
+
+          <div class="text-xs bg-teal-950/40 text-teal-200 p-3 rounded-xl border border-teal-500/20">
+            <strong class="text-teal-400">Kunci Hitungan Nisab di Bank Soal:</strong><br>
+            • Rumus Soal No. 1: <code class="bg-slate-900 px-1.5 py-0.5 rounded text-emerald-300">1/4 dinar</code> (terbaca 14 dinar di PDF) × Rp4.000.000 = <strong>Rp13.360.000</strong> (berdasarkan patokan 3,34 gr × Rp4jt = Rp13.360.000).<br>
+            • Soal No. 35: Laptop Rp15.000.000 − Rp13.360.000 = kelebihan <strong>Rp1.640.000</strong>.<br>
+            • Soal No. 42: Uang Rp13.000.000 → <strong>Belum mencapai nisab (kurang Rp360.000)</strong>.
+          </div>
+        </article>
+
+        <!-- Bab 3: Bughat & Riddah -->
+        <article data-bab="bughat" class="bg-slate-900/90 rounded-2xl border border-slate-800 p-6 shadow-lg shadow-black/20 hover:border-slate-700 transition space-y-4">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">Bab 3 • Sebaran 22 Soal</span>
+              <h3 class="text-xl font-bold text-slate-50 mt-0.5">Bughat (Pemberontakan) & Riddah (Murtad)</h3>
+            </div>
+            <span class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold shrink-0">03</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="bg-indigo-950/30 border border-indigo-500/20 rounded-xl p-4 space-y-2">
+              <div class="font-bold text-indigo-300">⚔️ Beda Kritik Damai vs Bughat</div>
+              <p class="text-slate-300 leading-relaxed">
+                Demo damai, orasi tertib, kritik kebijakan di medsos, atau menolak bayar zakat tanpa senjata = <strong class="text-white">BUKAN Bughat</strong>.
+              </p>
+              <p class="text-slate-300 leading-relaxed">
+                <strong class="text-indigo-200">Syarat Bughat:</strong> Punya kekuatan bersenjata (<em>syaukah</em>), pemimpin yang ditaati, alasan penafsiran politik (<em>ta'wil</em>), dan melawan pemerintah sah.
+              </p>
+              <p class="text-xs text-slate-300 bg-slate-950/80 p-2.5 rounded-lg border border-slate-800">
+                <strong class="text-indigo-300">Etika Penanganan (QS. Al-Hujurat: 9):</strong> Kirim utusan dialog dulu → Jika menyerang baru diperangi → Harta mereka <strong class="text-white">TIDAK BOLEH</strong> dijadikan <em>ghanimah</em>, tawanan terluka tidak dibunuh, dan zakat yang terlanjur dipungut bughat sah (tidak ditagih 2x).
+              </p>
+            </div>
+
+            <div class="bg-rose-950/30 border border-rose-500/20 rounded-xl p-4 space-y-2">
+              <div class="font-bold text-rose-300">🕌 Riddah & Nifaq</div>
+              <ul class="text-slate-300 space-y-1.5 leading-relaxed">
+                <li><strong class="text-rose-200">3 Jenis Riddah:</strong> <em>Bil-I'tiqad</em> (keyakinan hati, misal ateisme/yakini ada nabi baru), <em>Bil-Qaul</em> (ucapan), <em>Bil-Fi'li</em> (perbuatan, misal melempar mushaf ke kotoran).</li>
+                <li><strong class="text-rose-200">Istitabah:</strong> Wajib diberi waktu bertaubat & dialog (umumnya <strong class="text-white">3 hari</strong>) sebelum sanksi dijatuhkan.</li>
+                <li><strong class="text-rose-200">Ikrah Mulji':</strong> Dipaksa mengucap kufur di bawah ancaman mati sementara hati tetap beriman = <strong class="text-white">Tidak murtad</strong> (QS. An-Nahl: 106).</li>
+                <li><strong class="text-rose-200">Dampak Perdata:</strong> Pernikahan dengan pasangan Muslimah langsung <strong class="text-white">fasakh (terputus)</strong> jika tetap murtad.</li>
+                <li><strong class="text-rose-200">Nifaq I'tiqadi:</strong> Munafik akidah → di akhirat berada di <strong class="text-white">kerak neraka paling bawah</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bab 4: Peradilan Islam -->
+        <article data-bab="qadha" class="bg-slate-900/90 rounded-2xl border border-slate-800 p-6 shadow-lg shadow-black/20 hover:border-slate-700 transition space-y-4">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-purple-400">Bab 4 • Sebaran 32 Soal</span>
+              <h3 class="text-xl font-bold text-slate-50 mt-0.5">Peradilan Islam (Al-Qadha)</h3>
+            </div>
+            <span class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center font-bold shrink-0">04</span>
+          </div>
+
+          <div class="bg-purple-950/25 border border-purple-500/20 rounded-xl p-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
+            <div class="font-bold text-purple-300 uppercase tracking-wide text-xs">⚖️ Kamus Istilah & Kaidah Emas Sidang</div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-800"><strong class="text-purple-300">Qadhi:</strong> Hakim</div>
+              <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-800"><strong class="text-purple-300">Mudda'i:</strong> Penggugat</div>
+              <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-800"><strong class="text-purple-300">Mudda'i 'alaih:</strong> Tergugat</div>
+              <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-800"><strong class="text-purple-300">Bayyinah:</strong> Barang bukti</div>
+              <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-800"><strong class="text-purple-300">Iqrar:</strong> Pengakuan</div>
+              <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-800"><strong class="text-purple-300">Nukul:</strong> Menolak sumpah</div>
+            </div>
+            <ul class="space-y-1.5 pt-1">
+              <li>• <strong class="text-slate-100">Kaidah Pembuktian:</strong> <em>Al-Bayyinah 'alal mudda'i wal yamin 'ala man ankara</em> (Bukti wajib dibawa penggugat; sumpah dibebankan pada tergugat yang mengingkari).</li>
+              <li>• <strong class="text-slate-100">Pencabutan Iqrar:</strong> Dalam kasus <strong class="text-emerald-400">Hudud</strong> (hak Allah) → <strong class="text-emerald-400">Diterima</strong> karena menimbulkan <em>syubhat</em> (had gugur). Dalam kasus <strong class="text-amber-300">Perdata/Utang</strong> (hak manusia) → <strong class="text-amber-300">Ditolak</strong>.</li>
+              <li>• <strong class="text-slate-100">Saksi Ditolak:</strong> Orang fasik (tak punya sifat <em>'adalah</em>), punya permusuhan pribadi (<em>'adawah dunyawiyyah</em>), atau anak bersaksi meringankan ayahnya. Saksi 1 perempuan diterima khusus perkara kewanitaan (kelahiran/persusuan).</li>
+              <li>• <strong class="text-slate-100">Adab Hakim:</strong> Dilarang memutus saat lapar/marah/mengantuk, dilarang terima hadiah dari pihak bersengketa, dan wajib menyamakan posisi duduk pejabat vs rakyat biasa (<em>taswiyah bainal khashmain</em>).</li>
+              <li>• <strong class="text-slate-100">Kafarat Sumpah:</strong> Beri makan 10 orang miskin / beri pakaian / merdekakan budak; jika tak mampu → <strong class="text-emerald-400">puasa 3 hari</strong>.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 2: FLASHCARD INTERAKTIF ==================== -->
+    <section id="view-flashcard" class="hidden max-w-2xl mx-auto space-y-6">
+      <div class="text-center space-y-2">
+        <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
+          Active Recall • Hafalan Kilat
+        </span>
+        <h2 class="text-2xl font-extrabold text-slate-50">Kartu Ingatan Kunci Fikih XI</h2>
+        <p class="text-sm text-slate-400">Klik kartu untuk membalik dan melihat jawaban serta kaidah fikihnya.</p>
+      </div>
+
+      <!-- Flashcard Filter -->
+      <div class="flex justify-center flex-wrap gap-2">
+        <button onclick="setFlashcardCategory('all')" class="fc-cat-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-slate-950 shadow-sm">Semua (20 Kartu)</button>
+        <button onclick="setFlashcardCategory('jinayah')" class="fc-cat-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800">Jinayah</button>
+        <button onclick="setFlashcardCategory('hudud')" class="fc-cat-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800">Hudud</button>
+        <button onclick="setFlashcardCategory('bughat')" class="fc-cat-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800">Bughat & Riddah</button>
+        <button onclick="setFlashcardCategory('qadha')" class="fc-cat-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800">Peradilan</button>
+      </div>
+
+      <!-- 3D Flip Card -->
+      <div class="perspective-1000 w-full h-80 sm:h-96 cursor-pointer select-none" onclick="flipCard()">
+        <div id="flashcard-inner" class="relative w-full h-full transform-style-3d">
+          <!-- Front -->
+          <div class="absolute inset-0 backface-hidden bg-slate-900 rounded-3xl border border-slate-700/80 shadow-2xl shadow-black/50 p-6 sm:p-10 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span id="fc-badge" class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-bold">Jinayah</span>
+              <span id="fc-counter" class="text-xs font-bold text-slate-400">1 / 20</span>
+            </div>
+            <div class="text-center my-auto space-y-3">
+              <p class="text-xs uppercase tracking-widest text-slate-500 font-semibold">Pertanyaan / Kasus</p>
+              <h3 id="fc-question" class="text-lg sm:text-2xl font-bold text-slate-50 leading-snug">
+                Memuat kartu...
+              </h3>
+            </div>
+            <div class="text-center text-xs text-slate-400 font-medium">
+              👆 Ketuk kartu untuk melihat jawaban
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-emerald-950 via-teal-950 to-slate-900 text-white rounded-3xl border border-emerald-500/40 shadow-2xl shadow-emerald-950/50 p-6 sm:p-10 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 text-xs font-bold">Jawaban & Kaidah</span>
+              <span id="fc-counter-back" class="text-xs font-bold text-emerald-300">1 / 20</span>
+            </div>
+            <div class="text-center my-auto space-y-3">
+              <h3 id="fc-answer" class="text-lg sm:text-xl font-extrabold text-emerald-50 leading-snug">
+                Jawaban
+              </h3>
+              <p id="fc-tip" class="text-xs sm:text-sm text-emerald-100/90 bg-slate-950/60 border border-emerald-500/20 p-3.5 rounded-xl leading-relaxed">
+                Tips ingatan
+              </p>
+            </div>
+            <div class="text-center text-xs text-emerald-300/80 font-medium">
+              👆 Ketuk lagi untuk kembali ke soal
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flashcard Controls -->
+      <div class="flex items-center justify-between gap-4">
+        <button onclick="prevCard()" class="flex-1 py-3.5 px-4 rounded-xl bg-slate-900 border border-slate-800 font-bold text-slate-200 hover:bg-slate-800 active:scale-98 transition shadow-sm">
+          ← Sebelumnya
+        </button>
+        <button onclick="shuffleCards()" class="py-3.5 px-4 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 font-bold hover:bg-amber-500/25 transition" title="Acak Kartu">
+          🔀 Acak
+        </button>
+        <button onclick="nextCard()" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-500 font-bold text-slate-950 hover:bg-emerald-400 active:scale-98 transition shadow-md shadow-emerald-500/15">
+          Selanjutnya →
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: LATIHAN SOAL & SIMULATOR ==================== -->
+    <section id="view-quiz" class="hidden space-y-6">
+      <!-- Setup / Control Bar -->
+      <div id="quiz-setup" class="bg-slate-900 rounded-2xl border border-slate-800 p-6 shadow-xl shadow-black/30 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-50">Simulator Latihan Bank Soal</h2>
+            <p class="text-sm text-slate-400">Soal diambil langsung dari naskah Bank Soal Fikih Kelas XI Semester 1 lengkap dengan kunci jawaban & pembahasan.</p>
+          </div>
+          <div class="flex items-center gap-2 bg-emerald-500/10 px-4 py-2 rounded-xl border border-emerald-500/25">
+            <span class="text-xs font-semibold text-emerald-300">Skor Terbaikmu:</span>
+            <span id="best-score-badge" class="text-base font-extrabold text-emerald-400">-</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-400 mb-2">1. Pilih Fokus Materi</label>
+            <select id="quiz-topic" class="w-full p-3 rounded-xl border border-slate-700 bg-slate-950 text-sm font-semibold text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <option value="all">Semua Materi (Campuran Acak)</option>
+              <option value="jinayah">Bab 1: Jinayah (Qishash, Diyat, Kafarat)</option>
+              <option value="hudud">Bab 2: Hudud (Zina, Qadzaf, Sariqah, Hirabah, Khamar)</option>
+              <option value="bughat">Bab 3: Bughat & Riddah</option>
+              <option value="qadha">Bab 4: Peradilan Islam (Al-Qadha)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-400 mb-2">2. Jumlah Soal Latihan</label>
+            <select id="quiz-count" class="w-full p-3 rounded-xl border border-slate-700 bg-slate-950 text-sm font-semibold text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <option value="10">10 Soal (Latihan Cepat)</option>
+              <option value="20" selected>20 Soal (Standar Ulangan)</option>
+              <option value="30">30 Soal (Uji Ketahanan)</option>
+              <option value="all">Semua Soal Tersedia (52 Butir Representatif)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-400 mb-2">3. Mode Belajar</label>
+            <select id="quiz-mode" class="w-full p-3 rounded-xl border border-slate-700 bg-slate-950 text-sm font-semibold text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <option value="instant">Langsung Koreksi & Pembahasan (Direkomendasikan)</option>
+              <option value="exam">Mode Ujian (Koreksi di Akhir)</option>
+            </select>
+          </div>
+        </div>
+
+        <button onclick="startQuiz()" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2">
+          <span>🚀 Mulai Latihan Soal Sekarang</span>
+        </button>
+      </div>
+
+      <!-- Active Quiz Arena -->
+      <div id="quiz-arena" class="hidden space-y-5">
+        <!-- Progress Header -->
+        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 sm:p-5 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3 flex-wrap">
+            <span id="q-progress-text" class="text-sm font-extrabold text-slate-100">Soal 1 dari 20</span>
+            <span id="q-bab-tag" class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-emerald-300 text-xs font-bold">Jinayah</span>
+            <span id="q-orig-num" class="text-xs text-slate-400 font-medium">Bank Soal #2</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="text-xs font-bold text-emerald-300 bg-emerald-500/10 border border-emerald-500/25 px-3 py-1.5 rounded-lg">
+              Benar: <span id="q-live-correct">0</span>
+            </div>
+            <button onclick="quitQuiz()" class="text-xs font-bold text-rose-400 hover:text-rose-300 hover:underline">
+              Keluar / Ganti Topik
+            </button>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+          <div id="q-progress-bar" class="bg-emerald-500 h-full transition-all duration-300 shadow-[0_0_10px_rgba(16,185,129,0.5)]" style="width: 5%"></div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xl shadow-black/30 space-y-6">
+          <p id="q-text" class="text-base sm:text-lg font-bold text-slate-50 leading-relaxed">
+            Teks pertanyaan akan muncul di sini...
+          </p>
+
+          <!-- Options List -->
+          <div id="q-options" class="space-y-3">
+            <!-- Buttons injected via JS -->
+          </div>
+
+          <!-- Instant Explanation Box -->
+          <div id="q-explanation" class="hidden rounded-xl p-4 sm:p-5 border text-sm space-y-1.5">
+            <div id="q-exp-title" class="font-extrabold text-base"></div>
+            <p id="q-exp-body" class="leading-relaxed"></p>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+            <button onclick="prevQuestion()" id="btn-prev-q" class="px-5 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-sm font-bold text-slate-300 hover:bg-slate-800 disabled:opacity-40">
+              ← Sebelumnya
+            </button>
+            <button onclick="nextQuestion()" id="btn-next-q" class="px-6 py-2.5 rounded-xl bg-slate-100 text-slate-950 text-sm font-extrabold hover:bg-white transition">
+              Soal Berikutnya →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Result Summary -->
+      <div id="quiz-result" class="hidden bg-slate-900 rounded-2xl border border-slate-800 p-6 sm:p-10 shadow-xl shadow-black/30 space-y-6">
+        <div class="text-center max-w-lg mx-auto space-y-3">
+          <div id="res-emoji" class="text-5xl">🏆</div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-50">Latihan Selesai!</h2>
+          <p id="res-subtitle" class="text-sm text-slate-400">Berikut adalah hasil evaluasi pemahamanmu.</p>
+          <div class="inline-flex items-baseline gap-2 bg-emerald-500/10 border border-emerald-500/30 px-6 py-3 rounded-2xl my-2">
+            <span id="res-score" class="text-4xl font-black text-emerald-400">85</span>
+            <span class="text-sm font-bold text-emerald-300">/ 100 Poin</span>
+          </div>
+          <div class="flex justify-center gap-6 text-sm font-bold pt-1">
+            <span class="text-emerald-400">✓ Benar: <span id="res-correct">17</span></span>
+            <span class="text-rose-400">✕ Salah: <span id="res-wrong">3</span></span>
+          </div>
+        </div>
+
+        <!-- Review List -->
+        <div class="border-t border-slate-800 pt-6 space-y-4">
+          <h3 class="font-bold text-slate-100 text-base">Pembahasan & Evaluasi Jawaban:</h3>
+          <div id="res-review-list" class="space-y-4 max-h-[500px] overflow-y-auto pr-1">
+            <!-- Review items injected via JS -->
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 pt-4">
+          <button onclick="startQuiz()" class="px-6 py-3 rounded-xl bg-emerald-500 text-slate-950 font-extrabold text-sm hover:bg-emerald-400 transition">
+            🔄 Ulangi Latihan Serupa
+          </button>
+          <button onclick="quitQuiz()" class="px-6 py-3 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 font-bold text-sm hover:bg-slate-700 transition">
+            ⚙️ Pilih Materi Lain
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-4 px-4 text-center text-xs text-slate-500">
+    Disusun khusus berdasarkan Kisi-Kisi & 140 Bank Soal Fikih Kelas XI Semester 1.
+  </footer>
+
+  <!-- ==================== JAVASCRIPT DATA & LOGIC ==================== -->
+  <script>
+    // 1. DATA FLASHCARD (20 KARTU KONSEP & RUMUS KUNCI)
+    const flashcardsData = [
+      {
+        cat: 'jinayah',
+        label: 'Jinayah',
+        q: 'Apa perbedaan utama antara Qatl \'Amdi, Syibhul \'Amdi, dan Khata\'?',
+        a: 'Amdi: Niat bunuh + alat mematikan. Syibhul \'Amdi: Niat melukai/menakuti (alat tak mematikan). Khata\': Tanpa niat sama sekali.',
+        tip: 'Ingat kata kuncinya: Niat + Alat. Kalau bercanda pakai senapan dikira kosong = Khata\'. Kalau melempar batu besar dari atap tanpa bidik orang = Syibhul \'Amdi.'
+      },
+      {
+        cat: 'jinayah',
+        label: 'Jinayah',
+        q: 'Sebutkan komposisi unta dalam Diyat Mughalladzah (Diyat Berat)!',
+        a: '100 ekor unta: 30 Hiqqah + 30 Jadza\'ah + 40 Khilfah (unta bunting).',
+        tip: 'Hafalkan angkanya: 30 - 30 - 40. Jika dibayar tunai/emas-perak = 1.000 Dinar atau 12.000 Dirham.'
+      },
+      {
+        cat: 'jinayah',
+        label: 'Jinayah',
+        q: 'Siapa yang membayar Diyat Mughalladzah pada Qatl \'Amdi yang dimaafkan vs Qatl Khata\'?',
+        a: 'Qatl \'Amdi: Dibayar TUNAI dari harta pribadi pelaku. Qatl Khata\': Diangsur 3 tahun oleh \'Aqilah (keluarga besar garis ayah).',
+        tip: 'Sengaja = tanggung sendiri tunai. Tidak sengaja = dibantu keluarga besar (\'aqilah) dicicil 3 tahun.'
+      },
+      {
+        cat: 'jinayah',
+        label: 'Jinayah',
+        q: 'Apa kafarat wajib bagi pelaku pembunuhan tersalah (Qatl Khata\')?',
+        a: 'Memerdekakan seorang hamba sahaya mukmin; jika tidak mampu, berpuasa 2 bulan berturut-turut (QS. An-Nisa: 92).',
+        tip: 'Meskipun keluarga korban memaafkan diyat, kafarat (hak Allah) tetap wajib dijalankan pelaku!'
+      },
+      {
+        cat: 'jinayah',
+        label: 'Jinayah',
+        q: 'Bagaimana hukum Qishash jika 4 orang mengeroyok 1 orang hingga tewas (Qatl al-Jama\'ah)?',
+        a: 'Keempat pelaku tetap wajib diqishas mati seluruhnya jika tidak dimaafkan.',
+        tip: 'Menurut jumhur ulama, nyawa dibalas nyawa agar tidak ada celah orang bersekongkol membunuh demi menghindari qishash.'
+      },
+      {
+        cat: 'jinayah',
+        label: 'Jinayah',
+        q: 'Apa dampaknya jika korban punya 4 ahli waris, 3 menuntut qishash, dan 1 orang memaafkan?',
+        a: 'Hukuman Qishash GUGUR otomatis dan beralih menjadi pembayaran Diyat.',
+        tip: 'Syarat eksekusi qishash adalah kesepakatan seluruh ahli waris. Satu saja memaafkan, nyawa pelaku selamat.'
+      },
+      {
+        cat: 'hudud',
+        label: 'Hudud',
+        q: 'Apa perbedaan hukuman had bagi pezina Muhshan dan Ghairu Muhshan?',
+        a: 'Muhshan (sudah menikah): Dirajam sampai mati. Ghairu Muhshan (lajang): Didera 100x + diasingkan (taghrib) 1 tahun.',
+        tip: 'Catatan penting: Wanita hamil yang divonis rajam/qishash ditunda eksekusinya sampai melahirkan & menyusui bayinya.'
+      },
+      {
+        cat: 'hudud',
+        label: 'Hudud',
+        q: 'Apa konsekuensi jika ada 4 saksi zina di pengadilan, namun saksi ke-4 ragu-ragu?',
+        a: 'Terdakwa bebas dari had zina, sedangkan keempat saksi dicambuk 80x karena melakukan Qadzaf!',
+        tip: 'Pembuktian zina wajib 4 saksi laki-laki adil yang melihat persis kejadian secara serentak.'
+      },
+      {
+        cat: 'hudud',
+        label: 'Hudud',
+        q: 'Sebutkan 3 sanksi bagi pelaku Qadzaf (menuduh zina tanpa 4 saksi) dalam QS. An-Nur: 4!',
+        a: '1) Didera 80 kali, 2) Kesaksiannya ditolak selamanya, 3) Dicap sebagai orang fasik.',
+        tip: 'Had qadzaf bisa gugur apabila orang yang dituduh (maqdzuf) memaafkan. Jika suami menuduh istri, solusinya sumpah Li\'an.'
+      },
+      {
+        cat: 'hudud',
+        label: 'Hudud',
+        q: 'Kapan pencuri TIDAK dipotong tangannya meski barangnya melebihi nisab?',
+        a: '1) Barang tidak di tempat penyimpanan tertutup (hirz), 2) Barang haram (khamar/babi), 3) Anak curi harta ayah, 4) Penggelapan amanah (khianat) / jambret (ikhtilas), 5) Darurat kelaparan.',
+        tip: 'Semua kasus di atas hukumannya beralih menjadi Ta\'zir (hukuman kebijaksanaan hakim).'
+      },
+      {
+        cat: 'hudud',
+        label: 'Hudud',
+        q: 'Sebutkan urutan potong anggota tubuh jika pencuri mengulangi perbuatannya!',
+        a: 'Pencurian ke-1: Tangan kanan. Pencurian ke-2: Kaki kiri (bersilang).',
+        tip: 'Jika sejak lahir pencuri tidak punya tangan kanan, had potong tangan gugur dan diganti ta\'zir.'
+      },
+      {
+        cat: 'hudud',
+        label: 'Hudud',
+        q: 'Apa rincian hukuman Hirabah (Perampokan) dalam QS. Al-Ma\'idah: 33?',
+        a: 'Bunuh + ambil harta = Dibunuh & disalib. Bunuh saja = Dibunuh. Ambil harta saja = Potong tangan kanan & kaki kiri bersilang. Menakut-nakuti = Penjara/taghrib.',
+        tip: 'Jika perampok bertaubat SEBELUM tertangkap, hak Allah (salib/had) gugur, tapi hak manusia (kembalikan harta & qishash) tetap berlaku.'
+      },
+      {
+        cat: 'bughat',
+        label: 'Bughat & Riddah',
+        q: 'Apa syarat utama suatu kelompok disebut Bughat (pemberontak)?',
+        a: 'Memiliki kekuatan bersenjata (syaukah), pemimpin yang ditaati, alasan penafsiran (ta\'wil), dan melawan pemerintah sah.',
+        tip: 'Demonstrasi damai, orasi tertib, atau kritik di media sosial BUKAN bughat.'
+      },
+      {
+        cat: 'bughat',
+        label: 'Bughat & Riddah',
+        q: 'Bagaimana perlakuan terhadap harta dan tawanan kaum Bughat yang kalah?',
+        a: 'Harta mereka TIDAK boleh dirampas sebagai ghanimah, tawanan terluka tidak boleh dibunuh, dan yang menyerah diterima kembali.',
+        tip: 'Karena kaum bughat tetap saudara sesama Muslim; tujuan memerangi mereka hanya agar kembali taat.'
+      },
+      {
+        cat: 'bughat',
+        label: 'Bughat & Riddah',
+        q: 'Apa yang dimaksud dengan Istitabah dan Ikrah dalam bab Riddah?',
+        a: 'Istitabah: Memberi masa tenggang (3 hari) & dialog untuk bertaubat. Ikrah: Paksaan di bawah ancaman nyawa (tidak dihukumi murtad jika hati tetap beriman).',
+        tip: 'Jika orang murtad menolak bertaubat setelah istitabah, pernikahannya dengan Muslimah otomatis fasakh (batal).'
+      },
+      {
+        cat: 'qadha',
+        label: 'Peradilan Islam',
+        q: 'Sebutkan arti: Mudda\'i, Mudda\'i \'alaih, Bayyinah, Iqrar, dan Nukul!',
+        a: 'Mudda\'i: Penggugat. Mudda\'i \'alaih: Tergugat. Bayyinah: Barang bukti. Iqrar: Pengakuan. Nukul: Penolakan bersumpah.',
+        tip: 'Kaidah: Bukti wajib bagi Mudda\'i (penggugat), sumpah bagi Mudda\'i \'alaih (tergugat yang mengingkari).'
+      },
+      {
+        cat: 'qadha',
+        label: 'Peradilan Islam',
+        q: 'Apa bedanya pencabutan pengakuan (Iqrar) dalam kasus Hudud vs Perdata?',
+        a: 'Dalam Hudud: Pencabutan diterima & had gugur karena muncul syubhat. Dalam Perdata/Utang: Pencabutan ditolak karena menyangkut hak manusia.',
+        tip: 'Prinsip hudud: Hindari hukuman had jika ada keraguan (syubhat).'
+      },
+      {
+        cat: 'qadha',
+        label: 'Peradilan Islam',
+        q: 'Apa yang dimaksud dengan Tahkim dan Wilayatul Mazhalim?',
+        a: 'Tahkim: Arbitrase/penyelesaian sengketa damai di luar pengadilan oleh tokoh terpercaya. Wilayatul Mazhalim: Pengadilan khusus mengadili kezaliman pejabat negara.',
+        tip: 'Keduanya sering muncul di soal nomor 125 dan 137!'
+      },
+      {
+        cat: 'qadha',
+        label: 'Peradilan Islam',
+        q: 'Apa itu Qasamah dalam pembuktian pidana pembunuhan?',
+        a: 'Sumpah khusus sebanyak 50 kali yang dilakukan keluarga korban untuk menguatkan tuduhan pembunuhan saat mayat ditemukan tanpa saksi mata.',
+        tip: 'Jangan tertukar dengan Li\'an (sumpah suami-istri soal zina).'
+      },
+      {
+        cat: 'qadha',
+        label: 'Peradilan Islam',
+        q: 'Apa kafarat bagi orang yang melanggar sumpah atas nama Allah?',
+        a: 'Memberi makan 10 orang miskin, memberi pakaian, atau memerdekakan budak; jika tidak mampu, berpuasa 3 hari.',
+        tip: 'Jangan tertukar dengan kafarat pembunuhan/dzihar yang puasanya 2 bulan berturut-turut!'
+      }
+    ];
+
+    // 2. DATA BANK SOAL (52 BUTIR REPRESENTATIF DARI SELURUH 140 SOAL + KUNCI & PEMBAHASAN AKURAT)
+    const questionBank = [
+      {
+        origNo: 1,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Dalam hukum Islam, nisab pencurian ditetapkan sebesar 1/4 dinar (tercetak 14 dinar pada naskah). Jika harga emas saat ini Rp4.000.000 per gram (patokan 3,34 gram), berapakah nilai minimal barang yang dicuri agar mencapai nisab pencurian?',
+        options: ['Rp10.360.000', 'Rp12.360.000', 'Rp13.360.000', 'Rp14.360.000', 'Rp16.360.000'],
+        ans: 2, // C
+        exp: 'Kunci: C. Berdasarkan standar konversi pada bank soal ini (3,34 gram emas × Rp4.000.000/gram), nilai minimal nisab pencurian adalah Rp13.360.000.'
+      },
+      {
+        origNo: 2,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Dalam sebuah pertandingan bela diri resmi yang telah memenuhi standar keselamatan, seorang atlet melancarkan tendangan sah sesuai aturan pertandingan. Namun, lawannya terjatuh dengan posisi kepala membentur sudut ring hingga meninggal dunia. Berdasarkan analisis fikih jinayah, peristiwa tersebut dikategorikan sebagai...',
+        options: [
+          'Qatl \'amdi karena tendangan dilakukan dengan niat melukai lawan',
+          'Qatl syibhul \'amdi karena menggunakan anggota tubuh tanpa alat mematikan namun berujung kematian',
+          'Qatl khata\' karena tidak ada niat membunuh dan terjadi dalam aktivitas yang dibolehkan syariat',
+          'Tindak pidana hirabah karena dilakukan di hadapan publik',
+          'Perbuatan mubah yang tidak menimbulkan konsekuensi diyat maupun kafarat sama sekali'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Kecelakaan fatal dalam olahraga/aktivitas mubah yang sudah sesuai aturan tanpa niat membunuh masuk kategori Qatl khata\' (pembunuhan tersalah).'
+      },
+      {
+        origNo: 3,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Ahmad memukul tangan Budi hingga menyebabkan tangannya patah. Budi kemudian memaafkan Ahmad dan tidak menuntut balasan yang setimpal. Dalam fikih jinayah, sikap memaafkan tersebut dapat berpengaruh terhadap pelaksanaan qisas. Penyelesaian yang mungkin dilakukan adalah...',
+        options: [
+          'Ahmad tetap wajib dikenai qisas dalam semua keadaan',
+          'Ahmad otomatis terbebas dari seluruh tanggung jawab',
+          'Ahmad kemungkinan membayar diyat atau ganti rugi sesuai ketentuan',
+          'Ahmad wajib membayar kafarat sumpah',
+          'Ahmad wajib membayar Qisas dan kafarat'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Pemaafan korban menggugurkan hukuman qishash dan mengalihkannya menjadi kewajiban membayar diyat/ganti rugi (kecuali korban memaafkan secara mutlak tanpa menuntut diyat).'
+      },
+      {
+        origNo: 4,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Seseorang yang menuduh orang lain melakukan zina tanpa memiliki bukti yang dipercaya, maka wajib atasnya had qadzaf. Pelaksanaan had qadzaf menjadi boleh tidak dijalankan dengan syarat...',
+        options: [
+          'Maqdzuf memaafkan',
+          'Maqdzuf adalah muhson',
+          'Maqdzuf bukan orang tua tertuduh',
+          'Maqdzuf mengakui perbuatannya',
+          'Maqdzuf mempunyai 1 orang saksi'
+        ],
+        ans: 0, // A
+        exp: 'Kunci: A. Dalam had qadzaf terdapat dominasi hak manusia (kehormatan korban/maqdzuf). Jika maqdzuf memaafkan, maka had qadzaf gugur.'
+      },
+      {
+        origNo: 5,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Seorang pencuri membobol brankas besi di dalam rumah warga dan mengambil uang tunai senilai Rp25.000.000. Namun, sebelum kasusnya dilaporkan ke hakim dan sebelum ia tertangkap, pencuri tersebut sadar, bertaubat, dan mengembalikan seluruh uang tersebut secara diam-diam kepada pemiliknya. Menurut mayoritas ulama fikih, status hukum had potong tangan baginya adalah...',
+        options: [
+          'Tetap wajib dipotong tangannya karena unsur pencurian telah terpenuhi',
+          'Gugur hukuman hadnya karena ia bertaubat dan mengembalikan barang sebelum perkara sampai ke hakim',
+          'Diganti dengan hukuman dera 100 kali di hadapan umum',
+          'Wajib membayar diyat sebesar dua kali lipat nilai uang yang dicuri',
+          'Tetap dipotong tangan kirinya sebagai pelajaran bagi masyarakat'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Taubat yang disertai pengembalian harta curian sebelum perkara diadukan kepada hakim menggugurkan hukuman had potong tangan.'
+      },
+      {
+        origNo: 6,
+        bab: 'bughat',
+        babLabel: 'Bughat & Riddah',
+        q: 'Sekelompok orang menolak suatu kebijakan pemerintah. Mereka menyampaikan pendapat melalui media sosial dan mengadakan diskusi tanpa kekerasan. Seorang siswa menyimpulkan bahwa kelompok tersebut pasti melakukan bughat. Penilaian yang paling tepat terhadap kesimpulan siswa tersebut adalah...',
+        options: [
+          'Benar, sebab setiap penolakan terhadap kebijakan pemerintah termasuk bughat',
+          'Benar, sebab perbedaan pendapat merupakan bentuk pemberontakan',
+          'Salah, sebab kritik dan perbedaan pendapat secara damai tidak otomatis memenuhi pengertian bughat',
+          'Benar, sebab semua kritik terhadap pemerintah harus dihukum',
+          'Salah, sebab bughat hanya terjadi dalam persoalan ekonomi'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Bughat mensyaratkan pemberontakan fisik dengan kekuatan bersenjata (syaukah). Kritik damai melalui diskusi atau media sosial bukan bughat.'
+      },
+      {
+        origNo: 7,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Membayar Diyat mughaladzah berupa 100 ekor unta, dengan rincian terdiri dari 30 ekor hiqqah, 30 ekor jadza\'ah dan 40 ekor khilfah, merupakan diyat untuk jenis qatlu \'amdi dan qatlu syibhul \'amdi. Berikut ini yang termasuk qatlu syibhul \'amdi adalah...',
+        options: [
+          'Seseorang sengaja memberikan racun ke dalam minuman temannya sehingga kehilangan nyawa',
+          'Seseorang yang berburu rusa, namun anak panahnya meleset mengenai seseorang hingga meninggal dunia',
+          'Seseorang yang menyekap orang lain dalam ruangan selama 3 hari tanpa diberi makan dan minum hingga meninggal dunia',
+          'Seseorang memberikan obat yang ternyata racun kepada orang sakit dan akhirnya meninggal dunia',
+          'Seseorang mendorong orang lain hingga jatuh di jurang dan meninggal dunia'
+        ],
+        ans: 3, // D
+        exp: 'Kunci: D (sesuai kunci resmi dokumen: memberikan obat yang ternyata racun tanpa niat membunuh). Opsi A, C, E adalah Qatl \'amdi, sedangkan B adalah Qatl khata\'.'
+      },
+      {
+        origNo: 8,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Saksi adalah orang yang diperlukan pengadilan untuk memberikan keterangan yang berkaitan dengan suatu perkara, demi tegaknya hukum dan tercapainya keadilan dalam pengadilan. Berikut ini adalah contoh kesaksian yang tidak dapat diterima, yaitu...',
+        options: [
+          'Seorang muslim bersaksi untuk mengungkap kebenaran kasus terhadap tetangganya yang juga muslim',
+          'Seorang anak yang bersaksi untuk meringankan dakwaan terhadap ayah kandungnya',
+          'Seorang wanita bersaksi atas pencurian yang dilakukan seorang laki-laki',
+          'Orang yang jujur bersaksi atas kejahatan orang yang tidak dikenalnya',
+          'Dua orang bersaksi di persidangan dengan menunjukkan bukti'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C (sesuai kunci resmi dokumen: kesaksian wanita sendirian dalam perkara pidana hudud/pencurian tidak dapat diterima karena hudud mensyaratkan saksi laki-laki). Catatan: kesaksian anak yang menguntungkan orang tua juga ditolak dalam fikih.'
+      },
+      {
+        origNo: 9,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Berdasarkan QS. An-Nur ayat 4, seseorang yang menuduh perempuan baik-baik melakukan zina tetapi tidak dapat menghadirkan empat saksi menghadapi konsekuensi tertentu. Pernyataan yang paling sesuai dengan ayat tersebut adalah...',
+        options: [
+          'Dikenai 40 kali dera dan wajib membayar diyat',
+          'Dikenai 80 kali dera, kesaksiannya ditolak, dan disebut sebagai orang fasik dalam ketentuan ayat tersebut',
+          'Dikenai 100 kali dera dan diasingkan selama satu tahun',
+          'Dikenai qisas dan seluruh hartanya disita',
+          'Hanya diwajibkan meminta maaf tanpa konsekuensi lain'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. QS. An-Nur ayat 4 menetapkan tiga sanksi qadzaf: dicambuk 80 kali, ditolak kesaksiannya selama-lamanya, dan dicap sebagai orang fasik.'
+      },
+      {
+        origNo: 10,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Jika seseorang membunuh dengan sengaja, maka hukumannya adalah qishas. Namun jika mendapatkan maaf, maka ia wajib membayar diyat berat (Diyat Mughalladzah) dengan rincian berikut ini, kecuali...',
+        options: ['30 ekor hiqqah', '40 ekor khilfah', '100 ekor unta', '30 ekor jadza\'ah', '40 ekor binta labun'],
+        ans: 4, // E
+        exp: 'Kunci: E. Rincian diyat mughalladzah adalah 100 ekor unta (30 hiqqah + 30 jadza\'ah + 40 khilfah). Binta labun termasuk rincian diyat mukhaffafah.'
+      },
+      {
+        origNo: 14,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Dalam sebuah persidangan kasus sengketa tanah wakaf, penggugat tidak mampu menghadirkan dua orang saksi yang adil. Tergugat kemudian diminta bersumpah oleh hakim untuk membantah gugatan tersebut, dan tergugat pun bersumpah atas nama Allah. Berdasarkan kaidah pembuktian dalam peradilan Islam (Al-Bayyinah \'alal mudda\'i wal yamin \'ala man ankara), langkah hakim yang paling tepat adalah...',
+        options: [
+          'Memenangkan penggugat karena ia berani mengajukan gugatan terlebih dahulu',
+          'Memenangkan tergugat karena penggugat gagal membawa bukti dan tergugat telah bersumpah',
+          'Membagi tanah sengketa menjadi dua bagian yang sama rata untuk keduanya',
+          'Menunda putusan selama sepuluh tahun hingga saksi baru muncul',
+          'Menghukum penggugat dengan hukuman dera karena dianggap memfitnah'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Sesuai kaidah hadis, jika penggugat tidak punya bukti dan tergugat bersumpah mengingkari tuduhan, maka gugatan ditolak dan tergugat dimenangkan.'
+      },
+      {
+        origNo: 15,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Seorang ayah dengan sengaja membunuh anak kandungnya. Dalam pembahasan fikih jinayah menurut jumhur ulama, ayah tersebut tidak dikenai hukuman qisas. Berdasarkan kasus tersebut, alasan yang tepat adalah...',
+        options: [
+          'Setiap pembunuhan yang dilakukan oleh ayah terhadap anaknya dianggap sebagai pembunuhan yang tidak disengaja',
+          'Hubungan nasab antara ayah dan anak menjadi penghalang penerapan hukuman qisas menurut jumhur ulama dalam kasus tersebut',
+          'Seorang ayah memiliki hak untuk menentukan hidup dan mati anaknya',
+          'Hukuman qisas hanya berlaku bagi orang yang tidak memiliki hubungan keluarga',
+          'Seorang ayah yang membunuh anaknya terbebas dari seluruh konsekuensi hukum'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Berdasarkan hadis "La yuqtalu walidun biwaladihi" (Orang tua tidak diqishas karena membunuh anaknya), hubungan nasab orang tua-anak menghalangi qishash, namun ayah tetap wajib membayar diyat.'
+      },
+      {
+        origNo: 17,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Dalam peristiwa penggerebekan di sebuah hotel didapati sepasang laki-laki dan perempuan yang berstatus bukan suami istri melakukan perzinaan, padahal keduanya berstatus menikah. Dalam Islam hukuman pelaku zina yang sudah menikah adalah...',
+        options: [
+          'Didera 50x dan diasingkan',
+          'Diasingkan selama 1 thn',
+          'Tidak dipercaya pernyataannya seumur hidup',
+          'Didera 100x dan diasingkan',
+          'Dirajam sampai mati'
+        ],
+        ans: 4, // E
+        exp: 'Kunci: E. Pelaku zina yang sudah pernah menikah secara sah (muhshan) hukumannya adalah dirajam sampai mati.'
+      },
+      {
+        origNo: 19,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Merampok, menyamun dan merompak merupakan kejahatan yang bersifat mengancam harta dan jiwa. Seorang perampok yang merampas harta orang lain namun tidak membunuhnya, maka hukumannya adalah...',
+        options: ['Dibunuh', 'Dipenjara', 'Dipotong tangan dan kakinya secara silang', 'Dicambuk 50 kali', 'Membayar kifarat'],
+        ans: 2, // C
+        exp: 'Kunci: C. Merampas harta tanpa membunuh korban hukumannya adalah dipotong tangan kanan dan kaki kiri secara bersilang.'
+      },
+      {
+        origNo: 21,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Pak Wahyu adalah orang yang hobi berburu, suatu ketika ia sedang berburu seekor burung dengan menggunakan senapan anginnya, tapi pada suatu saat peluru Pak Wahyu tidak sengaja mengenai seseorang hingga meninggal. Maka secara hukum Islam, hukuman yang harus dijalankan oleh Pak Wahyu adalah...',
+        options: [
+          'Diyat Mughalladzah dan puasa 3 bulan',
+          'Memerdekakan budak dan puasa 1 bulan',
+          'Diyat Mukhaffafah dan memberi makan 10 fakir miskin',
+          'Membayar diyat mukhaffafah (ringan) dan memerdekakan budak',
+          'Tetap di Qishas'
+        ],
+        ans: 3, // D
+        exp: 'Kunci: D. Pembunuhan tidak sengaja (qatl khata\') mewajibkan diyat mukhaffafah dan kafarat (memerdekakan budak, atau puasa 2 bulan berturut-turut jika tidak mampu).'
+      },
+      {
+        origNo: 23,
+        bab: 'bughat',
+        babLabel: 'Bughat & Riddah',
+        q: 'Sekelompok orang tidak setuju dengan kebijakan pemerintah daerah. Awalnya, mereka menyampaikan protes melalui demonstrasi damai. Namun, beberapa anggota kelompok kemudian mengangkat senjata, menyerang aparat, dan berusaha melawan pemerintahan yang sah dengan kekuatan bersenjata. Berdasarkan konsep bughat dalam fikih jinayah, peristiwa yang paling relevan untuk dikaji sebagai bughat adalah...',
+        options: [
+          'Ketidaksetujuan terhadap kebijakan pemerintah',
+          'Penyampaian pendapat melalui demonstrasi damai',
+          'Kegiatan diskusi untuk mengkritik kebijakan pemerintah',
+          'Tindakan pemberontakan bersenjata terhadap pemerintahan yang sah',
+          'Penyampaian kritik melalui surat kepada pemerintah'
+        ],
+        ans: 3, // D
+        exp: 'Kunci: D. Unsur inti bughat adalah perlawanan fisik/pemberontakan bersenjata terhadap pemerintahan yang sah.'
+      },
+      {
+        origNo: 24,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Rafi menuduh Hasan mencuri uang, sedangkan Hasan menuduh Rafi berzina. Keduanya tidak memiliki bukti atas tuduhan tersebut. Pernyataan yang paling tepat menurut fikih jinayah adalah...',
+        options: [
+          'Keduanya melakukan qadzaf karena sama-sama menuduh tanpa bukti',
+          'Rafi melakukan qadzaf, sedangkan Hasan melakukan pencurian',
+          'Hasan melakukan qadzaf, sedangkan tuduhan pencurian oleh Rafi bukan qadzaf',
+          'Keduanya wajib dikenai had qadzaf sebanyak 80 kali dera',
+          'Tidak dapat dikenai konsekuensi hukum karena tidak ada saksi'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Istilah Qadzaf secara khusus hanya berlaku untuk tuduhan zina (atau penafian nasab) tanpa bukti. Tuduhan mencuri tanpa bukti masuk kategori ta\'zir, bukan had qadzaf.'
+      },
+      {
+        origNo: 25,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Joni merampas secara paksa toko perhiasan di ujung pasar yang sepi sambil mengacungkan senjata. Ia mengancam korban agar menyerahkan perhiasan dan telepon genggamnya. Setelah mendapatkan barang tersebut dan membunuh korban, Joni melarikan diri. Tentukan had apa yang pantas diberikan kepada Joni sesuai dengan ketentuan agama Islam...',
+        options: ['Dibunuh dan disalib', 'Dibunuh', 'Dicambuk', 'Dirajam', 'Dipotong tangan dan kaki'],
+        ans: 0, // A
+        exp: 'Kunci: A. Karena Joni merampas harta SEKALIGUS membunuh korban, maka hukumannya adalah dibunuh dan disalib.'
+      },
+      {
+        origNo: 28,
+        bab: 'bughat',
+        babLabel: 'Bughat & Riddah',
+        q: 'Dalam penanganan kelompok yang dikategorikan sebagai bughat, langkah awal yang sesuai dengan prinsip QS. Al-Hujurat ayat 9 adalah...',
+        options: [
+          'Langsung menjatuhkan hukuman mati kepada seluruh anggota kelompok',
+          'Mengupayakan perdamaian dan mencari penyebab perselisihan',
+          'Menghukum keluarga para anggota kelompok',
+          'Mengambil seluruh harta milik kelompok tersebut',
+          'Melarang masyarakat memberikan keterangan'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Sesuai QS. Al-Hujurat: 9, pemerintah wajib mengirim utusan untuk berdialog, menanyakan alasan pemberontakan, dan mengupayakan perdamaian sebelum tindakan militer.'
+      },
+      {
+        origNo: 33,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Ahmad bersumpah atas nama Allah bahwa ia tidak akan berbicara dengan temannya selama satu bulan. Namun, sebelum satu bulan berlalu, Ahmad menyadari bahwa sumpah tersebut justru memperburuk hubungan mereka. Ia akhirnya berbicara kembali dengan temannya. Kafarat yang harus ditunaikan Ahmad sesuai ketentuan kafarat sumpah adalah...',
+        options: [
+          'Berpuasa selama tiga hari tanpa pilihan lain',
+          'Memberi makan sepuluh orang miskin, memberi pakaian kepada mereka, atau memerdekakan seorang budak; jika tidak mampu, berpuasa tiga hari',
+          'Berpuasa selama dua bulan berturut-turut',
+          'Memberi makan enam puluh orang miskin',
+          'Membayar fidyah sebesar satu mud kepada sepuluh orang miskin'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Berdasarkan QS. Al-Ma\'idah: 89, kafarat sumpah adalah memilih memberi makan 10 orang miskin, memberi pakaian, atau memerdekakan budak; jika tidak mampu barulah berpuasa 3 hari.'
+      },
+      {
+        origNo: 35,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Budi mencuri sebuah laptop seharga Rp15.000.000. Jika nisab pencurian sebesar 3,34 gram emas dan harga emas Rp4.000.000 per gram, kelebihan nilai barang yang dicuri dari nisab adalah...',
+        options: ['Rp640.000', 'Rp1.000.000', 'Rp1.360.000', 'Rp1.640.000', 'Rp2.640.000'],
+        ans: 3, // D
+        exp: 'Kunci: D. Nisab = 3,34 × Rp4.000.000 = Rp13.360.000. Kelebihan = Rp15.000.000 − Rp13.360.000 = Rp1.640.000.'
+      },
+      {
+        origNo: 36,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Empat orang secara bersama-sama mengeroyok seorang warga menggunakan balok kayu dan besi hingga korban meninggal dunia di tempat kejadian. Dalam persidangan, keempatnya berdalih bahwa mereka tidak bisa diqishas karena korban hanya satu orang sedangkan pelakunya empat orang. Analisis hukum Islam yang tepat terhadap kasus pembunuhan berkelompok (qatl al-jama\'ah bil wahid) menurut jumhur ulama adalah...',
+        options: [
+          'Keempat pelaku tidak dapat diqishas, melainkan hanya wajib membagi rata pembayaran satu diyat',
+          'Hanya pelaku yang memukul terakhir kali yang wajib diqishas, sementara tiga lainnya dibebaskan',
+          'Keempat pelaku tetap wajib dikenai hukuman qishas mati seluruhnya apabila keluarga korban tidak memaafkan',
+          'Keempat pelaku hanya dikenai hukuman pengasingan selama satu tahun dan kafarat puasa',
+          'Hukuman qishas gugur secara otomatis karena tidak adanya kesepadanan jumlah antara pelaku dan korban'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Khalifah Umar bin Khattab r.a. dan jumhur ulama menetapkan bahwa sekelompok orang yang bersekongkol membunuh satu orang tetap wajib diqishas mati semuanya.'
+      },
+      {
+        origNo: 37,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Seorang hakim (qadhi) sedang memimpin sidang sengketa waris. Di tengah persidangan, ia merasa sangat lapar, mengantuk berat, dan baru saja bertengkar hebat dengan keluarganya sehingga emosinya tidak stabil. Berdasarkan adab dan etika qadhi dalam peradilan Islam, tindakan yang wajib dilakukan hakim tersebut adalah...',
+        options: [
+          'Tetap memutus perkara secepat mungkin agar persidangan segera selesai',
+          'Menyerahkan keputusan sepenuhnya kepada panitera pengadilan tanpa memeriksa bukti',
+          'Menunda persidangan dan tidak menjatuhkan vonis sampai kondisi fisik dan emosinya kembali tenang',
+          'Mengundi siapa yang menang di antara penggugat dan tergugat agar tampak adil',
+          'Memenangkan pihak yang paling tenang dalam menyampaikan argumen di persidangan'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Hadis Nabi melarang seorang hakim memutus perkara dalam keadaan marah, lapar, mengantuk, atau terganggu kestabilan emosinya.'
+      },
+      {
+        origNo: 42,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Seseorang mencuri uang sebesar Rp13.000.000. Jika harga emas Rp4.000.000 per gram, berdasarkan nisab 3,34 gram emas, status nilai barang yang dicuri adalah...',
+        options: [
+          'Melebihi nisab sebesar Rp360.000',
+          'Tepat mencapai nisab',
+          'Belum mencapai nisab karena kurang Rp360.000',
+          'Belum mencapai nisab karena kurang Rp1.360.000',
+          'Melebihi nisab sebesar Rp1.360.000'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Nisab = 3,34 × Rp4.000.000 = Rp13.360.000. Uang Rp13.000.000 masih kurang Rp360.000 dari batas nisab.'
+      },
+      {
+        origNo: 46,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Dalam sebuah pertengkaran hebat, Khalid memukul wajah Zayd hingga dua buah gigi seri Zayd tanggal permanen. Apabila Zayd menolak memaafkan dan menuntut pembalasan setimpal melalui jalur peradilan Islam yang sah, syarat utama agar hukuman qishas anggota tubuh (qishas fima dunan nafs) dapat dilaksanakan adalah...',
+        options: [
+          'Gigi Khalid dicabut tanpa mempertimbangkan risiko infeksi atau kerusakan saraf rahang',
+          'Terdapat kesamaan jenis dan letak anggota tubuh serta aman dari risiko melampaui batas (istifa\' bil ma\'ruf)',
+          'Khalid harus membayar diyat penuh terlebih dahulu sebelum giginya dicabut',
+          'Pelaksanaan pencabutan gigi dilakukan langsung oleh Zayd di luar pengadilan',
+          'Khalid boleh mengganti qishas giginya dengan memotong jari kelingkingnya'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Qishash anggota tubuh mensyaratkan kesamaan jenis/letak anggota tubuh, dilaksanakan oleh penguasa/ahli yang sah, serta aman dari risiko melampaui batas.'
+      },
+      {
+        origNo: 47,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Dalam sebuah sidang perdata, pihak tergugat menolak seluruh tuduhan penggugat namun tidak memiliki bukti tertulis, sedangkan penggugat hanya memiliki satu orang saksi laki-laki yang adil. Menurut ketentuan fikih peradilan (qadha) pada kasus sengketa harta benda, mekanisme pembuktian yang dapat ditempuh penggugat untuk menguatkan gugatannya adalah...',
+        options: [
+          'Gugatan langsung ditolak karena saksi wajib berjumlah empat orang laki-laki',
+          'Satu orang saksi laki-laki tersebut dapat digabungkan dengan sumpah penggugat (syahid wa yamin)',
+          'Hakim wajib menghukum tergugat berdasarkan firasat semata',
+          'Penggugat harus membayar sejumlah uang kepada hakim agar gugatannya diterima',
+          'Kesaksian satu orang laki-laki cukup untuk memutus perkara pidana hudud maupun perdata'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Dalam perkara harta benda (perdata), jumhur ulama membolehkan pembuktian dengan satu orang saksi laki-laki adil yang dikuatkan dengan sumpah penggugat (syahid wa yamin).'
+      },
+      {
+        origNo: 48,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Seorang pria yang telah bercerai (tsayyib) terbukti secara sah melakukan perzinaan dengan seorang gadis lajang (bikr) atas dasar suka sama suka. Dalam penerapan hukum hudud Islam, keputusan hakim yang tepat terhadap kedua pelaku tersebut adalah...',
+        options: [
+          'Keduanya sama-sama dirajam hingga meninggal dunia karena perbuatan dilakukan bersama',
+          'Keduanya sama-sama didera 100 kali dan diasingkan selama satu tahun',
+          'Pria tersebut dijatuhi hukuman rajam, sedangkan gadis lajang didera 100 kali dan diasingkan satu tahun',
+          'Pria tersebut didera 100 kali, sedangkan gadis lajang dibebaskan karena belum menikah',
+          'Keduanya wajib dinikahkan paksa sebagai pengganti hukuman had'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Hukuman had zina mengikuti status masing-masing individu: pria yang pernah menikah (tsayyib/muhshan) dirajam, sedangkan gadis lajang (ghairu muhshan) didera 100x + taghrib 1 tahun.'
+      },
+      {
+        origNo: 49,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Seorang tukang parkir mengambil sepeda motor milik pengunjung yang diparkir di pinggir jalan tanpa kunci ganda dan tidak dijaga di tempat tertutup (hirz). Jika nilai sepeda motor tersebut melebihi nisab pencurian, analisis fikih jinayah mengenai sanksi bagi pelaku tersebut adalah...',
+        options: [
+          'Wajib dipotong tangan kanannya karena nilai barang melebihi seperempat dinar',
+          'Tidak dikenai had potong tangan melainkan hukuman ta\'zir, karena barang tidak berada di tempat penyimpanan semestinya (hirz)',
+          'Wajib dipotong tangan dan kakinya secara bersilang karena termasuk hirabah',
+          'Dikenai hukuman dera 80 kali di halaman masjid',
+          'Bebas dari segala sanksi karena kelalaian sepenuhnya berada pada pemilik motor'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Syarat potong tangan adalah barang diambil dari tempat penyimpanan/penjagaan layak (hirz). Jika lalai diletakkan di tempat terbuka tanpa penjagaan, hukumannya beralih ke ta\'zir.'
+      },
+      {
+        origNo: 50,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Seorang hakim menjatuhkan vonis berdasarkan iqrar (pengakuan) terdakwa dalam kasus pencurian. Namun, sebelum eksekusi potong tangan dijalankan, terdakwa mencabut kembali pengakuannya dan menyatakan bahwa ia mengaku karena tertekan. Sikap hakim yang paling sesuai dengan prinsip fikih peradilan dalam perkara huququllah (hak Allah/hudud) adalah...',
+        options: [
+          'Tetap mengeksekusi potong tangan karena pengakuan awal tidak dapat ditarik kembali',
+          'Menerima pencabutan pengakuan tersebut dan menggugurkan had potong tangan karena muncul unsur keraguan (syubhat)',
+          'Melipatgandakan hukuman potong tangan menjadi kedua tangan sekaligus',
+          'Menghukum terdakwa dengan hukuman rajam karena berbohong di persidangan',
+          'Memaksa terdakwa mengulang pengakuannya di bawah ancaman senjata'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Dalam tindak pidana hudud (hak Allah), pencabutan pengakuan sebelum eksekusi diterima karena menimbulkan syubhat yang menggugurkan had.'
+      },
+      {
+        origNo: 51,
+        bab: 'bughat',
+        babLabel: 'Bughat & Riddah',
+        q: 'Sebuah kelompok bersenjata menduduki kantor pemerintahan provinsi, menguasai kas daerah, dan menolak tunduk kepada kepala negara yang sah dengan alasan memiliki penafsiran politik sendiri (ta\'wil). Pemerintah telah mengirim utusan untuk berdialog dan meluruskan kesalahpahaman mereka, namun kelompok tersebut tetap menolak berdamai dan justru menembaki utusan pemerintah. Langkah hukum yang sah diambil pemerintah menurut fikih siyasah adalah...',
+        options: [
+          'Membiarkan kelompok tersebut mendirikan negara bagian sendiri demi menghindari konflik',
+          'Memerangi mereka hingga mereka kembali tunduk kepada pemerintahan yang sah, tanpa merampas harta keluarga mereka sebagai ghanimah',
+          'Menjadikan anak dan istri anggota kelompok tersebut sebagai tawanan perang dan budak',
+          'Membunuh seluruh anggota kelompok yang telah menyerah dan meletakkan senjata',
+          'Menyita seluruh harta pribadi warga sipil yang tinggal di wilayah kelompok tersebut'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Setelah dialog gagal dan bughat menyerang lebih dulu, pemerintah wajib memerangi mereka hingga kembali taat, namun keluarga dan harta mereka tetap dilindungi (bukan ghanimah).'
+      },
+      {
+        origNo: 52,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Seseorang mengendarai mobil dalam keadaan mengantuk berat di jalan raya yang ramai hingga kehilangan kendali, menabrak pejalan kaki di trotoar, dan menyebabkan korban meninggal dunia. Apabila keluarga korban memaafkan pelaku dan tidak menuntut diyat, kewajiban agama yang tetap melekat pada diri pengemudi tersebut sebagai bentuk tanggung jawab spiritual kepada Allah Swt. adalah...',
+        options: [
+          'Tidak ada kewajiban apa pun karena keluarga korban sudah memaafkan',
+          'Memerdekakan seorang hamba sahaya mukmin, atau jika tidak mampu wajib berpuasa dua bulan berturut-turut sebagai kafarat',
+          'Membayar zakat mal sebesar 2,5% dari harga mobil yang dikendarainya',
+          'Melaksanakan ibadah haji badal untuk almarhum korban',
+          'Berpuasa tiga hari berturut-turut dan memberi makan sepuluh orang miskin'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Pemaafan ahli waris hanya menggugurkan diyat (hak manusia), sedangkan kafarat pembunuhan tersalah (hak Allah) tetap wajib ditunaikan.'
+      },
+      {
+        origNo: 53,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Dalam perkara perdata yang menyangkut hak anak Adam (seperti kasus utang-piutang atau ganti rugi kerusakan barang), tergugat telah mengakui (iqrar) di depan sidang bahwa ia memang berutang kepada penggugat. Keesokan harinya tergugat ingin mencabut pengakuannya tersebut. Ketentuan hukum peradilan Islam dalam kasus ini adalah...',
+        options: [
+          'Pencabutan pengakuan diterima sehingga utang tergugat otomatis lunas',
+          'Pencabutan pengakuan tidak diterima karena menyangkut hak sesama manusia (huququl \'ibad) yang telah tetap dengan pengakuan sah',
+          'Perkara harus diulang dari awal dengan menghadirkan sepuluh orang saksi',
+          'Penggugat wajib membayar denda karena tergugat mencabut pengakuannya',
+          'Hakim membatalkan seluruh berita acara persidangan sebelumnya'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Berbeda dengan kasus hudud, pengakuan (iqrar) dalam perkara hak manusia (utang-piutang/perdata) bersifat mengikat dan tidak dapat dicabut sepihak.'
+      },
+      {
+        origNo: 56,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Seorang suami menuduh istrinya telah berbuat zina dengan pria lain, namun suami tersebut tidak mampu menghadirkan empat orang saksi di pengadilan. Untuk membela kehormatannya sekaligus menghindari had qadzaf 80 kali dera, syariat Islam memberikan jalan keluar khusus bagi pasangan suami istri tersebut yang disebut dengan istilah...',
+        options: ['Zihar', 'Ila\'', 'Li\'an', 'Khulu\'', 'Fasakh'],
+        ans: 2, // C
+        exp: 'Kunci: C. Li\'an adalah sumpah khusus suami-istri sebanyak empat kali ditambah laknat/murka Allah pada sumpah kelima ketika suami menuduh istri berzina tanpa empat saksi.'
+      },
+      {
+        origNo: 57,
+        bab: 'bughat',
+        babLabel: 'Bughat & Riddah',
+        q: 'Seorang warga negara Muslim secara terang-terangan menyatakan keluar dari Islam dan menghina ajaran agama di ruang publik. Sebelum eksekusi hukuman riddah dijatuhkan oleh pengadilan syariah yang sah, langkah wajib (istitabah) yang harus ditempuh oleh hakim atau ulama adalah...',
+        options: [
+          'Langsung menjatuhkan hukuman mati pada detik itu juga tanpa dialog',
+          'Memberi kesempatan bertaubat, berdialog meluruskan syubhat pemikirannya selama masa tenggang tertentu (umumnya 3 hari)',
+          'Mengusir keluarganya dari wilayah negara agar tidak menularkan pemikirannya',
+          'Merampas seluruh harta warisan keluarganya untuk kas negara',
+          'Memaksanya mengucapkan syahadat di bawah ancaman penyiksaan fisik'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Istitabah (meminta pelaku bertaubat dan berdialog meluruskan keraguan pemikirannya selama 3 hari) adalah prosedur wajib sebelum sanksi riddah diterapkan.'
+      },
+      {
+        origNo: 62,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Seorang pria dengan sengaja memotong kedua daun telinga korbannya hingga putus permanen, namun korban tidak meninggal dunia. Keluarga korban menolak qishas dan memilih menuntut diyat. Berapakah besaran diyat yang wajib dibayarkan pelaku atas hilangnya kedua daun telinga korban?',
+        options: [
+          'Seperempat diyat penuh (25 ekor unta)',
+          'Setengah diyat penuh (50 ekor unta)',
+          'Satu diyat penuh (100 ekor unta) karena menyangkut sepasang anggota tubuh yang memiliki fungsi dan keindahan lengkap',
+          'Sepertiga diyat penuh (33 ekor unta)',
+          'Sepuluh ekor unta betina bunting'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Menghilangkan sepasang anggota tubuh manusia (dua telinga, dua mata, dua tangan, dua kaki) mewajibkan satu diyat penuh (100 ekor unta).'
+      },
+      {
+        origNo: 64,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Empat orang saksi hadir di persidangan untuk memberikan kesaksian atas kasus perzinaan yang dituduhkan kepada seseorang. Tiga saksi pertama memberikan kesaksian yang sama persis mengenai waktu, tempat, dan kejadiannya. Namun, saksi keempat ragu-ragu dan menyatakan tidak melihat kejadian secara jelas. Konsekuensi hukum dari peristiwa persidangan tersebut adalah...',
+        options: [
+          'Terdakwa tetap dihukum rajam karena tiga saksi sudah mencukupi mayoritas',
+          'Terdakwa dibebaskan dari had zina, sedangkan keempat saksi tersebut dikenai had qadzaf (80 kali dera) karena kesaksian tidak lengkap empat orang',
+          'Saksi keempat saja yang dicambuk 80 kali, sedangkan terdakwa dipenjara',
+          'Hakim menyuruh terdakwa bersumpah 50 kali untuk menggugurkan kesaksian tiga orang tersebut',
+          'Terdakwa dikenai hukuman setengah dari had zina'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Jika kesaksian zina kurang dari 4 saksi yang yakin dan serentak, terdakwa bebas dari had zina dan para saksi dijatuhi had qadzaf (seperti kasus kesaksian terhadap Al-Mughirah bin Syu\'bah di masa Umar r.a.).'
+      },
+      {
+        origNo: 68,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Seorang dokter bedah yang memiliki kompetensi dan izin praktik resmi melakukan operasi jantung terhadap pasien atas persetujuan pasien dan keluarganya. Di tengah operasi yang telah dijalankan sesuai prosedur medis terbaik, pasien mengalami henti jantung mendadak dan meninggal dunia. Dalam analisis fikih jinayah, dokter tersebut...',
+        options: [
+          'Wajib diqishas mati karena pasien meninggal di meja operasinya',
+          'Wajib membayar diyat mughalladzah dari harta pribadinya',
+          'Terbebas dari tuntutan qishas maupun diyat karena bertindak atas izin sah dan sesuai keahlian/prosedur medis (ihsan)',
+          'Wajib berpuasa dua bulan berturut-turut sebagai kafarat',
+          'Dikenai had hirabah karena menggunakan alat tajam terhadap pasien'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Berdasarkan kaidah fikih "Ma \'alal muhsinina min sabil" (Tidak ada jalan menyalahkan orang yang berbuat baik/sesuai keahlian & izin), dokter yang bekerja sesuai SOP dan izin pasien bebas dari tuntutan qishash maupun diyat.'
+      },
+      {
+        origNo: 73,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Seseorang mencuri sebuah kotak amal di teras masjid yang tidak dikunci dan tidak dijaga oleh petugas keamanan. Nilai uang di dalam kotak amal tersebut setara dengan 5 gram emas. Menurut pendapat mayoritas ulama fikih (termasuk mazhab Syafi\'i dan Hanafi), pelaku tersebut tidak dikenai hukuman potong tangan melainkan hukuman ta\'zir, dengan alasan utama...',
+        options: [
+          'Uang kotak amal adalah milik umum (syubhatul milk) dan tidak disimpan di tempat penjagaan tertutup (hirz)',
+          'Nilai 5 gram emas belum mencapai batas minimal nisab pencurian',
+          'Pencurian yang dilakukan di lingkungan masjid otomatis dimaafkan syariat',
+          'Pelaku melakukannya karena desakan kebutuhan ekonomi sehari-hari',
+          'Hukuman potong tangan hanya berlaku untuk pencurian emas batangan'
+        ],
+        ans: 0, // A
+        exp: 'Kunci: A. Uang kotak amal masjid memiliki status kepemilikan umum (syubhatul milk) serta tidak berada di tempat penyimpanan tertutup milik pribadi (hirz), sehingga hukumannya adalah ta\'zir.'
+      },
+      {
+        origNo: 81,
+        bab: 'bughat',
+        babLabel: 'Bughat & Riddah',
+        q: 'Seseorang yang telah balig dan berakal sehat dipaksa oleh kelompok teroris bersenjata dengan ancaman pembunuhan langsung jika ia tidak mau mengucapkan kalimat kekufuran. Dalam kondisi terancam nyawanya, ia mengucapkan kalimat tersebut secara lisan sementara hatinya tetap teguh beriman kepada Allah dan Rasul-Nya. Berdasarkan QS. An-Nahl ayat 106, status keimanan dan hukum riddah bagi orang tersebut adalah...',
+        options: [
+          'Ia otomatis menjadi murtad karena kalimat kekufuran telah terucap dari lisannya',
+          'Ia tidak dihukumi murtad dan tidak berdosa karena dalam kondisi terpaksa (ikrah mulji\') dengan hati yang tetap beriman',
+          'Ia dihukumi murtad sementara dan wajib memperbarui syahadat serta menikah ulang',
+          'Ia wajib dikenai hukuman ta\'zir karena tidak memilih mati syahid',
+          'Status keimanannya tergantung pada penilaian masyarakat sekitar'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. QS. An-Nahl ayat 106 secara tegas mengecualikan orang yang dipaksa mengucap kufur di bawah ancaman nyata sementara hatinya tetap tenang dalam keimanan (seperti kisah Ammar bin Yasir r.a.).'
+      },
+      {
+        origNo: 84,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Seorang ibu yang sedang tidur terlelap tanpa sengaja berguling dan menindih bayi mungilnya hingga bayi tersebut kehabisan napas dan meninggal dunia. Dalam tinjauan fikih jinayah, kasus tragis ini termasuk dalam kategori...',
+        options: [
+          'Qatl \'amdi yang mewajibkan hukuman mati bagi sang ibu',
+          'Qatl khata\' (pembunuhan tersalah/tidak sengaja) yang mewajibkan kafarat dan diyat ringan yang ditanggung oleh \'aqilah',
+          'Qatl syibhul \'amdi yang mewajibkan diyat mughalladzah',
+          'Kejahatan hirabah terhadap anggota keluarga',
+          'Peristiwa yang tidak memiliki konsekuensi kafarat maupun diyat'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Perbuatan yang terjadi dalam keadaan tidur tanpa kesadaran/kesengajaan diklasifikasikan sebagai Qatl khata\' (pembunuhan tersalah).'
+      },
+      {
+        origNo: 85,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Seorang pegawai bendahara perusahaan membawa kabur uang kas perusahaan sebesar Rp100.000.000 yang memang diamanahkan kepadanya untuk disimpan dan dikelola (khianat/penggelapan). Dalam kajian fikih jinayah menurut jumhur ulama, hukuman yang tepat bagi pegawai tersebut adalah...',
+        options: [
+          'Dipotong tangan kanannya karena nilai uang jauh melampaui nisab pencurian',
+          'Tidak dijatuhi had potong tangan karena ia mengambil harta yang berada dalam penguasaan amanahnya (ikhtilas/khianat), melainkan dijatuhi hukuman ta\'zir berat dan wajib mengembalikan uang tersebut',
+          'Dipotong tangan dan kakinya secara bersilang',
+          'Dikenai had qadzaf 80 kali dera',
+          'Dibebaskan dari tuntutan hukum karena kesalahan pimpinan perusahaan yang mempercayainya'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Penggelapan harta amanah (khianat) tidak memenuhi definisi pencurian (mengambil secara diam-diam dari tempat penjagaan pemilik), sehingga dikenai ta\'zir berat dan wajib mengembalikan uang.'
+      },
+      {
+        origNo: 91,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Seorang kepala keluarga mencuri bahan makanan pokok di toko kelontong pada masa paceklik dan kelaparan hebat yang melanda negerinya demi menyelamatkan nyawa anak-anaknya yang hampir mati kelaparan. Merujuk pada kebijakan Khalifah Umar bin Khattab r.a. pada tahun paceklik (\'Am ar-Ramadah), keputusan hukum Islam yang tepat adalah...',
+        options: [
+          'Tetap memotong tangan kepala keluarga tersebut agar tidak ditiru warga lain',
+          'Menangguhkan/menggugurkan had potong tangan karena adanya unsur darurat (syubhatul hajah/idhthirar) untuk menyelamatkan nyawa',
+          'Menghukum pemilik toko karena tidak membagikan makanannya secara gratis',
+          'Mengganti potong tangan dengan hukuman rajam',
+          'Memotong jari telunjuk pelaku sebagai bentuk keringanan hukum'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Kondisi kelaparan darurat (\'Am ar-Ramadah) menimbulkan syubhat kebutuhan mendesak untuk menyelamatkan jiwa sehingga had potong tangan ditangguhkan.'
+      },
+      {
+        origNo: 98,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Seorang warga mengajukan gugatan perdata terhadap seorang pejabat tinggi negara di pengadilan Islam. Ketika sidang dimulai, pejabat tersebut datang terlambat dan meminta duduk di kursi kehormatan di samping hakim, sementara rakyat biasa duduk di lantai bawah. Tindakan hakim yang sesuai dengan prinsip keadilan peradilan Islam (taswiyah bainal khashmain) adalah...',
+        options: [
+          'Mempersilakan pejabat duduk di samping hakim demi menghormati jabatannya',
+          'Memerintahkan pejabat tersebut duduk sejajar dengan penggugat di tempat yang sama tanpa pembedaan perlakuan sedikit pun',
+          'Menunda sidang sampai rakyat biasa mencabut gugatannya terhadap pejabat',
+          'Memberikan waktu bicara dua kali lebih lama kepada pejabat tersebut',
+          'Memeriksa perkara secara tertutup di rumah dinas pejabat tersebut'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Prinsip taswiyah bainal khashmain mewajibkan hakim menyamakan perlakuan, tempat duduk, pandangan, dan kesempatan bicara antara kedua belah pihak tanpa memandang jabatan.'
+      },
+      {
+        origNo: 100,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Seseorang menyewa pembunuh bayaran untuk menghabisi nyawa saingan bisnisnya. Pembunuh bayaran tersebut melaksanakan tugasnya dengan menembak korban hingga tewas. Menurut pendapat jumhur ulama (Malikiyah, Syafi\'iyah, dan Hanabilah), pihak yang wajib dikenai hukuman qishas mati dalam kasus pembunuhan dengan perantara ini adalah...',
+        options: [
+          'Hanya pembunuh bayaran yang menembak langsung, sedangkan penyewa bebas',
+          'Hanya penyewa yang merencanakan, sedangkan pembunuh bayaran bebas',
+          'Keduanya (penyewa maupun pembunuh bayaran) sama-sama dikenai hukuman qishas mati apabila terbukti bersekongkol secara sadar',
+          'Keduanya hanya dikenai hukuman pengasingan selama lima tahun',
+          'Penyewa membayar diyat, sedangkan pembunuh bayaran dipotong tangannya'
+        ],
+        ans: 2, // C
+        exp: 'Kunci: C. Jumhur ulama menetapkan bahwa dalam persekongkolan pembunuhan berencana (penyewa dan eksekutor), keduanya sama-sama dikenai hukuman qishash mati.'
+      },
+      {
+        origNo: 105,
+        bab: 'bughat',
+        babLabel: 'Bughat & Riddah',
+        q: 'Sekelompok pemberontak bersenjata (bughat) berhasil menguasai sebuah kota selama beberapa bulan dan memungut pajak/zakat dari penduduk kota tersebut untuk membiayai pemerintahan mereka. Setelah pemberontakan berhasil dipadamkan secara damai oleh pemerintah yang sah, penduduk kota menuntut agar mereka tidak ditagih zakat ulang oleh pemerintah sah. Keputusan yang tepat menurut fikih siyasah (merujuk pada kebijakan Khalifah Ali bin Abi Thalib r.a.) adalah...',
+        options: [
+          'Penduduk wajib membayar zakat ulang karena zakat yang diserahkan kepada bughat tidak sah',
+          'Zakat yang telah dipungut oleh kelompok bughat dianggap sah dan menggugurkan kewajiban penduduk sehingga tidak boleh ditagih dua kali',
+          'Penduduk kota dihukum karena telah menyerahkan zakat kepada pemberontak',
+          'Pemerintah menyita seluruh sisa harta penduduk kota sebagai ganti rugi',
+          'Seluruh penduduk kota dinyatakan murtad karena tunduk kepada bughat'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Khalifah Ali bin Abi Thalib r.a. menetapkan bahwa zakat yang telah dipungut oleh otoritas de facto (bughat) sah dan menggugurkan kewajiban rakyat agar rakyat tidak dizalimi dua kali.'
+      },
+      {
+        origNo: 109,
+        bab: 'hudud',
+        babLabel: 'Hudud',
+        q: 'Seorang perampok mencegat pedagang di jalan sepi, merampas seluruh barang dagangannya, dan membunuh pedagang tersebut. Sebelum aparat keamanan berhasil menangkapnya, perampok tersebut datang menyerahkan diri kepada hakim dalam keadaan bertaubat dengan tulus. Berdasarkan QS. Al-Ma\'idah ayat 34, dampak hukum dari taubatnya sebelum tertangkap adalah...',
+        options: [
+          'Ia bebas total dari hukuman mati maupun kewajiban mengembalikan harta',
+          'Gugur hak Allah Swt. atas dirinya (hukuman salib/had hirabah gugur), tetapi hak manusia tetap berlaku sehingga ia wajib mengembalikan harta rampasan dan tetap menghadapi tuntutan qishas/diyat dari ahli waris korban',
+          'Ia tetap wajib disalib namun tidak perlu mengembalikan harta korban',
+          'Ahli waris korban dilarang menuntut qishas maupun diyat kepadanya',
+          'Ia hanya wajib berpuasa selama satu bulan sebagai tanda taubat'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Sesuai QS. Al-Ma\'idah: 34, taubat perampok sebelum tertangkap hanya menggugurkan hak Allah (had hirabah/salib), sedangkan hak sesama manusia (harta & qishash/diyat) tetap berlaku.'
+      },
+      {
+        origNo: 113,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Dalam peradilan Islam, seorang tergugat yang menolak gugatan penggugat yang tidak memiliki saksi diwajibkan mengucapkan sumpah (yamin). Namun, tergugat tersebut justru menolak untuk bersumpah (nukul \'anil yamin) tanpa alasan yang jelas. Menurut pendapat mazhab Syafi\'i, langkah lanjutan yang dilakukan hakim dalam sengketa harta tersebut adalah...',
+        options: [
+          'Langsung membatalkan gugatan dan memenangkan tergugat',
+          'Mengembalikan hak bersumpah kepada penggugat (yamin mardudah); jika penggugat bersedia bersumpah atas kebenaran gugatannya, maka penggugat dimenangkan',
+          'Memenjara tergugat seumur hidup sampai ia mau bersumpah',
+          'Menghukum kedua belah pihak dengan cambukan 40 kali',
+          'Menyita barang sengketa untuk kas pengadilan'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Menurut mazhab Syafi\'i, penolakan sumpah oleh tergugat (nukul) tidak langsung memenangkan penggugat, melainkan sumpah dikembalikan kepada penggugat (yamin mardudah).'
+      },
+      {
+        origNo: 124,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Seseorang meletakkan racun mematikan di dalam makanan yang disiapkan untuk tamu undangannya dengan tujuan membunuh tamu tersebut. Namun, tamu undangan tersebut tidak memakan makanan itu, melainkan seorang anak kecil yang masuk ke dapur tanpa sepengetahuan pemilik rumah memakan makanan beracun tersebut hingga meninggal dunia. Menurut analisis fikih jinayah, pelaku tetap dikategorikan sebagai pelaku...',
+        options: [
+          'Qatl khata\' murni karena target awalnya bukan anak kecil tersebut',
+          'Qatl \'amdi (pembunuhan sengaja) karena perbuatan meletakkan racun mematikan dilakukan dengan niat membunuh jiwa manusia yang dilindungi darahnya (error in persona tidak menghilangkan unsur kesengajaan membunuh)',
+          'Tidak bersalah sama sekali karena anak kecil itu masuk dapur tanpa izin',
+          'Qatl syibhul \'amdi yang hanya mewajibkan puasa tiga hari',
+          'Pelanggaran ringan yang cukup diselesaikan dengan mengganti biaya pemakaman'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Salah sasaran (error in persona) dalam tindak pembunuhan terencana tidak menghilangkan status kesengajaan membunuh (Qatl \'amdi).'
+      },
+      {
+        origNo: 125,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Dalam sebuah sengketa jual beli, kedua belah pihak sepakat menunjuk seorang ulama atau tokoh terpercaya di luar pengadilan resmi untuk menyelesaikan perselisihan mereka secara damai dan adil berdasarkan hukum Islam, dan keduanya berkomitmen mematuhi keputusannya. Lembaga penyelesaian sengketa non-litigasi semacam ini dalam fikih peradilan Islam dikenal dengan istilah...',
+        options: ['Tahkim (arbitrase Islam)', 'Mazhalim', 'Hisbah', 'Qasamah', 'Li\'an'],
+        ans: 0, // A
+        exp: 'Kunci: A. Tahkim adalah penyelesaian sengketa secara damai melalui pihak ketiga (hakam/arbiter) yang disepakati kedua belah pihak.'
+      },
+      {
+        origNo: 131,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Dalam suatu persidangan, ditemukan mayat seseorang di sebuah perkampungan tertutup dengan tanda-tanda bekas pembunuhan, namun tidak ada satu pun saksi mata yang melihat pelakunya dan tidak ada yang mengaku. Penduduk kampung menuduh seseorang yang memiliki permusuhan dengan korban. Dalam fikih jinayah, mekanisme pembuktian sumpah khusus sebanyak 50 kali yang dilakukan oleh keluarga korban untuk menguatkan tuduhan pembunuhan tersebut disebut...',
+        options: ['Li\'an', 'Qasamah', 'Zihar', 'Ila\'', 'Tahkim'],
+        ans: 1, // B
+        exp: 'Kunci: B. Qasamah adalah sumpah sebanyak 50 kali oleh keluarga korban dalam kasus pembunuhan yang mencurigakan tanpa saksi mata.'
+      },
+      {
+        origNo: 137,
+        bab: 'qadha',
+        babLabel: 'Peradilan Islam',
+        q: 'Dalam hierarki lembaga peradilan Islam klasik, terdapat lembaga khusus yang berwenang mengadili sengketa atau kezaliman yang dilakukan oleh para pejabat tinggi negara, gubernur, atau keluarga penguasa terhadap rakyat biasa agar rakyat kecil mendapatkan keadilan tanpa rasa takut. Lembaga peradilan khusus ini dikenal dengan istilah...',
+        options: ['Wilayatul Hisbah', 'Wilayatul Mazhalim', 'Baitul Mal', 'Majelis Syura', 'Diwanul Jund'],
+        ans: 1, // B
+        exp: 'Kunci: B. Wilayatul Mazhalim adalah lembaga peradilan khusus untuk memeriksa pengaduan rakyat terhadap kesewenang-wenangan pejabat tinggi negara.'
+      },
+      {
+        origNo: 140,
+        bab: 'jinayah',
+        babLabel: 'Jinayah',
+        q: 'Berdasarkan keseluruhan kajian materi jinayah, hudud, bughat, riddah, dan peradilan Islam, benang merah filosofis yang menjadi tujuan utama (maqashid syariah) ditetapkannya sanksi hukum pidana Islam adalah...',
+        options: [
+          'Melampiaskan kemarahan penguasa dan menciptakan ketakutan di tengah masyarakat',
+          'Melindungi lima kebutuhan dasar manusia (al-kulliyyat al-khams: agama, jiwa, akal, keturunan, dan harta) demi terwujudnya kedamaian, keadilan, dan kemaslahatan umat manusia',
+          'Mengurangi jumlah populasi manusia melalui hukuman mati',
+          'Memperkaya kas negara melalui denda dan penyitaan harta terpidana',
+          'Membedakan perlakuan hukum antara golongan bangsawan dan rakyat jelata'
+        ],
+        ans: 1, // B
+        exp: 'Kunci: B. Tujuan utama syariat (Maqashid Syariah) adalah menjaga lima prinsip pokok (Al-Kulliyyat Al-Khams): Hifzhud-Din (agama), Hifzhun-Nafs (jiwa), Hifzhul-\'Aql (akal), Hifzhun-Nasl (keturunan), dan Hifzhul-Mal (harta).'
+      }
+    ];
+
+    // ==================== STATE & NAVIGATION ====================
+    function switchTab(tabName) {
+      ['cheatsheet', 'flashcard', 'quiz'].forEach(t => {
+        document.getElementById(`view-${t}`).classList.add('hidden');
+        const btn = document.getElementById(`tab-${t}`);
+        btn.classList.remove('bg-slate-800', 'text-emerald-400', 'shadow-sm', 'border', 'border-slate-700/70');
+        btn.classList.add('text-slate-400');
+      });
+      document.getElementById(`view-${tabName}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-${tabName}`);
+      activeBtn.classList.add('bg-slate-800', 'text-emerald-400', 'shadow-sm', 'border', 'border-slate-700/70');
+      activeBtn.classList.remove('text-slate-400');
+    }
+
+    // ==================== CHEAT SHEET FILTER ====================
+    function filterBab(bab) {
+      document.querySelectorAll('.bab-pill').forEach(btn => {
+        btn.classList.remove('bg-emerald-500', 'text-slate-950', 'shadow-md', 'shadow-emerald-500/15');
+        btn.classList.add('bg-slate-900', 'text-slate-300', 'border', 'border-slate-800');
+      });
+      event.target.classList.remove('bg-slate-900', 'text-slate-300', 'border', 'border-slate-800');
+      event.target.classList.add('bg-emerald-500', 'text-slate-950', 'shadow-md', 'shadow-emerald-500/15');
+
+      document.querySelectorAll('#cheatsheet-grid article').forEach(card => {
+        if (bab === 'all' || card.dataset.bab === bab) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // ==================== FLASHCARD LOGIC ====================
+    let activeCards = [...flashcardsData];
+    let currentCardIdx = 0;
+    let isFlipped = false;
+
+    function renderCard() {
+      const card = activeCards[currentCardIdx];
+      const inner = document.getElementById('flashcard-inner');
+      isFlipped = false;
+      inner.classList.remove('rotate-y-180');
+
+      setTimeout(() => {
+        document.getElementById('fc-badge').textContent = card.label;
+        document.getElementById('fc-counter').textContent = `${currentCardIdx + 1} / ${activeCards.length}`;
+        document.getElementById('fc-counter-back').textContent = `${currentCardIdx + 1} / ${activeCards.length}`;
+        document.getElementById('fc-question').textContent = card.q;
+        document.getElementById('fc-answer').textContent = card.a;
+        document.getElementById('fc-tip').textContent = `💡 ${card.tip}`;
+      }, 100);
+    }
+
+    function flipCard() {
+      isFlipped = !isFlipped;
+      const inner = document.getElementById('flashcard-inner');
+      if (isFlipped) {
+        inner.classList.add('rotate-y-180');
+      } else {
+        inner.classList.remove('rotate-y-180');
+      }
+    }
+
+    function nextCard() {
+      currentCardIdx = (currentCardIdx + 1) % activeCards.length;
+      renderCard();
+    }
+
+    function prevCard() {
+      currentCardIdx = (currentCardIdx - 1 + activeCards.length) % activeCards.length;
+      renderCard();
+    }
+
+    function shuffleCards() {
+      for (let i = activeCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [activeCards[i], activeCards[j]] = [activeCards[j], activeCards[i]];
+      }
+      currentCardIdx = 0;
+      renderCard();
+    }
+
+    function setFlashcardCategory(cat) {
+      document.querySelectorAll('.fc-cat-btn').forEach(b => {
+        b.classList.remove('bg-emerald-500', 'text-slate-950', 'shadow-sm');
+        b.classList.add('bg-slate-900', 'text-slate-300', 'border', 'border-slate-800');
+      });
+      event.target.classList.remove('bg-slate-900', 'text-slate-300', 'border', 'border-slate-800');
+      event.target.classList.add('bg-emerald-500', 'text-slate-950', 'shadow-sm');
+
+      activeCards = cat === 'all' ? [...flashcardsData] : flashcardsData.filter(c => c.cat === cat);
+      currentCardIdx = 0;
+      renderCard();
+    }
+
+    // ==================== QUIZ SIMULATOR LOGIC ====================
+    let quizQuestions = [];
+    let userAnswers = [];
+    let currentQIdx = 0;
+    let quizMode = 'instant';
+    let bestScore = null;
+
+    function startQuiz() {
+      const topic = document.getElementById('quiz-topic').value;
+      const countVal = document.getElementById('quiz-count').value;
+      quizMode = document.getElementById('quiz-mode').value;
+
+      let pool = topic === 'all' ? [...questionBank] : questionBank.filter(q => q.bab === topic);
+      // Shuffle pool
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+
+      if (countVal !== 'all') {
+        pool = pool.slice(0, Math.min(parseInt(countVal, 10), pool.length));
+      }
+
+      quizQuestions = pool;
+      userAnswers = new Array(quizQuestions.length).fill(null);
+      currentQIdx = 0;
+
+      document.getElementById('quiz-setup').classList.add('hidden');
+      document.getElementById('quiz-result').classList.add('hidden');
+      document.getElementById('quiz-arena').classList.remove('hidden');
+
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = quizQuestions[currentQIdx];
+      const total = quizQuestions.length;
+      const chosen = userAnswers[currentQIdx];
+
+      document.getElementById('q-progress-text').textContent = `Soal ${currentQIdx + 1} dari ${total}`;
+      document.getElementById('q-bab-tag').textContent = q.babLabel;
+      document.getElementById('q-orig-num').textContent = `Bank Soal #${q.origNo}`;
+      document.getElementById('q-progress-bar').style.width = `${((currentQIdx + 1) / total) * 100}%`;
+      document.getElementById('q-text').textContent = q.q;
+
+      // Update live correct count
+      let correctCount = 0;
+      quizQuestions.forEach((item, idx) => {
+        if (userAnswers[idx] !== null && userAnswers[idx] === item.ans) {
+          correctCount++;
+        }
+      });
+      document.getElementById('q-live-correct').textContent = quizMode === 'instant' ? correctCount : 'Mode Ujian';
+
+      // Render options
+      const letters = ['A', 'B', 'C', 'D', 'E'];
+      const optionsContainer = document.getElementById('q-options');
+      optionsContainer.innerHTML = '';
+
+      q.options.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        let baseClass = 'w-full text-left p-4 rounded-xl border transition flex items-start gap-3.5 text-sm sm:text-base font-medium ';
+
+        if (chosen === null) {
+          baseClass += 'border-slate-800 bg-slate-950/70 hover:border-emerald-500/60 hover:bg-slate-800/80 text-slate-200';
+        } else if (quizMode === 'exam') {
+          if (chosen === idx) {
+            baseClass += 'border-emerald-500 bg-emerald-500/15 text-emerald-200 font-semibold';
+          } else {
+            baseClass += 'border-slate-800 bg-slate-950/60 text-slate-400 hover:bg-slate-800/60';
+          }
+        } else {
+          // Instant feedback mode
+          if (idx === q.ans) {
+            baseClass += 'border-emerald-500 bg-emerald-500/15 text-emerald-200 font-bold';
+          } else if (idx === chosen && chosen !== q.ans) {
+            baseClass += 'border-rose-500 bg-rose-500/15 text-rose-200 font-semibold';
+          } else {
+            baseClass += 'border-slate-800/80 bg-slate-950/40 text-slate-500';
+          }
+        }
+
+        btn.className = baseClass;
+        btn.onclick = () => selectOption(idx);
+
+        const badge = document.createElement('span');
+        badge.className = 'w-7 h-7 rounded-lg flex items-center justify-center text-xs font-extrabold shrink-0 mt-0.5 ' +
+          (chosen !== null && quizMode === 'instant' && idx === q.ans
+            ? 'bg-emerald-500 text-slate-950'
+            : chosen === idx
+              ? 'bg-slate-200 text-slate-950'
+              : 'bg-slate-800 text-slate-400 border border-slate-700');
+        badge.textContent = letters[idx];
+
+        const spanText = document.createElement('span');
+        spanText.textContent = optText;
+
+        btn.appendChild(badge);
+        btn.appendChild(spanText);
+        optionsContainer.appendChild(btn);
+      });
+
+      // Explanation box in instant mode
+      const expBox = document.getElementById('q-explanation');
+      if (chosen !== null && quizMode === 'instant') {
+        expBox.classList.remove(
+          'hidden',
+          'bg-emerald-950/50', 'border-emerald-500/30', 'text-emerald-200',
+          'bg-rose-950/50', 'border-rose-500/30', 'text-rose-200'
+        );
+        if (chosen === q.ans) {
+          expBox.classList.add('bg-emerald-950/50', 'border-emerald-500/30', 'text-emerald-200');
+          document.getElementById('q-exp-title').textContent = '✅ Jawabanmu Tepat!';
+        } else {
+          expBox.classList.add('bg-rose-950/50', 'border-rose-500/30', 'text-rose-200');
+          document.getElementById('q-exp-title').textContent = `❌ Kurang Tepat (Jawaban Benar: ${letters[q.ans]})`;
+        }
+        document.getElementById('q-exp-body').textContent = q.exp;
+      } else {
+        expBox.classList.add('hidden');
+      }
+
+      // Prev / Next button states
+      document.getElementById('btn-prev-q').disabled = currentQIdx === 0;
+      const nextBtn = document.getElementById('btn-next-q');
+      if (currentQIdx === total - 1) {
+        nextBtn.textContent = 'Selesai & Lihat Nilai ✓';
+        nextBtn.classList.remove('bg-slate-100', 'text-slate-950', 'hover:bg-white');
+        nextBtn.classList.add('bg-emerald-500', 'text-slate-950', 'hover:bg-emerald-400');
+      } else {
+        nextBtn.textContent = 'Soal Berikutnya →';
+        nextBtn.classList.add('bg-slate-100', 'text-slate-950', 'hover:bg-white');
+        nextBtn.classList.remove('bg-emerald-500', 'hover:bg-emerald-400');
+      }
+    }
+
+    function selectOption(idx) {
+      if (quizMode === 'instant' && userAnswers[currentQIdx] !== null) {
+        return; // Lock answer in instant mode
+      }
+      userAnswers[currentQIdx] = idx;
+      renderQuestion();
+    }
+
+    function nextQuestion() {
+      if (currentQIdx < quizQuestions.length - 1) {
+        currentQIdx++;
+        renderQuestion();
+      } else {
+        finishQuiz();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQIdx > 0) {
+        currentQIdx--;
+        renderQuestion();
+      }
+    }
+
+    function finishQuiz() {
+      document.getElementById('quiz-arena').classList.add('hidden');
+      document.getElementById('quiz-result').classList.remove('hidden');
+
+      let correct = 0;
+      quizQuestions.forEach((q, i) => {
+        if (userAnswers[i] === q.ans) correct++;
+      });
+
+      const total = quizQuestions.length;
+      const wrong = total - correct;
+      const score = Math.round((correct / total) * 100);
+
+      if (bestScore === null || score > bestScore) {
+        bestScore = score;
+        document.getElementById('best-score-badge').textContent = `${bestScore} Poin`;
+      }
+
+      document.getElementById('res-score').textContent = score;
+      document.getElementById('res-correct').textContent = correct;
+      document.getElementById('res-wrong').textContent = wrong;
+
+      const emojiEl = document.getElementById('res-emoji');
+      const subEl = document.getElementById('res-subtitle');
+      if (score >= 85) {
+        emojiEl.textContent = '🏆';
+        subEl.textContent = 'Luar biasa! Pemahaman analisis kasus Fikihmu sudah sangat matang.';
+      } else if (score >= 70) {
+        emojiEl.textContent = '👏';
+        subEl.textContent = 'Bagus! Tinggal perdalam sedikit beberapa kaidah jebakan di bawah ini.';
+      } else {
+        emojiEl.textContent = '📚';
+        subEl.textContent = 'Jangan menyerah! Baca kembali Peta Hafalan & pelajari pembahasan di bawah.';
+      }
+
+      const letters = ['A', 'B', 'C', 'D', 'E'];
+      const reviewList = document.getElementById('res-review-list');
+      reviewList.innerHTML = '';
+
+      quizQuestions.forEach((q, i) => {
+        const uAns = userAnswers[i];
+        const isRight = uAns === q.ans;
+        const card = document.createElement('div');
+        card.className = `p-4 rounded-xl border ${isRight ? 'border-emerald-500/25 bg-emerald-950/20' : 'border-rose-500/25 bg-rose-950/20'} space-y-2 text-sm`;
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2">
+            <span class="font-bold text-slate-300">No. ${i + 1} (Bank Soal #${q.origNo}) • ${q.babLabel}</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold ${isRight ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-rose-500/20 text-rose-300 border border-rose-500/30'}">
+              ${isRight ? '✓ Benar' : '✕ Salah'}
+            </span>
+          </div>
+          <p class="font-semibold text-slate-100">${q.q}</p>
+          <div class="text-xs space-y-1 pt-1">
+            <p class="${isRight ? 'text-emerald-400' : 'text-rose-400'} font-bold">
+              Jawabanmu: ${uAns !== null ? `${letters[uAns]}. ${q.options[uAns]}` : 'Tidak dijawab'}
+            </p>
+            ${!isRight ? `<p class="text-emerald-300 font-bold">Kunci Benar: ${letters[q.ans]}. ${q.options[q.ans]}</p>` : ''}
+            <p class="text-slate-300 bg-slate-950/80 p-3 rounded-lg border border-slate-800 mt-1.5 leading-relaxed">
+              💡 ${q.exp}
+            </p>
+          </div>
+        `;
+        reviewList.appendChild(card);
+      });
+    }
+
+    function quitQuiz() {
+      document.getElementById('quiz-arena').classList.add('hidden');
+      document.getElementById('quiz-result').classList.add('hidden');
+      document.getElementById('quiz-setup').classList.remove('hidden');
+    }
+
+    // Initialize initial flashcard
+    window.onload = function() {
+      renderCard();
+    };
+  </script>
+</body>
+</html>
