@@ -1,0 +1,2629 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PJOK Master Kelas XI SMA — Belajar Cepat & Latihan Soal HOTS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        obsidian: {
+                            950: '#0B0F19',
+                            900: '#111827',
+                            850: '#161E2E',
+                            800: '#1F2937',
+                            700: '#2D3748',
+                        },
+                        coral: {
+                            DEFAULT: '#E76F51',
+                            light: '#F08A70',
+                            dark: '#D1593B',
+                        },
+                        sage: {
+                            DEFAULT: '#A7C957',
+                            light: '#B9D674',
+                            dark: '#8FB33E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Force permanent dark color scheme */
+        :root { color-scheme: dark; }
+
+        /* Custom animations & utilities */
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        
+        /* Hide scrollbar for clean horizontal tabs on mobile */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Custom subtle dark scrollbar for navigator */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0B0F19; }
+        ::-webkit-scrollbar-thumb { background: #2D3748; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4A5568; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-[#0B0F19] text-[#F3F4F6] antialiased selection:bg-[#E76F51] selection:text-white min-h-screen flex flex-col">
+
+    <!-- ==================== HEADER & NAVIGATION ==================== -->
+    <header class="bg-[#111827]/95 backdrop-blur-md text-[#F3F4F6] sticky top-0 z-40 shadow-xl shadow-black/40 border-b border-slate-800/90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between py-3.5 gap-3">
+                <!-- Brand & Title -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#E76F51] to-[#c85538] flex items-center justify-center shadow-lg shadow-[#E76F51]/25 text-white font-bold text-xl">
+                            🏆
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h1 class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-[#F3F4F6] leading-tight">
+                                    PJOK Master <span class="text-[#E76F51]">Kelas XI SMA</span>
+                                </h1>
+                                <span class="hidden sm:inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-[#A7C957]/15 text-[#A7C957] border border-[#A7C957]/30">Fase F</span>
+                            </div>
+                            <p class="text-xs text-[#9CA3AF]">Strategi, Taktik & 40 Latihan Soal HOTS Kelas 2 SMA</p>
+                        </div>
+                    </div>
+                    <!-- Mobile Quick Score Badge -->
+                    <div class="flex md:hidden items-center gap-2 bg-[#161E2E] px-3 py-1.5 rounded-lg border border-slate-800">
+                        <span class="text-xs text-[#9CA3AF]">Skor:</span>
+                        <span id="mobile-score-badge" class="text-xs font-bold text-[#A7C957]">0/95</span>
+                    </div>
+                </div>
+
+                <!-- Progress & Status Bar (Desktop) -->
+                <div class="hidden md:flex items-center gap-5 bg-[#161E2E] px-4 py-2 rounded-xl border border-slate-800">
+                    <div class="flex flex-col min-w-[155px]">
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="text-[#9CA3AF] font-medium">Materi LKS XI-1</span>
+                            <span id="materi-progress-text" class="text-[#E76F51] font-bold">0/4 Bagian</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                            <div id="materi-progress-bar" class="bg-gradient-to-r from-[#E76F51] to-[#f4977f] h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="h-6 w-px bg-slate-800"></div>
+                    <div class="flex items-center gap-2">
+                        <div class="text-right">
+                            <div class="text-[11px] text-[#9CA3AF] uppercase tracking-wider font-semibold">Evaluasi LKS (95 Soal)</div>
+                            <div id="desktop-score-badge" class="text-sm font-bold text-[#A7C957]">Belum Selesai</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Navigation Tabs -->
+            <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto no-scrollbar pt-1 pb-0 border-t border-slate-800/80" aria-label="Tabs">
+                <button onclick="switchMainTab('materi')" id="tab-btn-materi" class="main-tab-btn group flex items-center gap-2 px-4 py-3 text-sm font-semibold border-b-2 border-[#E76F51] text-[#E76F51] whitespace-nowrap transition-colors cursor-pointer">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    <span>Materi & Glosarium LKS</span>
+                </button>
+                <button onclick="switchMainTab('flashcards')" id="tab-btn-flashcards" class="main-tab-btn group flex items-center gap-2 px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-[#9CA3AF] hover:text-[#F3F4F6] whitespace-nowrap transition-colors cursor-pointer">
+                    <i data-lucide="layers" class="w-4 h-4"></i>
+                    <span>Flashcards Hafalan</span>
+                    <span class="bg-[#161E2E] text-[#9CA3AF] border border-slate-800 text-[11px] px-2 py-0.5 rounded-full">30 Kartu</span>
+                </button>
+                <button onclick="switchMainTab('kuis')" id="tab-btn-kuis" class="main-tab-btn group flex items-center gap-2 px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-[#9CA3AF] hover:text-[#F3F4F6] whitespace-nowrap transition-colors cursor-pointer">
+                    <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+                    <span>Latihan Soal Asli LKS</span>
+                    <span id="nav-quiz-badge" class="bg-[#E76F51]/15 text-[#E76F51] border border-[#E76F51]/30 text-[11px] px-2 py-0.5 rounded-full font-bold">95 Soal</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+        <!-- ========================================================= -->
+        <!-- SECTION 1: MATERI HAFALAN & GLOSARIUM LKS KELAS XI - 1    -->
+        <!-- ========================================================= -->
+        <section id="section-materi" class="animate-fade-in">
+            <!-- Hero Intro Banner -->
+            <div class="bg-gradient-to-r from-[#111827] via-[#161E2E] to-[#111827] rounded-2xl p-5 sm:p-7 text-[#F3F4F6] mb-6 shadow-lg shadow-black/30 border border-slate-800 relative overflow-hidden">
+                <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#E76F51]/15 text-[#E76F51] border border-[#E76F51]/30 mb-2">
+                            📘 Disusun Langsung dari LKS PJOK Kelas XI - 1 Kurikulum Merdeka
+                        </span>
+                        <h2 class="font-display text-xl sm:text-2xl font-bold text-[#F3F4F6]">Ringkasan Inti Bab 1–3, Glosarium LKS & Jembatan Keledai</h2>
+                        <p class="text-[#9CA3AF] text-sm mt-1 max-w-2xl">Pahami seluruh konsep penggerak soal LKS: <strong class="text-[#F3F4F6]">4 Level Gerak (P-C-U-P), Game Sense & Skill Execution, 4 Unsur Konsep Gerak (TU-RU-WA-TE-HU), serta penerapan di Basket, Voli, Futsal, Atletik, Renang & Senam</strong>.</p>
+                    </div>
+                    <button onclick="markCurrentTopicMastered()" id="btn-mark-mastered" class="self-start md:self-center shrink-0 inline-flex items-center gap-2 bg-[#A7C957] hover:bg-[#b8d86b] text-[#0B0F19] font-bold text-sm px-4 py-2.5 rounded-xl shadow-md shadow-[#A7C957]/15 transition-all cursor-pointer">
+                        <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                        <span>Tandai Bagian Ini Paham</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sub-Tabs Kategori Materi -->
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-6" id="materi-subtabs">
+                <!-- Rendered via JS -->
+            </div>
+
+            <!-- Container Konten Materi -->
+            <div id="materi-content-container" class="space-y-6">
+                <!-- Rendered via JS -->
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- SECTION 2: FLASHCARDS HAFALAN CEPAT (30 KARTU)            -->
+        <!-- ========================================================= -->
+        <section id="section-flashcards" class="hidden animate-fade-in">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="font-display text-2xl font-bold text-[#F3F4F6]">Flashcards Hafalan Cepat LKS PJOK XI-1</h2>
+                    <p class="text-[#9CA3AF] text-sm mt-1">Ketuk kartu untuk membalik dan melihat jawaban + trik hafalan singkat. Tandai kartu yang sudah dikuasai!</p>
+                </div>
+
+                <!-- Mastered Flashcards Progress Pill -->
+                <div class="flex items-center justify-center gap-3 mb-5">
+                    <div class="inline-flex items-center gap-2 bg-[#161E2E] border border-slate-800 px-4 py-1.5 rounded-full text-xs">
+                        <span class="text-[#9CA3AF]">Kartu Dikuasai:</span>
+                        <span id="fc-mastered-count" class="font-bold text-[#A7C957]">0 / 30 Kartu</span>
+                    </div>
+                </div>
+
+                <!-- Filter Bab Flashcard -->
+                <div class="flex flex-wrap justify-center gap-2 mb-6" id="flashcard-filters">
+                    <!-- Rendered via JS -->
+                </div>
+
+                <!-- Interactive Flip Card -->
+                <div class="perspective-1000 w-full h-80 sm:h-96 cursor-pointer select-none mb-5" onclick="flipFlashcard()">
+                    <div id="flashcard-inner" class="relative w-full h-full transition-transform duration-500 transform-style-3d">
+                        <!-- Front Side -->
+                        <div class="absolute inset-0 backface-hidden bg-[#161E2E] rounded-2xl shadow-xl shadow-black/40 border border-slate-800 p-6 sm:p-8 flex flex-col justify-between">
+                            <div class="flex items-center justify-between">
+                                <span id="fc-category-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-[#E76F51]/15 text-[#E76F51] border border-[#E76F51]/30">Bab 1 LKS</span>
+                                <span id="fc-counter" class="text-xs font-semibold text-[#9CA3AF]">Kartu 1 / 30</span>
+                            </div>
+                            <div class="my-auto text-center px-2">
+                                <div class="text-xs uppercase tracking-widest text-[#9CA3AF] font-bold mb-2">Konsep / Istilah LKS Kelas XI</div>
+                                <h3 id="fc-front-text" class="font-display text-xl sm:text-2xl font-bold text-[#F3F4F6] leading-snug">
+                                    Memuat kartu...
+                                </h3>
+                            </div>
+                            <div class="flex items-center justify-center gap-2 text-xs font-medium text-[#9CA3AF]">
+                                <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-[#E76F51]"></i>
+                                <span>Ketuk kartu untuk melihat jawaban & jembatan keledai</span>
+                            </div>
+                        </div>
+
+                        <!-- Back Side -->
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-[#111827] text-[#F3F4F6] rounded-2xl shadow-2xl shadow-black/60 border-2 border-[#E76F51]/50 p-6 sm:p-8 flex flex-col justify-between">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#A7C957]/15 text-[#A7C957] border border-[#A7C957]/30">Jawaban & Trik Ingat</span>
+                                <span id="fc-counter-back" class="text-xs font-semibold text-[#9CA3AF]">Kartu 1 / 30</span>
+                            </div>
+                            <div class="my-auto text-center px-2 space-y-3">
+                                <p id="fc-back-text" class="text-base sm:text-lg font-medium text-[#F3F4F6] leading-relaxed">
+                                    Jawaban...
+                                </p>
+                                <div id="fc-mnemonic-box" class="bg-[#E76F51]/15 border border-[#E76F51]/30 rounded-xl p-3 text-xs sm:text-sm text-[#f3967e] font-semibold">
+                                    💡 Trik Hafal: ...
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center gap-2 text-xs font-medium text-[#9CA3AF]">
+                                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-[#A7C957]"></i>
+                                <span>Ketuk lagi untuk kembali ke depan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <button onclick="prevFlashcard()" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#161E2E] hover:bg-slate-800 text-[#F3F4F6] font-semibold px-4 py-3 rounded-xl border border-slate-700/80 shadow-sm transition cursor-pointer">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        <span>Sebelumnya</span>
+                    </button>
+
+                    <button onclick="toggleFlashcardMastered()" id="btn-fc-mastered" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#161E2E] hover:bg-slate-800 text-[#A7C957] font-semibold px-4 py-3 rounded-xl border border-[#A7C957]/40 transition cursor-pointer">
+                        <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                        <span>Tandai Dikuasai</span>
+                    </button>
+
+                    <button onclick="shuffleFlashcards()" class="inline-flex items-center justify-center gap-2 bg-[#161E2E] hover:bg-slate-800 text-[#9CA3AF] hover:text-[#F3F4F6] font-semibold px-4 py-3 rounded-xl border border-slate-800 transition cursor-pointer" title="Acak Kartu">
+                        <i data-lucide="shuffle" class="w-4 h-4"></i>
+                        <span class="hidden sm:inline">Acak</span>
+                    </button>
+
+                    <button onclick="nextFlashcard()" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#E76F51] hover:bg-[#f08064] text-white font-semibold px-4 py-3 rounded-xl shadow-md shadow-[#E76F51]/20 transition cursor-pointer">
+                        <span>Selanjutnya</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- SECTION 3: LATIHAN SOAL ASLI LKS (95 SOAL PILIHAN GANDA)   -->
+        <!-- ========================================================= -->
+        <section id="section-kuis" class="hidden animate-fade-in">
+            
+            <!-- Quiz Setup / Header Bar -->
+            <div class="bg-[#161E2E] rounded-2xl p-4 sm:p-6 shadow-md border border-slate-800 mb-6">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-[#E76F51]/15 text-[#E76F51] border border-[#E76F51]/30">Soal Asli LKS PJOK Kelas XI - 1</span>
+                            <span id="quiz-mode-label" class="text-xs font-semibold text-[#9CA3AF]">Paket: Semua Paket LKS (95 Soal)</span>
+                        </div>
+                        <h2 class="font-display text-xl font-bold text-[#F3F4F6] mt-1">Bank Soal Penilaian Sumatif, STS & SAS LKS Kelas XI</h2>
+                    </div>
+
+                    <!-- Mode Filter & Timer Controls -->
+                    <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+                        <select id="quiz-topic-filter" onchange="changeQuizMode(this.value)" class="bg-[#111827] border border-slate-700 text-[#F3F4F6] text-xs sm:text-sm font-semibold rounded-xl px-3 py-2.5 focus:ring-2 focus:ring-[#E76F51] focus:border-[#E76F51] outline-none">
+                            <option value="all">Semua Paket LKS (95 Soal)</option>
+                            <option value="bab1">Bab 1: Penilaian Sumatif (15 Soal)</option>
+                            <option value="bab2">Bab 2: Penilaian Sumatif (15 Soal)</option>
+                            <option value="sts">Sumatif Tengah Semester / STS (25 Soal)</option>
+                            <option value="bab3">Bab 3: Penilaian Sumatif (15 Soal)</option>
+                            <option value="sas">Sumatif Akhir Semester / SAS (25 Soal)</option>
+                        </select>
+
+                        <!-- Timer Box -->
+                        <div class="flex items-center gap-2 bg-[#0B0F19] text-[#F3F4F6] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-mono font-bold border border-slate-800">
+                            <i data-lucide="timer" class="w-4 h-4 text-[#E76F51]"></i>
+                            <span id="quiz-timer">00:00</span>
+                            <button onclick="toggleTimer()" id="btn-toggle-timer" class="ml-1 text-[#9CA3AF] hover:text-white cursor-pointer" title="Jeda/Lanjut Timer">
+                                <i data-lucide="pause" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+
+                        <!-- Instant Feedback Toggle -->
+                        <label class="inline-flex items-center gap-2 bg-[#111827] px-3 py-2 rounded-xl cursor-pointer border border-slate-800 select-none">
+                            <input type="checkbox" id="instant-feedback-toggle" checked onchange="renderCurrentQuestion()" class="w-4 h-4 accent-[#E76F51] rounded bg-slate-900 border-slate-700">
+                            <span class="text-xs font-semibold text-[#F3F4F6]">Cek Jawaban Instan</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Summary Banner (Hidden until submitted) -->
+            <div id="quiz-result-panel" class="hidden bg-[#161E2E] rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-[#A7C957]/40 mb-6 animate-fade-in">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-slate-800 pb-6">
+                    <div class="text-center md:text-left">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#A7C957]/15 text-[#A7C957] border border-[#A7C957]/30 mb-2">Hasil Evaluasi Latihan LKS PJOK Kelas XI</span>
+                        <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#F3F4F6]">
+                            Skor Akhir: <span id="final-score-value" class="text-[#A7C957]">0</span> <span class="text-lg text-[#9CA3AF] font-semibold">/ 100</span>
+                        </h3>
+                        <p id="final-score-feedback" class="text-sm text-[#9CA3AF] mt-1">Analisis penguasaan materi per paket soal LKS di bawah ini.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="text-center px-4 py-2 bg-[#A7C957]/10 rounded-xl border border-[#A7C957]/30">
+                            <div class="text-xs text-[#A7C957] font-semibold">Benar</div>
+                            <div id="final-correct-count" class="text-xl font-extrabold text-[#A7C957]">0</div>
+                        </div>
+                        <div class="text-center px-4 py-2 bg-rose-500/10 rounded-xl border border-rose-500/30">
+                            <div class="text-xs text-rose-400 font-semibold">Salah</div>
+                            <div id="final-wrong-count" class="text-xl font-extrabold text-rose-400">0</div>
+                        </div>
+                        <button onclick="resetQuiz()" class="inline-flex items-center gap-2 bg-[#0B0F19] hover:bg-slate-900 text-[#F3F4F6] border border-slate-700 font-semibold text-sm px-4 py-3.5 rounded-xl transition cursor-pointer">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            <span>Ulangi</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Breakdown Per Paket LKS -->
+                <div class="mt-6">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-[#9CA3AF] mb-3">Analisis Penguasaan per Paket LKS (Deteksi Bagian yang Perlu Diulang)</h4>
+                    <div id="category-breakdown-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                        <!-- Rendered via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Quiz Grid: Question Area (Left) + Navigation Map (Right) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Question Card (8 cols) -->
+                <div class="lg:col-span-8 bg-[#161E2E] rounded-2xl p-5 sm:p-7 shadow-md border border-slate-800">
+                    <!-- Top Question Meta -->
+                    <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b border-slate-800">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span id="q-number-badge" class="bg-[#0B0F19] text-[#F3F4F6] border border-slate-700 font-bold text-xs sm:text-sm px-3 py-1 rounded-lg">Soal 1</span>
+                            <span id="q-topic-badge" class="bg-[#E76F51]/15 text-[#E76F51] border border-[#E76F51]/30 font-bold text-xs px-2.5 py-1 rounded-lg">Bab 1: Penilaian Sumatif</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span id="q-hots-badge" class="hidden px-2.5 py-1 rounded-md text-xs font-extrabold bg-rose-500/20 text-rose-300 border border-rose-500/40 tracking-wide">🔥 HOTS LKS</span>
+                            <span id="q-level-badge" class="text-xs font-semibold text-amber-300 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Analisis (C4)</span>
+                        </div>
+                    </div>
+
+                    <!-- Question Stem -->
+                    <div id="q-text" class="text-[#F3F4F6] font-medium text-base sm:text-lg leading-relaxed mb-6">
+                        Memuat soal...
+                    </div>
+
+                    <!-- Options Container (A-E) -->
+                    <div id="q-options" class="space-y-3">
+                        <!-- Rendered via JS -->
+                    </div>
+
+                    <!-- Rational / Pembahasan LKS Box -->
+                    <div id="q-explanation-box" class="hidden mt-6 p-4 sm:p-5 rounded-xl bg-[#0B0F19] text-[#F3F4F6] border border-slate-800 border-l-4 border-l-[#A7C957]">
+                        <div class="flex items-center gap-2 text-[#A7C957] font-bold text-sm mb-1.5">
+                            <i data-lucide="lightbulb" class="w-4 h-4"></i>
+                            <span>Pembahasan Konsep Kurikulum Merdeka (LKS Kelas XI - 1)</span>
+                        </div>
+                        <p id="q-explanation-text" class="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed"></p>
+                    </div>
+
+                    <!-- Bottom Prev / Next Controls -->
+                    <div class="flex items-center justify-between gap-2 pt-6 mt-6 border-t border-slate-800">
+                        <button onclick="prevQuestion()" id="btn-prev-q" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-[#111827] hover:bg-slate-800 text-[#F3F4F6] border border-slate-700 disabled:opacity-35 transition cursor-pointer">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                            <span>Sebelumnya</span>
+                        </button>
+
+                        <button onclick="submitQuiz()" id="btn-submit-quiz" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-sm font-bold bg-[#A7C957] hover:bg-[#b8d86b] text-[#0B0F19] shadow-sm transition cursor-pointer">
+                            <i data-lucide="check-square" class="w-4 h-4"></i>
+                            <span>Selesai & Nilai</span>
+                        </button>
+
+                        <button onclick="nextQuestion()" id="btn-next-q" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-[#E76F51] hover:bg-[#f08064] text-white disabled:opacity-35 transition cursor-pointer">
+                            <span>Selanjutnya</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question Navigator Sidebar (4 cols) -->
+                <div class="lg:col-span-4 bg-[#161E2E] rounded-2xl p-5 shadow-md border border-slate-800 sticky top-28">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="font-display font-bold text-sm text-[#F3F4F6]">Peta Navigasi Nomor Soal</h3>
+                        <span id="answered-counter" class="text-xs font-bold text-[#9CA3AF]">0/95 Dijawab</span>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="flex flex-wrap items-center gap-3 text-[11px] text-[#9CA3AF] mb-4 pb-3 border-b border-slate-800">
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-[#E76F51] inline-block"></span> Aktif</span>
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-slate-600 inline-block"></span> Dijawab</span>
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-[#A7C957] inline-block"></span> Benar</span>
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-rose-500 inline-block"></span> Salah</span>
+                    </div>
+
+                    <!-- Number Grid -->
+                    <div id="q-nav-grid" class="grid grid-cols-8 sm:grid-cols-10 lg:grid-cols-8 gap-1.5 max-h-80 overflow-y-auto pr-1">
+                        <!-- Rendered via JS -->
+                    </div>
+
+                    <button onclick="submitQuiz()" class="w-full mt-5 py-3 rounded-xl bg-[#0B0F19] hover:bg-slate-900 text-[#F3F4F6] border border-slate-700 font-bold text-xs sm:text-sm transition shadow-sm cursor-pointer">
+                        Kumpulkan Jawaban & Lihat Skor
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Custom Notification Toast (Replaces alert) -->
+    <div id="toast-message" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-[#161E2E] text-[#F3F4F6] px-4 py-3 rounded-xl shadow-2xl border border-slate-700 flex items-center gap-3 text-sm font-medium">
+            <span id="toast-icon">✅</span>
+            <span id="toast-text">Notifikasi</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#111827] border-t border-slate-800 py-5 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#9CA3AF]">
+            <p class="font-semibold text-[#F3F4F6]">PJOK Master Kelas XI - 1 — Sumber Resmi LKS Kurikulum Merdeka</p>
+            <p>Bab 1 (15 Soal) • Bab 2 (15 Soal) • STS (25 Soal) • Bab 3 (15 Soal) • SAS (25 Soal) = 95 Soal</p>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT DATA & LOGIC ==================== -->
+    <script>
+        // =========================================================================
+        // 1. DATABASE MATERI HAFALAN & GLOSARIUM LKS PJOK KELAS XI - 1
+        // =========================================================================
+        const MATERI_DATA = [
+            {
+                id: 'bab1',
+                title: 'Bab 1: Keterampilan Gerak',
+                category: 'LKS Bab 1 • Evaluasi & Level Gerak',
+                icon: '🎯',
+                badgeClass: 'bg-[#E76F51]/15 text-[#E76F51] border-[#E76F51]/30',
+                summary: 'Memahami 4 level perkembangan keterampilan gerak (Pre-Control, Control, Utilization, Proficiency), observasi rekaman video & langsung, jurnal refleksi latihan, serta perbedaan rencana perbaikan jangka pendek vs jangka panjang.',
+                mnemonics: [
+                    {
+                        code: 'P - C - U - P (4 Level Gerak)',
+                        title: 'Pre-Control → Control → Utilization → Proficiency',
+                        desc: 'Pre-Control = kaku, belum stabil, sering salah. Control = mulai terkendali namun butuh konsentrasi tinggi pada teknik dasar. Utilization = mampu menerapkan gerak dalam situasi nyata & mengombinasikan gerakan sesuai kondisi permainan. Proficiency = otomatis, konsisten, efisien, dan mengambil keputusan cepat.'
+                    },
+                    {
+                        code: 'OBS → JRN → EVA → REN (4 Tahap Perbaikan)',
+                        title: 'Observasi → Jurnal Refleksi → Evaluasi → Rencana Perbaikan',
+                        desc: '1. Observasi (rekaman video & pengamatan langsung detail kesalahan). 2. Pencatatan jurnal refleksi (kondisi fisik, mental, lingkungan). 3. Analisis evaluasi (memahami makna di balik data latihan). 4. Rencana perbaikan.'
+                    },
+                    {
+                        code: 'PENDEK (Teknik) vs PANJANG (Kompleks)',
+                        title: 'Perbedaan Rencana Perbaikan Latihan',
+                        desc: 'Jangka Pendek = penguatan teknik dasar & variasi target/posisi (misal: variasi target servis atas bola voli). Jangka Panjang = menerapkan keterampilan dalam situasi permainan kompleks & target prestasi jangka panjang.'
+                    }
+                ],
+                cards: [
+                    {
+                        title: 'Ciri Perkembangan & Level Gerak',
+                        icon: 'layers',
+                        points: [
+                            '<strong class="text-[#F3F4F6]">Tanda Perkembangan Gerak:</strong> Perubahan kualitas gerakan dari kaku menjadi lebih terkoordinasi, konsisten, dan terkontrol.',
+                            '<strong class="text-[#F3F4F6]">Level Control:</strong> Gerakan mulai terkendali dan memerlukan konsentrasi tinggi pada teknik dasar.',
+                            '<strong class="text-[#F3F4F6]">Level Utilization:</strong> Mampu menerapkan gerak dalam situasi nyata, mengombinasikan beberapa gerakan, dan menyesuaikan dengan kondisi permainan.',
+                            '<strong class="text-[#F3F4F6]">Level Proficiency (Tingkat Mahir):</strong> Gerakan dilakukan secara otomatis, konsisten, efisien, serta mampu mengambil keputusan cepat.'
+                        ]
+                    },
+                    {
+                        title: 'Observasi & Jurnal Refleksi Latihan',
+                        icon: 'clipboard-check',
+                        points: [
+                            '<strong class="text-[#F3F4F6]">Observasi Rekaman Video:</strong> Memungkinkan atlet melihat detail kesalahan atau kekurangan gerak secara objektif untuk perbaikan teknik.',
+                            '<strong class="text-[#F3F4F6]">Isi Jurnal Refleksi:</strong> Mencatat kondisi fisik (kelelahan), kesiapan mental, dan faktor lingkungan (seperti cuaca panas yang menurunkan performa) secara rutin.',
+                            '<strong class="text-[#F3F4F6]">Makna Hasil Evaluasi:</strong> Evaluasi tidak sekadar mencari nilai akhir, melainkan memahami makna di balik data latihan guna menyusun latihan perbaikan spesifik.'
+                        ]
+                    },
+                    {
+                        title: 'Strategi Mengatasi Hambatan Latihan',
+                        icon: 'trending-up',
+                        points: [
+                            '<strong class="text-[#F3F4F6]">Latihan Tanpa Refleksi:</strong> Diibaratkan seperti <em>berjalan tanpa arah</em>; perkembangan berhenti karena tidak ada kesadaran dan perencanaan latihan.',
+                            '<strong class="text-[#F3F4F6]">Kesulitan Menghadapi Situasi Berubah:</strong> Jika murid sudah menguasai teknik dasar tetapi kesulitan saat situasi permainan berubah-ubah, solusinya adalah <em>menambah latihan kontekstual dan situasional</em>.',
+                            '<strong class="text-[#F3F4F6]">Sikap Saat Analisis Jurnal:</strong> Atlet dituntut bersikap <em>reflektif dan kritis</em> terhadap kesalahan teknik yang berulang.'
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'bab2',
+                title: 'Bab 2: Taktik & Game Sense',
+                category: 'LKS Bab 2 • Pemahaman Taktis',
+                icon: '🧠',
+                badgeClass: 'bg-sky-500/15 text-sky-400 border-sky-500/30',
+                summary: 'Menguasai Game Sense (kepekaan membaca situasi permainan), Momen Taktis Kunci, Skill Execution di bawah tekanan, membuka vs menutup ruang, antisipasi gerakan lawan, serta transfer keterampilan taktis lintas cabang olahraga.',
+                mnemonics: [
+                    {
+                        code: 'B - T - K (Skill Execution)',
+                        title: 'Benar • Tepat • Terkontrol',
+                        desc: 'Mengeksekusi keterampilan gerak dalam permainan menekankan kemampuan melakukan gerakan secara BENAR, TEPAT, dan TERKONTROL — bahkan ketika dibayangi tekanan lawan (menyesuaikan posisi tubuh sebelum menembak).'
+                    },
+                    {
+                        code: 'BAHU & KAKI (Indikator Antisipasi)',
+                        title: 'Membaca Arah Gerak Lawan Lebih Awal',
+                        desc: 'Antisipasi gerakan lawan berarti memprediksi tindakan lawan sejak dini. Indikator awal yang paling akurat diamati adalah ARAH BAHU dan POSISI KAKI lawan.'
+                    },
+                    {
+                        code: 'RUANG SEMPIT = SENTUHAN PENDEK',
+                        title: 'Aturan Emas Dribel di Area Padat',
+                        desc: 'Saat menggiring bola di area sempit atau dikepung dua lawan dari arah berbeda, teknik paling aman adalah menggiring bola dengan SENTUHAN PENDEK dan PERUBAHAN ARAH (bukan langkah panjang).'
+                    }
+                ],
+                cards: [
+                    {
+                        title: 'Game Sense & Pengambilan Keputusan',
+                        icon: 'compass',
+                        points: [
+                            '<strong class="text-[#F3F4F6]">Game Sense:</strong> Kemampuan membaca situasi permainan dengan cepat, mengenali posisi teman dan lawan, menilai peluang, dan memilih taktik terbaik.',
+                            '<strong class="text-[#F3F4F6]">Faktor Penentu Keputusan:</strong> Sangat dipengaruhi oleh <em>kondisi di sekitar pemain</em> (posisi rekan bebas, tekanan lawan, ruang kosong) dan berkembang melalui <em>latihan serta pengalaman bermain</em>.',
+                            '<strong class="text-[#F3F4F6]">Momen Taktis Kunci:</strong> Berkaitan erat dengan kemampuan pemain memahami <em>waktu yang tepat untuk bertindak</em> (kapan mengoper, menembak, atau menahan bola).'
+                        ]
+                    },
+                    {
+                        title: 'Taktik Menyerang vs Taktik Bertahan',
+                        icon: 'swords',
+                        points: [
+                            '<strong class="text-[#F3F4F6]">Strategi Menyerang & Membuka Ruang:</strong> Bertujuan menciptakan peluang mencetak poin dengan cara <em>bergerak ke area kosong yang jarang dijaga lawan</em> serta menjaga komunikasi tim.',
+                            '<strong class="text-[#F3F4F6]">Strategi Bertahan & Menutup Ruang:</strong> Bertujuan <em>menghambat gerakan lawan dan mengurangi peluang mencetak skor</em> melalui koordinasi tim serta penyesuaian posisi dan tempo.',
+                            '<strong class="text-[#F3F4F6]">Adaptasi Skill Execution:</strong> Saat tempo berubah atau lawan menekan, pemain melakukan adaptasi berupa perubahan <em>kecepatan dan arah gerak</em>.'
+                        ]
+                    },
+                    {
+                        title: 'Transfer Taktis & Evaluasi Pascapertandingan',
+                        icon: 'repeat',
+                        points: [
+                            '<strong class="text-[#F3F4F6]">Transfer Keterampilan Taktis:</strong> Prinsip bahwa strategi dasar (seperti membuka ruang, menutup ruang, menjaga jarak) dapat diterapkan di berbagai cabang olahraga berbeda untuk mempercepat adaptasi.',
+                            '<strong class="text-[#F3F4F6]">Kontrol di Bawah Tekanan:</strong> Membutuhkan <em>konsentrasi</em> tinggi, fokus pada pengambilan bola, dan tidak sekadar mengandalkan kekuatan fisik.',
+                            '<strong class="text-[#F3F4F6]">Evaluasi Pascapertandingan:</strong> Memperkuat pemahaman taktis karena pemain dapat meninjau setiap keputusan, memperbaiki kesalahan, dan memahami pola lawan.'
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'bab3',
+                title: 'Bab 3: Konsep Gerak',
+                category: 'LKS Bab 3 • Penerapan Olahraga',
+                icon: '⚡',
+                badgeClass: 'bg-[#A7C957]/15 text-[#A7C957] border-[#A7C957]/30',
+                summary: 'Memahami 4 unsur konsep gerak (Tubuh, Ruang, Waktu, Tenaga, serta Hubungan) dan penerapannya secara spesifik dalam Bola Basket, Bola Voli, Futsal, Lompat Jauh, Lompat Tinggi, Renang Gaya Bebas, Senam Lantai, Lari Tanah, dan Angkat Beban.',
+                mnemonics: [
+                    {
+                        code: 'TU - RU - WA - TE - HU',
+                        title: '5 Kata Kunci Klasifikasi Konsep Gerak LKS',
+                        desc: 'TUbuh (kesadaran posisi & koordinasi anggota tubuh). RUang (jarak, arah, posisi, ruang gerak). WAktu (tempo, ritme, tekanan waktu). TEnaga (kekuatan, kecepatan, momentum, gaya dorong). HUbungan (interaksi dengan rekan, lawan, dan alat).'
+                    },
+                    {
+                        code: 'BASKET 5 DETIK = DRIBEL SAAT LAWAN MENJAUH',
+                        title: 'Soal HOTS Basket Bab 3 (Halaman 68)',
+                        desc: 'Sisa shot clock 5 detik, rekan dijaga ketat, jarak ke ring masih jauh → keputusan tepat berdasarkan konsep gerak adalah MELAKUKAN DRIBEL PANJANG (saat ruang terbuka) / mendekat untuk tembakan efektif.'
+                    },
+                    {
+                        code: 'AIR SEJAJAR • TANAH PENDEK • BEBAN LURUS',
+                        title: '3 Kunci Biomekanika LKS Bab 3 & SAS',
+                        desc: 'Renang gaya bebas: posisi tubuh SEJAJAR permukaan air untuk mengurangi hambatan (drag). Lari lintasan tanah: LANGKAH LEBIH PENDEK karena gesekan permukaan besar. Angkat beban: PUNGGUNG LURUS untuk efisiensi dan keselamatan.'
+                    }
+                ],
+                cards: [
+                    {
+                        title: 'Unsur Konsep Gerak (Tubuh, Ruang, Waktu, Tenaga)',
+                        icon: 'grid',
+                        points: [
+                            '<strong class="text-[#F3F4F6]">Konsep Ruang:</strong> Pemahaman terhadap <em>jarak, arah, dan posisi</em> di lapangan agar terhindar dari perebutan bola.',
+                            '<strong class="text-[#F3F4F6]">Konsep Tubuh:</strong> Kesadaran terhadap <em>posisi dan koordinasi anggota tubuh</em> (sangat krusial dalam senam lantai untuk keseimbangan dan kontrol).',
+                            '<strong class="text-[#F3F4F6]">Konsep Waktu & Ritme:</strong> Bermain di bawah tekanan waktu melatih <em>berpikir dan mengambil keputusan cepat</em>; latihan berbasis ritme meningkatkan <em>koordinasi dan daya tahan</em>.'
+                        ]
+                    },
+                    {
+                        title: 'Penerapan di Permainan Bola (Basket, Voli, Futsal)',
+                        icon: 'dribbble',
+                        points: [
+                            '<strong class="text-[#F3F4F6]">Bola Voli:</strong> Ketepatan passing atas dipengaruhi koordinasi jari, pergelangan, dan posisi tubuh. Pemain mahir menyesuaikan passing dan smash sesuai arah bola dan posisi rekan (<em>adaptasi situasional</em>).',
+                            '<strong class="text-[#F3F4F6]">Futsal:</strong> Salah membaca ruang menyebabkan bola mudah direbut lawan. Pemain bertubuh kecil menghadapi lawan besar harus memakai <em>dribel cepat dan perubahan arah</em>, bukan duel fisik.',
+                            '<strong class="text-[#F3F4F6]">Lapangan Basah:</strong> Menuntut pengurangan kekuatan sentuhan bola karena pantulan dan laju bola menjadi licin/cepat.'
+                        ]
+                    },
+                    {
+                        title: 'Penerapan di Atletik, Renang, Senam & Kebugaran',
+                        icon: 'activity',
+                        points: [
+                            '<strong class="text-[#F3F4F6]">Lompat Jauh & Lompat Tinggi:</strong> Momentum lompat jauh berhubungan dengan <em>kecepatan awalan</em>; hasil lompat tinggi paling dipengaruhi <em>sudut tolakan dan gaya dorong</em>.',
+                            '<strong class="text-[#F3F4F6]">Renang Gaya Bebas:</strong> Posisi tubuh sejajar air mengurangi hambatan; latihan ayunan lengan & napas berulang bertujuan membentuk <em>ingatan otot (muscle memory)</em>.',
+                            '<strong class="text-[#F3F4F6]">Latihan Progresif:</strong> Dilakukan dengan prinsip <em>bertahap dari sederhana ke kompleks</em> untuk menyempurnakan kualitas gerakan secara aman.'
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'glosarium',
+                title: 'Glosarium Resmi LKS',
+                category: 'Kamus Istilah Wajib Hafal • Hal. 22 & 41',
+                icon: 'book-marked',
+                badgeClass: 'bg-purple-500/15 text-purple-400 border-purple-500/30',
+                summary: 'Daftar lengkap 11 istilah resmi yang tercantum dalam kotak Glosarium LKS PJOK Kelas XI - 1 halaman 22 dan halaman 41 beserta contoh konteks soalnya.',
+                mnemonics: [
+                    {
+                        code: 'L - O - P (Glosarium Bab 1 • Hal. 22)',
+                        title: 'Level • Otomatis • Performa',
+                        desc: 'Level = tingkat(an), tataran, lapisan. Otomatis = secara otomatis; dengan bekerja sendiri; dengan sendirinya. Performa = penampilan (unjuk kerja atlet).'
+                    },
+                    {
+                        code: 'A - E - K - R - R (Glosarium Bab 2 • Hal. 41)',
+                        title: 'Adaptasi • Eksplorasi • Konsisten • Respons • Risiko',
+                        desc: 'Adaptasi = penyesuaian diri terhadap kondisi baru. Eksplorasi = kegiatan memperoleh pengalaman baru dari situasi baru. Konsisten = tetap (tidak berubah-ubah). Respons = tanggapan/reaksi. Risiko = akibat yang merugikan/membahayakan.'
+                    },
+                    {
+                        code: 'S - S - T (Glosarium Bab 2 • Hal. 41)',
+                        title: 'Signifikan • Solid • Tempo',
+                        desc: 'Signifikan = penting; berarti. Solid = kuat; kukuh; berbobot. Tempo = kecepatan, jeda, dan durasi yang selalu terkait dengan irama.'
+                    }
+                ],
+                cards: [
+                    {
+                        title: 'Glosarium Halaman 22 (Evaluasi Gerak)',
+                        icon: 'bookmark',
+                        points: [
+                            '<strong class="text-[#E76F51]">Level:</strong> Tingkat(an), tataran, lapisan dalam penguasaan keterampilan gerak (Pre-control, Control, Utilization, Proficiency).',
+                            '<strong class="text-[#E76F51]">Otomatis:</strong> Secara otomatis; dengan bekerja sendiri; dengan sendirinya tanpa perlu berpikir lama pada teknik dasar.',
+                            '<strong class="text-[#E76F51]">Performa:</strong> Penampilan atau kualitas unjuk kerja seorang atlet saat latihan maupun bertanding.'
+                        ]
+                    },
+                    {
+                        title: 'Glosarium Halaman 41 — Bagian 1',
+                        icon: 'bookmark',
+                        points: [
+                            '<strong class="text-sky-400]">Adaptasi:</strong> Penyesuaian diri terhadap kondisi yang baru (situasi permainan, posisi lawan, atau medan lapangan).',
+                            '<strong class="text-sky-400]">Eksplorasi:</strong> Kegiatan untuk memperoleh pengalaman baru dari situasi yang baru.',
+                            '<strong class="text-sky-400]">Konsisten:</strong> Tetap (tidak berubah-ubah) dalam kualitas gerakan maupun pencatatan jurnal refleksi.',
+                            '<strong class="text-sky-400]">Respons:</strong> Tanggapan; reaksi; jawaban cepat terhadap rangsangan atau aksi lawan.'
+                        ]
+                    },
+                    {
+                        title: 'Glosarium Halaman 41 — Bagian 2',
+                        icon: 'bookmark',
+                        points: [
+                            '<strong class="text-[#A7C957]">Risiko:</strong> Akibat yang kurang menyenangkan (merugikan, membahayakan) dari suatu perbuatan atau tindakan.',
+                            '<strong class="text-[#A7C957]">Signifikan:</strong> Penting; berarti (misal: peningkatan performa yang signifikan setelah latihan terencana).',
+                            '<strong class="text-[#A7C957]">Solid:</strong> Kuat; kukuh; berbobot (pertahanan tim yang solid).',
+                            '<strong class="text-[#A7C957]">Tempo:</strong> Kecepatan, jeda, dan durasi yang selalu terkait dengan irama permainan.'
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        // =========================================================================
+        // 2. DATABASE 30 FLASHCARDS HAFALAN CEPAT LKS PJOK KELAS XI - 1
+        // =========================================================================
+        const FLASHCARDS_DATA = [
+            // Bab 1 (8 Kartu)
+            { topic: 'bab1', topicName: 'Bab 1 • Level Gerak', front: 'Apa ciri utama keterampilan gerak pada level Proficiency?', back: 'Gerakan dilakukan secara konsisten, otomatis, efisien, serta mampu mengambil keputusan cepat dalam situasi permainan.', mnemonic: 'Proficiency = Level Tertinggi (Otomatis + Konsisten + Efisien).' },
+            { topic: 'bab1', topicName: 'Bab 1 • Level Gerak', front: 'Apa ciri utama keterampilan gerak pada level Utilization?', back: 'Kemampuan mengombinasikan beberapa gerakan, menerapkannya dalam situasi nyata, dan menyesuaikan dengan kondisi permainan.', mnemonic: 'Utilization = Sudah dipakai di situasi nyata & kombinasi gerak.' },
+            { topic: 'bab1', topicName: 'Bab 1 • Level Gerak', front: 'Apa ciri level Control dibanding Pre-Control?', back: 'Pada level Control, gerakan mulai terkendali tetapi masih memerlukan konsentrasi tinggi pada teknik dasar; sedangkan Pre-Control masih kaku dan belum stabil.', mnemonic: 'Pre-Control = kaku/salah; Control = mulai terkendali tapi butuh fokus penuh.' },
+            { topic: 'bab1', topicName: 'Bab 1 • Observasi', front: 'Apa fungsi utama mengamati rekaman video gerakan dalam latihan?', back: 'Untuk melihat detail kesalahan atau kekurangan gerak secara objektif agar dapat diperbaiki secara spesifik.', mnemonic: 'Video = Kaca pembesar detail kesalahan gerak.' },
+            { topic: 'bab1', topicName: 'Bab 1 • Refleksi', front: 'Apa saja cakupan hasil observasi dalam jurnal refleksi latihan?', back: 'Mencakup pencatatan kondisi fisik (kelelahan), kesiapan mental, dan kondisi lingkungan (misal cuaca panas) secara rutin.', mnemonic: 'Jurnal Refleksi = Fisik + Mental + Lingkungan.' },
+            { topic: 'bab1', topicName: 'Bab 1 • Refleksi', front: 'Latihan tanpa refleksi dalam LKS diibaratkan seperti apa?', back: 'Diibaratkan seperti berjalan tanpa arah, karena pelaku tidak mengetahui kesalahan maupun target perbaikannya.', mnemonic: 'Tanpa refleksi = Berjalan tanpa arah!' },
+            { topic: 'bab1', topicName: 'Bab 1 • Rencana Latihan', front: 'Apa perbedaan fokus Rencana Perbaikan Jangka Pendek dan Jangka Panjang?', back: 'Jangka pendek fokus pada penguatan teknik dasar & variasi target latihan (seperti variasi posisi servis voli); jangka panjang fokus pada penerapan di situasi permainan kompleks.', mnemonic: 'Pendek = Teknik dasar & target; Panjang = Situasi kompleks.' },
+            { topic: 'bab1', topicName: 'Bab 1 • Evaluasi HOTS', front: 'Jika murid sudah menguasai gerakan dasar tetapi kesulitan saat situasi permainan berubah-ubah, strategi latihan apa yang paling tepat?', back: 'Menambah latihan kontekstual dan situasional agar terbiasa beradaptasi dengan dinamika permainan.', mnemonic: 'Kesulitan situasi berubah → Tambah latihan kontekstual & situasional!' },
+
+            // Bab 2 (8 Kartu)
+            { topic: 'bab2', topicName: 'Bab 2 • Game Sense', front: 'Apa yang dimaksud dengan Game Sense dalam permainan olahraga?', back: 'Kemampuan membaca situasi permainan dengan cepat, mengenali posisi teman dan lawan, menilai peluang, dan memilih taktik terbaik.', mnemonic: 'Game Sense = Baca situasi + Pilih taktik terbaik.' },
+            { topic: 'bab2', topicName: 'Bab 2 • Keputusan', front: 'Faktor apa yang paling memengaruhi ketepatan pengambilan keputusan dan bagaimana cara mengembangkannya?', back: 'Sangat dipengaruhi oleh kondisi di sekitar pemain (ruang, rekan, lawan) dan berkembang terutama melalui latihan serta pengalaman bermain.', mnemonic: 'Keputusan dipengaruhi kondisi sekitar → Diasah lewat latihan & pengalaman.' },
+            { topic: 'bab2', topicName: 'Bab 2 • Skill Execution', front: 'Mengeksekusi keterampilan gerak (Skill Execution) menekankan pada kemampuan melakukan gerakan secara...', back: 'Benar, tepat, dan terkontrol — termasuk menyesuaikan posisi tubuh saat dibayangi tekanan lawan.', mnemonic: 'Skill Execution = Benar, Tepat, Terkontrol!' },
+            { topic: 'bab2', topicName: 'Bab 2 • Dribel HOTS', front: 'Teknik paling tepat saat menggiring bola di area sempit dengan dua lawan mendekat dari arah berbeda adalah...', back: 'Menggiring bola dengan sentuhan pendek dan perubahan arah agar bola tetap berada dalam kendali.', mnemonic: 'Area sempit / dikepung = Sentuhan pendek + Ubah arah!' },
+            { topic: 'bab2', topicName: 'Bab 2 • Membuka Ruang', front: 'Bagaimana cara pemain melakukan konsep membuka ruang dalam permainan tim?', back: 'Bergerak ke area kosong yang jarang dijaga lawan sehingga menciptakan jalur operan dan peluang mencetak poin.', mnemonic: 'Membuka ruang = Lari ke area kosong tanpa penjagaan.' },
+            { topic: 'bab2', topicName: 'Bab 2 • Antisipasi', front: 'Apa indikator awal yang paling akurat untuk memprediksi/mengantisipasi arah gerak lawan?', back: 'Mengamati arah bahu dan posisi kaki lawan sebelum lawan bergerak penuh.', mnemonic: 'Baca lawan = Lihat arah bahu & posisi kaki!' },
+            { topic: 'bab2', topicName: 'Bab 2 • Transfer Taktis', front: 'Apa salah satu prinsip utama Transfer Keterampilan Taktis?', back: 'Strategi dasar (seperti membuka ruang, menutup ruang, menjaga jarak) dapat diterapkan di berbagai cabang olahraga berbeda untuk mempercepat adaptasi.', mnemonic: 'Transfer taktis = Satu konsep strategi dipakai lintas olahraga.' },
+            { topic: 'bab2', topicName: 'Bab 2 • Evaluasi', front: 'Mengapa evaluasi setelah pertandingan dapat memperkuat pemahaman taktis?', back: 'Karena pemain dapat meninjau setiap keputusan yang telah diambil, memperbaiki kesalahan, dan memahami pola permainan lawan.', mnemonic: 'Evaluasi pasca-laga = Tinjau keputusan + Pahami pola lawan.' },
+
+            // Bab 3 (8 Kartu)
+            { topic: 'bab3', topicName: 'Bab 3 • Konsep Gerak', front: 'Sebutkan klasifikasi unsur konsep gerak dalam pembelajaran PJOK Kelas XI!', back: 'Konsep Tubuh, Konsep Ruang (jarak, arah, posisi), Konsep Waktu (tempo, ritme), Konsep Tenaga, dan Konsep Hubungan.', mnemonic: 'TU - RU - WA - TE - HU (Tubuh, Ruang, Waktu, Tenaga, Hubungan).' },
+            { topic: 'bab3', topicName: 'Bab 3 • Basket HOTS', front: 'Sisa shot clock basket tinggal 5 detik, rekan dijaga ketat, dan jarak ke ring masih jauh. Apa keputusan terbaik menurut konsep gerak?', back: 'Melakukan dribel panjang memanfaatkan ruang terbuka mendekati ring untuk menciptakan peluang tembakan efektif.', mnemonic: '5 detik + Rekan dijaga + Jauh = Dribel panjang!' },
+            { topic: 'bab3', topicName: 'Bab 3 • Bola Voli', front: 'Faktor apa yang memengaruhi ketepatan passing atas dalam permainan bola voli?', back: 'Koordinasi jari, pergelangan tangan, dan posisi tubuh terhadap datangnya bola.', mnemonic: 'Passing atas akurat = Jari + Pergelangan + Posisi tubuh.' },
+            { topic: 'bab3', topicName: 'Bab 3 • Futsal', front: 'Strategi paling efektif bagi pemain futsal bertubuh kecil saat menghadapi lawan yang lebih besar dan kuat adalah...', back: 'Menggunakan dribel cepat dan perubahan arah (kelincahan & ruang), bukan melakukan duel fisik langsung.', mnemonic: 'Kecil vs Besar = Hindari duel fisik → Pakai dribel cepat & ubah arah!' },
+            { topic: 'bab3', topicName: 'Bab 3 • Atletik', front: 'Apa faktor utama yang memengaruhi momentum dalam lompat jauh dan hasil lompatan dalam lompat tinggi?', back: 'Momentum lompat jauh berhubungan dengan kecepatan awalan; hasil lompat tinggi paling dipengaruhi sudut tolakan dan gaya dorong.', mnemonic: 'Lompat Jauh = Kecepatan awalan; Lompat Tinggi = Sudut tolakan & gaya dorong.' },
+            { topic: 'bab3', topicName: 'Bab 3 • Renang', front: 'Mengapa posisi tubuh sejajar permukaan air penting dalam renang gaya bebas, dan apa tujuan utama latihan ayunan lengan berulang?', back: 'Posisi sejajar air membantu menghemat energi dengan mengurangi gaya gesek/hambatan air; latihan berulang membentuk ingatan otot (muscle memory).', mnemonic: 'Sejajar air = Hemat energi; Latihan berulang = Ingatan otot.' },
+            { topic: 'bab3', topicName: 'Bab 3 • Senam & Beban', front: 'Apa fungsi kesadaran tubuh dalam senam lantai dan posisi punggung lurus saat angkat beban?', back: 'Kesadaran tubuh menjaga keseimbangan dan kontrol gerakan senam; punggung lurus menjaga efisiensi biomekanika dan keselamatan (mencegah cedera tulang belakang).', mnemonic: 'Senam = Keseimbangan & kontrol; Angkat beban = Efisiensi & keselamatan.' },
+            { topic: 'bab3', topicName: 'Bab 3 • Lintasan Tanah', front: 'Mengapa lari di lintasan tanah menuntut langkah yang lebih pendek dibanding lintasan sintetis?', back: 'Karena gesekan permukaan lintasan tanah lebih besar dan tidak memantul sehingga langkah pendek menjaga stabilitas dan efisiensi tenaga.', mnemonic: 'Lintasan tanah = Gesekan besar → Langkah lebih pendek!' },
+
+            // Glosarium (6 Kartu)
+            { topic: 'glosarium', topicName: 'Glosarium LKS • Hal. 22', front: 'Apa arti istilah LEVEL, OTOMATIS, dan PERFORMA pada Glosarium LKS halaman 22?', back: 'Level = tingkat(an), tataran, lapisan; Otomatis = secara otomatis / dengan bekerja sendiri / dengan sendirinya; Performa = penampilan.', mnemonic: 'Level (tingkatan) • Otomatis (sendirinya) • Performa (penampilan).' },
+            { topic: 'glosarium', topicName: 'Glosarium LKS • Hal. 41', front: 'Apa arti istilah ADAPTASI dan EKSPLORASI pada Glosarium LKS halaman 41?', back: 'Adaptasi = penyesuaian diri terhadap kondisi yang baru; Eksplorasi = kegiatan untuk memperoleh pengalaman baru dari situasi yang baru.', mnemonic: 'Adaptasi = penyesuaian diri; Eksplorasi = cari pengalaman baru.' },
+            { topic: 'glosarium', topicName: 'Glosarium LKS • Hal. 41', front: 'Apa arti istilah KONSISTEN dan RESPONS pada Glosarium LKS halaman 41?', back: 'Konsisten = tetap (tidak berubah-ubah); Respons = tanggapan; reaksi; jawaban.', mnemonic: 'Konsisten = tetap; Respons = tanggapan/reaksi.' },
+            { topic: 'glosarium', topicName: 'Glosarium LKS • Hal. 41', front: 'Apa arti istilah RISIKO pada Glosarium LKS halaman 41?', back: 'Akibat yang kurang menyenangkan (merugikan, membahayakan) dari suatu perbuatan atau tindakan.', mnemonic: 'Risiko = akibat merugikan/membahayakan.' },
+            { topic: 'glosarium', topicName: 'Glosarium LKS • Hal. 41', front: 'Apa arti istilah SIGNIFIKAN dan SOLID pada Glosarium LKS halaman 41?', back: 'Signifikan = penting; berarti; Solid = kuat; kukuh; berbobot.', mnemonic: 'Signifikan = penting/berarti; Solid = kuat/kukuh.' },
+            { topic: 'glosarium', topicName: 'Glosarium LKS • Hal. 41', front: 'Apa arti istilah TEMPO pada Glosarium LKS halaman 41?', back: 'Kecepatan, jeda, dan durasi yang selalu terkait dengan irama.', mnemonic: 'Tempo = kecepatan + jeda + durasi terkait irama.' }
+        ];
+
+        // =========================================================================
+        // 3. DATABASE 95 SOAL ASLI LKS PJOK KELAS XI - 1 KURIKULUM MERDEKA
+        // =========================================================================
+        const QUIZ_QUESTIONS = [
+            // =====================================================================
+            // PAKET 1: BAB 1 — PENILAIAN SUMATIF (15 SOAL — LKS HALAMAN 22-23)
+            // =====================================================================
+            {
+                id: 1, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '1. Perkembangan keterampilan gerak dapat dikenali melalui ....',
+                options: [
+                    'perubahan kualitas gerakan dari kaku menjadi lebih terkoordinasi',
+                    'bertambahnya jumlah teman dalam olahraga',
+                    'meningkatnya skor dalam permainan video',
+                    'lamanya waktu latihan tanpa evaluasi',
+                    'jumlah teknik yang dipelajari sekaligus'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS Bab 1: Perkembangan keterampilan gerak ditandai oleh perubahan kualitas gerakan secara bertahap—dari gerakan yang awalnya kaku dan terputus-putus menjadi lebih halus, stabil, dan terkoordinasi.'
+            },
+            {
+                id: 2, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Aplikasi Konsep (C3)', isHots: false,
+                question: '2. Salah satu cara melakukan observasi keterampilan gerak adalah ....',
+                options: [
+                    'menonton pertandingan di televisi tanpa catatan',
+                    'menebak teknik lawan',
+                    'menghafal aturan permainan',
+                    'mengukur tinggi badan peserta',
+                    'menonton rekaman video dan diskusi dengan teman'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS Bab 1: Observasi keterampilan gerak dilakukan secara sistematis melalui pengamatan langsung maupun menonton rekaman video latihan disertai diskusi/umpan balik bersama teman atau pelatih.'
+            },
+            {
+                id: 3, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '3. Level keterampilan yang menunjukkan kemampuan mengombinasikan beberapa gerakan dan menyesuaikan dengan kondisi permainan adalah ....',
+                options: [
+                    'control',
+                    'utilization',
+                    'pre-control',
+                    'proficiency',
+                    'beginner'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS Bab 1: Pada level Utilization, pelaku gerak sudah mampu mengombinasikan beberapa keterampilan gerak sekaligus dan menerapkannya sesuai dinamika/kondisi permainan nyata.'
+            },
+            {
+                id: 4, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Analisis Konsep (C4)', isHots: false,
+                question: '4. Pengamatan keterampilan gerak juga bermanfaat untuk atlet profesional karena ....',
+                options: [
+                    'membuat atlet terkenal',
+                    'menggantikan latihan fisik',
+                    'mengurangi jumlah latihan yang dilakukan',
+                    'membantu meningkatkan konsistensi performa',
+                    'mengurangi risiko cedera tanpa latihan'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS Bab 1: Bahkan pada atlet profesional, observasi dan analisis gerak sangat penting untuk menjaga serta meningkatkan konsistensi performa dan mendeteksi detail teknis sekecil apa pun.'
+            },
+            {
+                id: 5, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '5. Salah satu fungsi jurnal refleksi adalah membantu atlet mengenali pola kesalahan melalui ....',
+                options: [
+                    'perbandingan dengan atlet lain',
+                    'latihan berulang tanpa evaluasi',
+                    'pencatatan pengalaman latihan secara rutin',
+                    'pengamatan pelatih sepenuhnya',
+                    'kompetisi yang berkelanjutan'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS Bab 1: Jurnal refleksi berfungsi merekam pengalaman, hambatan, dan kesalahan gerak secara rutin dari sesi ke sesi sehingga pola kesalahan dapat dikenali dan diperbaiki.'
+            },
+            {
+                id: 6, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Aplikasi Konsep (C3)', isHots: false,
+                question: '6. Cristiano Ronaldo mencatat kekuatan dan kelemahan latihannya untuk ....',
+                options: [
+                    'menurunkan intensitas latihan',
+                    'menjaga popularitas',
+                    'menentukan target perbaikan latihan berikutnya',
+                    'membandingkan diri dengan rekan setim',
+                    'mengurangi risiko cedera'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS Bab 1: Pencatatan kekuatan dan kelemahan dalam latihan bertujuan merumuskan evaluasi objektif guna menentukan target perbaikan pada sesi latihan berikutnya.'
+            },
+            {
+                id: 7, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Analogi Konsep (C3)', isHots: false,
+                question: '7. Latihan tanpa refleksi diibaratkan seperti ....',
+                options: [
+                    'berjalan tanpa arah',
+                    'bertanding tanpa lawan',
+                    'berlari dengan cepat',
+                    'berlatih dengan intensitas tinggi',
+                    'berlatih secara mandiri'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS Bab 1: Latihan tanpa refleksi diibaratkan seperti "berjalan tanpa arah" karena pelaku hanya mengulang gerakan tanpa mengetahui bagian mana yang salah dan ke mana tujuan perbaikannya.'
+            },
+            {
+                id: 8, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Analisis Kasus (C4)', isHots: true,
+                question: '8. Seorang atlet mencatat bahwa performanya menurun saat kondisi tubuh lelah dan fokus berkurang akibat cuaca panas. Manfaat utama pencatatan kondisi tersebut adalah ....',
+                options: [
+                    'meningkatkan volume latihan',
+                    'menghindari latihan fisik',
+                    'mengurangi intensitas pertandingan',
+                    'mengenali faktor yang memengaruhi performa',
+                    'mempercepat waktu pemulihan'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan HOTS LKS Bab 1: Mencatat faktor fisik (kelelahan), mental (fokus), dan lingkungan (cuaca panas) membantu atlet mengenali berbagai faktor internal maupun eksternal yang memengaruhi naik-turunnya performa.'
+            },
+            {
+                id: 9, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Evaluasi Konsep (C4)', isHots: false,
+                question: '9. Berikut bukan faktor yang memengaruhi keterampilan gerak sebagai proses dinamis adalah ....',
+                options: [
+                    'frekuensi latihan',
+                    'kondisi fisik',
+                    'kesiapan mental',
+                    'lingkungan latihan',
+                    'jenis kelamin'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS Bab 1: Perkembangan keterampilan gerak sebagai proses belajar dipengaruhi oleh frekuensi latihan, kondisi fisik, kesiapan mental, dan lingkungan latihan—bukan jenis kelamin.'
+            },
+            {
+                id: 10, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Analisis Strategi Latihan (C4)', isHots: true,
+                question: '10. Seorang murid telah mempraktikkan gerakan dengan baik, tetapi kesulitan saat menghadapi situasi permainan yang berubah-ubah. Strategi latihan yang paling tepat untuk mengatasi masalah tersebut adalah ....',
+                options: [
+                    'kembali ke latihan teknik dasar',
+                    'mengurangi variasi latihan',
+                    'menambah latihan kontekstual dan situasional',
+                    'menghentikan latihan sementara',
+                    'fokus pada teori gerak'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan HOTS LKS Bab 1: Ketika teknik dasar sudah dikuasai (level Control) namun gagal saat situasi berubah-ubah, murid perlu naik ke level Utilization dengan menambah latihan kontekstual dan situasional.'
+            },
+            {
+                id: 11, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Pemahaman Sikap (C2)', isHots: false,
+                question: '11. Melalui analisis jurnal latihan, seseorang dilatih untuk bersikap ....',
+                options: [
+                    'pasif dan patuh',
+                    'reflektif dan kritis',
+                    'kompetitif dan ambisius',
+                    'cepat dan agresif',
+                    'bergantung pada pelatih'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS Bab 1: Analisis jurnal latihan melatih kemandirian belajar siswa untuk bersikap reflektif (menilai diri sendiri secara jujur) dan kritis dalam menemukan solusi perbaikan gerak.'
+            },
+            {
+                id: 12, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Pemahaman Tahapan (C2)', isHots: false,
+                question: '12. Perbaikan keterampilan gerak dilakukan setelah seseorang melakukan tahap ....',
+                options: [
+                    'penguasaan teknik',
+                    'pengulangan gerak',
+                    'simulasi permainan',
+                    'evaluasi kemampuan gerak',
+                    'refleksi latihan'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS Bab 1: Rencana perbaikan keterampilan gerak disusun secara tepat sasaran setelah dilakukan tahap evaluasi kemampuan gerak berdasarkan hasil observasi dan catatan latihan.'
+            },
+            {
+                id: 13, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '13. Fokus utama rencana perbaikan keterampilan gerak jangka pendek adalah ....',
+                options: [
+                    'strategi permainan',
+                    'penguatan teknik dasar',
+                    'simulasi pertandingan',
+                    'variasi tekanan lawan',
+                    'pengembangan mental bertanding'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS Bab 1: Rencana perbaikan jangka pendek berfokus pada penguatan teknik dasar dan koreksi spesifik yang dapat segera dicapai dalam waktu dekat.'
+            },
+            {
+                id: 14, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '14. Rencana perbaikan jangka panjang bertujuan untuk ....',
+                options: [
+                    'menerapkan keterampilan dalam situasi permainan kompleks',
+                    'menghafal urutan gerakan',
+                    'meningkatkan kebugaran jasmani',
+                    'mengurangi kesalahan teknik dasar',
+                    'menyesuaikan waktu latihan'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS Bab 1: Rencana perbaikan jangka panjang bertujuan mengintegrasikan dan menerapkan keterampilan gerak ke dalam situasi permainan yang kompleks dan penuh tekanan.'
+            },
+            {
+                id: 15, topic: 'bab1', topicName: 'Bab 1: Penilaian Sumatif', level: 'Aplikasi Konsep (C3)', isHots: false,
+                question: '15. Penambahan variasi target dan perubahan posisi servis bola voli termasuk bagian dari ....',
+                options: [
+                    'latihan teknik dasar',
+                    'evaluasi awal',
+                    'refleksi latihan',
+                    'rencana jangka pendek',
+                    'rencana jangka panjang'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS Bab 1: Penambahan variasi target dan perubahan posisi servis atas bola voli merupakan bentuk latihan terukur pada rencana perbaikan jangka pendek.'
+            },
+
+            // =====================================================================
+            // PAKET 2: BAB 2 — PENILAIAN SUMATIF (15 SOAL — LKS HALAMAN 41-43)
+            // =====================================================================
+            {
+                id: 16, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '1. Pengambilan keputusan dalam permainan olahraga harus dilakukan secara tepat karena sangat dipengaruhi oleh ....',
+                options: [
+                    'keberanian pemain',
+                    'kemampuan teknik individu',
+                    'kekuatan fisik',
+                    'arahan penonton',
+                    'kondisi di sekitar pemain'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS Bab 2: Dalam permainan dinamis, keputusan tepat (mengoper, menggiring, atau menembak) sangat dipengaruhi oleh kondisi di sekitar pemain seperti posisi rekan setim, jarak lawan, dan ruang kosong.'
+            },
+            {
+                id: 17, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '2. Kemampuan mengambil keputusan yang baik berkembang terutama melalui ....',
+                options: [
+                    'bakat alami',
+                    'usia pemain',
+                    'tingkat pendidikan',
+                    'latihan dan pengalaman bermain',
+                    'jumlah pertandingan yang ditonton'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS Bab 2: Kecepatan dan ketepatan pengambilan keputusan taktis berkembang melalui latihan situasional yang berulang serta pengalaman bermain langsung di lapangan.'
+            },
+            {
+                id: 18, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '3. Momen taktis kunci berkaitan erat dengan kemampuan pemain untuk ....',
+                options: [
+                    'menghafal strategi',
+                    'memahami waktu yang tepat untuk bertindak',
+                    'meningkatkan kekuatan otot',
+                    'menghindari kontak fisik',
+                    'memperlambat permainan'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS Bab 2: Momen taktis kunci adalah kemampuan mengenali peluang emas dan memahami waktu yang tepat (timing) untuk bertindak sebelum peluang tersebut tertutup lawan.'
+            },
+            {
+                id: 19, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '4. Mengeksekusi keterampilan gerak dalam permainan olahraga menekankan pada kemampuan melakukan gerakan secara ....',
+                options: [
+                    'benar, tepat, dan terkontrol',
+                    'cepat dan keras',
+                    'bebas tanpa aturan',
+                    'spontan tanpa latihan',
+                    'sederhana dan ringan'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS Bab 2: Skill execution dalam situasi permainan tidak hanya menuntut kecepatan, tetapi harus dilakukan secara benar, tepat sasaran, dan terkontrol.'
+            },
+            {
+                id: 20, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Analisis Situasi (C4)', isHots: true,
+                question: '5. Seorang pemain menerima bola saat dua lawan mendekat, sementara satu rekannya berada dalam posisi bebas tanpa penjagaan. Keputusan paling tepat dalam situasi tersebut adalah ....',
+                options: [
+                    'langsung menembak',
+                    'menggiring bola ke arah lawan',
+                    'mengoper pada rekan yang bebas',
+                    'menahan bola terlalu lama',
+                    'menunggu pelanggaran'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan HOTS LKS Bab 2: Ketika dua lawan menekan (double team), pasti ada ruang kosong dan rekan satu tim yang bebas penjagaan. Keputusan taktis paling efektif adalah segera mengoper bola kepada rekan yang bebas tersebut.'
+            },
+            {
+                id: 21, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '6. Koordinasi gerak yang harmonis melibatkan hubungan antara ....',
+                options: [
+                    'kecepatan dan kekuatan',
+                    'otot dan stamina',
+                    'mata, anggota gerak, dan keseimbangan',
+                    'teknik dan strategi',
+                    'ruang dan waktu'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS Bab 2: Koordinasi gerak yang harmonis memadukan penglihatan (mata) untuk membaca bola/ruang, kerja anggota gerak (tangan/kaki), dan keseimbangan tubuh.'
+            },
+            {
+                id: 22, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Analisis Taktik Dribel (C4)', isHots: true,
+                question: '7. Pemain menggiring bola di area sempit dengan dua lawan mendekat dari arah berbeda. Teknik paling tepat agar bola tetap aman adalah ....',
+                options: [
+                    'menggiring dengan langkah panjang',
+                    'menggiring bola dengan sentuhan pendek dan perubahan arah',
+                    'menghentikan bola',
+                    'menendang bola keras',
+                    'menunggu lawan mendekat'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan HOTS LKS Bab 2: Di area sempit yang dijaga dua lawan, langkah panjang membuat bola jauh dari jangkauan kaki sehingga mudah direbut. Sentuhan pendek menjaga bola tetap dekat di kontrol pemain disertai perubahan arah untuk keluar dari tekanan.'
+            },
+            {
+                id: 23, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '8. Adaptasi dalam skill execution dapat berupa perubahan ....',
+                options: [
+                    'peraturan permainan',
+                    'jenis olahraga',
+                    'ukuran lapangan',
+                    'jumlah pemain',
+                    'kecepatan dan arah gerak'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS Bab 2: Saat situasi permainan dan tekanan lawan berubah, pemain melakukan adaptasi eksekusi gerak dengan mengubah kecepatan dan arah geraknya secara fleksibel.'
+            },
+            {
+                id: 24, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '9. Pemahaman taktis dalam permainan olahraga adalah kemampuan untuk ....',
+                options: [
+                    'membaca situasi permainan, mengenali posisi teman dan lawan, serta menyesuaikan strategi',
+                    'melakukan gerakan fisik secepat mungkin',
+                    'semata mengandalkan teknik individu',
+                    'menembak bola tanpa memperhatikan posisi lawan',
+                    'menjaga stamina selama pertandingan'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS Bab 2: Pemahaman taktis menggabungkan persepsi visual (membaca situasi serta posisi kawan dan lawan) dengan penyesuaian strategi yang tepat.'
+            },
+            {
+                id: 25, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '10. Strategi menyerang dalam permainan olahraga bertujuan untuk ....',
+                options: [
+                    'mencegah lawan mencetak skor',
+                    'hanya menggiring bola tanpa tujuan',
+                    'menunggu lawan melakukan kesalahan',
+                    'menciptakan peluang dan memanfaatkan ruang untuk mencetak poin',
+                    'menjaga posisi tanpa berinteraksi dengan rekan satu tim'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS Bab 2: Tujuan utama strategi penyerangan dalam seluruh olahraga permainan adalah menciptakan peluang emas dan memanfaatkan ruang kosong untuk mencetak angka/poin.'
+            },
+            {
+                id: 26, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Aplikasi Konsep (C3)', isHots: false,
+                question: '11. Pemain yang mampu beradaptasi dengan cepat terhadap perubahan situasi ....',
+                options: [
+                    'tidak perlu mengubah strategi',
+                    'mampu menyesuaikan posisi saat lawan menekan atau rekan membuka ruang',
+                    'selalu menyerang tanpa memperhatikan pertahanan',
+                    'hanya fokus pada bola sendiri',
+                    'menunggu arahan pelatih'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS Bab 2: Pemain adaptif mampu secara aktif menyesuaikan posisi tubuh dan pergerakannya baik ketika lawan melakukan tekanan (pressing) maupun ketika rekan setim membuka ruang kosong.'
+            },
+            {
+                id: 27, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Analisis Evaluasi (C4)', isHots: false,
+                question: '12. Evaluasi setelah pertandingan dapat memperkuat pemahaman taktis karena ....',
+                options: [
+                    'pemain bisa tidur lebih awal',
+                    'pemain bisa beristirahat dari latihan',
+                    'pemain dapat meninjau setiap keputusan, memperbaiki kesalahan, dan memahami pola lawan',
+                    'hanya pelatih yang menilai tanpa pemain ikut refleksi',
+                    'pemain tidak melakukan apa-apa'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS Bab 2: Evaluasi pascapertandingan memberikan umpan balik reflektif agar pemain meninjau keputusan taktis yang diambil, mengoreksi kesalahan, dan memetakan pola permainan lawan.'
+            },
+            {
+                id: 28, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '13. Game sense dalam permainan olahraga adalah kemampuan untuk ....',
+                options: [
+                    'berlari cepat di lapangan',
+                    'menendang bola dengan keras',
+                    'menguasai teknik dasar tanpa strategi',
+                    'membaca situasi permainan dan memilih taktik terbaik',
+                    'melatih kekuatan fisik'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS Bab 2: Game sense adalah kecerdasan bermain untuk membaca situasi pertandingan secara cepat dan menentukan taktik terbaik di setiap momen.'
+            },
+            {
+                id: 29, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Aplikasi Konsep (C3)', isHots: false,
+                question: '14. Membuka ruang dalam permainan dilakukan dengan ....',
+                options: [
+                    'berdiri diam di lapangan',
+                    'mengabaikan posisi lawan',
+                    'fokus hanya pada bola',
+                    'memotong operan teman satu tim',
+                    'bergerak ke area kosong yang jarang dijaga lawan'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS Bab 2: Membuka ruang dilakukan melalui pergerakan tanpa bola (off-the-ball movement) menuju area kosong yang jauh dari pengawasan pemain bertahan lawan.'
+            },
+            {
+                id: 30, topic: 'bab2', topicName: 'Bab 2: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '15. Salah satu prinsip transfer keterampilan taktis adalah ....',
+                options: [
+                    'strategi dasar dapat diterapkan di berbagai olahraga',
+                    'semua olahraga memiliki teknik sama',
+                    'hanya berlaku untuk permainan bola',
+                    'hanya berlaku pada olahraga tim',
+                    'tidak perlu latihan'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS Bab 2: Transfer keterampilan taktis memungkinkan konsep strategi dasar (seperti membaca ruang, menjaga jarak, dan antisipasi) diterapkan di berbagai cabang olahraga berbeda.'
+            },
+
+            // =====================================================================
+            // PAKET 3: SUMATIF TENGAH SEMESTER / STS (25 SOAL — LKS HALAMAN 45-47)
+            // =====================================================================
+            {
+                id: 31, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Prosedur (C2)', isHots: false,
+                question: '1. Sebelum merancang program latihan untuk meningkatkan keterampilan gerak, langkah yang tepat adalah ....',
+                options: [
+                    'langsung melakukan latihan intensif',
+                    'melakukan observasi terhadap keterampilan yang dimiliki',
+                    'mengikuti pertandingan tanpa persiapan',
+                    'menyalin teknik atlet profesional tanpa evaluasi',
+                    'meningkatkan jumlah latihan tanpa jeda'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS STS: Perancangan program latihan harus diawali dengan observasi terhadap kemampuan awal dan detail keterampilan gerak yang sudah dimiliki peserta.'
+            },
+            {
+                id: 32, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '2. Ciri utama level proficiency adalah ....',
+                options: [
+                    'gerakan konsisten, efisien, dan pengambilan keputusan cepat',
+                    'gerakan kaku dan belum stabil',
+                    'kesalahan gerak sering terjadi',
+                    'masih memerlukan konsentrasi tinggi untuk teknik dasar',
+                    'latihan fokus pada pengenalan gerak'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS STS: Proficiency merupakan tingkat tertinggi penguasaan gerak yang ditandai gerakan otomatis, konsisten, hemat energi (efisien), dan pengambilan keputusan cepat.'
+            },
+            {
+                id: 33, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Aplikasi Konsep (C3)', isHots: false,
+                question: '3. Mengamati rekaman video gerakan dalam latihan berfungsi untuk ....',
+                options: [
+                    'mengisi waktu luang',
+                    'membandingkan gerakan dengan teman sebaya',
+                    'melihat detail kesalahan atau kekurangan gerak',
+                    'menggantikan latihan fisik',
+                    'meningkatkan popularitas di media sosial'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS STS: Rekaman video memungkinkan pemutaran ulang (replay) sehingga detail kesalahan biomekanika dan kekurangan gerak terlihat jelas untuk diperbaiki.'
+            },
+            {
+                id: 34, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '4. Perkembangan keterampilan gerak tidak hanya ditentukan oleh seberapa sering latihan dilakukan, tetapi juga oleh ....',
+                options: [
+                    'kekuatan otot',
+                    'usia seseorang',
+                    'lama pengalaman bertanding',
+                    'kesadaran dan perencanaan latihan',
+                    'kondisi cuaca'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS STS: Pengulangan latihan saja tidak cukup tanpa kesadaran diri (refleksi) dan perencanaan latihan yang terarah dan terukur.'
+            },
+            {
+                id: 35, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '5. Hasil observasi dalam jurnal refleksi mencakup ....',
+                options: [
+                    'jadwal latihan berikutnya',
+                    'strategi kompetisi',
+                    'perbandingan hasil antaratlet',
+                    'target jangka panjang',
+                    'kondisi fisik, mental, dan lingkungan'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS STS: Jurnal refleksi mencatat faktor menyeluruh yang memengaruhi sesi latihan, yakni kondisi fisik, kesiapan mental, dan situasi lingkungan latihan.'
+            },
+            {
+                id: 36, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Analisis Evaluasi (C4)', isHots: true,
+                question: '6. Seorang atlet menemukan bahwa kesalahan teknik yang sama terus muncul dalam catatan latihannya selama beberapa minggu. Tindakan paling tepat berdasarkan jurnal refleksi tersebut adalah ....',
+                options: [
+                    'menambah durasi latihan',
+                    'mengabaikan kesalahan kecil',
+                    'menyusun latihan perbaikan yang spesifik',
+                    'mengganti cabang olahraga',
+                    'mengurangi frekuensi latihan'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan HOTS LKS STS: Jika pola kesalahan yang sama terus berulang dalam catatan jurnal, menambah durasi tanpa mengubah cara berlatih hanya memperkuat kebiasaan salah. Solusinya adalah menyusun latihan perbaikan yang spesifik menargetkan kesalahan tersebut.'
+            },
+            {
+                id: 37, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Analisis Konsep (C4)', isHots: false,
+                question: '7. Analisis hasil evaluasi dalam pembelajaran keterampilan gerak bertujuan untuk ....',
+                options: [
+                    'menentukan peringkat kemampuan murid',
+                    'memahami makna di balik data hasil latihan',
+                    'membandingkan kemampuan dengan murid lain',
+                    'menilai keberhasilan guru dalam mengajar',
+                    'menentukan nilai akhir pembelajaran'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS STS: Analisis evaluasi bertujuan menggali dan memahami makna di balik data hasil latihan (penyebab keberhasilan/kegagalan) sebagai dasar perbaikan berikutnya.'
+            },
+            {
+                id: 38, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '8. Ciri utama keterampilan gerak pada level utilization adalah ....',
+                options: [
+                    'penerapan gerak dalam situasi nyata',
+                    'gerakan masih sering berubah',
+                    'fokus pada teknik dasar',
+                    'gerakan dilakukan secara otomatis',
+                    'penurunan risiko cedera'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS STS: Pada level Utilization, keterampilan gerak tidak lagi sekadar dilatih terpisah, tetapi sudah mampu diterapkan dalam situasi permainan nyata.'
+            },
+            {
+                id: 39, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '9. Tujuan utama membaca situasi permainan bagi seorang pemain adalah ....',
+                options: [
+                    'meningkatkan kekuatan pemain',
+                    'menentukan tindakan yang paling efektif',
+                    'mempercepat tempo permainan',
+                    'menghindari kerja sama tim',
+                    'menonjolkan kemampuan individu'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS STS: Membaca situasi permainan memberikan informasi akurat tentang posisi lawan, rekan, dan ruang sehingga pemain dapat menentukan tindakan paling efektif.'
+            },
+            {
+                id: 40, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '10. Fungsi utama evaluasi berkala adalah ....',
+                options: [
+                    'menambah durasi latihan',
+                    'menentukan pemenang latihan',
+                    'mengurangi intensitas latihan',
+                    'mengganti cabang olahraga',
+                    'menilai perkembangan dan hambatan'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS STS: Evaluasi berkala memantau sejauh mana perkembangan keterampilan gerak telah tercapai sekaligus mengidentifikasi hambatan yang masih muncul.'
+            },
+            {
+                id: 41, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '11. Tujuan utama penyusunan rencana latihan yang sistematis dan berkelanjutan adalah ....',
+                options: [
+                    'mempercepat kelelahan otot',
+                    'meningkatkan teknik dasar saja',
+                    'menyesuaikan jadwal pembelajaran',
+                    'meningkatkan teknik dan penerapannya dalam berbagai situasi',
+                    'mengurangi frekuensi latihan'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS STS: Rencana latihan yang sistematis dan berkelanjutan bertujuan meningkatkan penguasaan teknik sekaligus kemampuan menerapkannya dalam berbagai situasi permainan.'
+            },
+            {
+                id: 42, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Aplikasi Taktik (C3)', isHots: false,
+                question: '12. Keputusan mengoper bola menjadi pilihan paling tepat ketika ....',
+                options: [
+                    'rekan satu tim berada pada posisi bebas',
+                    'pemain berada di bawah tekanan ketat',
+                    'pemain ingin mencetak angka sendiri',
+                    'tempo permainan melambat',
+                    'lawan menjauh dari ring'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS STS: Mengoper bola menjadi opsi taktis paling tepat dan efektif ketika rekan satu tim berada dalam posisi bebas tanpa penjagaan.'
+            },
+            {
+                id: 43, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Analisis Taktik Pertahanan (C4)', isHots: true,
+                question: '13. Sebuah tim menyadari bahwa lawan sering melakukan serangan dari sisi kanan lapangan dengan pola yang sama. Tindakan paling tepat untuk menghadapi situasi tersebut adalah ....',
+                options: [
+                    'menunggu serangan lawan',
+                    'hanya fokus menyerang',
+                    'menutup jalur serangan sisi kanan',
+                    'tetap pada posisi awal',
+                    'mengurangi intensitas permainan'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan HOTS LKS STS: Setelah membaca pola serangan lawan yang terpusat di sisi kanan, adaptasi pertahanan yang tepat adalah menggeser koordinasi tim untuk menutup ruang dan jalur serangan di sisi kanan tersebut.'
+            },
+            {
+                id: 44, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '14. Ketepatan dan kontrol gerak berperan penting karena dapat ....',
+                options: [
+                    'mempercepat permainan lawan',
+                    'mengurangi kerja sama tim',
+                    'menghilangkan tekanan permainan',
+                    'menjaga penguasaan bola',
+                    'menghindari latihan berulang'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS STS: Ketepatan dan kontrol gerak mencegah kesalahan umpan maupun kontrol lepas sehingga tim mampu menjaga penguasaan bola (ball possession).'
+            },
+            {
+                id: 45, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '15. Konsep membuka ruang bertujuan untuk ....',
+                options: [
+                    'menghalangi rekan satu tim',
+                    'mempersempit area permainan',
+                    'memperlambat permainan',
+                    'menutup jalur serangan sendiri',
+                    'menciptakan peluang menerima bola'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS STS: Bergerak membuka ruang ke area kosong bertujuan membuka jalur operan sehingga menciptakan peluang menerima bola dari rekan satu tim.'
+            },
+            {
+                id: 46, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Analisis Skill Execution (C4)', isHots: true,
+                question: '16. Seorang pemain akan menembak dengan posisi tubuh kurang ideal karena dibayangi lawan. Tindakan yang mencerminkan skill execution yang baik adalah ....',
+                options: [
+                    'tetap menembak tanpa menyesuaikan posisi',
+                    'menunda terlalu lama',
+                    'menyesuaikan posisi tubuh agar tetap seimbang',
+                    'membelakangi gawang',
+                    'menghentikan serangan'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan HOTS LKS STS: Skill execution yang baik di bawah tekanan lawan ditunjukkan dengan menyesuaikan keseimbangan dan posisi tubuh terlebih dahulu sebelum melepaskan tembakan agar akurasi tetap terjaga.'
+            },
+            {
+                id: 47, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '17. Pemain yang memiliki pemahaman taktis yang baik mampu ....',
+                options: [
+                    'berlari lebih cepat daripada lawan',
+                    'melihat peluang yang tidak terlihat oleh pemain lain',
+                    'menguasai bola tanpa koordinasi tim',
+                    'hanya fokus menyerang',
+                    'menonton pertandingan tanpa ikut bermain'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS STS: Pemain dengan pemahaman taktis tinggi memiliki visi bermain luas sehingga mampu melihat celah ruang dan peluang operan yang terlewat oleh pemain lain.'
+            },
+            {
+                id: 48, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '18. Aspek penting dalam keterampilan taktis menyerang adalah ....',
+                options: [
+                    'membaca pola lawan, memanfaatkan ruang, dan kerja sama tim',
+                    'berlari cepat tanpa strategi',
+                    'menjaga bola sendiri saja',
+                    'menunggu lawan melakukan kesalahan',
+                    'fokus menembak dari jarak jauh'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS STS: Serangan yang efektif memadukan kemampuan membaca formasi/pola lawan, memanfaatkan ruang kosong, dan kerja sama tim.'
+            },
+            {
+                id: 49, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '19. Menutup ruang bertujuan untuk ....',
+                options: [
+                    'mempercepat permainan',
+                    'memfokuskan latihan individu',
+                    'menambah stamina',
+                    'mengurangi kecepatan rekan satu tim',
+                    'menghambat gerakan lawan dan mengurangi peluang mereka'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS STS: Menutup ruang adalah prinsip utama pertahanan untuk mempersempit pergerakan lawan dan meminimalkan peluang lawan mencetak angka.'
+            },
+            {
+                id: 50, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '20. Transfer keterampilan taktis dapat mempercepat ....',
+                options: [
+                    'stamina pemain',
+                    'kekuatan otot kaki',
+                    'kecepatan berlari',
+                    'adaptasi pada olahraga lain',
+                    'fokus individu'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS STS: Karena prinsip taktis dasar bersifat universal lintas permainan, transfer keterampilan taktis mempercepat proses adaptasi saat mempelajari olahraga lain.'
+            },
+            {
+                id: 51, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '21. Antisipasi gerakan lawan berarti kemampuan untuk ....',
+                options: [
+                    'meniru gaya bermain lawan',
+                    'menunggu reaksi lawan',
+                    'memprediksi tindakan lawan',
+                    'memperlambat tempo permainan',
+                    'menghindari kerja sama'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS STS: Antisipasi adalah kemampuan membaca isyarat awal untuk memprediksi arah gerakan maupun keputusan lawan sebelum terjadi.'
+            },
+            {
+                id: 52, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Analisis Situasi (C4)', isHots: true,
+                question: '22. Dalam suatu permainan sepak bola, tim lawan tiba-tiba mengubah tempo permainan dari lambat menjadi cepat. Penyesuaian strategi yang paling tepat adalah ....',
+                options: [
+                    'tetap menggunakan strategi sebelumnya',
+                    'memperlambat permainan sendiri',
+                    'menunggu waktu istirahat',
+                    'hanya fokus menyerang',
+                    'menyesuaikan posisi dan tempo bertahan'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan HOTS LKS STS: Saat lawan tiba-tiba menaikkan tempo permainan, tim harus segera beradaptasi dengan menyesuaikan jarak antar-lini, posisi, dan tempo bertahan agar tidak tertinggal transisi.'
+            },
+            {
+                id: 53, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '23. Pemahaman taktis bertahan melibatkan kemampuan ...., menutup ruang, dan berkoordinasi dengan tim.',
+                options: [
+                    'menunggu lawan melakukan kesalahan',
+                    'membaca gerakan lawan',
+                    'menyerang tanpa memperhatikan pertahanan',
+                    'menjaga stamina saja',
+                    'melakukan trik individu untuk menguasai bola'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS STS: Tiga pilar pertahanan taktis adalah membaca gerakan/niat lawan, menutup ruang serang, dan menjaga koordinasi komunikasi antar-pemain bertahan.'
+            },
+            {
+                id: 54, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '24. Pemahaman taktis yang baik akan ....',
+                options: [
+                    'mengutamakan kemampuan individu dan memperkecil kerja sama tim',
+                    'meningkatkan kemampuan individu seorang pemain saja',
+                    'membuat pemain lebih egois agar tampak menonjol',
+                    'tidak berpengaruh pada tim karena hanya masalah individu',
+                    'mengurangi efektivitas strategi yang dijalankan'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS STS: Pada opsi jawaban soal LKS nomor 24, pemahaman taktis meningkatkan kapasitas pengambilan keputusan individu pemain (opsi b) dalam menjalankan perannya di lapangan.'
+            },
+            {
+                id: 55, topic: 'sts', topicName: 'Sumatif Tengah Semester (STS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '25. Kontrol di bawah tekanan mencakup kemampuan menjaga ...., fokus, dan akurasi gerakan saat menghadapi lawan.',
+                options: [
+                    'konsentrasi',
+                    'perhatian',
+                    'pertahanan',
+                    'keseimbangan',
+                    'daya tahan'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS STS: Kontrol di bawah tekanan menuntut ketenangan mental berupa konsentrasi, fokus pada bola/sasaran, dan akurasi eksekusi gerakan meski ditekan lawan.'
+            },
+
+            // =====================================================================
+            // PAKET 4: BAB 3 — PENILAIAN SUMATIF (15 SOAL — LKS HALAMAN 68-69)
+            // =====================================================================
+            {
+                id: 56, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '1. Konsep gerak dalam pendidikan jasmani berperan penting karena ....',
+                options: [
+                    'hanya meningkatkan kemampuan fisik',
+                    'menjadi dasar keterampilan fisik dan pengembangan diri',
+                    'mempercepat kemenangan dalam pertandingan',
+                    'berfokus pada prestasi semata',
+                    'mengurangi kebutuhan kerja sama'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS Bab 3: Pemahaman konsep gerak menjadi fondasi penguasaan keterampilan fisik yang efisien, aman, serta mendukung pengembangan diri dan kerja sama tim.'
+            },
+            {
+                id: 57, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Aplikasi Olahraga (C3)', isHots: false,
+                question: '2. Ketepatan passing atas dalam permainan bola voli dipengaruhi oleh ....',
+                options: [
+                    'koordinasi jari, pergelangan, dan posisi tubuh',
+                    'kekuatan otot lengan semata',
+                    'kecepatan rekan setim',
+                    'ukuran bola',
+                    'tinggi net'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS Bab 3: Akurasi passing atas bola voli ditentukan oleh keselarasan posisi tubuh di bawah bola serta koordinasi lenturan jari dan pergelangan tangan.'
+            },
+            {
+                id: 58, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Pemahaman Taktik (C2)', isHots: false,
+                question: '3. Strategi efektif menghadapi lawan yang lebih kuat adalah ....',
+                options: [
+                    'mengandalkan kekuatan otot',
+                    'bermain bertahan penuh',
+                    'memanfaatkan ruang dan kecepatan',
+                    'memperbanyak duel fisik',
+                    'memperlambat permainan'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS Bab 3: Menghadapi lawan yang unggul secara kekuatan fisik, strategi paling cerdas adalah menghindari adu kekuatan dan memanfaatkan ruang kosong serta kecepatan gerak.'
+            },
+            {
+                id: 59, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Analisis Situasi Basket (C4)', isHots: true,
+                question: '4. Seorang pemain basket menerima bola saat waktu serangan tersisa 5 detik. Posisi rekan setim lebih bebas, tetapi jarak ke ring masih memungkinkan tembakan. Keputusan paling tepat berdasarkan konsep gerak adalah ....',
+                options: [
+                    'menahan bola',
+                    'melakukan dribel panjang',
+                    'menjauh dari ring',
+                    'menghentikan permainan',
+                    'mengoper ke rekan setim'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan HOTS LKS Bab 3: Sesuai analisis konsep gerak ruang dan waktu pada soal HOTS LKS Bab 3 nomor 4, memanfaatkan ruang dengan dribel cepat mendekati ring menjadi opsi agresif menciptakan posisi tembakan terbaik sebelum shot clock habis.'
+            },
+            {
+                id: 60, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '5. Efektivitas penerapan konsep gerak menunjukkan kemampuan seseorang dalam ....',
+                options: [
+                    'menghafal teknik olahraga',
+                    'meningkatkan kekuatan otot saja',
+                    'mempercepat proses latihan',
+                    'mengaplikasikan prinsip dasar gerak secara tepat',
+                    'mengurangi aktivitas fisik'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS Bab 3: Efektivitas penerapan konsep gerak terlihat saat peserta mampu mengaplikasikan prinsip-prinsip dasar gerak (tubuh, ruang, waktu, tenaga) secara tepat dalam berbagai situasi.'
+            },
+            {
+                id: 61, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Analisis Biomekanika (C4)', isHots: false,
+                question: '6. Konsep momentum dalam lompat jauh berhubungan dengan ....',
+                options: [
+                    'sudut pendaratan',
+                    'kecepatan awalan',
+                    'kekuatan lengan',
+                    'posisi kaki saat mendarat',
+                    'panjang lintasan'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS Bab 3: Momentum horizontal (p = m × v) dalam lompat jauh sangat ditentukan oleh kecepatan lari awalan yang terkontrol menjelang papan tolakan.'
+            },
+            {
+                id: 62, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Analisis Biomekanika (C4)', isHots: false,
+                question: '7. Dalam renang gaya bebas, posisi tubuh sejajar permukaan air membantu ....',
+                options: [
+                    'menghemat energi',
+                    'meningkatkan gaya gesek',
+                    'memperlambat gerakan',
+                    'mengurangi koordinasi',
+                    'menambah hambatan'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS Bab 3: Posisi tubuh streamline (sejajar permukaan air) memperkecil hambatan air (water resistance) sehingga perenang dapat meluncur lebih cepat dan menghemat energi.'
+            },
+            {
+                id: 63, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Aplikasi Olahraga (C3)', isHots: false,
+                question: '8. Kesadaran tubuh dalam senam lantai penting untuk ....',
+                options: [
+                    'mempercepat gerakan',
+                    'mengatur irama musik',
+                    'menjaga keseimbangan dan kontrol',
+                    'menambah kekuatan otot',
+                    'memperbesar ruang gerak'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS Bab 3: Kesadaran posisi setiap bagian tubuh (body awareness) dalam senam lantai sangat krusial untuk menjaga keseimbangan pusat massa dan kontrol gerakan.'
+            },
+            {
+                id: 64, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '9. Peningkatan kemampuan penguasaan gerak menekankan pada kemampuan memahami prinsip gerakan agar murid mampu ....',
+                options: [
+                    'meniru gerakan tanpa tujuan',
+                    'bergerak secara spontan',
+                    'mengandalkan kekuatan fisik',
+                    'memahami makna dan fungsi gerakan',
+                    'menghindari variasi gerak'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS Bab 3: Pembelajaran konsep gerak mendorong murid memahami makna dan fungsi setiap gerakan, bukan sekadar meniru secara mekanis tanpa pemahaman.'
+            },
+            {
+                id: 65, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Analisis Biomekanika (C4)', isHots: false,
+                question: '10. Dalam lompat tinggi, konsep yang paling memengaruhi hasil lompatan adalah ....',
+                options: [
+                    'ritme napas',
+                    'kelenturan pinggang',
+                    'kekuatan otot lengan',
+                    'kecepatan reaksi',
+                    'sudut tolakan dan gaya dorong'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS Bab 3: Keberhasilan melewati mistar lompat tinggi sangat ditentukan oleh sudut tolakan vertikal yang tepat dan besarnya gaya dorong kaki tumpu ke atas.'
+            },
+            {
+                id: 66, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Pemahaman Prinsip (C2)', isHots: false,
+                question: '11. Latihan progresif dilakukan dengan prinsip ....',
+                options: [
+                    'langsung ke gerakan kompleks',
+                    'bertahap dari sederhana ke kompleks',
+                    'variasi acak',
+                    'latihan kompetitif',
+                    'fokus pada hasil akhir'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS Bab 3: Prinsip latihan progresif menyusun beban dan tingkat kesulitan secara bertahap dari gerakan sederhana menuju kombinasi gerakan kompleks.'
+            },
+            {
+                id: 67, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Analisis Adaptasi Voli (C4)', isHots: true,
+                question: '12. Seorang pemain voli mampu menyesuaikan passing dan smash sesuai arah bola dan posisi rekan setim. Kemampuan yang ditunjukkan pemain tersebut berkaitan dengan tahap ....',
+                options: [
+                    'pemahaman konseptual',
+                    'latihan berulang',
+                    'demonstrasi',
+                    'adaptasi situasional',
+                    'variasi latihan'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan HOTS LKS Bab 3: Kemampuan memodifikasi teknik passing dan arah smash secara langsung mengikuti arah datangnya bola dan posisi rekan merupakan wujud nyata dari tahap adaptasi situasional.'
+            },
+            {
+                id: 68, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '13. Penyempurnaan kemampuan gerak menekankan peningkatan ....',
+                options: [
+                    'kualitas gerakan, efektivitas penggunaan tenaga, dan estetika gerak',
+                    'kuantitas gerakan saja',
+                    'jumlah latihan harian',
+                    'intensitas latihan tanpa teknik',
+                    'permainan secara bebas'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS Bab 3: Tahap penyempurnaan gerak (refinement) berfokus pada peningkatan kualitas teknik, efisiensi tenaga (tidak boros energi), dan keindahan/estetika gerak.'
+            },
+            {
+                id: 69, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '14. Aspek kognitif berperan dalam ....',
+                options: [
+                    'meningkatkan fleksibilitas otot',
+                    'mengintegrasikan gerakan dengan percaya diri',
+                    'memahami prinsip gerak, merencanakan, dan menilai gerakan',
+                    'mengatasi stres saat latihan',
+                    'melakukan latihan berulang'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS Bab 3: Aspek kognitif dalam aktivitas jasmani berperan untuk memahami prinsip biomekanika gerak, merencanakan taktik, serta menilai kualitas gerakan diri sendiri.'
+            },
+            {
+                id: 70, topic: 'bab3', topicName: 'Bab 3: Penilaian Sumatif', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '15. Tujuan utama penyempurnaan gerak adalah ....',
+                options: [
+                    'menambah jam latihan di sekolah',
+                    'menyalin gerakan teman tanpa memahami',
+                    'memaksimalkan jumlah gerakan dalam waktu singkat',
+                    'menguasai satu gerakan secara statis',
+                    'meningkatkan efektivitas, efisiensi, dan estetika gerakan'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS Bab 3: Penyempurnaan gerak bertujuan menjadikan setiap aksi motorik lebih efektif mencapai sasaran, efisien dalam penggunaan tenaga, dan estetis.'
+            },
+
+            // =====================================================================
+            // PAKET 5: SUMATIF AKHIR SEMESTER / SAS (25 SOAL — LKS HALAMAN 72-74)
+            // =====================================================================
+            {
+                id: 71, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '1. Refleksi dalam latihan berperan penting karena mampu ....',
+                options: [
+                    'mempercepat waktu latihan',
+                    'menggantikan peran pelatih',
+                    'mengolah pengalaman latihan menjadi pengetahuan',
+                    'mengurangi beban latihan fisik',
+                    'meningkatkan intensitas latihan'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS SAS: Refleksi mengubah pengalaman praktik fisik menjadi pengetahuan bermakna sehingga pelaku belajar memahami penyebab keberhasilan maupun kesalahan geraknya.'
+            },
+            {
+                id: 72, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '2. Unsur jurnal refleksi yang berfungsi sebagai tolok ukur keberhasilan latihan adalah ....',
+                options: [
+                    'deskripsi aktivitas',
+                    'tujuan latihan',
+                    'hasil observasi',
+                    'analisis',
+                    'rencana perbaikan'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS SAS: Tujuan latihan menjadi acuan atau tolok ukur utama untuk menilai apakah sesi latihan yang telah dijalankan berhasil mencapai target atau belum.'
+            },
+            {
+                id: 73, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Analisis Kasus Latihan (C4)', isHots: true,
+                question: '3. Seorang murid rajin berlatih keterampilan gerak setiap minggu. Namun, ia tidak pernah mencatat hasil latihan, kesalahan, atau perasaannya setelah latihan. Setelah beberapa bulan, kemampuannya tidak menunjukkan peningkatan signifikan. Penyebab utama kurangnya perkembangan keterampilan gerak murid tersebut adalah ....',
+                options: [
+                    'tidak adanya refleksi latihan',
+                    'kurangnya waktu latihan',
+                    'intensitas latihan yang terlalu tinggi',
+                    'kurangnya fasilitas',
+                    'usia yang belum matang'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan HOTS LKS SAS: Meskipun rajin berlatih, tanpa adanya refleksi dan pencatatan kesalahan, murid tersebut terus mengulang kesalahan yang sama sehingga tidak terjadi peningkatan signifikan.'
+            },
+            {
+                id: 74, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '4. Tujuan utama analisis hasil evaluasi level keterampilan gerak adalah ....',
+                options: [
+                    'menentukan akhir proses pembelajaran',
+                    'menilai kelemahan murid',
+                    'mengurangi intensitas latihan',
+                    'menyederhanakan materi gerak',
+                    'menyusun strategi peningkatan keterampilan'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS SAS: Analisis hasil evaluasi level keterampilan gerak digunakan untuk merumuskan strategi peningkatan keterampilan yang sesuai dengan level murid saat ini.'
+            },
+            {
+                id: 75, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '5. Analisis umpan balik bertujuan untuk ....',
+                options: [
+                    'menerima masukan secara pasif',
+                    'memilih umpan balik paling cepat',
+                    'menghindari refleksi diri',
+                    'menilai efektivitas umpan balik',
+                    'mengurangi peran guru'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS SAS: Analisis umpan balik membantu pelajar menilai efektivitas masukan yang diterima dari guru/teman untuk diterapkan secara tepat dalam perbaikan gerak.'
+            },
+            {
+                id: 76, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Aplikasi Konsep (C3)', isHots: false,
+                question: '6. Salah satu bentuk latihan jangka pendek pada servis atas bola voli adalah ....',
+                options: [
+                    'variasi target servis',
+                    'simulasi pertandingan',
+                    'latihan posisi kaki dan ayunan lengan',
+                    'perubahan strategi tim',
+                    'tekanan psikologis lawan'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS SAS: Sesuai materi Bab 1 LKS (dan soal Bab 1 nomor 15), variasi target servis merupakan bentuk latihan spesifik pada rencana perbaikan jangka pendek servis atas bola voli.'
+            },
+            {
+                id: 77, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Evaluasi Konsep (C4)', isHots: false,
+                question: '7. Berikut yang bukan termasuk aspek dalam menilai kondisi permainan adalah ....',
+                options: [
+                    'posisi rekan satu tim',
+                    'posisi lawan',
+                    'posisi bola',
+                    'warna kostum pemain',
+                    'ruang gerak di lapangan'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS SAS: Dalam membaca situasi/kondisi permainan, aspek taktis yang dinilai adalah posisi rekan, posisi lawan, posisi bola, dan ruang gerak—bukan warna kostum pemain.'
+            },
+            {
+                id: 78, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Taktik (C2)', isHots: false,
+                question: '8. Waktu yang tepat untuk melakukan serangan ialah ketika ....',
+                options: [
+                    'tim kelelahan',
+                    'lawan melakukan kesalahan posisi',
+                    'permainan dihentikan',
+                    'tempo permainan melambat',
+                    'pemain lawan kehilangan keseimbangan'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS SAS: Momen taktis kunci untuk melancarkan serangan adalah saat lawan melakukan kesalahan posisi (out of position) sehingga terbuka ruang kosong yang menguntungkan.'
+            },
+            {
+                id: 79, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Aplikasi Antisipasi (C3)', isHots: false,
+                question: '9. Salah satu indikator awal untuk memprediksi aksi lawan adalah ....',
+                options: [
+                    'arah bahu dan posisi kaki',
+                    'suara penonton',
+                    'tipe lapangan',
+                    'nomor punggung',
+                    'posisi rekan setim'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS SAS: Bahasa tubuh berupa orientasi arah bahu dan tumpuan posisi kaki lawan memberikan petunjuk paling awal ke arah mana lawan akan bergerak atau mengoper.'
+            },
+            {
+                id: 80, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '10. Tekanan lawan dalam permainan menyebabkan pemain harus ....',
+                options: [
+                    'menghentikan permainan',
+                    'menunggu instruksi pelatih',
+                    'mengurangi pergerakan',
+                    'menghindari bola',
+                    'melakukan gerakan dalam waktu singkat'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS SAS: Tekanan (pressing) lawan mempersempit ruang dan waktu sehingga menuntut pemain berpikir cepat dan mengeksekusi gerakan dalam waktu singkat.'
+            },
+            {
+                id: 81, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Aplikasi Taktik (C3)', isHots: false,
+                question: '11. Saat ruang gerak terbatas, tindakan yang tepat adalah ....',
+                options: [
+                    'menendang bola sejauh mungkin',
+                    'menggiring bola dengan sentuhan pendek',
+                    'berhenti bergerak',
+                    'menunggu pelanggaran',
+                    'mengoper tanpa melihat sasaran'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS SAS: Ketika ruang gerak sempit/terbatas, sentuhan pendek menjaga kontrol bola tetap rapat di kaki agar tidak mudah direbut lawan.'
+            },
+            {
+                id: 82, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '12. Faktor yang memengaruhi pemahaman taktis adalah ....',
+                options: [
+                    'kemampuan fisik pemain saja',
+                    'warna seragam tim',
+                    'keterampilan teknis, pengalaman, dan latihan situasi nyata',
+                    'jumlah penonton',
+                    'posisi pemain di bangku cadangan'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS SAS: Pemahaman taktis dibangun oleh kombinasi penguasaan keterampilan teknis, pengalaman bermain, dan pembiasaan melalui latihan situasi nyata.'
+            },
+            {
+                id: 83, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '13. Adaptasi terhadap situasi permainan penting karena ....',
+                options: [
+                    'mengubah strategi sesuai perubahan posisi lawan dan rekan tim',
+                    'membuat pemain lebih cepat berlari',
+                    'mempermudah latihan fisik',
+                    'menjaga teknik dasar saja',
+                    'hanya untuk permainan individu'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS SAS: Situasi lapangan terus berubah setiap detik; kemampuan adaptasi memungkinkan pemain menyesuaikan strategi mengikuti pergerakan lawan dan rekan satu tim.'
+            },
+            {
+                id: 84, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '14. Kesadaran terhadap posisi dan koordinasi anggota tubuh termasuk ke dalam konsep ....',
+                options: [
+                    'ruang',
+                    'tenaga',
+                    'waktu',
+                    'tubuh',
+                    'hubungan'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS SAS: Kesadaran terhadap bagian-bagian tubuh, posisi, dan koordinasi anggota tubuh merupakan inti dari Konsep Tubuh.'
+            },
+            {
+                id: 85, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '15. Pemahaman jarak, arah, dan posisi termasuk dalam konsep ....',
+                options: [
+                    'tubuh',
+                    'tenaga',
+                    'waktu',
+                    'hubungan',
+                    'ruang'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS SAS: Jarak (dekat/jauh), arah (depan/samping/diagonal), dan posisi di lapangan merupakan elemen utama dari Konsep Ruang.'
+            },
+            {
+                id: 86, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '16. Bermain di bawah tekanan waktu melatih kemampuan ....',
+                options: [
+                    'daya tahan fisik',
+                    'kekuatan otot',
+                    'berpikir dan mengambil keputusan cepat',
+                    'kelenturan tubuh',
+                    'konsentrasi statis'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS SAS: Batasan waktu (seperti shot clock atau pressing lawan) melatih ketajaman kognitif untuk berpikir dan mengambil keputusan secara cepat.'
+            },
+            {
+                id: 87, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Analisis Kasus Atletik (C4)', isHots: false,
+                question: '17. Seorang pelari terbiasa berlatih di lintasan sintetis, lalu mengikuti lomba di lintasan tanah. Penyesuaian yang paling tepat adalah ....',
+                options: [
+                    'mengatur langkah lebih pendek',
+                    'memperpanjang langkah',
+                    'meningkatkan kecepatan awal',
+                    'mengurangi fokus keseimbangan',
+                    'mengubah arah lari'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS SAS: Permukaan lintasan tanah memiliki gesekan lebih besar dan daya pantul lebih rendah dibanding lintasan sintetis, sehingga pelari perlu mengatur langkah lebih pendek agar stabil.'
+            },
+            {
+                id: 88, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Aplikasi Taktik (C3)', isHots: false,
+                question: '18. Pemahaman ruang dalam sepak bola membantu pemain untuk ....',
+                options: [
+                    'meningkatkan kekuatan tendangan',
+                    'menjaga jarak dan memanfaatkan ruang kosong',
+                    'memperlambat permainan',
+                    'menghindari kerja sama',
+                    'bermain statis'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS SAS: Pemahaman ruang membuat pemain mampu menjaga jarak antarlini serta aktif bergerak memanfaatkan ruang kosong untuk menerima umpan.'
+            },
+            {
+                id: 89, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '19. Latihan berbasis ritme bermanfaat untuk meningkatkan ....',
+                options: [
+                    'kelenturan otot',
+                    'kekuatan maksimal',
+                    'kecepatan reaksi',
+                    'keseimbangan statis',
+                    'koordinasi dan daya tahan'
+                ],
+                correct: 4,
+                explanation: 'Pembahasan LKS SAS: Latihan yang mengikuti irama/ritme teratur melatih efisiensi gerak sehingga meningkatkan koordinasi dan daya tahan tubuh.'
+            },
+            {
+                id: 90, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Analisis Fisiologi Gerak (C4)', isHots: true,
+                question: '20. Perenang melakukan latihan ayunan lengan dan napas secara berulang hingga gerakan terasa otomatis. Dampak utama dari latihan tersebut adalah ....',
+                options: [
+                    'peningkatan kekuatan otot',
+                    'adaptasi lingkungan',
+                    'peningkatan sosial',
+                    'pembentukan ingatan otot',
+                    'penguasaan taktik'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan HOTS LKS SAS: Pengulangan gerakan teknik renang secara konsisten hingga menjadi otomatis merupakan proses pembentukan ingatan otot (muscle memory) pada sistem saraf motorik.'
+            },
+            {
+                id: 91, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Konsep (C2)', isHots: false,
+                question: '21. Penyesuaian langkah kaki dalam setiap jenis lapangan tenis diperlukan karena ....',
+                options: [
+                    'perbedaan ukuran lapangan',
+                    'jumlah pemain berbeda',
+                    'perbedaan pantulan bola',
+                    'aturan servis tidak sama',
+                    'berat raket berubah'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS SAS: Jenis permukaan lapangan tenis (rumput, tanah liat/clay, atau lapangan keras/hard court) menghasilkan kecepatan dan tinggi pantulan bola yang berbeda sehingga menuntut penyesuaian footwork.'
+            },
+            {
+                id: 92, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Analisis Taktik (C4)', isHots: false,
+                question: '22. Kesalahan membaca ruang dalam futsal dapat menyebabkan ....',
+                options: [
+                    'bola mudah direbut lawan',
+                    'pelanggaran peraturan',
+                    'permainan dihentikan wasit',
+                    'pergantian pemain',
+                    'penurunan stamina'
+                ],
+                correct: 0,
+                explanation: 'Pembahasan LKS SAS: Dalam lapangan futsal yang berukuran relatif kecil, salah membaca ruang atau mengoper ke area sempit yang dijaga lawan membuat bola sangat mudah direbut.'
+            },
+            {
+                id: 93, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Biomekanika (C2)', isHots: false,
+                question: '23. Lari di lintasan tanah menuntut langkah lebih pendek karena ....',
+                options: [
+                    'daya pantul tinggi',
+                    'gesekan permukaan lebih besar',
+                    'lintasan lebih sempit',
+                    'aturan lomba berbeda',
+                    'sepatu lebih ringan'
+                ],
+                correct: 1,
+                explanation: 'Pembahasan LKS SAS: Gesekan permukaan tanah yang lebih besar serta karakter tanah yang menyerap tenaga tolakan menuntut frekuensi langkah lebih pendek agar pijakan tetap kuat dan tidak tergelincir.'
+            },
+            {
+                id: 94, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Analisis Strategi Futsal (C4)', isHots: false,
+                question: '24. Seorang pemain futsal bertubuh kecil menghadapi lawan yang lebih besar dan kuat. Strategi yang paling efektif untuk pemain tersebut adalah ....',
+                options: [
+                    'duel fisik langsung',
+                    'bertahan di satu posisi',
+                    'menahan bola lama',
+                    'dribel cepat dan perubahan arah',
+                    'mengandalkan tendangan keras'
+                ],
+                correct: 3,
+                explanation: 'Pembahasan LKS SAS: Pemain bertubuh kecil unggul pada kelincahan dan pusat gravitasi rendah; strategi terbaiknya adalah memanfaatkan dribel cepat dan perubahan arah tiba-tiba untuk melewati lawan bertubuh besar.'
+            },
+            {
+                id: 95, topic: 'sas', topicName: 'Sumatif Akhir Semester (SAS)', level: 'Pemahaman Biomekanika (C2)', isHots: false,
+                question: '25. Posisi punggung lurus saat angkat beban bertujuan untuk ....',
+                options: [
+                    'mempercepat angkatan',
+                    'menambah beban',
+                    'menjaga efisiensi dan keselamatan',
+                    'meningkatkan tekanan otot',
+                    'mengurangi koordinasi'
+                ],
+                correct: 2,
+                explanation: 'Pembahasan LKS SAS: Menjaga posisi tulang belakang/punggung tetap lurus (netral) saat mengangkat beban mendistribusikan tekanan secara aman ke otot tungkai dan pinggul sehingga menjaga efisiensi serta mencegah cedera punggung.'
+            }
+        ];
+
+        // =========================================================================
+        // 4. APPLICATION STATE
+        // =========================================================================
+        let state = {
+            activeMainTab: 'materi',
+            activeMateriId: 'bab1',
+            masteredTopics: new Set(),
+            
+            // Flashcard State
+            fcFilter: 'all',
+            fcList: [...FLASHCARDS_DATA],
+            fcIndex: 0,
+            fcFlipped: false,
+            fcMasteredSet: new Set(),
+
+            // Quiz State
+            quizFilter: 'all',
+            filteredQuestions: [...QUIZ_QUESTIONS],
+            currentQIndex: 0,
+            userAnswers: {}, // { questionId: optionIndex }
+            quizSubmitted: false,
+            timerSeconds: 0,
+            timerPaused: false,
+            timerInterval: null
+        };
+
+        // =========================================================================
+        // 5. NAVIGATION & PROGRESS UPDATES
+        // =========================================================================
+        function switchMainTab(tabName) {
+            state.activeMainTab = tabName;
+
+            // Update Tab Buttons
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.remove('border-[#E76F51]', 'text-[#E76F51]');
+                btn.classList.add('border-transparent', 'text-[#9CA3AF]');
+            });
+            const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-transparent', 'text-[#9CA3AF]');
+                activeBtn.classList.add('border-[#E76F51]', 'text-[#E76F51]');
+            }
+
+            // Show/Hide Sections
+            ['materi', 'flashcards', 'kuis'].forEach(sec => {
+                const el = document.getElementById(`section-${sec}`);
+                if (sec === tabName) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+
+            // Start timer if entering quiz and not submitted
+            if (tabName === 'kuis' && !state.timerInterval && !state.quizSubmitted) {
+                startQuizTimer();
+            }
+
+            lucide.createIcons();
+        }
+
+        function updateProgressUI() {
+            const count = state.masteredTopics.size;
+            const total = MATERI_DATA.length;
+            const pct = (count / total) * 100;
+
+            document.getElementById('materi-progress-text').textContent = `${count}/${total} Bagian`;
+            document.getElementById('materi-progress-bar').style.width = `${pct}%`;
+
+            // Update button state for current active topic
+            const btnMastered = document.getElementById('btn-mark-mastered');
+            if (state.masteredTopics.has(state.activeMateriId)) {
+                btnMastered.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4"></i><span>Bagian Sudah Dipahami ✓</span>`;
+                btnMastered.classList.remove('bg-[#A7C957]', 'hover:bg-[#b8d86b]', 'text-[#0B0F19]');
+                btnMastered.classList.add('bg-[#0B0F19]', 'text-[#A7C957]', 'border', 'border-[#A7C957]/40');
+            } else {
+                btnMastered.innerHTML = `<i data-lucide="check-circle-2" class="w-4 h-4"></i><span>Tandai Bagian Ini Paham</span>`;
+                btnMastered.classList.add('bg-[#A7C957]', 'hover:bg-[#b8d86b]', 'text-[#0B0F19]');
+                btnMastered.classList.remove('bg-[#0B0F19]', 'text-[#A7C957]', 'border', 'border-[#A7C957]/40');
+            }
+            lucide.createIcons();
+        }
+
+        function showToast(icon, text) {
+            const toast = document.getElementById('toast-message');
+            document.getElementById('toast-icon').textContent = icon;
+            document.getElementById('toast-text').textContent = text;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // =========================================================================
+        // 6. MATERI HAFALAN & GLOSARIUM LOGIC
+        // =========================================================================
+        function renderMateriSubTabs() {
+            const container = document.getElementById('materi-subtabs');
+            container.innerHTML = MATERI_DATA.map(item => {
+                const isActive = item.id === state.activeMateriId;
+                const isMastered = state.masteredTopics.has(item.id);
+                return `
+                    <button onclick="selectMateriTopic('${item.id}')" 
+                        class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold whitespace-nowrap transition-all cursor-pointer border ${
+                            isActive 
+                            ? 'bg-[#E76F51] text-white border-[#E76F51] shadow-md shadow-[#E76F51]/20' 
+                            : 'bg-[#161E2E] text-[#9CA3AF] border-slate-800 hover:text-[#F3F4F6] hover:border-slate-700'
+                        }">
+                        <span class="text-base">${item.icon}</span>
+                        <span>${item.title}</span>
+                        ${isMastered ? '<span class="w-2 h-2 rounded-full bg-[#A7C957]"></span>' : ''}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function selectMateriTopic(topicId) {
+            state.activeMateriId = topicId;
+            renderMateriSubTabs();
+            renderMateriContent();
+            updateProgressUI();
+        }
+
+        function markCurrentTopicMastered() {
+            if (state.masteredTopics.has(state.activeMateriId)) {
+                state.masteredTopics.delete(state.activeMateriId);
+                showToast('↩️', 'Status paham dibatalkan untuk bagian ini.');
+            } else {
+                state.masteredTopics.add(state.activeMateriId);
+                const topicObj = MATERI_DATA.find(m => m.id === state.activeMateriId);
+                showToast('🎉', `Mantap! ${topicObj.title} ditandai sudah paham.`);
+            }
+            renderMateriSubTabs();
+            updateProgressUI();
+        }
+
+        function renderMateriContent() {
+            const topic = MATERI_DATA.find(m => m.id === state.activeMateriId);
+            if (!topic) return;
+
+            const container = document.getElementById('materi-content-container');
+            
+            // Mnemonic Cards HTML
+            const mnemonicsHTML = topic.mnemonics.map(m => `
+                <div class="bg-[#161E2E] border border-[#E76F51]/30 rounded-2xl p-4 sm:p-5 shadow-md relative overflow-hidden">
+                    <div class="inline-block px-2.5 py-1 rounded-lg bg-[#E76F51] text-white font-mono font-bold text-xs tracking-wide mb-2.5 shadow-sm">
+                        🧠 ${m.code}
+                    </div>
+                    <h4 class="font-display font-bold text-[#F3F4F6] text-sm sm:text-base mb-1">${m.title}</h4>
+                    <p class="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">${m.desc}</p>
+                </div>
+            `).join('');
+
+            // Concept Cards HTML
+            const cardsHTML = topic.cards.map(card => `
+                <div class="bg-[#161E2E] rounded-2xl p-5 sm:p-6 shadow-md border border-slate-800 hover:border-slate-700 transition">
+                    <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-800">
+                        <div class="w-9 h-9 rounded-xl ${topic.badgeClass} border flex items-center justify-center">
+                            <i data-lucide="${card.icon}" class="w-4 h-4"></i>
+                        </div>
+                        <h4 class="font-display font-bold text-[#F3F4F6] text-base sm:text-lg">${card.title}</h4>
+                    </div>
+                    <ul class="space-y-3">
+                        ${card.points.map(pt => `
+                            <li class="flex items-start gap-2.5 text-sm text-[#9CA3AF] leading-relaxed">
+                                <span class="text-[#E76F51] font-bold mt-0.5">▸</span>
+                                <span>${pt}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `).join('');
+
+            // Quick jump target mapping
+            const quizTargetMap = {
+                bab1: { filter: 'bab1', label: 'Latihan 15 Soal Bab 1 LKS' },
+                bab2: { filter: 'bab2', label: 'Latihan 15 Soal Bab 2 LKS' },
+                bab3: { filter: 'bab3', label: 'Latihan 15 Soal Bab 3 LKS' },
+                glosarium: { filter: 'all', label: 'Latihan Semua 95 Soal LKS' }
+            };
+            const jumpTarget = quizTargetMap[topic.id] || { filter: 'all', label: 'Latihan Soal LKS' };
+
+            container.innerHTML = `
+                <!-- Topic Header Info -->
+                <div class="bg-[#161E2E] rounded-2xl p-5 sm:p-6 border border-slate-800 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl sm:text-4xl bg-[#0B0F19] border border-slate-800 p-3 rounded-2xl">${topic.icon}</div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-[#E76F51]">${topic.category}</span>
+                            <h3 class="font-display text-xl sm:text-2xl font-extrabold text-[#F3F4F6]">${topic.title}</h3>
+                            <p class="text-sm text-[#9CA3AF] mt-1">${topic.summary}</p>
+                        </div>
+                    </div>
+                    <button onclick="jumpToTopicQuiz('${jumpTarget.filter}')" class="shrink-0 inline-flex items-center justify-center gap-2 bg-[#0B0F19] hover:bg-slate-900 text-[#F3F4F6] border border-slate-700 text-xs sm:text-sm font-bold px-4 py-3 rounded-xl transition cursor-pointer">
+                        <i data-lucide="play" class="w-4 h-4 text-[#E76F51]"></i>
+                        <span>${jumpTarget.label}</span>
+                    </button>
+                </div>
+
+                <!-- Jembatan Keledai (Mnemonics) Section -->
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-base">⚡</span>
+                        <h3 class="font-display font-bold text-[#F3F4F6] text-base sm:text-lg">Jembatan Keledai (Kunci Hafalan Cepat LKS)</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        ${mnemonicsHTML}
+                    </div>
+                </div>
+
+                <!-- Concept Cards Section -->
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-base">📘</span>
+                        <h3 class="font-display font-bold text-[#F3F4F6] text-base sm:text-lg">Ringkasan Materi Inti & Kata Kunci Soal LKS</h3>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                        ${cardsHTML}
+                    </div>
+                </div>
+            `;
+
+            lucide.createIcons();
+        }
+
+        function jumpToTopicQuiz(topicFilter) {
+            switchMainTab('kuis');
+            const selectEl = document.getElementById('quiz-topic-filter');
+            selectEl.value = topicFilter;
+            changeQuizMode(topicFilter);
+        }
+
+        // =========================================================================
+        // 7. FLASHCARDS LOGIC (30 KARTU)
+        // =========================================================================
+        function renderFlashcardFilters() {
+            const filters = [
+                { id: 'all', label: 'Semua Kartu (30)' },
+                { id: 'bab1', label: '🎯 Bab 1 (8)' },
+                { id: 'bab2', label: '🧠 Bab 2 (8)' },
+                { id: 'bab3', label: '⚡ Bab 3 (8)' },
+                { id: 'glosarium', label: '📖 Glosarium (6)' }
+            ];
+
+            document.getElementById('flashcard-filters').innerHTML = filters.map(f => `
+                <button onclick="filterFlashcards('${f.id}')" 
+                    class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer border ${
+                        state.fcFilter === f.id
+                        ? 'bg-[#E76F51] text-white border-[#E76F51] shadow-md shadow-[#E76F51]/20'
+                        : 'bg-[#161E2E] text-[#9CA3AF] border-slate-800 hover:text-[#F3F4F6] hover:border-slate-700'
+                    }">
+                    ${f.label}
+                </button>
+            `).join('');
+        }
+
+        function filterFlashcards(topicId) {
+            state.fcFilter = topicId;
+            state.fcList = topicId === 'all' 
+                ? [...FLASHCARDS_DATA] 
+                : FLASHCARDS_DATA.filter(c => c.topic === topicId);
+            state.fcIndex = 0;
+            state.fcFlipped = false;
+            renderFlashcardFilters();
+            renderCurrentFlashcard();
+        }
+
+        function renderCurrentFlashcard() {
+            const card = state.fcList[state.fcIndex];
+            if (!card) return;
+
+            const inner = document.getElementById('flashcard-inner');
+            if (state.fcFlipped) {
+                inner.classList.add('rotate-y-180');
+            } else {
+                inner.classList.remove('rotate-y-180');
+            }
+
+            document.getElementById('fc-category-badge').textContent = card.topicName;
+            document.getElementById('fc-counter').textContent = `Kartu ${state.fcIndex + 1} / ${state.fcList.length}`;
+            document.getElementById('fc-counter-back').textContent = `Kartu ${state.fcIndex + 1} / ${state.fcList.length}`;
+            document.getElementById('fc-front-text').textContent = card.front;
+            document.getElementById('fc-back-text').textContent = card.back;
+            document.getElementById('fc-mnemonic-box').textContent = `💡 Trik Hafal: ${card.mnemonic}`;
+
+            // Mastered card state button
+            const isMastered = state.fcMasteredSet.has(card.front);
+            const btnFcMastered = document.getElementById('btn-fc-mastered');
+            if (isMastered) {
+                btnFcMastered.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4"></i><span>Sudah Dikuasai ✓</span>`;
+                btnFcMastered.classList.add('bg-[#A7C957]', 'text-[#0B0F19]', 'border-[#A7C957]');
+                btnFcMastered.classList.remove('bg-[#161E2E]', 'text-[#A7C957]');
+            } else {
+                btnFcMastered.innerHTML = `<i data-lucide="check-circle-2" class="w-4 h-4"></i><span>Tandai Dikuasai</span>`;
+                btnFcMastered.classList.remove('bg-[#A7C957]', 'text-[#0B0F19]', 'border-[#A7C957]');
+                btnFcMastered.classList.add('bg-[#161E2E]', 'text-[#A7C957]');
+            }
+
+            document.getElementById('fc-mastered-count').textContent = `${state.fcMasteredSet.size} / ${FLASHCARDS_DATA.length} Kartu`;
+            lucide.createIcons();
+        }
+
+        function toggleFlashcardMastered() {
+            const card = state.fcList[state.fcIndex];
+            if (!card) return;
+            if (state.fcMasteredSet.has(card.front)) {
+                state.fcMasteredSet.delete(card.front);
+            } else {
+                state.fcMasteredSet.add(card.front);
+                showToast('⭐', 'Kartu ditandai sudah dikuasai!');
+            }
+            renderCurrentFlashcard();
+        }
+
+        function flipFlashcard() {
+            state.fcFlipped = !state.fcFlipped;
+            renderCurrentFlashcard();
+        }
+
+        function nextFlashcard() {
+            state.fcFlipped = false;
+            state.fcIndex = (state.fcIndex + 1) % state.fcList.length;
+            renderCurrentFlashcard();
+        }
+
+        function prevFlashcard() {
+            state.fcFlipped = false;
+            state.fcIndex = (state.fcIndex - 1 + state.fcList.length) % state.fcList.length;
+            renderCurrentFlashcard();
+        }
+
+        function shuffleFlashcards() {
+            state.fcFlipped = false;
+            for (let i = state.fcList.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [state.fcList[i], state.fcList[j]] = [state.fcList[j], state.fcList[i]];
+            }
+            state.fcIndex = 0;
+            renderCurrentFlashcard();
+            showToast('🔀', 'Urutan 30 kartu flashcard berhasil diacak!');
+        }
+
+        // =========================================================================
+        // 8. LATIHAN SOAL ASLI LKS (95 SOAL) LOGIC
+        // =========================================================================
+        function startQuizTimer() {
+            if (state.timerInterval) clearInterval(state.timerInterval);
+            state.timerInterval = setInterval(() => {
+                if (!state.timerPaused && !state.quizSubmitted) {
+                    state.timerSeconds++;
+                    const mins = String(Math.floor(state.timerSeconds / 60)).padStart(2, '0');
+                    const secs = String(state.timerSeconds % 60).padStart(2, '0');
+                    document.getElementById('quiz-timer').textContent = `${mins}:${secs}`;
+                }
+            }, 1000);
+        }
+
+        function toggleTimer() {
+            state.timerPaused = !state.timerPaused;
+            const btn = document.getElementById('btn-toggle-timer');
+            btn.innerHTML = state.timerPaused 
+                ? `<i data-lucide="play" class="w-3.5 h-3.5 text-[#A7C957]"></i>` 
+                : `<i data-lucide="pause" class="w-3.5 h-3.5"></i>`;
+            lucide.createIcons();
+            showToast(state.timerPaused ? '⏸️' : '▶️', state.timerPaused ? 'Timer dijeda' : 'Timer dilanjutkan');
+        }
+
+        function changeQuizMode(filterVal) {
+            state.quizFilter = filterVal;
+            state.filteredQuestions = filterVal === 'all' 
+                ? [...QUIZ_QUESTIONS] 
+                : QUIZ_QUESTIONS.filter(q => q.topic === filterVal);
+            
+            state.currentQIndex = 0;
+            
+            const modeLabels = {
+                all: 'Semua Paket LKS (95 Soal)',
+                bab1: 'Bab 1: Penilaian Sumatif (15 Soal)',
+                bab2: 'Bab 2: Penilaian Sumatif (15 Soal)',
+                sts: 'Sumatif Tengah Semester / STS (25 Soal)',
+                bab3: 'Bab 3: Penilaian Sumatif (15 Soal)',
+                sas: 'Sumatif Akhir Semester / SAS (25 Soal)'
+            };
+            document.getElementById('quiz-mode-label').textContent = `Paket: ${modeLabels[filterVal]}`;
+            
+            renderQuizNavigator();
+            renderCurrentQuestion();
+        }
+
+        function renderCurrentQuestion() {
+            const q = state.filteredQuestions[state.currentQIndex];
+            if (!q) return;
+
+            const userAnswer = state.userAnswers[q.id];
+            const hasAnswered = userAnswer !== undefined;
+            const instantFeedback = document.getElementById('instant-feedback-toggle').checked;
+            const showFeedback = state.quizSubmitted || (instantFeedback && hasAnswered);
+
+            // Header Meta
+            document.getElementById('q-number-badge').textContent = `Soal ${state.currentQIndex + 1} dari ${state.filteredQuestions.length}`;
+            document.getElementById('q-topic-badge').textContent = q.topicName;
+            document.getElementById('q-level-badge').textContent = q.level;
+            document.getElementById('q-text').textContent = q.question;
+
+            // HOTS Badge visibility
+            const hotsBadge = document.getElementById('q-hots-badge');
+            if (q.isHots) {
+                hotsBadge.classList.remove('hidden');
+            } else {
+                hotsBadge.classList.add('hidden');
+            }
+
+            // Options a - e
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+            const optionsContainer = document.getElementById('q-options');
+            
+            optionsContainer.innerHTML = q.options.map((optText, idx) => {
+                const isSelected = userAnswer === idx;
+                const isCorrectOption = q.correct === idx;
+
+                let btnClass = 'bg-[#111827] border-slate-800 hover:border-[#E76F51]/60 hover:bg-[#111827]/80 text-[#F3F4F6]';
+                let badgeClass = 'bg-[#161E2E] text-[#9CA3AF] border-slate-700';
+                let statusIcon = '';
+
+                if (showFeedback) {
+                    if (isCorrectOption) {
+                        btnClass = 'bg-[#A7C957]/15 border-[#A7C957] text-[#F3F4F6] font-semibold ring-1 ring-[#A7C957]/50';
+                        badgeClass = 'bg-[#A7C957] text-[#0B0F19] border-[#A7C957]';
+                        statusIcon = '<span class="ml-auto text-[#A7C957] font-bold text-xs shrink-0">✓ Kunci LKS</span>';
+                    } else if (isSelected && !isCorrectOption) {
+                        btnClass = 'bg-rose-500/15 border-rose-500 text-rose-100 font-semibold ring-1 ring-rose-500/50';
+                        badgeClass = 'bg-rose-600 text-white border-rose-600';
+                        statusIcon = '<span class="ml-auto text-rose-400 font-bold text-xs shrink-0">✕ Pilihanmu</span>';
+                    } else {
+                        btnClass = 'bg-[#0B0F19]/60 border-slate-800/70 text-[#9CA3AF] opacity-65';
+                    }
+                } else if (isSelected) {
+                    btnClass = 'bg-[#E76F51]/15 border-[#E76F51] text-[#F3F4F6] font-semibold ring-1 ring-[#E76F51]/50';
+                    badgeClass = 'bg-[#E76F51] text-white border-[#E76F51]';
+                }
+
+                return `
+                    <button onclick="selectOption(${q.id}, ${idx})" 
+                        class="w-full text-left p-3.5 sm:p-4 rounded-xl border transition-all flex items-start gap-3.5 cursor-pointer ${btnClass}">
+                        <span class="w-7 h-7 rounded-lg border flex items-center justify-center text-xs font-extrabold shrink-0 mt-0.5 ${badgeClass}">
+                            ${letters[idx]}
+                        </span>
+                        <span class="text-sm sm:text-[15px] leading-relaxed">${optText}</span>
+                        ${statusIcon}
+                    </button>
+                `;
+            }).join('');
+
+            // Explanation Box
+            const expBox = document.getElementById('q-explanation-box');
+            if (showFeedback) {
+                expBox.classList.remove('hidden');
+                document.getElementById('q-explanation-text').textContent = q.explanation;
+            } else {
+                expBox.classList.add('hidden');
+            }
+
+            // Prev / Next button states
+            document.getElementById('btn-prev-q').disabled = state.currentQIndex === 0;
+            document.getElementById('btn-next-q').disabled = state.currentQIndex === state.filteredQuestions.length - 1;
+
+            renderQuizNavigator();
+            lucide.createIcons();
+        }
+
+        function selectOption(questionId, optionIdx) {
+            if (state.quizSubmitted) return; // Locked after final submission
+            state.userAnswers[questionId] = optionIdx;
+            renderCurrentQuestion();
+            updateHeaderScorePreview();
+        }
+
+        function prevQuestion() {
+            if (state.currentQIndex > 0) {
+                state.currentQIndex--;
+                renderCurrentQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (state.currentQIndex < state.filteredQuestions.length - 1) {
+                state.currentQIndex++;
+                renderCurrentQuestion();
+            }
+        }
+
+        function jumpToQuestion(idx) {
+            state.currentQIndex = idx;
+            renderCurrentQuestion();
+        }
+
+        function renderQuizNavigator() {
+            const grid = document.getElementById('q-nav-grid');
+            const instantFeedback = document.getElementById('instant-feedback-toggle').checked;
+            
+            let answeredInCurrentMode = 0;
+            state.filteredQuestions.forEach(q => {
+                if (state.userAnswers[q.id] !== undefined) answeredInCurrentMode++;
+            });
+            document.getElementById('answered-counter').textContent = `${answeredInCurrentMode}/${state.filteredQuestions.length} Dijawab`;
+
+            grid.innerHTML = state.filteredQuestions.map((q, idx) => {
+                const isCurrent = idx === state.currentQIndex;
+                const ans = state.userAnswers[q.id];
+                const isAnswered = ans !== undefined;
+                const showResultColor = state.quizSubmitted || (instantFeedback && isAnswered);
+
+                let cellStyle = 'bg-[#111827] text-[#9CA3AF] hover:bg-slate-800 hover:text-[#F3F4F6] border-slate-800';
+                
+                if (showResultColor && isAnswered) {
+                    if (ans === q.correct) {
+                        cellStyle = 'bg-[#A7C957] text-[#0B0F19] border-[#A7C957] font-extrabold';
+                    } else {
+                        cellStyle = 'bg-rose-600 text-white border-rose-500 font-bold';
+                    }
+                } else if (isAnswered) {
+                    cellStyle = 'bg-slate-700 text-white border-slate-600 font-bold';
+                }
+
+                if (isCurrent) {
+                    cellStyle += ' ring-2 ring-[#E76F51] ring-offset-1 ring-offset-[#161E2E]';
+                }
+
+                return `
+                    <button onclick="jumpToQuestion(${idx})" 
+                        class="h-8 rounded-lg text-xs border flex items-center justify-center transition cursor-pointer relative ${cellStyle}"
+                        title="${q.isHots ? 'Soal HOTS LKS' : q.topicName}">
+                        ${idx + 1}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function updateHeaderScorePreview() {
+            let correctTotal = 0;
+            QUIZ_QUESTIONS.forEach(q => {
+                if (state.userAnswers[q.id] === q.correct) correctTotal++;
+            });
+            document.getElementById('mobile-score-badge').textContent = `${correctTotal}/95`;
+        }
+
+        function submitQuiz() {
+            state.quizSubmitted = true;
+            
+            // Calculate score based on currently active filter set
+            const questionsToGrade = state.filteredQuestions;
+            let correctCount = 0;
+            questionsToGrade.forEach(q => {
+                if (state.userAnswers[q.id] === q.correct) correctCount++;
+            });
+
+            const wrongCount = questionsToGrade.length - correctCount;
+            const finalScore = Math.round((correctCount / questionsToGrade.length) * 100);
+
+            // Show Result Panel
+            const resultPanel = document.getElementById('quiz-result-panel');
+            resultPanel.classList.remove('hidden');
+            document.getElementById('final-score-value').textContent = finalScore;
+            document.getElementById('final-correct-count').textContent = correctCount;
+            document.getElementById('final-wrong-count').textContent = wrongCount;
+
+            // Feedback text
+            let feedback = '';
+            if (finalScore >= 85) feedback = 'Luar Biasa! Penguasaan materi Bab 1–3, Glosarium, dan soal HOTS LKS PJOK Kelas XI - 1 kamu sudah sangat matang.';
+            else if (finalScore >= 70) feedback = 'Bagus! Kamu sudah menguasai sebagian besar soal LKS. Pelajari pembahasan pada nomor yang masih salah agar siap ujian.';
+            else feedback = 'Tetap semangat! Buka kembali tab Materi & Glosarium LKS serta 30 Flashcards untuk menghafal kata kunci tiap bab.';
+            document.getElementById('final-score-feedback').textContent = feedback;
+
+            // Update Header Badges
+            document.getElementById('desktop-score-badge').textContent = `${finalScore} Poin (${correctCount}/${questionsToGrade.length})`;
+            document.getElementById('mobile-score-badge').textContent = `${correctCount}/${questionsToGrade.length}`;
+
+            // Breakdown Per Paket LKS
+            const categories = [
+                { id: 'bab1', name: '🎯 Bab 1 (15)' },
+                { id: 'bab2', name: '🧠 Bab 2 (15)' },
+                { id: 'sts', name: '📝 STS (25)' },
+                { id: 'bab3', name: '⚡ Bab 3 (15)' },
+                { id: 'sas', name: '🏆 SAS (25)' }
+            ];
+
+            document.getElementById('category-breakdown-grid').innerHTML = categories.map(cat => {
+                const catQs = QUIZ_QUESTIONS.filter(q => q.topic === cat.id);
+                let catCorrect = 0;
+                catQs.forEach(q => {
+                    if (state.userAnswers[q.id] === q.correct) catCorrect++;
+                });
+                const catPct = Math.round((catCorrect / catQs.length) * 100);
+                const barColor = catPct >= 75 ? 'bg-[#A7C957]' : (catPct >= 50 ? 'bg-amber-400' : 'bg-rose-500');
+
+                return `
+                    <div class="bg-[#111827] p-3.5 rounded-xl border border-slate-800">
+                        <div class="flex justify-between items-center text-xs font-bold text-[#F3F4F6] mb-1.5">
+                            <span>${cat.name}</span>
+                            <span>${catCorrect}/${catQs.length} (${catPct}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div class="${barColor} h-2 rounded-full" style="width: ${catPct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            renderCurrentQuestion();
+            resultPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            showToast('🏆', `Evaluasi LKS selesai! Skor akhir kamu: ${finalScore}`);
+        }
+
+        function resetQuiz() {
+            state.userAnswers = {};
+            state.quizSubmitted = false;
+            state.currentQIndex = 0;
+            state.timerSeconds = 0;
+            state.timerPaused = false;
+            document.getElementById('quiz-timer').textContent = '00:00';
+            document.getElementById('quiz-result-panel').classList.add('hidden');
+            document.getElementById('desktop-score-badge').textContent = 'Belum Selesai';
+            document.getElementById('mobile-score-badge').textContent = '0/95';
+            
+            startQuizTimer();
+            renderCurrentQuestion();
+            showToast('🔄', 'Latihan soal LKS telah diatur ulang. Selamat mengerjakan!');
+        }
+
+        // =========================================================================
+        // 9. INITIALIZATION ON WINDOW LOAD
+        // =========================================================================
+        window.onload = function() {
+            renderMateriSubTabs();
+            renderMateriContent();
+            updateProgressUI();
+
+            renderFlashcardFilters();
+            renderCurrentFlashcard();
+
+            renderQuizNavigator();
+            renderCurrentQuestion();
+
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
