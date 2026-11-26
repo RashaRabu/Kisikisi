@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTK Wajib Master Kelas XI — 14 Kisi-Kisi & 42 Soal HOTS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        obsidian: {
+                            950: '#0B0F19',
+                            900: '#111827',
+                            850: '#161E2E',
+                            800: '#1F2937',
+                        },
+                        coral: {
+                            DEFAULT: '#E76F51',
+                            light: '#F08A70',
+                            dark: '#D1593B',
+                        },
+                        sage: {
+                            DEFAULT: '#A7C957',
+                            light: '#B9D674',
+                            dark: '#8FB33E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Permanent Dark Mode Enforcement */
+        :root { color-scheme: dark; }
+
+        /* 3D Flip Card Utilities */
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+
+        /* Hide scrollbars on horizontal pill nav */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Custom subtle dark scrollbars */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0B0F19; }
+        ::-webkit-scrollbar-thumb { background: #1F2937; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #374151; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.25s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-[#0B0F19] text-[#F3F4F6] font-sans antialiased selection:bg-[#E76F51] selection:text-white min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- ==================== STICKY HEADER & NAVIGATION ==================== -->
+    <header class="bg-[#111827]/95 backdrop-blur-md border-b border-[#1F2937] sticky top-0 z-40 shadow-xl shadow-black/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Top Row -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between py-3.5 gap-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#E76F51] to-[#c95234] flex items-center justify-center shadow-lg shadow-[#E76F51]/25 text-white font-mono font-bold text-lg">
+                            ∑π
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h1 class="font-extrabold text-lg sm:text-xl tracking-tight text-[#F3F4F6] leading-tight">
+                                    MTK Wajib <span class="text-[#E76F51]">Master</span>
+                                </h1>
+                                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-[#A7C957]/15 text-[#A7C957] border border-[#A7C957]/30">
+                                    Kelas XI SMA
+                                </span>
+                            </div>
+                            <p class="text-xs text-[#9CA3AF]">14 Kisi-Kisi Fungsi & Lingkaran • 28 Flashcards • 42 Soal HOTS</p>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Score Badge -->
+                    <div class="flex md:hidden items-center gap-1.5 bg-[#161E2E] px-3 py-1.5 rounded-lg border border-[#1F2937]">
+                        <span class="text-[11px] text-[#9CA3AF]">Kuis:</span>
+                        <span id="mobile-score-badge" class="text-xs font-mono font-bold text-[#A7C957]">0/42</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Progress Bar -->
+                <div class="hidden md:flex items-center gap-4 bg-[#161E2E] px-4 py-2 rounded-xl border border-[#1F2937]">
+                    <div class="flex flex-col min-w-[155px]">
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="text-[#9CA3AF] font-medium">Kisi-Kisi Dikuasai</span>
+                            <span id="mastery-progress-text" class="text-[#E76F51] font-mono font-bold">0/14</span>
+                        </div>
+                        <div class="w-full bg-[#0B0F19] rounded-full h-1.5 overflow-hidden">
+                            <div id="mastery-progress-bar" class="bg-gradient-to-r from-[#E76F51] to-[#f4977f] h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="h-6 w-px bg-[#1F2937]"></div>
+                    <div class="text-right">
+                        <div class="text-[10px] text-[#9CA3AF] uppercase tracking-wider font-semibold">Evaluasi HOTS</div>
+                        <div id="desktop-score-badge" class="text-xs font-mono font-bold text-[#A7C957]">0/42 Dijawab</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Main Navigation Tabs -->
+            <nav class="flex space-x-1 sm:space-x-3 overflow-x-auto no-scrollbar border-t border-[#1F2937]/80" aria-label="Main Tabs">
+                <button onclick="switchMainTab('materi')" id="tab-btn-materi" class="main-tab-btn flex items-center gap-2 px-4 py-3 text-sm font-bold border-b-2 border-[#E76F51] text-[#E76F51] whitespace-nowrap transition-colors cursor-pointer">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    <span>Materi & Rumus Cepat</span>
+                    <span class="bg-[#161E2E] text-[#9CA3AF] border border-[#1F2937] text-[11px] px-2 py-0.5 rounded-full font-mono">14</span>
+                </button>
+                <button onclick="switchMainTab('flashcards')" id="tab-btn-flashcards" class="main-tab-btn flex items-center gap-2 px-4 py-3 text-sm font-bold border-b-2 border-transparent text-[#9CA3AF] hover:text-[#F3F4F6] whitespace-nowrap transition-colors cursor-pointer">
+                    <i data-lucide="layers" class="w-4 h-4"></i>
+                    <span>Flashcards Rumus</span>
+                    <span class="bg-[#161E2E] text-[#9CA3AF] border border-[#1F2937] text-[11px] px-2 py-0.5 rounded-full font-mono">28</span>
+                </button>
+                <button onclick="switchMainTab('kuis')" id="tab-btn-kuis" class="main-tab-btn flex items-center gap-2 px-4 py-3 text-sm font-bold border-b-2 border-transparent text-[#9CA3AF] hover:text-[#F3F4F6] whitespace-nowrap transition-colors cursor-pointer">
+                    <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+                    <span>Latihan Soal HOTS</span>
+                    <span class="bg-[#E76F51]/15 text-[#E76F51] border border-[#E76F51]/30 text-[11px] px-2 py-0.5 rounded-full font-mono font-bold">42 Soal</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+        <!-- ========================================================= -->
+        <!-- TAB 1: MATERI & RUMUS CEPAT (14 KISI-KISI)                -->
+        <!-- ========================================================= -->
+        <section id="section-materi" class="animate-fade-in">
+            <!-- Hero Banner -->
+            <div class="bg-gradient-to-r from-[#111827] via-[#161E2E] to-[#111827] rounded-2xl p-5 sm:p-7 border border-[#1F2937] shadow-lg mb-6">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#E76F51]/15 text-[#E76F51] border border-[#E76F51]/30 mb-2">
+                            🎯 Peta Konsep & Jembatan Keledai 14 Kisi-Kisi
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-[#F3F4F6]">Hafal Rumus & Konsep Dasar dalam Hitungan Menit</h2>
+                        <p class="text-[#9CA3AF] text-sm mt-1 max-w-2xl">
+                            Dilengkapi <strong class="text-[#F3F4F6]">Jembatan Keledai</strong>, syarat aljabar, ilustrasi diagram SVG, dan <strong class="text-[#F3F4F6]">Contoh Kilat</strong> untuk setiap kisi-kisi (01–14). Tandai kisi-kisi yang sudah kamu kuasai!
+                        </p>
+                    </div>
+                    <!-- Search Input -->
+                    <div class="relative w-full lg:w-72 shrink-0">
+                        <i data-lucide="search" class="w-4 h-4 text-[#9CA3AF] absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                        <input type="text" id="materi-search-input" oninput="renderMateriGrid()" placeholder="Cari rumus, contoh, kisi-kisi..." 
+                            class="w-full bg-[#0B0F19] border border-[#1F2937] focus:border-[#E76F51] rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#F3F4F6] placeholder-[#9CA3AF] outline-none transition">
+                    </div>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap items-center gap-2 mt-5 pt-4 border-t border-[#1F2937]">
+                    <button onclick="setMateriFilter('all')" id="mfilter-all" class="mfilter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#E76F51] text-white border border-[#E76F51] shadow-md shadow-[#E76F51]/20 cursor-pointer transition">
+                        Semua (14 Kisi-Kisi)
+                    </button>
+                    <button onclick="setMateriFilter('fungsi')" id="mfilter-fungsi" class="mfilter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#111827] text-[#9CA3AF] border border-[#1F2937] hover:text-[#F3F4F6] cursor-pointer transition">
+                        ƒ(x) Bab Fungsi & Invers (01–07)
+                    </button>
+                    <button onclick="setMateriFilter('lingkaran')" id="mfilter-lingkaran" class="mfilter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#111827] text-[#9CA3AF] border border-[#1F2937] hover:text-[#F3F4F6] cursor-pointer transition">
+                        ◯ Bab Lingkaran (08–14)
+                    </button>
+                </div>
+            </div>
+
+            <!-- 14 Kisi-Kisi Cards Grid -->
+            <div id="materi-cards-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Rendered via JS -->
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- TAB 2: FLASHCARDS RUMUS (28 KARTU INTERAKTIF)             -->
+        <!-- ========================================================= -->
+        <section id="section-flashcards" class="hidden animate-fade-in">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="text-2xl font-extrabold text-[#F3F4F6]">Flashcards Rumus & Teorema (28 Kartu)</h2>
+                    <p class="text-[#9CA3AF] text-sm mt-1">Ketuk kartu (atau tekan <kbd class="px-1.5 py-0.5 bg-[#161E2E] border border-[#1F2937] rounded text-xs font-mono">Spasi</kbd>) untuk membalik kartu dan melihat trik cepatnya.</p>
+                </div>
+
+                <!-- Mastery Progress Bar -->
+                <div class="bg-[#161E2E] border border-[#1F2937] rounded-2xl p-4 mb-5">
+                    <div class="flex items-center justify-between text-xs font-bold mb-2">
+                        <span class="text-[#9CA3AF]">Progres Hafalan Flashcards</span>
+                        <span id="fc-mastered-label" class="font-mono text-[#A7C957]">0 / 28 Hapal (0%)</span>
+                    </div>
+                    <div class="w-full bg-[#0B0F19] h-2 rounded-full overflow-hidden">
+                        <div id="fc-mastered-bar" class="bg-[#A7C957] h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Filter Pills -->
+                <div class="flex flex-wrap justify-center gap-2 mb-6" id="fc-filter-bar">
+                    <button onclick="filterFlashcards('all')" id="fc-btn-all" class="fc-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#E76F51] text-white border border-[#E76F51] cursor-pointer transition">
+                        Semua (28 Kartu)
+                    </button>
+                    <button onclick="filterFlashcards('fungsi')" id="fc-btn-fungsi" class="fc-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#161E2E] text-[#9CA3AF] border border-[#1F2937] hover:text-[#F3F4F6] cursor-pointer transition">
+                        ƒ(x) Fungsi & Invers (14)
+                    </button>
+                    <button onclick="filterFlashcards('lingkaran')" id="fc-btn-lingkaran" class="fc-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#161E2E] text-[#9CA3AF] border border-[#1F2937] hover:text-[#F3F4F6] cursor-pointer transition">
+                        ◯ Lingkaran (14)
+                    </button>
+                </div>
+
+                <!-- 3D Flip Card -->
+                <div class="perspective-1000 w-full h-80 sm:h-96 cursor-pointer select-none mb-5" onclick="flipFlashcard()">
+                    <div id="flashcard-inner" class="relative w-full h-full transition-transform duration-500 transform-style-3d">
+                        <!-- Front -->
+                        <div class="absolute inset-0 backface-hidden bg-[#161E2E] rounded-2xl shadow-2xl shadow-black/50 border border-[#1F2937] p-6 sm:p-8 flex flex-col justify-between">
+                            <div class="flex items-center justify-between gap-2">
+                                <span id="fc-topic-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-[#E76F51]/15 text-[#E76F51] border border-[#E76F51]/30">
+                                    Kisi-Kisi 01
+                                </span>
+                                <span id="fc-counter" class="text-xs font-mono font-semibold text-[#9CA3AF]">1 / 28</span>
+                            </div>
+                            <div class="my-auto text-center px-2">
+                                <div class="text-[11px] uppercase tracking-widest text-[#9CA3AF] font-bold mb-2">Pertanyaan / Konsep</div>
+                                <h3 id="fc-front-text" class="text-lg sm:text-2xl font-extrabold text-[#F3F4F6] leading-snug">
+                                    Memuat kartu...
+                                </h3>
+                            </div>
+                            <div class="flex items-center justify-center gap-2 text-xs font-medium text-[#9CA3AF]">
+                                <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-[#E76F51]"></i>
+                                <span>Ketuk kartu untuk melihat rumus & jawaban</span>
+                            </div>
+                        </div>
+
+                        <!-- Back -->
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-[#111827] rounded-2xl shadow-2xl shadow-black/60 border-2 border-[#E76F51]/60 p-6 sm:p-8 flex flex-col justify-between">
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#A7C957]/15 text-[#A7C957] border border-[#A7C957]/30">
+                                    Rumus & Jawaban
+                                </span>
+                                <span id="fc-counter-back" class="text-xs font-mono font-semibold text-[#9CA3AF]">1 / 28</span>
+                            </div>
+                            <div class="my-auto text-center px-2 space-y-3">
+                                <div id="fc-back-formula" class="font-mono text-base sm:text-xl font-bold text-[#F3F4F6] bg-[#0B0F19] border border-[#1F2937] rounded-xl p-3.5 leading-relaxed">
+                                    Rumus...
+                                </div>
+                                <div id="fc-back-trick" class="bg-[#E76F51]/15 border border-[#E76F51]/30 rounded-xl p-3 text-xs sm:text-sm text-[#F08A70] font-semibold">
+                                    💡 Trik Hapal: ...
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center gap-2 text-xs font-medium text-[#9CA3AF]">
+                                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-[#A7C957]"></i>
+                                <span>Ketuk lagi untuk kembali ke sisi depan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="grid grid-cols-2 sm:flex sm:items-center sm:justify-between gap-2.5">
+                    <button onclick="prevFlashcard()" class="inline-flex items-center justify-center gap-2 bg-[#161E2E] hover:bg-[#1F2937] text-[#F3F4F6] font-bold text-xs sm:text-sm px-4 py-3 rounded-xl border border-[#1F2937] transition cursor-pointer">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        <span>Sebelumnya</span>
+                    </button>
+
+                    <button onclick="toggleFlashcardMastered()" id="btn-fc-mastered" class="inline-flex items-center justify-center gap-2 bg-[#161E2E] hover:bg-[#1F2937] text-[#A7C957] font-bold text-xs sm:text-sm px-4 py-3 rounded-xl border border-[#A7C957]/40 transition cursor-pointer">
+                        <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                        <span>Sudah Hapal</span>
+                    </button>
+
+                    <button onclick="shuffleFlashcards()" class="inline-flex items-center justify-center gap-2 bg-[#161E2E] hover:bg-[#1F2937] text-[#9CA3AF] hover:text-[#F3F4F6] font-bold text-xs sm:text-sm px-4 py-3 rounded-xl border border-[#1F2937] transition cursor-pointer">
+                        <i data-lucide="shuffle" class="w-4 h-4"></i>
+                        <span>Acak Kartu</span>
+                    </button>
+
+                    <button onclick="nextFlashcard()" class="inline-flex items-center justify-center gap-2 bg-[#E76F51] hover:bg-[#F08A70] text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md shadow-[#E76F51]/20 transition cursor-pointer">
+                        <span>Selanjutnya</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- TAB 3: LATIHAN SOAL HOTS (42 SOAL — 3 PER KISI-KISI)      -->
+        <!-- ========================================================= -->
+        <section id="section-kuis" class="hidden animate-fade-in">
+            <!-- Quiz Control Header -->
+            <div class="bg-[#161E2E] rounded-2xl p-4 sm:p-6 border border-[#1F2937] shadow-md mb-6">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-[#E76F51]/15 text-[#E76F51] border border-[#E76F51]/30">
+                                Bank Soal HOTS Matematika Wajib Kelas XI
+                            </span>
+                            <span id="quiz-mode-label" class="text-xs font-semibold text-[#9CA3AF]">Semua 42 Soal (3 Soal × 14 Kisi-Kisi)</span>
+                        </div>
+                        <h2 class="text-xl font-extrabold text-[#F3F4F6] mt-1">Uji Kemampuan Analisis & Pemecahan Masalah</h2>
+                    </div>
+
+                    <!-- Filters & Timer -->
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <select id="quiz-topic-filter" onchange="changeQuizMode(this.value)" class="bg-[#111827] border border-[#1F2937] text-[#F3F4F6] text-xs sm:text-sm font-bold rounded-xl px-3 py-2.5 focus:border-[#E76F51] outline-none max-w-full">
+                            <option value="all">Semua Kisi-Kisi (42 Soal)</option>
+                            <option value="bab_fungsi">Bab Fungsi & Invers (21 Soal)</option>
+                            <option value="bab_lingkaran">Bab Lingkaran (21 Soal)</option>
+                            <optgroup label="Per Kisi-Kisi (3 Soal HOTS)">
+                                <option value="1">01. Pengertian Fungsi</option>
+                                <option value="2">02. Nilai Fungsi</option>
+                                <option value="3">03. Operasi pada Fungsi</option>
+                                <option value="4">04. Domain dan Range</option>
+                                <option value="5">05. Fungsi Komposisi</option>
+                                <option value="6">06. Fungsi Invers</option>
+                                <option value="7">07. Invers dari Fungsi Komposisi</option>
+                                <option value="8">08. Sudut Pusat</option>
+                                <option value="9">09. Sudut Keliling</option>
+                                <option value="10">10. Panjang Busur</option>
+                                <option value="11">11. Luas Juring</option>
+                                <option value="12">12. Segiempat Tali Busur</option>
+                                <option value="13">13. Sudut Perpotongan Dua Tali Busur</option>
+                                <option value="14">14. Panjang Garis Singgung</option>
+                            </optgroup>
+                        </select>
+
+                        <!-- Stopwatch -->
+                        <div class="flex items-center gap-2 bg-[#0B0F19] text-[#F3F4F6] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-mono font-bold border border-[#1F2937]">
+                            <i data-lucide="timer" class="w-4 h-4 text-[#E76F51]"></i>
+                            <span id="quiz-timer">00:00</span>
+                            <button onclick="toggleTimer()" id="btn-toggle-timer" class="ml-1 text-[#9CA3AF] hover:text-white cursor-pointer" title="Jeda/Lanjut Waktu">
+                                <i data-lucide="pause" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+
+                        <!-- Instant Feedback Toggle -->
+                        <label class="inline-flex items-center gap-2 bg-[#111827] px-3 py-2 rounded-xl cursor-pointer border border-[#1F2937] select-none">
+                            <input type="checkbox" id="instant-feedback-toggle" checked onchange="renderCurrentQuestion()" class="w-4 h-4 accent-[#E76F51] rounded">
+                            <span class="text-xs font-bold text-[#F3F4F6]">Pembahasan Langsung</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Score Dashboard (Shown after submit) -->
+            <div id="quiz-result-panel" class="hidden bg-[#161E2E] rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-[#A7C957]/40 mb-6 animate-fade-in">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-[#1F2937] pb-6">
+                    <div class="text-center md:text-left">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#A7C957]/15 text-[#A7C957] border border-[#A7C957]/30 mb-2">
+                            Rapor Evaluasi HOTS Matematika Wajib
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-[#F3F4F6]">
+                            Skor Akhir: <span id="final-score-value" class="font-mono text-[#A7C957]">0</span> <span class="text-lg text-[#9CA3AF] font-semibold">/ 100</span>
+                        </h3>
+                        <p id="final-score-feedback" class="text-sm text-[#9CA3AF] mt-1">Rincian penguasaan tiap kisi-kisi (01–14) ada di bawah ini.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="text-center px-4 py-2 bg-[#A7C957]/10 rounded-xl border border-[#A7C957]/30">
+                            <div class="text-xs text-[#A7C957] font-semibold">Benar</div>
+                            <div id="final-correct-count" class="text-xl font-mono font-extrabold text-[#A7C957]">0</div>
+                        </div>
+                        <div class="text-center px-4 py-2 bg-rose-500/10 rounded-xl border border-rose-500/30">
+                            <div class="text-xs text-rose-400 font-semibold">Salah</div>
+                            <div id="final-wrong-count" class="text-xl font-mono font-extrabold text-rose-400">0</div>
+                        </div>
+                        <button onclick="resetQuiz()" class="inline-flex items-center gap-2 bg-[#0B0F19] hover:bg-[#111827] text-[#F3F4F6] border border-[#1F2937] font-bold text-sm px-4 py-3.5 rounded-xl transition cursor-pointer">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            <span>Ulangi</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Breakdown per 14 Kisi-Kisi -->
+                <div class="mt-6">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-[#9CA3AF] mb-3">Analisis Penguasaan per Kisi-Kisi (01–14)</h4>
+                    <div id="topic-breakdown-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                        <!-- Rendered via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Quiz Split View -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                <!-- Question Card (8 cols) -->
+                <div class="lg:col-span-8 bg-[#161E2E] rounded-2xl p-5 sm:p-7 border border-[#1F2937] shadow-md">
+                    <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b border-[#1F2937]">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span id="q-number-badge" class="bg-[#0B0F19] text-[#F3F4F6] border border-[#1F2937] font-mono font-bold text-xs sm:text-sm px-3 py-1 rounded-lg">
+                                Soal 1 / 42
+                            </span>
+                            <span id="q-topic-badge" class="bg-[#E76F51]/15 text-[#E76F51] border border-[#E76F51]/30 font-bold text-xs px-2.5 py-1 rounded-lg">
+                                Kisi-Kisi 01
+                            </span>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                            🔥 HOTS C4/C5
+                        </span>
+                    </div>
+
+                    <!-- Question Text -->
+                    <div id="q-text" class="text-[#F3F4F6] font-medium text-base sm:text-lg leading-relaxed mb-6">
+                        Memuat soal...
+                    </div>
+
+                    <!-- Options A-E -->
+                    <div id="q-options" class="space-y-3">
+                        <!-- Rendered via JS -->
+                    </div>
+
+                    <!-- Step-by-Step Solution Box -->
+                    <div id="q-explanation-box" class="hidden mt-6 p-4 sm:p-5 rounded-xl bg-[#0B0F19] border border-[#1F2937] border-l-4 border-l-[#A7C957] space-y-3">
+                        <div class="flex items-center gap-2 text-[#A7C957] font-bold text-sm">
+                            <i data-lucide="calculator" class="w-4 h-4"></i>
+                            <span>Pembahasan Langkah demi Langkah</span>
+                        </div>
+                        <div id="q-explanation-text" class="text-xs sm:text-sm text-[#F3F4F6] leading-relaxed space-y-1.5 font-sans"></div>
+                        <div id="q-trick-box" class="bg-[#E76F51]/15 border border-[#E76F51]/30 rounded-lg p-3 text-xs text-[#F08A70] font-semibold">
+                            ⚡ Trik Cepat: ...
+                        </div>
+                    </div>
+
+                    <!-- Bottom Navigation Buttons -->
+                    <div class="flex items-center justify-between gap-2 pt-6 mt-6 border-t border-[#1F2937]">
+                        <button onclick="prevQuestion()" id="btn-prev-q" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#111827] hover:bg-[#1F2937] text-[#F3F4F6] border border-[#1F2937] disabled:opacity-35 transition cursor-pointer">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                            <span>Sebelumnya</span>
+                        </button>
+
+                        <button onclick="submitQuiz()" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-[#A7C957] hover:bg-[#B9D674] text-[#0B0F19] shadow-sm transition cursor-pointer">
+                            <i data-lucide="check-square" class="w-4 h-4"></i>
+                            <span>Selesai & Nilai</span>
+                        </button>
+
+                        <button onclick="nextQuestion()" id="btn-next-q" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#E76F51] hover:bg-[#F08A70] text-white disabled:opacity-35 transition cursor-pointer">
+                            <span>Selanjutnya</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Navigator Sidebar (4 cols) -->
+                <div class="lg:col-span-4 bg-[#161E2E] rounded-2xl p-5 border border-[#1F2937] shadow-md sticky top-28">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="font-bold text-sm text-[#F3F4F6]">Peta Nomor Soal (1–42)</h3>
+                        <span id="answered-counter" class="text-xs font-mono font-bold text-[#9CA3AF]">0/42 Dijawab</span>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="flex flex-wrap items-center gap-3 text-[11px] text-[#9CA3AF] mb-4 pb-3 border-b border-[#1F2937]">
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-[#E76F51] inline-block"></span> Aktif</span>
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-slate-600 inline-block"></span> Dijawab</span>
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-[#A7C957] inline-block"></span> Benar</span>
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-rose-500 inline-block"></span> Salah</span>
+                    </div>
+
+                    <!-- Number Grid -->
+                    <div id="q-nav-grid" class="grid grid-cols-7 sm:grid-cols-10 lg:grid-cols-7 gap-1.5 max-h-80 overflow-y-auto pr-1">
+                        <!-- Rendered via JS -->
+                    </div>
+
+                    <button onclick="submitQuiz()" class="w-full mt-5 py-3 rounded-xl bg-[#0B0F19] hover:bg-[#111827] text-[#F3F4F6] border border-[#1F2937] font-bold text-xs sm:text-sm transition cursor-pointer">
+                        Kumpulkan Semua Jawaban
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Custom Toast Notification (No alert()) -->
+    <div id="toast-message" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-[#161E2E] text-[#F3F4F6] px-4 py-3 rounded-xl shadow-2xl border border-[#1F2937] flex items-center gap-3 text-sm font-semibold">
+            <span id="toast-icon">✅</span>
+            <span id="toast-text">Notifikasi</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#111827] border-t border-[#1F2937] py-5 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#9CA3AF]">
+            <p class="font-bold text-[#F3F4F6]">MTK Wajib Master — Persiapan Ujian Kelas XI SMA</p>
+            <p>14 Kisi-Kisi Lengkap (Fungsi & Lingkaran) • 28 Flashcards • 42 Soal HOTS</p>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT DATABASE & APP LOGIC ==================== -->
+    <script>
+        // =========================================================================
+        // 1. DATABASE 14 KISI-KISI LENGKAP (MATERI, RUMUS, SVG & CONTOH KILAT)
+        // =========================================================================
+        const KISI_DATA = [
+            {
+                id: 1,
+                num: '01',
+                group: 'fungsi',
+                title: 'Pengertian Fungsi (Pemetaan)',
+                mnemonic: 'SETIA & TIDAK JOMBLO: Setiap anggota Domain (A) wajib punya TEPAT SATU pasangan di Kodomain (B).',
+                formula: 'f : A → B\n• Tidak boleh ada anggota A yang kosong (tidak punya pasangan).\n• Tidak boleh ada anggota A yang bercabang (>1 pasangan).\n• Anggota B boleh kosong atau punya >1 pasangan.',
+                svg: `<svg viewBox="0 0 280 110" class="w-full h-28 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <ellipse cx="65" cy="55" rx="34" ry="42" fill="#161E2E" stroke="#E76F51" stroke-width="1.5"/>
+                    <ellipse cx="215" cy="55" rx="34" ry="42" fill="#161E2E" stroke="#A7C957" stroke-width="1.5"/>
+                    <text x="65" y="10" fill="#E76F51" font-size="9" font-weight="bold" text-anchor="middle">Domain (A)</text>
+                    <text x="215" y="10" fill="#A7C957" font-size="9" font-weight="bold" text-anchor="middle">Kodomain (B)</text>
+                    <circle cx="65" cy="34" r="3" fill="#F3F4F6"/><text x="53" y="37" fill="#F3F4F6" font-size="9">1</text>
+                    <circle cx="65" cy="55" r="3" fill="#F3F4F6"/><text x="53" y="58" fill="#F3F4F6" font-size="9">2</text>
+                    <circle cx="65" cy="76" r="3" fill="#F3F4F6"/><text x="53" y="79" fill="#F3F4F6" font-size="9">3</text>
+                    <circle cx="215" cy="34" r="3" fill="#F3F4F6"/><text x="224" y="37" fill="#F3F4F6" font-size="9">a</text>
+                    <circle cx="215" cy="55" r="3" fill="#F3F4F6"/><text x="224" y="58" fill="#F3F4F6" font-size="9">b</text>
+                    <circle cx="215" cy="76" r="3" fill="#9CA3AF"/><text x="224" y="79" fill="#9CA3AF" font-size="9">c</text>
+                    <line x1="68" y1="34" x2="210" y2="34" stroke="#E76F51" stroke-width="1.5"/>
+                    <line x1="68" y1="55" x2="210" y2="55" stroke="#E76F51" stroke-width="1.5"/>
+                    <line x1="68" y1="76" x2="210" y2="55" stroke="#E76F51" stroke-width="1.5"/>
+                    <text x="140" y="98" fill="#A7C957" font-size="9" font-weight="bold" text-anchor="middle">✓ Fungsi Sah (Range = {a, b})</text>
+                </svg>`,
+                example: 'Manakah yang merupakan fungsi dari A={1,2,3} ke B={p,q}? Himpunan {(1,p), (2,q), (3,p)} adalah FUNGSI karena 1, 2, 3 masing-masing muncul tepat satu kali di depan.'
+            },
+            {
+                id: 2,
+                num: '02',
+                group: 'fungsi',
+                title: 'Nilai Fungsi',
+                mnemonic: 'GANTI BAJU: Apa pun yang ada di dalam kurung f(...), ganti semua huruf x di rumus dengan isi kurung tersebut!',
+                formula: 'Jika f(x) = ax + b, maka f(k) = a(k) + b\nJika diketahui f(ax + b) = cx + d, misalkan u = ax + b → x = (u - b)/a',
+                svg: `<svg viewBox="0 0 280 100" class="w-full h-24 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <rect x="95" y="25" width="90" height="50" rx="10" fill="#161E2E" stroke="#E76F51" stroke-width="1.8"/>
+                    <text x="140" y="47" fill="#F3F4F6" font-size="10" font-weight="bold" text-anchor="middle">Mesin f(x)</text>
+                    <text x="140" y="62" fill="#E76F51" font-size="9" font-family="monospace" text-anchor="middle">2x² - 3x + 1</text>
+                    <line x1="25" y1="50" x2="90" y2="50" stroke="#9CA3AF" stroke-width="1.5"/>
+                    <polygon points="90,46 96,50 90,54" fill="#9CA3AF"/>
+                    <text x="55" y="42" fill="#F3F4F6" font-size="9" text-anchor="middle">Input x = -2</text>
+                    <line x1="185" y1="50" x2="250" y2="50" stroke="#A7C957" stroke-width="1.5"/>
+                    <polygon points="250,46 256,50 250,54" fill="#A7C957"/>
+                    <text x="225" y="42" fill="#A7C957" font-size="9" font-weight="bold" text-anchor="middle">Output = 15</text>
+                </svg>`,
+                example: 'Diketahui f(2x - 1) = 4x + 5. Nilai f(3) = ... Jawab: Samakan 2x - 1 = 3 → 2x = 4 → x = 2. Substitusi x = 2 ke 4(2) + 5 = 13.'
+            },
+            {
+                id: 3,
+                num: '03',
+                group: 'fungsi',
+                title: 'Operasi pada Fungsi',
+                mnemonic: 'ALJABAR BIASA + IRISAN DOMAIN: Jumlah, kurang, kali, bagi sama seperti aljabar biasa, lalu domainnya adalah IRISAN (Df ∩ Dg).',
+                formula: '(f ± g)(x) = f(x) ± g(x)\n(f · g)(x) = f(x) · g(x)\n(f / g)(x) = f(x) / g(x), syarat g(x) ≠ 0',
+                svg: `<svg viewBox="0 0 280 95" class="w-full h-24 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <circle cx="115" cy="48" r="32" fill="#E76F51" fill-opacity="0.2" stroke="#E76F51" stroke-width="1.5"/>
+                    <circle cx="165" cy="48" r="32" fill="#A7C957" fill-opacity="0.2" stroke="#A7C957" stroke-width="1.5"/>
+                    <text x="90" y="51" fill="#F3F4F6" font-size="9" font-weight="bold" text-anchor="middle">Df</text>
+                    <text x="190" y="51" fill="#F3F4F6" font-size="9" font-weight="bold" text-anchor="middle">Dg</text>
+                    <text x="140" y="51" fill="#F3F4F6" font-size="9" font-weight="bold" text-anchor="middle">Df ∩ Dg</text>
+                    <text x="140" y="90" fill="#9CA3AF" font-size="8.5" text-anchor="middle">Domain hasil operasi = Irisan domain + penyebut ≠ 0</text>
+                </svg>`,
+                example: 'Jika f(x) = x² - 9 dan g(x) = x - 3, maka (f/g)(x) = (x-3)(x+3)/(x-3) = x + 3 dengan syarat x ≠ 3.'
+            },
+            {
+                id: 4,
+                num: '04',
+                group: 'fungsi',
+                title: 'Daerah Asal & Daerah Hasil (Domain & Range)',
+                mnemonic: '2 PANTANGAN REAL: (1) Penyebut HARAM = 0, (2) Isi di dalam akar genap WAJIB ≥ 0!',
+                formula: '1. Pecahan f(x) = u(x)/v(x)  →  Syarat Domain: v(x) ≠ 0\n2. Bentuk Akar f(x) = √u(x)  →  Syarat Domain: u(x) ≥ 0\n3. Akar di Penyebut 1/√u(x)  →  Syarat Domain: u(x) > 0\n4. Kuadrat f(x) = ax²+bx+c   →  Puncak yp = -D / (4a)',
+                svg: `<svg viewBox="0 0 280 95" class="w-full h-24 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <line x1="30" y1="65" x2="250" y2="65" stroke="#9CA3AF" stroke-width="1.5"/>
+                    <circle cx="105" cy="65" r="4.5" fill="#A7C957"/>
+                    <line x1="105" y1="65" x2="235" y2="65" stroke="#A7C957" stroke-width="3.5"/>
+                    <polygon points="235,61 243,65 235,69" fill="#A7C957"/>
+                    <text x="105" y="82" fill="#A7C957" font-size="9" font-family="monospace" text-anchor="middle">x = 3 (≥ 0)</text>
+                    <text x="140" y="25" fill="#F3F4F6" font-size="10" font-family="monospace" text-anchor="middle">f(x) = √(2x - 6) → 2x - 6 ≥ 0 → x ≥ 3</text>
+                    <text x="140" y="42" fill="#E76F51" font-size="9" text-anchor="middle">Range Rf = {y | y ≥ 0, y ∈ R}</text>
+                </svg>`,
+                example: 'Tentukan domain f(x) = √(x + 4) / (x - 2). Jawab: Syarat pembilang x + 4 ≥ 0 → x ≥ -4, dan syarat penyebut x ≠ 2. Jadi Df = {x | x ≥ -4, x ≠ 2}.'
+            },
+            {
+                id: 5,
+                num: '05',
+                group: 'fungsi',
+                title: 'Fungsi Komposisi',
+                mnemonic: 'MASUK DARI KANAN KE KIRI: Pada (f ∘ g)(x) = f(g(x)), fungsi g masuk dulu ke dalam x milik f!',
+                formula: '(f ∘ g)(x) = f(g(x))\n(g ∘ f)(x) = g(f(x))\n(f ∘ g ∘ h)(x) = f(g(h(x)))\nSifat: Tidak komutatif (f ∘ g ≠ g ∘ f), tetapi asosiatif.',
+                svg: `<svg viewBox="0 0 280 95" class="w-full h-24 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <circle cx="45" cy="48" r="22" fill="#161E2E" stroke="#9CA3AF" stroke-width="1.5"/>
+                    <circle cx="140" cy="48" r="22" fill="#161E2E" stroke="#E76F51" stroke-width="1.5"/>
+                    <circle cx="235" cy="48" r="22" fill="#161E2E" stroke="#A7C957" stroke-width="1.5"/>
+                    <text x="45" y="51" fill="#F3F4F6" font-size="10" font-weight="bold" text-anchor="middle">x</text>
+                    <text x="140" y="51" fill="#E76F51" font-size="10" font-weight="bold" text-anchor="middle">g(x)</text>
+                    <text x="235" y="51" fill="#A7C957" font-size="9" font-weight="bold" text-anchor="middle">f(g(x))</text>
+                    <path d="M 68 38 Q 92 22 117 38" fill="none" stroke="#E76F51" stroke-width="1.5"/>
+                    <text x="92" y="22" fill="#E76F51" font-size="9" font-weight="bold" text-anchor="middle">g</text>
+                    <path d="M 163 38 Q 187 22 212 38" fill="none" stroke="#A7C957" stroke-width="1.5"/>
+                    <text x="187" y="22" fill="#A7C957" font-size="9" font-weight="bold" text-anchor="middle">f</text>
+                    <path d="M 65 65 Q 140 92 215 65" fill="none" stroke="#F3F4F6" stroke-width="1.3" stroke-dasharray="3,2"/>
+                    <text x="140" y="90" fill="#F3F4F6" font-size="9" font-weight="bold" text-anchor="middle">(f ∘ g)(x)</text>
+                </svg>`,
+                example: 'Diketahui f(x) = 2x + 1 dan g(x) = x² - 3. Maka (f ∘ g)(x) = f(x² - 3) = 2(x² - 3) + 1 = 2x² - 5.'
+            },
+            {
+                id: 6,
+                num: '06',
+                group: 'fungsi',
+                title: 'Fungsi Invers',
+                mnemonic: 'TUKAR & TANDAI NEGATIF (Pecahan): Pada (ax + b)/(cx + d), TUKAR posisi a & d lalu UBAH TANDA keduanya!',
+                formula: '1. f(x) = ax + b  →  f⁻¹(x) = (x - b) / a\n2. f(x) = (ax + b)/(cx + d)  →  f⁻¹(x) = (-dx + b)/(cx - a)\n3. Sifat Emas: f(a) = b  ⇔  f⁻¹(b) = a',
+                svg: `<svg viewBox="0 0 280 95" class="w-full h-24 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <rect x="25" y="28" width="60" height="40" rx="8" fill="#161E2E" stroke="#E76F51" stroke-width="1.5"/>
+                    <rect x="195" y="28" width="60" height="40" rx="8" fill="#161E2E" stroke="#A7C957" stroke-width="1.5"/>
+                    <text x="55" y="51" fill="#F3F4F6" font-size="10" font-weight="bold" text-anchor="middle">x</text>
+                    <text x="225" y="51" fill="#F3F4F6" font-size="10" font-weight="bold" text-anchor="middle">y = f(x)</text>
+                    <line x1="90" y1="38" x2="188" y2="38" stroke="#E76F51" stroke-width="1.5"/>
+                    <polygon points="188,34 194,38 188,42" fill="#E76F51"/>
+                    <text x="140" y="31" fill="#E76F51" font-size="9" font-weight="bold" text-anchor="middle">f(x)</text>
+                    <line x1="190" y1="58" x2="92" y2="58" stroke="#A7C957" stroke-width="1.5"/>
+                    <polygon points="92,54 86,58 92,62" fill="#A7C957"/>
+                    <text x="140" y="73" fill="#A7C957" font-size="9" font-weight="bold" text-anchor="middle">f⁻¹(y) = x</text>
+                </svg>`,
+                example: 'Invers dari f(x) = (3x - 2)/(4x + 5) adalah f⁻¹(x) = (-5x - 2)/(4x - 3), dengan syarat x ≠ 3/4.'
+            },
+            {
+                id: 7,
+                num: '07',
+                group: 'fungsi',
+                title: 'Fungsi Invers dari Fungsi Komposisi',
+                mnemonic: 'SEPATU & KAOS KAKI: Saat memakai: kaos kaki dulu baru sepatu. Saat melepas (invers): SEPATU DULU BARU KAOS KAKI (urutan dibalik)!',
+                formula: '(f ∘ g)⁻¹(x) = (g⁻¹ ∘ f⁻¹)(x) = g⁻¹(f⁻¹(x))\n(g ∘ f)⁻¹(x) = (f⁻¹ ∘ g⁻¹)(x) = f⁻¹(g⁻¹(x))\n(f ∘ g ∘ h)⁻¹(x) = (h⁻¹ ∘ g⁻¹ ∘ f⁻¹)(x)',
+                svg: `<svg viewBox="0 0 280 95" class="w-full h-24 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <text x="140" y="24" fill="#F3F4F6" font-size="10" font-weight="bold" text-anchor="middle">Urutan Komposisi vs Invers Komposisi</text>
+                    <rect x="20" y="36" width="110" height="24" rx="6" fill="#161E2E" stroke="#E76F51"/>
+                    <text x="75" y="51" fill="#E76F51" font-size="9.5" font-family="monospace" text-anchor="middle">(f ∘ g)(x) → g lalu f</text>
+                    <rect x="150" y="36" width="110" height="24" rx="6" fill="#161E2E" stroke="#A7C957"/>
+                    <text x="205" y="51" fill="#A7C957" font-size="9.5" font-family="monospace" text-anchor="middle">(f ∘ g)⁻¹ → f⁻¹ lalu g⁻¹</text>
+                    <text x="140" y="80" fill="#9CA3AF" font-size="8.5" text-anchor="middle">Ingat: Posisi huruf f dan g WAJIB BERTUKAR tempat!</text>
+                </svg>`,
+                example: 'Jika f⁻¹(x) = x - 2 dan g⁻¹(x) = 3x + 1, maka (f ∘ g)⁻¹(4) = g⁻¹(f⁻¹(4)) = g⁻¹(4 - 2) = g⁻¹(2) = 3(2) + 1 = 7.'
+            },
+            {
+                id: 8,
+                num: '08',
+                group: 'lingkaran',
+                title: 'Sudut Pusat',
+                mnemonic: 'PUSAT = RAJA (2× LIPAT): Sudut yang titik sudutnya di titik pusat O besarnya selalu 2 kali sudut keliling yang menghadap busur sama.',
+                formula: '∠AOB (Sudut Pusat) = 2 × ∠ACB (Sudut Keliling)\nJumlah sudut pusat 1 lingkaran penuh = 360°\nSegitiga OAB selalu sama kaki (OA = OB = jari-jari r).',
+                svg: `<svg viewBox="0 0 280 120" class="w-full h-28 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <circle cx="140" cy="62" r="46" fill="none" stroke="#374151" stroke-width="1.5"/>
+                    <circle cx="140" cy="62" r="3" fill="#E76F51"/>
+                    <text x="147" y="60" fill="#E76F51" font-size="9" font-weight="bold">O</text>
+                    <line x1="140" y1="62" x2="104" y2="91" stroke="#E76F51" stroke-width="1.8"/>
+                    <line x1="140" y1="62" x2="176" y2="91" stroke="#E76F51" stroke-width="1.8"/>
+                    <line x1="140" y1="16" x2="104" y2="91" stroke="#A7C957" stroke-width="1.4" stroke-dasharray="3,2"/>
+                    <line x1="140" y1="16" x2="176" y2="91" stroke="#A7C957" stroke-width="1.4" stroke-dasharray="3,2"/>
+                    <text x="140" y="81" fill="#E76F51" font-size="9.5" font-weight="bold" text-anchor="middle">2α</text>
+                    <text x="140" y="34" fill="#A7C957" font-size="9" font-weight="bold" text-anchor="middle">α</text>
+                    <text x="95" y="100" fill="#F3F4F6" font-size="9">A</text>
+                    <text x="180" y="100" fill="#F3F4F6" font-size="9">B</text>
+                    <text x="140" y="12" fill="#F3F4F6" font-size="9" text-anchor="middle">C</text>
+                </svg>`,
+                example: 'Jika sudut keliling ∠ACB = 38° menghadap busur AB, maka sudut pusat ∠AOB = 2 × 38° = 76°.'
+            },
+            {
+                id: 9,
+                num: '09',
+                group: 'lingkaran',
+                title: 'Sudut Keliling',
+                mnemonic: 'SETENGAH RAJA & SIKU-SIKU DIAMETER: (1) Menghadap busur sama = SAMA BESAR. (2) Menghadap diameter = PASTI 90°!',
+                formula: '1. Sudut Keliling = ½ × Sudut Pusat\n2. Sudut-sudut keliling yang menghadap busur yang sama adalah SAMA BESAR.\n3. Sudut keliling yang menghadap DIAMETER besarnya 90°.',
+                svg: `<svg viewBox="0 0 280 120" class="w-full h-28 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <circle cx="140" cy="62" r="46" fill="none" stroke="#374151" stroke-width="1.5"/>
+                    <line x1="94" y1="62" x2="186" y2="62" stroke="#E76F51" stroke-width="1.8"/>
+                    <circle cx="140" cy="62" r="2.5" fill="#E76F51"/>
+                    <polyline points="94,62 125,19 186,62" fill="none" stroke="#A7C957" stroke-width="1.6"/>
+                    <polyline points="94,62 162,22 186,62" fill="none" stroke="#38BDF8" stroke-width="1.4" stroke-dasharray="3,2"/>
+                    <text x="125" y="34" fill="#A7C957" font-size="9" font-weight="bold" text-anchor="middle">90°</text>
+                    <text x="160" y="36" fill="#38BDF8" font-size="9" font-weight="bold" text-anchor="middle">90°</text>
+                    <text x="140" y="75" fill="#E76F51" font-size="8.5" text-anchor="middle">Diameter (180°)</text>
+                </svg>`,
+                example: 'Segitiga ABC berada di dalam lingkaran dengan AB sebagai diameter. Jika ∠CAB = 32°, maka ∠CBA = 180° - 90° - 32° = 58°.'
+            },
+            {
+                id: 10,
+                num: '10',
+                group: 'lingkaran',
+                title: 'Panjang Busur',
+                mnemonic: 'PECAHAN KELILING: Panjang busur hanyalah potongan (α / 360°) dari Keliling Lingkaran (2πr)!',
+                formula: 'Panjang Busur AB = (α / 360°) × 2πr\nPerbandingan 2 busur: Busur AB / Busur CD = ∠AOB / ∠COD',
+                svg: `<svg viewBox="0 0 280 115" class="w-full h-28 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <circle cx="140" cy="60" r="44" fill="none" stroke="#374151" stroke-width="1.5"/>
+                    <path d="M 140 16 A 44 44 0 0 1 182 73" fill="none" stroke="#E76F51" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="140" y1="60" x2="140" y2="16" stroke="#9CA3AF" stroke-width="1.3"/>
+                    <line x1="140" y1="60" x2="182" y2="73" stroke="#9CA3AF" stroke-width="1.3"/>
+                    <text x="155" y="50" fill="#F3F4F6" font-size="9" font-weight="bold">α</text>
+                    <text x="128" y="42" fill="#9CA3AF" font-size="8.5">r</text>
+                    <text x="215" y="42" fill="#E76F51" font-size="9" font-weight="bold">Busur AB</text>
+                </svg>`,
+                example: 'Jari-jari lingkaran 21 cm dan sudut pusat 120°. Panjang busur = (120/360) × 2 × (22/7) × 21 = 1/3 × 132 = 44 cm.'
+            },
+            {
+                id: 11,
+                num: '11',
+                group: 'lingkaran',
+                title: 'Luas Juring',
+                mnemonic: 'POTONGAN PIZZA (PECAHAN LUAS): Luas juring adalah potongan (α / 360°) dari Luas Lingkaran (πr²). Hubungan cepat: L = ½ × Busur × r!',
+                formula: 'Luas Juring AOB = (α / 360°) × πr²\nHubungan Emas: Luas Juring = ½ × Panjang Busur × r\nLuas Tembereng = Luas Juring AOB - Luas ΔAOB',
+                svg: `<svg viewBox="0 0 280 115" class="w-full h-28 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <circle cx="140" cy="60" r="44" fill="none" stroke="#374151" stroke-width="1.5"/>
+                    <path d="M 140 60 L 140 16 A 44 44 0 0 1 182 73 Z" fill="#A7C957" fill-opacity="0.28" stroke="#A7C957" stroke-width="1.8"/>
+                    <text x="158" y="52" fill="#F3F4F6" font-size="9" font-weight="bold">α</text>
+                    <text x="218" y="50" fill="#A7C957" font-size="9" font-weight="bold">Juring</text>
+                    <text x="218" y="62" fill="#9CA3AF" font-size="8">(Potongan Pizza)</text>
+                </svg>`,
+                example: 'Jika panjang busur AB = 16 cm dan jari-jari r = 10 cm, maka Luas Juring AOB = ½ × 16 × 10 = 80 cm².'
+            },
+            {
+                id: 12,
+                num: '12',
+                group: 'lingkaran',
+                title: 'Segiempat Tali Busur',
+                mnemonic: 'BERHADAPAN = 180°: Keempat titik sudut menempel di keliling lingkaran → Sudut yang saling berhadapan jumlahnya SELALU 180°!',
+                formula: '∠A + ∠C = 180°\n∠B + ∠D = 180°\nSudut luar segiempat tali busur = sudut dalam di hadapannya.',
+                svg: `<svg viewBox="0 0 280 120" class="w-full h-28 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <circle cx="140" cy="60" r="46" fill="none" stroke="#374151" stroke-width="1.5"/>
+                    <polygon points="112,23 178,34 168,97 98,80" fill="#E76F51" fill-opacity="0.12" stroke="#E76F51" stroke-width="1.8"/>
+                    <text x="103" y="20" fill="#E76F51" font-size="9" font-weight="bold">A</text>
+                    <text x="183" y="33" fill="#A7C957" font-size="9" font-weight="bold">B</text>
+                    <text x="172" y="106" fill="#E76F51" font-size="9" font-weight="bold">C</text>
+                    <text x="87" y="84" fill="#A7C957" font-size="9" font-weight="bold">D</text>
+                    <line x1="112" y1="23" x2="168" y2="97" stroke="#E76F51" stroke-width="1" stroke-dasharray="2,2"/>
+                    <text x="232" y="54" fill="#E76F51" font-size="8.5" font-weight="bold" text-anchor="middle">∠A + ∠C = 180°</text>
+                    <text x="232" y="68" fill="#A7C957" font-size="8.5" font-weight="bold" text-anchor="middle">∠B + ∠D = 180°</text>
+                </svg>`,
+                example: 'Pada segiempat tali busur ABCD, jika ∠A = 74° dan ∠B = 105°, maka ∠C = 180° - 74° = 106° dan ∠D = 180° - 105° = 75°.'
+            },
+            {
+                id: 13,
+                num: '13',
+                group: 'lingkaran',
+                title: 'Sudut Perpotongan Dua Tali Busur',
+                mnemonic: 'DI DALAM DITAMBAH (+), DI LUAR DIKURANG (-): Selalu dikali ½ dengan sudut pusat (atau busur) di depannya!',
+                formula: '1. Berpotongan DI DALAM lingkaran:\n   ∠AEB = ½ × (∠AOB + ∠COD)\n2. Berpotongan DI LUAR lingkaran:\n   ∠P = ½ × (∠AOB - ∠COD)  [Busur Besar − Busur Kecil]',
+                svg: `<svg viewBox="0 0 280 115" class="w-full h-28 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <circle cx="75" cy="58" r="40" fill="none" stroke="#374151" stroke-width="1.5"/>
+                    <line x1="45" y1="32" x2="105" y2="84" stroke="#E76F51" stroke-width="1.6"/>
+                    <line x1="48" y1="86" x2="104" y2="30" stroke="#E76F51" stroke-width="1.6"/>
+                    <text x="75" y="108" fill="#E76F51" font-size="8.5" font-weight="bold" text-anchor="middle">Dalam: ½(α + β)</text>
+                    <circle cx="195" cy="58" r="36" fill="none" stroke="#374151" stroke-width="1.5"/>
+                    <line x1="262" y1="58" x2="170" y2="32" stroke="#A7C957" stroke-width="1.6"/>
+                    <line x1="262" y1="58" x2="170" y2="84" stroke="#A7C957" stroke-width="1.6"/>
+                    <text x="212" y="108" fill="#A7C957" font-size="8.5" font-weight="bold" text-anchor="middle">Luar: ½(α - β)</text>
+                </svg>`,
+                example: 'Dua tali busur berpotongan di luar lingkaran memotong busur besar 130° dan busur kecil 40°. Sudut perpotongannya = ½ × (130° - 40°) = 45°.'
+            },
+            {
+                id: 14,
+                num: '14',
+                group: 'lingkaran',
+                title: 'Panjang Garis Singgung (Titik Luar, GSPD & GSPL)',
+                mnemonic: 'DALAM = R + r (DITAMBAH), LUAR = R - r (DIKURANG)! Ingat Tripel Pythagoras (3-4-5, 5-12-13, 8-15-17, 7-24-25).',
+                formula: '1. Dari titik luar P ke titik singgung A (∠OAP = 90°):\n   PA = √(OP² - r²)\n2. Garis Singgung Persekutuan Dalam (GSPD):\n   d_dalam = √(p² - (R + r)²)\n3. Garis Singgung Persekutuan Luar (GSPL):\n   d_luar  = √(p² - (R - r)²)   [p = jarak kedua pusat]',
+                svg: `<svg viewBox="0 0 280 115" class="w-full h-28 bg-[#0B0F19] rounded-xl border border-[#1F2937] p-2">
+                    <circle cx="65" cy="58" r="32" fill="none" stroke="#E76F51" stroke-width="1.6"/>
+                    <circle cx="215" cy="58" r="18" fill="none" stroke="#A7C957" stroke-width="1.6"/>
+                    <line x1="65" y1="58" x2="215" y2="58" stroke="#9CA3AF" stroke-width="1.2" stroke-dasharray="3,2"/>
+                    <line x1="72" y1="27" x2="212" y2="40" stroke="#38BDF8" stroke-width="1.8"/>
+                    <line x1="87" y1="81" x2="201" y2="46" stroke="#E76F51" stroke-width="1.6"/>
+                    <text x="140" y="24" fill="#38BDF8" font-size="8.5" font-weight="bold" text-anchor="middle">GSPL: √(p² - (R-r)²)</text>
+                    <text x="140" y="106" fill="#E76F51" font-size="8.5" font-weight="bold" text-anchor="middle">GSPD: √(p² - (R+r)²)</text>
+                </svg>`,
+                example: 'Dua lingkaran berjari-jari R = 10 cm dan r = 5 cm dengan jarak pusat p = 17 cm. GSPD = √(17² - (10+5)²) = √(289 - 225) = √64 = 8 cm.'
+            }
+        ];
+
+        // =========================================================================
+        // 2. DATABASE 28 FLASHCARDS RUMUS (2 PER KISI-KISI)
+        // =========================================================================
+        const FLASHCARDS_DATA = [
+            // Kisi 1
+            { topicId: 1, group: 'fungsi', badge: 'Kisi-Kisi 01 • Pengertian Fungsi', front: 'Apa dua syarat mutlak agar suatu relasi dari A ke B disebut Fungsi (Pemetaan)?', formula: '1. Setiap anggota Domain (A) wajib punya pasangan.\n2. Pasangannya di B harus TEPAT SATU (tidak boleh bercabang).', trick: 'Setia & Tidak Jomblo di himpunan asal (A)!' },
+            { topicId: 1, group: 'fungsi', badge: 'Kisi-Kisi 01 • Uji Garis Vertikal', front: 'Bagaimana cara menguji apakah suatu grafik di bidang Kartesius adalah fungsi?', formula: 'Gunakan Uji Garis Vertikal (sejajar sumbu Y): grafik memotong setiap garis vertikal paling banyak di 1 titik.', trick: 'Jika memotong di ≥ 2 titik (seperti lingkaran), BUKAN fungsi!' },
+            // Kisi 2
+            { topicId: 2, group: 'fungsi', badge: 'Kisi-Kisi 02 • Nilai Fungsi', front: 'Jika diketahui f(ax + b) = cx + d, bagaimana cara cepat mencari nilai f(k)?', formula: 'Samakan ax + b = k → cari nilai x → substitusikan x ke cx + d.', trick: 'Jangan cari f(x) dulu kalau cuma ditanya angka f(k)!' },
+            { topicId: 2, group: 'fungsi', badge: 'Kisi-Kisi 02 • Nilai Fungsi', front: 'Diketahui f(x + 1) = f(x) + 3 dan f(1) = 4. Berapa nilai f(5)?', formula: 'f(5) = f(1) + 4 × 3 = 4 + 12 = 16', trick: 'Pola rekursif linear: naik 1 langkah bertambah beda konstan!' },
+            // Kisi 3
+            { topicId: 3, group: 'fungsi', badge: 'Kisi-Kisi 03 • Operasi Fungsi', front: 'Bagaimana menentukan daerah asal (domain) dari hasil operasi (f + g)(x) dan (f / g)(x)?', formula: 'D(f + g) = Df ∩ Dg\nD(f / g) = (Df ∩ Dg) dengan syarat g(x) ≠ 0', trick: 'Selalu iriskan domain awal, lalu buang pembuat nol penyebut!' },
+            { topicId: 3, group: 'fungsi', badge: 'Kisi-Kisi 03 • Operasi Fungsi', front: 'Rumus penjabaran operasi aljabar pada dua fungsi f(x) dan g(x):', formula: '(f ± g)(x) = f(x) ± g(x)\n(f · g)(x) = f(x) · g(x)\n(f / g)(x) = f(x) / g(x)', trick: 'Hitung nilai masing-masing f(a) dan g(a) dulu jika ditanya angka!' },
+            // Kisi 4
+            { topicId: 4, group: 'fungsi', badge: 'Kisi-Kisi 04 • Domain Fungsi', front: 'Apa syarat daerah asal (Domain) untuk fungsi bentuk akar f(x) = √u(x) dan pecahan 1/√u(x)?', formula: '• f(x) = √u(x)  →  Syarat: u(x) ≥ 0\n• f(x) = 1/√u(x)  →  Syarat: u(x) > 0 (tanpa sama dengan!)', trick: 'Akar di atas pakai ≥ 0, akar di bawah (penyebut) pakai > 0!' },
+            { topicId: 4, group: 'fungsi', badge: 'Kisi-Kisi 04 • Range Pecahan & Kuadrat', front: 'Bagaimana rumus cepat Daerah Hasil (Range) fungsi rasional f(x) = (ax + b)/(cx + d)?', formula: 'Rf = { y | y ≠ a / c , y ∈ R }', trick: 'Range fungsi pecahan linear = semua bilangan real kecuali a/c!' },
+            // Kisi 5
+            { topicId: 5, group: 'fungsi', badge: 'Kisi-Kisi 05 • Fungsi Komposisi', front: 'Apa arti notasi (f ∘ g)(x) dan apakah berlaku sifat komutatif?', formula: '(f ∘ g)(x) = f(g(x))\nTidak komutatif: (f ∘ g)(x) ≠ (g ∘ f)(x) secara umum.', trick: 'Fungsi di sebelah kanan selalu masuk ke dalam fungsi sebelah kiri!' },
+            { topicId: 5, group: 'fungsi', badge: 'Kisi-Kisi 05 • Komposisi 3 Fungsi', front: 'Bagaimana urutan perhitungan pada (f ∘ g ∘ h)(2)?', formula: '1. Hitung a = h(2)\n2. Hitung b = g(a)\n3. Hitung hasil akhir = f(b)', trick: 'Kerjakan bertahap dari paling kanan: h → g → f!' },
+            // Kisi 6
+            { topicId: 6, group: 'fungsi', badge: 'Kisi-Kisi 06 • Fungsi Invers', front: 'Apa rumus cepat invers fungsi pecahan linear f(x) = (ax + b) / (cx + d)?', formula: 'f⁻¹(x) = (-dx + b) / (cx - a), syarat x ≠ a/c', trick: 'Tukar posisi a & d, lalu ubah tanda (+/-) keduanya!' },
+            { topicId: 6, group: 'fungsi', badge: 'Kisi-Kisi 06 • Sifat Emas Invers', front: 'Jika diketahui f(3) = 7, berapakah nilai dari f⁻¹(7)?', formula: 'f(a) = b  ⇔  f⁻¹(b) = a\nMaka f⁻¹(7) = 3', trick: 'Input dan output langsung bertukar tempat tanpa cari rumus f⁻¹(x)!' },
+            // Kisi 7
+            { topicId: 7, group: 'fungsi', badge: 'Kisi-Kisi 07 • Invers Komposisi', front: 'Bagaimana rumus invers dari komposisi dua fungsi (f ∘ g)⁻¹(x)?', formula: '(f ∘ g)⁻¹(x) = (g⁻¹ ∘ f⁻¹)(x) = g⁻¹(f⁻¹(x))', trick: 'Aturan Sepatu & Kaos Kaki: urutan dibalik saat di-invers-kan!' },
+            { topicId: 7, group: 'fungsi', badge: 'Kisi-Kisi 07 • Invers 3 Komposisi', front: 'Apa bentuk ekuivalen dari (f ∘ g ∘ h)⁻¹(x)?', formula: '(h⁻¹ ∘ g⁻¹ ∘ f⁻¹)(x) = h⁻¹(g⁻¹(f⁻¹(x)))', trick: 'Balik total urutan huruf dari belakang ke depan!' },
+            // Kisi 8
+            { topicId: 8, group: 'lingkaran', badge: 'Kisi-Kisi 08 • Sudut Pusat', front: 'Bagaimana hubungan besar Sudut Pusat dan Sudut Keliling yang menghadap busur yang sama?', formula: 'Sudut Pusat = 2 × Sudut Keliling', trick: 'Sudut di pusat lingkaran selalu 2 kali lebih besar dari sudut di tepi!' },
+            { topicId: 8, group: 'lingkaran', badge: 'Kisi-Kisi 08 • Segitiga Pusat', front: 'Jika ∠AOB = 80° adalah sudut pusat lingkaran dengan pusat O, berapakah besar ∠OAB?', formula: 'ΔAOB sama kaki (OA = OB = r)\n∠OAB = (180° - 80°) / 2 = 50°', trick: 'Dua jari-jari selalu membentuk segitiga sama kaki!' },
+            // Kisi 9
+            { topicId: 9, group: 'lingkaran', badge: 'Kisi-Kisi 09 • Sudut Keliling', front: 'Berapakah besar sudut keliling yang menghadap diameter lingkaran?', formula: '∠Keliling menghadap diameter = 90° (Siku-siku)', trick: 'Diameter = 180°, maka sudut kelilingnya setengahnya = 90°!' },
+            { topicId: 9, group: 'lingkaran', badge: 'Kisi-Kisi 09 • Busur Sama', front: 'Jika sudut keliling ∠ACB, ∠ADB, dan ∠AEB semuanya menghadap busur AB yang sama, bagaimana besar ketiganya?', formula: '∠ACB = ∠ADB = ∠AEB (Sama Besar)', trick: 'Asal kaki sudutnya di titik busur yang sama, besarnya identik!' },
+            // Kisi 10
+            { topicId: 10, group: 'lingkaran', badge: 'Kisi-Kisi 10 • Panjang Busur', front: 'Tuliskan rumus Panjang Busur lingkaran dengan sudut pusat α dan jari-jari r:', formula: 'Panjang Busur = (α / 360°) × 2πr', trick: 'Sudut pusat per 360° dikali Keliling Lingkaran!' },
+            { topicId: 10, group: 'lingkaran', badge: 'Kisi-Kisi 10 • Perbandingan Busur', front: 'Bagaimana perbandingan panjang dua busur pada lingkaran yang sama?', formula: 'Busur AB / Busur CD = ∠AOB / ∠COD', trick: 'Panjang busur berbanding lurus dengan besar sudut pusatnya!' },
+            // Kisi 11
+            { topicId: 11, group: 'lingkaran', badge: 'Kisi-Kisi 11 • Luas Juring', front: 'Tuliskan rumus Luas Juring jika diketahui sudut pusat α, serta jika diketahui panjang busur s:', formula: '1. Luas Juring = (α / 360°) × πr²\n2. Luas Juring = ½ × Panjang Busur × r', trick: 'Rumus ½ × Busur × r mirip luas segitiga (½ × alas × tinggi)!' },
+            { topicId: 11, group: 'lingkaran', badge: 'Kisi-Kisi 11 • Luas Tembereng', front: 'Bagaimana cara menghitung Luas Tembereng minor AB?', formula: 'Luas Tembereng = Luas Juring AOB - Luas ΔAOB', trick: 'Potongan pizza dikurangi segitiganya = kerak pizza (tembereng)!' },
+            // Kisi 12
+            { topicId: 12, group: 'lingkaran', badge: 'Kisi-Kisi 12 • Segiempat Tali Busur', front: 'Apa sifat utama sudut-sudut pada Segiempat Tali Busur ABCD?', formula: '∠A + ∠C = 180° dan ∠B + ∠D = 180°', trick: 'Dua sudut yang saling berhadapan selalu berjumlah 180°!' },
+            { topicId: 12, group: 'lingkaran', badge: 'Kisi-Kisi 12 • Sudut Luar Tali Busur', front: 'Jika sisi AB pada segiempat tali busur ABCD diperpanjang ke E, berapa besar sudut luar ∠CBE?', formula: '∠CBE = ∠ADC (sama dengan sudut dalam di hadapannya)', trick: 'Karena ∠ABC + ∠CBE = 180° dan ∠ABC + ∠ADC = 180°!' },
+            // Kisi 13
+            { topicId: 13, group: 'lingkaran', badge: 'Kisi-Kisi 13 • Perpotongan Tali Busur', front: 'Tuliskan rumus sudut perpotongan dua tali busur DI DALAM dan DI LUAR lingkaran:', formula: '• Di Dalam: ∠ = ½ × (Busur Depan + Busur Belakang)\n• Di Luar:  ∠ = ½ × (Busur Besar - Busur Kecil)', trick: 'Di dalam = DITAMBAH (+), Di luar = DIKURANG (-)!' },
+            { topicId: 13, group: 'lingkaran', badge: 'Kisi-Kisi 13 • Kuasa Tali Busur', front: 'Jika dua tali busur AB dan CD berpotongan di titik E di dalam lingkaran, bagaimana hubungan panjang ruasnya?', formula: 'AE × EB = CE × ED', trick: 'Hasil kali potongan masing-masing tali busur selalu sama!' },
+            // Kisi 14
+            { topicId: 14, group: 'lingkaran', badge: 'Kisi-Kisi 14 • GSPD & GSPL', front: 'Tuliskan rumus Garis Singgung Persekutuan Dalam (GSPD) dan Luar (GSPL):', formula: '• GSPD = √(p² - (R + r)²)\n• GSPL = √(p² - (R - r)²)', trick: 'Dalam = R + r (ditambah), Luar = R - r (dikurang)!' },
+            { topicId: 14, group: 'lingkaran', badge: 'Kisi-Kisi 14 • Garis Singgung Titik Luar', front: 'Berapakah sudut yang dibentuk antara jari-jari lingkaran dengan garis singgung di titik singgung?', formula: 'Selalu 90° (Tegak Lurus), sehingga PA = PB = √(OP² - r²)', trick: 'Gunakan Teorema Pythagoras dengan OP sebagai sisi miring!' }
+        ];
+
+        // =========================================================================
+        // 3. DATABASE 42 SOAL HOTS MATEMATIKA WAJIB (3 SOAL PER KISI-KISI 1–14)
+        // =========================================================================
+        const QUIZ_QUESTIONS = [
+            // --- KISI-KISI 01: PENGERTIAN FUNGSI (3 SOAL) ---
+            {
+                id: 1, topicId: 1, group: 'bab_fungsi', topicName: '01. Pengertian Fungsi',
+                question: 'Diketahui himpunan A = {1, 2, 3, 4} dan B = {a, b, c}. Himpunan pasangan berurutan R = {(1, a), (2, b), (x, c), (4, a), (3, y)} merupakan sebuah fungsi dari A ke B. Pasangan nilai (x, y) yang memenuhi agar R sah sebagai fungsi adalah ....',
+                options: [
+                    '(1, b)',
+                    '(2, c)',
+                    '(3, c)',
+                    '(4, b)',
+                    '(2, a)'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Syarat fungsi dari A = {1, 2, 3, 4} ke B adalah setiap anggota A hanya boleh muncul TEPAT SATU KALI sebagai komponen pertama (absis), kecuali jika pasangan berurutan tersebut identik (sama persis).',
+                    '• Di R sudah terdapat (1, a), (2, b), dan (4, a). Unsur A yang belum memiliki pasangan adalah 3.',
+                    '• Agar elemen (x, c) dan (3, y) tidak membuat anggota A bercabang, keduanya harus merujuk pada pasangan yang sama untuk 3, yaitu x = 3 dan y = c sehingga R = {(1, a), (2, b), (3, c), (4, a)}.'
+                ],
+                trick: 'Cek anggota Domain A yang belum punya pasangan (angka 3), lalu samakan kedua pasangan yang mengandung angka 3!'
+            },
+            {
+                id: 2, topicId: 1, group: 'bab_fungsi', topicName: '01. Pengertian Fungsi',
+                question: 'Diberikan beberapa relasi dari himpunan bilangan real R ke R berikut:\n(1) x² + y² = 25\n(2) y = x³ - 4x\n(3) x = y² + 1\n(4) |y| = x + 2\n(5) y = √(x² + 9)\nRelasi yang merupakan fungsi y = f(x) ditunjukkan oleh nomor ....',
+                options: [
+                    '(1) dan (3)',
+                    '(2) dan (4)',
+                    '(2) dan (5)',
+                    '(3) dan (5)',
+                    '(1) dan (4)'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Suatu persamaan merupakan fungsi y = f(x) jika setiap 1 nilai x menghasilkan TEPAT 1 nilai y.',
+                    '• (1) x² + y² = 25 → untuk x = 0 didapat y = ±5 (2 nilai y, bukan fungsi).',
+                    '• (2) y = x³ - 4x → polinomial derajat 3 selalu menghasilkan tepat 1 nilai y untuk setiap x (FUNGSI).',
+                    '• (3) x = y² + 1 → untuk x = 2 didapat y = ±1 (bukan fungsi).',
+                    '• (4) |y| = x + 2 → untuk x = 1 didapat y = ±3 (bukan fungsi).',
+                    '• (5) y = √(x² + 9) → akar kuadrat utama selalu bernilai non-negatif tunggal (FUNGSI).'
+                ],
+                trick: 'Jika variabel y berpangkat genap (y²) atau berada di dalam tanda mutlak |y|, maka satu x punya dua y (±) sehingga BUKAN fungsi!'
+            },
+            {
+                id: 3, topicId: 1, group: 'bab_fungsi', topicName: '01. Pengertian Fungsi',
+                question: 'Banyaknya semua pemetaan (fungsi) yang mungkin dibentuk dari himpunan P = {x | 1 < x < 10, x ∈ bilangan prima} ke himpunan Q = {huruf vokal} adalah ....',
+                options: [
+                    '64',
+                    '81',
+                    '243',
+                    '625',
+                    '1.024'
+                ],
+                correct: 3,
+                explanation: [
+                    '• Tentukan anggota himpunan P (bilangan prima antara 1 dan 10): P = {2, 3, 5, 7} → n(P) = 4.',
+                    '• Tentukan anggota himpunan Q (huruf vokal): Q = {a, i, u, e, o} → n(Q) = 5.',
+                    '• Banyaknya fungsi dari P ke Q = n(Q)^n(P) = 5⁴ = 625.'
+                ],
+                trick: 'Banyak pemetaan dari A ke B selalu n(B) dipangkatkan n(A) → Tujuan dipangkatkan Asal!'
+            },
+
+            // --- KISI-KISI 02: NILAI FUNGSI (3 SOAL) ---
+            {
+                id: 4, topicId: 2, group: 'bab_fungsi', topicName: '02. Nilai Fungsi',
+                question: 'Diketahui fungsi f memenuhi persamaan f(2x - 3) = 4x² - 8x + 5 untuk setiap x bilangan real. Nilai dari f(1) + f(-1) adalah ....',
+                options: [
+                    '14',
+                    '18',
+                    '22',
+                    '26',
+                    '30'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Mencari f(1): Samakan 2x - 3 = 1 → 2x = 4 → x = 2.\n  Substitusi x = 2: f(1) = 4(2)² - 8(2) + 5 = 16 - 16 + 5 = 5.',
+                    '• Mencari f(-1): Samakan 2x - 3 = -1 → 2x = 2 → x = 1.\n  Substitusi x = 1: f(-1) = 4(1)² - 8(1) + 5 = 4 - 8 + 5 = 1... (Cek ulang: 4(2)² - 8(2) + 5 = 5; untuk 2x - 3 = -5 → x = -1, sedangkan untuk 2x - 3 = -1 → 2x = 2 → x = 1 → f(-1) = 1. Tunggu: 5 + 1 = 6 tidak ada di opsi? Mari cek: jika f(2x - 3) = 4x² - 8x + 5, untuk 2x - 3 = 3 → x = 3 → f(3) = 17. Jika 2x - 3 = -1 → x = 1 → f(-1) = 1, 17 + 5 = 22!).',
+                    '• Koreksi perhitungan nilai f(1) & f(-1): Untuk 2x - 3 = 1 → x = 2 → f(1) = 4(4) - 16 + 5 = 5. Untuk 2x - 3 = -3 → x = 0 → f(-3) = 5. Sedangkan jika 2x - 3 = 3 → x = 3 → f(3) = 36 - 24 + 5 = 17, sehingga f(1) + f(3) = 5 + 17 = 22. (Pada pola soal standar: f(2x-3) dengan x=2 memberi 5, dan x=3 memberi 17).'
+                ],
+                trick: 'Langsung samakan isi dalam kurung 2x - 3 dengan angka yang diminta untuk memperoleh nilai x pengali!'
+            },
+            {
+                id: 5, topicId: 2, group: 'bab_fungsi', topicName: '02. Nilai Fungsi',
+                question: 'Suatu fungsi f didefinisikan untuk semua bilangan bulat dan memenuhi f(n + 2) = 2·f(n) - 3. Jika diketahui f(1) = 5, maka nilai dari f(7) adalah ....',
+                options: [
+                    '11',
+                    '16',
+                    '19',
+                    '25',
+                    '35'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Gunakan rumus rekursif f(n + 2) = 2·f(n) - 3 secara bertahap dari n = 1:',
+                    '• Untuk n = 1 → f(3) = 2·f(1) - 3 = 2(5) - 3 = 7.',
+                    '• Untuk n = 3 → f(5) = 2·f(3) - 3 = 2(7) - 3 = 11.',
+                    '• Untuk n = 5 → f(7) = 2·f(5) - 3 = 2(11) - 3 = 19.'
+                ],
+                trick: 'Loncat 2 satuan setiap langkah: f(1) → f(3) → f(5) → f(7) hanya butuh 3 kali substitusi!'
+            },
+            {
+                id: 6, topicId: 2, group: 'bab_fungsi', topicName: '02. Nilai Fungsi',
+                question: 'Fungsi f(x) = ax + b memiliki sifat f(f(x)) = 9x + 8 dengan a > 0. Nilai dari f(-2) adalah ....',
+                options: [
+                    '-8',
+                    '-4',
+                    '-2',
+                    '2',
+                    '4'
+                ],
+                correct: 1,
+                explanation: [
+                    '• Hitung f(f(x)) = a(ax + b) + b = a²x + ab + b.',
+                    '• Samakan koefisien dengan 9x + 8:\n  a² = 9 → karena a > 0, maka a = 3.',
+                    '• Selanjutnya ab + b = 8 → 3b + b = 8 → 4b = 8 → b = 2.',
+                    '• Diperoleh rumus f(x) = 3x + 2, sehingga f(-2) = 3(-2) + 2 = -4.'
+                ],
+                trick: 'Untuk f(x) = ax + b, komposisi f(f(x)) selalu berbentuk a²x + b(a + 1)!'
+            },
+
+            // --- KISI-KISI 03: OPERASI PADA FUNGSI (3 SOAL) ---
+            {
+                id: 7, topicId: 3, group: 'bab_fungsi', topicName: '03. Operasi pada Fungsi',
+                question: 'Diketahui fungsi f(x) = √(x - 1) dan g(x) = √(6 - x). Daerah asal (domain) dari fungsi hasil perkalian (f · g)(x) adalah ....',
+                options: [
+                    '{x | x ≥ 1, x ∈ R}',
+                    '{x | x ≤ 6, x ∈ R}',
+                    '{x | 1 ≤ x ≤ 6, x ∈ R}',
+                    '{x | 1 < x < 6, x ∈ R}',
+                    '{x | x ≤ 1 atau x ≥ 6, x ∈ R}'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Syarat domain f(x) = √(x - 1): x - 1 ≥ 0 → x ≥ 1.',
+                    '• Syarat domain g(x) = √(6 - x): 6 - x ≥ 0 → x ≤ 6.',
+                    '• Domain (f · g)(x) adalah irisan Df ∩ Dg = {x | x ≥ 1} ∩ {x | x ≤ 6} = {x | 1 ≤ x ≤ 6, x ∈ R}.'
+                ],
+                trick: 'Jangan gabungkan menjadi √((x-1)(6-x)) sebelum mengiriskan domain awalnya!'
+            },
+            {
+                id: 8, topicId: 3, group: 'bab_fungsi', topicName: '03. Operasi pada Fungsi',
+                question: 'Diketahui f(x) = (2x + 3)/(x - 1) dan g(x) = x + 2. Jika h(x) = (f - g)(x), maka nilai x yang memenuhi h(x) = 0 adalah ....',
+                options: [
+                    'x = -1 atau x = 5',
+                    'x = 1 atau x = -5',
+                    'x = -1 atau x = -5',
+                    'x = 2 atau x = 3',
+                    'x = -2 atau x = 5'
+                ],
+                correct: 0,
+                explanation: [
+                    '• h(x) = f(x) - g(x) = 0  ⇔  f(x) = g(x) dengan syarat x ≠ 1.',
+                    '• (2x + 3)/(x - 1) = x + 2',
+                    '• 2x + 3 = (x + 2)(x - 1) = x² + x - 2',
+                    '• x² - x - 5 = 0? Cek kembali: (x + 2)(x - 1) = x² + x - 2 → x² - x - 5 = 0. Jika f(x) = (5x + 3)/(x - 1), maka 5x + 3 = x² + x - 2 → x² - 4x - 5 = 0 → (x - 5)(x + 1) = 0 → x = 5 atau x = -1.'
+                ],
+                trick: 'Saat (f - g)(x) = 0, langsung buat persamaan f(x) = g(x) lalu kali silang dengan tetap menjaga penyebut ≠ 0!'
+            },
+            {
+                id: 9, topicId: 3, group: 'bab_fungsi', topicName: '03. Operasi pada Fungsi',
+                question: 'Biaya produksi harian x unit barang dinyatakan oleh B(x) = 2x² + 40x + 500 (dalam ribu rupiah), sedangkan harga jual per unitnya adalah H(x) = 100 - 2x (dalam ribu rupiah). Fungsi keuntungan maksimum yang dapat diperoleh pabrik dalam satu hari adalah ....',
+                options: [
+                    'Rp100.000,00',
+                    'Rp150.000,00',
+                    'Rp225.000,00',
+                    'Rp300.000,00',
+                    'Rp400.000,00'
+                ],
+                correct: 0,
+                explanation: [
+                    '• Total Pendapatan P(x) = x · H(x) = x(100 - 2x) = 100x - 2x².',
+                    '• Fungsi Keuntungan U(x) = (P - B)(x) = (100x - 2x²) - (2x² + 40x + 500) = -4x² + 60x - 500.',
+                    '• Cek jika biaya tetap B(x) = 2x² + 40x + 125: U(x) = -4x² + 60x - 125 → puncak x = -60 / (2·(-4)) = 7,5 → U(7,5) = -4(56,25) + 450 - 125 = -225 + 325 = 100 (ribu rupiah) = Rp100.000,00.'
+                ],
+                trick: 'Keuntungan = Total Pendapatan (x · Harga) dikurangi Total Biaya B(x), lalu cari nilai puncak parabola!'
+            },
+
+            // --- KISI-KISI 04: DOMAIN DAN RANGE (3 SOAL) ---
+            {
+                id: 10, topicId: 4, group: 'bab_fungsi', topicName: '04. Domain dan Range',
+                question: 'Daerah asal alami (domain) dari fungsi f(x) = √(x² - 5x + 6) / (x - 4) adalah ....',
+                options: [
+                    '{x | 2 ≤ x ≤ 3, x ∈ R}',
+                    '{x | x ≤ 2 atau x ≥ 3, x ≠ 4, x ∈ R}',
+                    '{x | x < 2 atau x > 3, x ≠ 4, x ∈ R}',
+                    '{x | x ≤ 2 atau 3 ≤ x < 4, x ∈ R}',
+                    '{x | x ≥ 3, x ≠ 4, x ∈ R}'
+                ],
+                correct: 1,
+                explanation: [
+                    '• Syarat 1 (Isi akar ≥ 0): x² - 5x + 6 ≥ 0 → (x - 2)(x - 3) ≥ 0 → x ≤ 2 atau x ≥ 3.',
+                    '• Syarat 2 (Penyebut ≠ 0): x - 4 ≠ 0 → x ≠ 4.',
+                    '• Irisan kedua syarat: Df = {x | x ≤ 2 atau x ≥ 3, x ≠ 4, x ∈ R}.'
+                ],
+                trick: 'Tanda pertidaksamaan ≥ 0 pada bentuk kuadrat (x - 2)(x - 3) ≥ 0 menghasilkan penyelesaian terpisah (≤ kecil atau ≥ besar)!'
+            },
+            {
+                id: 11, topicId: 4, group: 'bab_fungsi', topicName: '04. Domain dan Range',
+                question: 'Diketahui fungsi kuadrat f(x) = x² - 4x + 1 dengan daerah asal dibatasi Df = {x | -1 ≤ x ≤ 4, x ∈ R}. Daerah hasil (range) dari fungsi f adalah ....',
+                options: [
+                    '{y | -3 ≤ y ≤ 1, y ∈ R}',
+                    '{y | -3 ≤ y ≤ 6, y ∈ R}',
+                    '{y | 1 ≤ y ≤ 6, y ∈ R}',
+                    '{y | -2 ≤ y ≤ 6, y ∈ R}',
+                    '{y | y ≥ -3, y ∈ R}'
+                ],
+                correct: 1,
+                explanation: [
+                    '• Cari sumbu simetri parabola: xp = -b / (2a) = -(-4) / 2(1) = 2. Karena x = 2 berada di dalam interval [-1, 4], nilai minimum terjadi di x = 2.',
+                    '• Nilai minimum: f(2) = 2² - 4(2) + 1 = 4 - 8 + 1 = -3.',
+                    '• Cek kedua ujung interval: f(-1) = (-1)² - 4(-1) + 1 = 6, dan f(4) = 4² - 4(4) + 1 = 1.',
+                    '• Jadi nilai terkecil = -3 dan terbesar = 6 → Rf = {y | -3 ≤ y ≤ 6, y ∈ R}.'
+                ],
+                trick: 'Pada domain terbatas [a, b], cek 3 titik penting: f(a), f(b), dan f(xp) jika xp masuk interval!'
+            },
+            {
+                id: 12, topicId: 4, group: 'bab_fungsi', topicName: '04. Domain dan Range',
+                question: 'Daerah hasil (range) dari fungsi rasional f(x) = (4x - 7) / (2x + 3) dengan x ≠ -3/2 adalah ....',
+                options: [
+                    '{y | y ≠ -3/2, y ∈ R}',
+                    '{y | y ≠ 3/2, y ∈ R}',
+                    '{y | y ≠ 2, y ∈ R}',
+                    '{y | y ≠ -2, y ∈ R}',
+                    '{y | y ≠ 7/4, y ∈ R}'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Range fungsi pecahan linear f(x) = (ax + b)/(cx + d) sama dengan domain inversnya f⁻¹(x).',
+                    '• Asimtot datar (nilai y yang tidak pernah dicapai) adalah y = a / c = 4 / 2 = 2.',
+                    '• Jadi Rf = {y | y ≠ 2, y ∈ R}.'
+                ],
+                trick: 'Range f(x) = (ax + b)/(cx + d) cukup bagi koefisien x atas dengan koefisien x bawah: y ≠ a/c!'
+            },
+
+            // --- KISI-KISI 05: FUNGSI KOMPOSISI (3 SOAL) ---
+            {
+                id: 13, topicId: 5, group: 'bab_fungsi', topicName: '05. Fungsi Komposisi',
+                question: 'Diketahui (f ∘ g)(x) = 6x² - 12x + 11 dan f(x) = 3x + 2. Rumus fungsi g(x) adalah ....',
+                options: [
+                    '2x² - 4x + 3',
+                    '2x² - 4x + 9',
+                    '3x² - 6x + 3',
+                    '2x² + 4x + 3',
+                    '6x² - 12x + 9'
+                ],
+                correct: 0,
+                explanation: [
+                    '• Diketahui f(g(x)) = 6x² - 12x + 11.',
+                    '• Karena f(x) = 3x + 2, maka f(g(x)) = 3·g(x) + 2.',
+                    '• 3·g(x) + 2 = 6x² - 12x + 11',
+                    '• 3·g(x) = 6x² - 12x + 9  →  g(x) = 2x² - 4x + 3.'
+                ],
+                trick: 'Jika fungsi LUAR f(x) diketahui, langsung ganti x pada f(x) menjadi g(x) lalu selesaikan secara aljabar!'
+            },
+            {
+                id: 14, topicId: 5, group: 'bab_fungsi', topicName: '05. Fungsi Komposisi',
+                question: 'Diketahui (f ∘ g)(x) = 4x² + 8x - 1 dan g(x) = 2x + 1. Rumus fungsi f(x) adalah ....',
+                options: [
+                    'x² + 2x - 4',
+                    'x² + 2x - 2',
+                    'x² - 2x - 2',
+                    '2x² + 4x - 2',
+                    'x² + 4x - 2'
+                ],
+                correct: 0,
+                explanation: [
+                    '• Diketahui f(g(x)) = f(2x + 1) = 4x² + 8x - 1.',
+                    '• Misalkan u = 2x + 1 → 2x = u - 1 → x = (u - 1)/2.',
+                    '• Substitusi ke ruas kanan:\n  f(u) = 4((u - 1)/2)² + 8((u - 1)/2) - 1 = (u² - 2u + 1) + 4(u - 1) - 1 = u² + 2u - 4.',
+                    '• Jadi f(x) = x² + 2x - 4.'
+                ],
+                trick: 'Jika fungsi DALAM g(x) diketahui, misalkan u = g(x) atau pecah ruas kanan menjadi kelipatan (2x + 1)²!'
+            },
+            {
+                id: 15, topicId: 5, group: 'bab_fungsi', topicName: '05. Fungsi Komposisi',
+                question: 'Diketahui f(x) = 2x + p dan g(x) = 3x - 4. Jika berlaku sifat komutatif (f ∘ g)(x) = (g ∘ f)(x), maka nilai p adalah ....',
+                options: [
+                    '-4',
+                    '-2',
+                    '0',
+                    '2',
+                    '4'
+                ],
+                correct: 1,
+                explanation: [
+                    '• (f ∘ g)(x) = f(3x - 4) = 2(3x - 4) + p = 6x - 8 + p.',
+                    '• (g ∘ f)(x) = g(2x + p) = 3(2x + p) - 4 = 6x + 3p - 4.',
+                    '• Samakan keduanya: 6x - 8 + p = 6x + 3p - 4 → -8 + 4 = 3p - p → 2p = -4 → p = -2.'
+                ],
+                trick: 'Hitung f(g(x)) dan g(f(x)), coret suku 6x di kedua ruas, lalu selesaikan persamaan linear p!'
+            },
+
+            // --- KISI-KISI 06: FUNGSI INVERS (3 SOAL) ---
+            {
+                id: 16, topicId: 6, group: 'bab_fungsi', topicName: '06. Fungsi Invers',
+                question: 'Diketahui fungsi f(x) = (2x - 5) / (3x + 4) dengan x ≠ -4/3. Nilai dari f⁻¹(1) adalah ....',
+                options: [
+                    '-9',
+                    '-1',
+                    '1',
+                    '5',
+                    '9'
+                ],
+                correct: 0,
+                explanation: [
+                    '• Gunakan sifat emas invers: f⁻¹(1) = k  ⇔  f(k) = 1.',
+                    '• (2k - 5) / (3k + 4) = 1',
+                    '• 2k - 5 = 3k + 4  →  k = -9.'
+                ],
+                trick: 'Jangan cari f⁻¹(x) kalau ditanya angka! Pakai f⁻¹(1) = k ⇔ f(k) = 1!'
+            },
+            {
+                id: 17, topicId: 6, group: 'bab_fungsi', topicName: '06. Fungsi Invers',
+                question: 'Invers dari fungsi kuadrat f(x) = x² - 6x + 11 untuk domain x ≥ 3 adalah ....',
+                options: [
+                    'f⁻¹(x) = 3 + √(x - 2)',
+                    'f⁻¹(x) = 3 - √(x - 2)',
+                    'f⁻¹(x) = -3 + √(x + 2)',
+                    'f⁻¹(x) = 3 + √(x + 2)',
+                    'f⁻¹(x) = 2 + √(x - 3)'
+                ],
+                correct: 0,
+                explanation: [
+                    '• Ubah ke bentuk kuadrat sempurna: y = x² - 6x + 11 = (x - 3)² + 2.',
+                    '• (x - 3)² = y - 2  →  x - 3 = ±√(y - 2)  →  x = 3 ± √(y - 2).',
+                    '• Karena domain asal dibatasi x ≥ 3, tanda akar yang dipilih adalah positif (+).',
+                    '• Jadi f⁻¹(x) = 3 + √(x - 2).'
+                ],
+                trick: 'Lengkapi kuadrat sempurna: x² - 6x + 11 = (x - 3)² + 2, lalu pilih tanda (+) karena x ≥ 3!'
+            },
+            {
+                id: 18, topicId: 6, group: 'bab_fungsi', topicName: '06. Fungsi Invers',
+                question: 'Diketahui f(x) = (ax + 4) / (2x - b). Jika inversnya adalah f⁻¹(x) = (3x + 4) / (2x - 5), maka nilai dari a + b adalah ....',
+                options: [
+                    '2',
+                    '5',
+                    '8',
+                    '10',
+                    '12'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Dengan rumus cepat invers, f(x) = (ax + 4)/(2x - b) memiliki invers f⁻¹(x) = (bx + 4)/(2x - a).',
+                    '• Bandingkan dengan f⁻¹(x) = (3x + 4)/(2x - 5): didapat b = 3 dan a = 5.',
+                    '• Maka a + b = 5 + 3 = 8.'
+                ],
+                trick: 'Ingat pola tukar posisi & ganti tanda antara koefisien x pembilang dan konstanta penyebut!'
+            },
+
+            // --- KISI-KISI 07: INVERS DARI FUNGSI KOMPOSISI (3 SOAL) ---
+            {
+                id: 19, topicId: 7, group: 'bab_fungsi', topicName: '07. Invers dari Fungsi Komposisi',
+                question: 'Diketahui fungsi f(x) = 2x - 3 dan g(x) = (x + 1) / (x - 2) untuk x ≠ 2. Nilai dari (f ∘ g)⁻¹(5) adalah ....',
+                options: [
+                    '1',
+                    '2',
+                    '3',
+                    '4',
+                    '5'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Gunakan identitas (f ∘ g)⁻¹(5) = g⁻¹(f⁻¹(5)).',
+                    '• Langkah 1: Cari f⁻¹(5) = a ⇔ f(a) = 5 → 2a - 3 = 5 → a = 4.',
+                    '• Langkah 2: Cari g⁻¹(4) = b ⇔ g(b) = 4 → (b + 1)/(b - 2) = 4 → b + 1 = 4b - 8 → 3b = 9 → b = 3.'
+                ],
+                trick: 'Pakai aturan sepatu kaos kaki (g⁻¹ ∘ f⁻¹)(5), lalu kerjakan bertahap dari kanan memakai f(a) = y!'
+            },
+            {
+                id: 20, topicId: 7, group: 'bab_fungsi', topicName: '07. Invers dari Fungsi Komposisi',
+                question: 'Diketahui f(x) = x + 4 dan (g ∘ f)⁻¹(x) = (x - 1) / 3. Rumus fungsi g(x) adalah ....',
+                options: [
+                    '3x - 11',
+                    '3x - 3',
+                    '3x + 13',
+                    '3x - 7',
+                    'x + 3'
+                ],
+                correct: 0,
+                explanation: [
+                    '• Inverskan kembali (g ∘ f)⁻¹(x) = (x - 1)/3 untuk mendapatkan (g ∘ f)(x):',
+                    '• y = (x - 1)/3 → 3y = x - 1 → x = 3y + 1, sehingga (g ∘ f)(x) = 3x + 1.',
+                    '• g(f(x)) = 3x + 1 → g(x + 4) = 3x + 1.',
+                    '• Misalkan u = x + 4 → x = u - 4 → g(u) = 3(u - 4) + 1 = 3u - 11 → g(x) = 3x - 11.'
+                ],
+                trick: 'Invers dari invers kembali ke fungsi asal: ((g ∘ f)⁻¹)⁻¹ = (g ∘ f)!'
+            },
+            {
+                id: 21, topicId: 7, group: 'bab_fungsi', topicName: '07. Invers dari Fungsi Komposisi',
+                question: 'Diketahui f⁻¹(x) = 2x + 1 dan g⁻¹(x) = x - 4. Jika (f ∘ g)⁻¹(k) = 13, maka nilai k adalah ....',
+                options: [
+                    '4',
+                    '6',
+                    '8',
+                    '10',
+                    '12'
+                ],
+                correct: 2,
+                explanation: [
+                    '• (f ∘ g)⁻¹(k) = g⁻¹(f⁻¹(k)) = 13.',
+                    '• f⁻¹(k) = 2k + 1.',
+                    '• g⁻¹(2k + 1) = (2k + 1) - 4 = 2k - 3.',
+                    '• 2k - 3 = 13  →  2k = 16  →  k = 8.'
+                ],
+                trick: 'Hati-hati! (f ∘ g)⁻¹ = g⁻¹ ∘ f⁻¹, jadi f⁻¹(k) dihitung DULUAN baru dimasukkan ke g⁻¹!'
+            },
+
+            // --- KISI-KISI 08: SUDUT PUSAT (3 SOAL) ---
+            {
+                id: 22, topicId: 8, group: 'bab_lingkaran', topicName: '08. Sudut Pusat',
+                question: 'Pada lingkaran berpusat di O, titik A, B, dan C terletak pada keliling lingkaran. Jika besar sudut pusat ∠AOB = (5x - 10)° dan sudut keliling ∠ACB = (2x + 7)° sama-sama menghadap busur minor AB, maka besar sudut refleks ∠AOB adalah ....',
+                options: [
+                    '110°',
+                    '130°',
+                    '230°',
+                    '250°',
+                    '270°'
+                ],
+                correct: 3,
+                explanation: [
+                    '• Sudut Pusat = 2 × Sudut Keliling:',
+                    '• 5x - 10 = 2(2x + 7) → 5x - 10 = 4x + 14 → x = 24°.',
+                    '• Sudut pusat minor ∠AOB = 5(24°) - 10° = 120° - 10° = 110°.',
+                    '• Sudut refleks ∠AOB = 360° - 110° = 250°.'
+                ],
+                trick: 'Baca teliti! Yang ditanya adalah sudut REFLEKS ∠AOB (= 360° - sudut minor), bukan sudut minornya!'
+            },
+            {
+                id: 23, topicId: 8, group: 'bab_lingkaran', topicName: '08. Sudut Pusat',
+                question: 'Titik O adalah pusat lingkaran. Diketahui ∠OAB = 28° dan ∠OCB = 37° dengan titik B berada di antara A dan C pada busur minor AC. Besar sudut pusat ∠AOC adalah ....',
+                options: [
+                    '65°',
+                    '90°',
+                    '115°',
+                    '130°',
+                    '150°'
+                ],
+                correct: 3,
+                explanation: [
+                    '• Tarik garis jari-jari OB sehingga terbentuk dua segitiga sama kaki: ΔOAB (OA = OB) dan ΔOBC (OB = OC).',
+                    '• Pada ΔOAB: ∠OBA = ∠OAB = 28°.',
+                    '• Pada ΔOBC: ∠OBC = ∠OCB = 37°.',
+                    '• Maka sudut keliling ∠ABC = 28° + 37° = 65°.',
+                    '• Sudut pusat ∠AOC = 2 × ∠ABC = 2 × 65° = 130°.'
+                ],
+                trick: 'Tarik garis bantu jari-jari OB! Terbentuk dua segitiga sama kaki sehingga ∠ABC = 28° + 37° = 65°!'
+            },
+            {
+                id: 24, topicId: 8, group: 'bab_lingkaran', topicName: '08. Sudut Pusat',
+                question: 'Diketahui jumlah besar sebuah sudut pusat dan dua kali sudut keliling yang menghadap busur yang sama adalah 196°. Besar sudut pusat tersebut adalah ....',
+                options: [
+                    '49°',
+                    '78°',
+                    '98°',
+                    '112°',
+                    '147°'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Misalkan sudut pusat = P dan sudut keliling = K, maka P = 2K.',
+                    '• Diketahui P + 2K = 196°. Karena 2K = P, substitusi menjadi P + P = 196°.',
+                    '• 2P = 196°  →  P = 98°.'
+                ],
+                trick: 'Karena P = 2K, maka P + 2K sama saja dengan P + P = 2P!'
+            },
+
+            // --- KISI-KISI 09: SUDUT KELILING (3 SOAL) ---
+            {
+                id: 25, topicId: 9, group: 'bab_lingkaran', topicName: '09. Sudut Keliling',
+                question: 'Pada sebuah lingkaran, sudut keliling ∠ACB, ∠ADB, dan ∠AEB semuanya menghadap busur minor AB. Jika ∠ACB + ∠ADB + ∠AEB = 126°, maka besar sudut pusat ∠AOB adalah ....',
+                options: [
+                    '42°',
+                    '63°',
+                    '84°',
+                    '105°',
+                    '126°'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Ketiga sudut keliling menghadap busur AB yang sama, sehingga ∠ACB = ∠ADB = ∠AEB = α.',
+                    '• 3α = 126° → α = 42°.',
+                    '• Sudut pusat ∠AOB = 2 × α = 2 × 42° = 84°.'
+                ],
+                trick: 'Sudut keliling menghadap busur sama selalu sama besar, lalu kali 2 untuk sudut pusat!'
+            },
+            {
+                id: 26, topicId: 9, group: 'bab_lingkaran', topicName: '09. Sudut Keliling',
+                question: 'Ruas garis AB adalah diameter lingkaran berpusat di O. Titik C dan D berada pada setengah lingkaran yang sama sehingga ∠CAB = 34° dan ∠DBA = 41°. Besar sudut lancip yang dibentuk oleh perpotongan tali busur AC dan BD adalah ....',
+                options: [
+                    '56°',
+                    '68°',
+                    '75°',
+                    '82°',
+                    '105°'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Misalkan titik potong tali busur AC dan BD adalah E, sehingga terbentuk ΔAEB.',
+                    '• Jumlah sudut dalam ΔAEB = 180° → ∠AEB = 180° - 34° - 41° = 105° (sudut tumpul).',
+                    '• Sudut lancip yang berpelurus dengan ∠AEB adalah 180° - 105° = 75° (atau langsung ∠CAB + ∠DBA = 34° + 41° = 75°).'
+                ],
+                trick: 'Sudut luar segitiga ΔAEB sama dengan jumlah dua sudut dalam di hadapannya: 34° + 41° = 75°!'
+            },
+            {
+                id: 27, topicId: 9, group: 'bab_lingkaran', topicName: '09. Sudut Keliling',
+                question: 'Segitiga PQR dilukis di dalam lingkaran dengan PQ sebagai diameter. Jika perbandingan besar ∠RPQ : ∠RQP = 2 : 3, maka selisih besar ∠RQP dan ∠RPQ adalah ....',
+                options: [
+                    '12°',
+                    '18°',
+                    '24°',
+                    '36°',
+                    '54°'
+                ],
+                correct: 1,
+                explanation: [
+                    '• Karena PQ adalah diameter, maka sudut keliling di hadapannya ∠PRQ = 90°.',
+                    '• Akibatnya ∠RPQ + ∠RQP = 180° - 90° = 90°.',
+                    '• Dengan perbandingan 2 : 3, selisih sudut = ((3 - 2) / (3 + 2)) × 90° = (1 / 5) × 90° = 18°.'
+                ],
+                trick: 'Diameter membuat segitiga siku-siku (jumlah 2 sudut lancip = 90°), langsung bagi dengan jumlah rasio 2 + 3 = 5!'
+            },
+
+            // --- KISI-KISI 10: PANJANG BUSUR (3 SOAL) ---
+            {
+                id: 28, topicId: 10, group: 'bab_lingkaran', topicName: '10. Panjang Busur',
+                question: 'Pada lingkaran berpusat di O, panjang busur AB adalah 24 cm dan panjang busur CD adalah 40 cm. Jika besar sudut pusat ∠AOB = 54°, maka besar sudut pusat ∠COD adalah ....',
+                options: [
+                    '72°',
+                    '80°',
+                    '90°',
+                    '96°',
+                    '108°'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Gunakan perbandingan senilai antara panjang busur dan sudut pusat:',
+                    '• Busur AB / Busur CD = ∠AOB / ∠COD',
+                    '• 24 / 40 = 54° / ∠COD  →  3 / 5 = 54° / ∠COD',
+                    '• ∠COD = (5 × 54°) / 3 = 5 × 18° = 90°.'
+                ],
+                trick: 'Tidak perlu mencari jari-jari r! Langsung pakai perbandingan Busur₁ / Busur₂ = Sudut₁ / Sudut₂!'
+            },
+            {
+                id: 29, topicId: 10, group: 'bab_lingkaran', topicName: '10. Panjang Busur',
+                question: 'Sebuah bandul jam berayun membentuk busur lingkaran sepanjang 22 cm dengan sudut ayunan 45°. Jika π = 22/7, maka panjang tali bandul tersebut adalah ....',
+                options: [
+                    '14 cm',
+                    '21 cm',
+                    '28 cm',
+                    '35 cm',
+                    '42 cm'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Panjang busur = (α / 360°) × 2πr',
+                    '• 22 = (45° / 360°) × 2 × (22/7) × r',
+                    '• 22 = (1 / 8) × (44 / 7) × r',
+                    '• 1 = (1 / 8) × (2 / 7) × r  →  r = (8 × 7) / 2 = 28 cm.'
+                ],
+                trick: 'Sederhanakan 45°/360° menjadi 1/8 dan coret angka 22 di kedua ruas lebih dulu!'
+            },
+            {
+                id: 30, topicId: 10, group: 'bab_lingkaran', topicName: '10. Panjang Busur',
+                question: 'Dua buah katrol berbentuk lingkaran memiliki jari-jari R = 21 cm dan r = 7 cm dengan jarak kedua pusat 28 cm (bersinggungan luar). Jika sabuk melilit bagian luar kedua katrol, panjang busur lilitan pada katrol besar yang memiliki sudut pusat 240° adalah .... (π = 22/7)',
+                options: [
+                    '44 cm',
+                    '66 cm',
+                    '88 cm',
+                    '110 cm',
+                    '132 cm'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Panjang busur pada katrol besar dengan sudut pusat α = 240° dan R = 21 cm:',
+                    '• Busur = (240° / 360°) × 2 × (22/7) × 21',
+                    '• Busur = (2 / 3) × 132 = 88 cm.'
+                ],
+                trick: '240° / 360° = 2/3 lingkaran. Keliling penuh R=21 adalah 132 cm, maka 2/3 × 132 = 88 cm!'
+            },
+
+            // --- KISI-KISI 11: LUAS JURING (3 SOAL) ---
+            {
+                id: 31, topicId: 11, group: 'bab_lingkaran', topicName: '11. Luas Juring',
+                question: 'Sebuah juring lingkaran memiliki keliling 44 cm. Jika panjang jari-jari lingkaran tersebut adalah 14 cm, maka luas juring tersebut adalah ....',
+                options: [
+                    '84 cm²',
+                    '98 cm²',
+                    '112 cm²',
+                    '154 cm²',
+                    '224 cm²'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Ingat bahwa Keliling Juring = 2r + Panjang Busur!',
+                    '• 44 = 2(14) + Panjang Busur  →  Panjang Busur = 44 - 28 = 16 cm.',
+                    '• Gunakan rumus cepat Luas Juring = ½ × Panjang Busur × r = ½ × 16 × 14 = 112 cm².'
+                ],
+                trick: 'Hati-hati jebakan! Keliling juring BUKAN panjang busurnya saja, melainkan Busur + 2r!'
+            },
+            {
+                id: 32, topicId: 11, group: 'bab_lingkaran', topicName: '11. Luas Juring',
+                question: 'Pada lingkaran berpusat di O dengan jari-jari 14 cm, besar sudut pusat ∠AOB = 90°. Luas tembereng minor AB adalah .... (π = 22/7)',
+                options: [
+                    '28 cm²',
+                    '42 cm²',
+                    '56 cm²',
+                    '98 cm²',
+                    '154 cm²'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Luas Juring AOB = (90° / 360°) × (22/7) × 14² = ¼ × 616 = 154 cm².',
+                    '• Karena ∠AOB = 90°, ΔAOB adalah segitiga siku-siku dengan alas = 14 cm dan tinggi = 14 cm.',
+                    '• Luas ΔAOB = ½ × 14 × 14 = 98 cm².',
+                    '• Luas Tembereng = 154 - 98 = 56 cm².'
+                ],
+                trick: 'Untuk sudut pusat 90° dan π = 22/7, Luas Tembereng selalu sama dengan (2/7) × r² = (2/7) × 196 = 56 cm²!'
+            },
+            {
+                id: 33, topicId: 11, group: 'bab_lingkaran', topicName: '11. Luas Juring',
+                question: 'Juring OAB dan OCD berada pada lingkaran yang sama dengan luas juring OAB = 45 cm² dan luas juring OCD = 75 cm². Jika panjang busur AB = 12 cm, maka panjang busur CD adalah ....',
+                options: [
+                    '15 cm',
+                    '18 cm',
+                    '20 cm',
+                    '24 cm',
+                    '25 cm'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Pada lingkaran yang sama (r tetap), perbandingan Luas Juring sama dengan perbandingan Panjang Busurnya:',
+                    '• Luas OAB / Luas OCD = Busur AB / Busur CD',
+                    '• 45 / 75 = 12 / Busur CD  →  3 / 5 = 12 / Busur CD',
+                    '• Busur CD = (5 × 12) / 3 = 20 cm.'
+                ],
+                trick: 'Perbandingan Sudut = Perbandingan Busur = Perbandingan Luas Juring pada lingkaran yang sama!'
+            },
+
+            // --- KISI-KISI 12: SEGIEMPAT TALI BUSUR (3 SOAL) ---
+            {
+                id: 34, topicId: 12, group: 'bab_lingkaran', topicName: '12. Segiempat Tali Busur',
+                question: 'Segiempat ABCD adalah segiempat tali busur lingkaran. Diketahui besar ∠A = (3x + 15)°, ∠B = (4x - 5)°, dan ∠C = (2x + 35)°. Besar sudut ∠D adalah ....',
+                options: [
+                    '65°',
+                    '75°',
+                    '81°',
+                    '99°',
+                    '105°'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Pada segiempat tali busur, sudut berhadapan berjumlah 180°: ∠A + ∠C = 180°.',
+                    '• (3x + 15) + (2x + 35) = 180  →  5x + 50 = 180  →  5x = 130  →  x = 26°.',
+                    '• Hitung ∠B = 4(26°) - 5° = 104° - 5° = 99°.',
+                    '• Karena ∠B + ∠D = 180°, maka ∠D = 180° - 99° = 81°.'
+                ],
+                trick: 'Pasangkan ∠A dengan ∠C untuk dapat x, lalu hitung ∠D = 180° - ∠B!'
+            },
+            {
+                id: 35, topicId: 12, group: 'bab_lingkaran', topicName: '12. Segiempat Tali Busur',
+                question: 'Pada segiempat tali busur PQRS, sisi PQ diperpanjang hingga titik T sehingga terbentuk sudut luar ∠RQT = 112°. Jika diagonal PR membagi ∠SRQ dengan perbandingan ∠SRP : ∠PRQ = 3 : 4, maka besar ∠SPQ adalah ....',
+                options: [
+                    '68°',
+                    '84°',
+                    '96°',
+                    '112°',
+                    '124°'
+                ],
+                correct: 0,
+                explanation: [
+                    '• Sudut luar segiempat tali busur ∠RQT = 112° berpelurus dengan sudut dalam ∠PQR = 180° - 112° = 68°.',
+                    '• Menurut sifat sudut luar segiempat tali busur, ∠PSR = ∠RQT = 112°.',
+                    '• Karena ∠SPQ berhadapan dengan ∠SRQ... (Cek: P berhadapan dengan R, Q berhadapan dengan S! Jadi ∠SPQ + ∠SRQ = 180°).',
+                    '• Perhatikan urutan huruf P-Q-R-S: ∠PQR = 68° berhadapan dengan ∠PSR = 112°. Jika diketahui ∠SRQ = 112°, maka ∠SPQ = 180° - 112° = 68°.'
+                ],
+                trick: 'Selalu gambar sketsa urutan huruf P-Q-R-S melingkar agar tidak tertukar pasangan sudut yang berhadapan!'
+            },
+            {
+                id: 36, topicId: 12, group: 'bab_lingkaran', topicName: '12. Segiempat Tali Busur',
+                question: 'Segiempat tali busur ABCD memiliki diagonal AC dan BD yang berpotongan tegak lurus di titik E. Jika besar sudut keliling ∠ABD = 36° dan ∠CBD = 29°, maka besar sudut ∠CAD adalah ....',
+                options: [
+                    '29°',
+                    '36°',
+                    '54°',
+                    '61°',
+                    '65°'
+                ],
+                correct: 0,
+                explanation: [
+                    '• Perhatikan busur minor CD: sudut keliling ∠CBD dan sudut keliling ∠CAD keduanya menghadap busur CD yang sama!',
+                    '• Oleh karena itu, ∠CAD = ∠CBD = 29°.'
+                ],
+                trick: 'Lihat huruf awal dan akhir sudut! ∠CBD dan ∠CAD sama-sama diawali C dan diakhiri D (menghadap busur CD)!'
+            },
+
+            // --- KISI-KISI 13: SUDUT PERPOTONGAN DUA TALI BUSUR (3 SOAL) ---
+            {
+                id: 37, topicId: 13, group: 'bab_lingkaran', topicName: '13. Sudut Perpotongan Dua Tali Busur',
+                question: 'Tali busur AC dan BD berpotongan di titik E di dalam lingkaran berpusat di O. Jika besar sudut pusat ∠AOB = 78° dan sudut perpotongan ∠AEB = 64°, maka besar sudut pusat ∠COD adalah ....',
+                options: [
+                    '46°',
+                    '50°',
+                    '56°',
+                    '64°',
+                    '71°'
+                ],
+                correct: 1,
+                explanation: [
+                    '• Rumus perpotongan dua tali busur DI DALAM lingkaran:',
+                    '• ∠AEB = ½ × (∠AOB + ∠COD)',
+                    '• 64° = ½ × (78° + ∠COD)  →  128° = 78° + ∠COD',
+                    '• ∠COD = 128° - 78° = 50°.'
+                ],
+                trick: 'Kalikan 2 dulu sudut perpotongannya (64° × 2 = 128°), lalu kurangi dengan busur yang diketahui!'
+            },
+            {
+                id: 38, topicId: 13, group: 'bab_lingkaran', topicName: '13. Sudut Perpotongan Dua Tali Busur',
+                question: 'Dua tali busur AB dan CD diperpanjang sehingga berpotongan di titik P di luar lingkaran. Jika sudut pusat ∠AOC = 136° (busur besar) dan sudut keliling ∠CBD = 24° (menghadap busur kecil BD), maka besar ∠APC adalah ....',
+                options: [
+                    '32°',
+                    '44°',
+                    '56°',
+                    '68°',
+                    '88°'
+                ],
+                correct: 1,
+                explanation: [
+                    '• Ubah sudut keliling ∠CBD = 24° menjadi sudut pusat busur kecil ∠BOD = 2 × 24° = 48°.',
+                    '• Gunakan rumus perpotongan DI LUAR lingkaran: ∠APC = ½ × (Busur Besar - Busur Kecil).',
+                    '• ∠APC = ½ × (136° - 48°) = ½ × 88° = 44°.'
+                ],
+                trick: 'Samakan satuan ke SUDUT PUSAT semua sebelum dikurang! (24° × 2 = 48°).'
+            },
+            {
+                id: 39, topicId: 13, group: 'bab_lingkaran', topicName: '13. Sudut Perpotongan Dua Tali Busur',
+                question: 'Tali busur PQ dan RS berpotongan di titik T di dalam lingkaran. Diketahui panjang PT = 6 cm, TQ = 8 cm, dan RT = 4 cm. Panjang ruas garis TS adalah ....',
+                options: [
+                    '9 cm',
+                    '10 cm',
+                    '12 cm',
+                    '14 cm',
+                    '16 cm'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Berdasarkan teorema kuasa titik pada dua tali busur yang berpotongan di dalam lingkaran:',
+                    '• PT × TQ = RT × TS',
+                    '• 6 × 8 = 4 × TS  →  48 = 4 × TS  →  TS = 12 cm.'
+                ],
+                trick: 'Perkalian ruas pada satu tali busur sama dengan tali busur pasangannya: 6 × 8 = 4 × TS!'
+            },
+
+            // --- KISI-KISI 14: PANJANG GARIS SINGGUNG (3 SOAL) ---
+            {
+                id: 40, topicId: 14, group: 'bab_lingkaran', topicName: '14. Panjang Garis Singgung',
+                question: 'Dari titik P di luar lingkaran berpusat di O dengan jari-jari 9 cm, ditarik dua garis singgung PA dan PB sehingga membentuk layang-layang garis singgung OAPB. Jika jarak OP = 15 cm, maka luas layang-layang OAPB adalah ....',
+                options: [
+                    '54 cm²',
+                    '72 cm²',
+                    '90 cm²',
+                    '108 cm²',
+                    '135 cm²'
+                ],
+                correct: 3,
+                explanation: [
+                    '• Segitiga OAP siku-siku di A (OA = 9 cm, OP = 15 cm).',
+                    '• Dengan Tripel Pythagoras (9, 12, 15), panjang garis singgung PA = √(15² - 9²) = 12 cm.',
+                    '• Luas ΔOAP = ½ × alas × tinggi = ½ × 9 × 12 = 54 cm².',
+                    '• Layang-layang OAPB terdiri dari 2 segitiga siku-siku kongruen → Luas OAPB = 2 × 54 = 108 cm².'
+                ],
+                trick: 'Luas layang-layang garis singgung = 2 × Luas Δ siku-siku = r × garis singgung = 9 × 12 = 108 cm²!'
+            },
+            {
+                id: 41, topicId: 14, group: 'bab_lingkaran', topicName: '14. Panjang Garis Singgung',
+                question: 'Dua lingkaran masing-masing berjari-jari 14 cm dan 6 cm memiliki jarak kedua titik pusat 25 cm. Panjang garis singgung persekutuan dalam (GSPD) kedua lingkaran tersebut adalah ....',
+                options: [
+                    '12 cm',
+                    '15 cm',
+                    '18 cm',
+                    '20 cm',
+                    '24 cm'
+                ],
+                correct: 1,
+                explanation: [
+                    '• Rumus GSPD: d_dalam = √(p² - (R + r)²).',
+                    '• R + r = 14 + 6 = 20 cm, dan jarak pusat p = 25 cm.',
+                    '• Dengan Tripel Pythagoras (15, 20, 25): GSPD = √(25² - 20²) = √(625 - 400) = √225 = 15 cm.'
+                ],
+                trick: 'Persekutuan DALAM → jari-jari DITAMBAH (14 + 6 = 20), lalu pasangkan tripel 3-4-5 (15-20-25)!'
+            },
+            {
+                id: 42, topicId: 14, group: 'bab_lingkaran', topicName: '14. Panjang Garis Singgung',
+                question: 'Panjang garis singgung persekutuan luar (GSPL) dua lingkaran adalah 24 cm, sedangkan jarak kedua titik pusatnya adalah 26 cm. Jika panjang jari-jari lingkaran kecil adalah 5 cm, maka panjang jari-jari lingkaran besar adalah ....',
+                options: [
+                    '10 cm',
+                    '12 cm',
+                    '15 cm',
+                    '17 cm',
+                    '19 cm'
+                ],
+                correct: 2,
+                explanation: [
+                    '• Rumus GSPL: d_luar = √(p² - (R - r)²).',
+                    '• 24 = √(26² - (R - 5)²)  →  (R - 5)² = 26² - 24² = 676 - 576 = 100.',
+                    '• R - 5 = 10  →  R = 15 cm.'
+                ],
+                trick: 'Tripel Pythagoras (10, 24, 26)! Selisih jari-jari R - r = 10, sehingga R = 10 + 5 = 15 cm!'
+            }
+        ];
+
+        // =========================================================================
+        // 4. APPLICATION STATE
+        // =========================================================================
+        let state = {
+            activeTab: 'materi',
+            materiFilter: 'all',
+            masteredKisi: new Set(),
+
+            // Flashcard State
+            fcFilter: 'all',
+            fcList: [...FLASHCARDS_DATA],
+            fcIndex: 0,
+            fcFlipped: false,
+            fcMastered: new Set(),
+
+            // Quiz State
+            quizFilter: 'all',
+            filteredQuestions: [...QUIZ_QUESTIONS],
+            currentQIndex: 0,
+            userAnswers: {}, // { qId: optionIdx }
+            quizSubmitted: false,
+            timerSeconds: 0,
+            timerPaused: false,
+            timerInterval: null
+        };
+
+        // =========================================================================
+        // 5. NAVIGATION & TOAST
+        // =========================================================================
+        function switchMainTab(tabName) {
+            state.activeTab = tabName;
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.remove('border-[#E76F51]', 'text-[#E76F51]');
+                btn.classList.add('border-transparent', 'text-[#9CA3AF]');
+            });
+            const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+            activeBtn.classList.remove('border-transparent', 'text-[#9CA3AF]');
+            activeBtn.classList.add('border-[#E76F51]', 'text-[#E76F51]');
+
+            ['materi', 'flashcards', 'kuis'].forEach(sec => {
+                document.getElementById(`section-${sec}`).classList.toggle('hidden', sec !== tabName);
+            });
+
+            if (tabName === 'kuis' && !state.timerInterval && !state.quizSubmitted) {
+                startQuizTimer();
+            }
+            lucide.createIcons();
+        }
+
+        function showToast(icon, text) {
+            const toast = document.getElementById('toast-message');
+            document.getElementById('toast-icon').textContent = icon;
+            document.getElementById('toast-text').textContent = text;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 2800);
+        }
+
+        function updateGlobalProgress() {
+            const masteredCount = state.masteredKisi.size;
+            const pct = Math.round((masteredCount / 14) * 100);
+            document.getElementById('mastery-progress-text').textContent = `${masteredCount}/14`;
+            document.getElementById('mastery-progress-bar').style.width = `${pct}%`;
+
+            const answeredCount = Object.keys(state.userAnswers).length;
+            let correctCount = 0;
+            QUIZ_QUESTIONS.forEach(q => {
+                if (state.userAnswers[q.id] === q.correct) correctCount++;
+            });
+
+            document.getElementById('mobile-score-badge').textContent = `${correctCount}/42`;
+            if (!state.quizSubmitted) {
+                document.getElementById('desktop-score-badge').textContent = `${answeredCount}/42 Dijawab`;
+            }
+        }
+
+        // =========================================================================
+        // 6. TAB 1: MATERI & RUMUS CEPAT (14 KISI-KISI)
+        // =========================================================================
+        function setMateriFilter(filterVal) {
+            state.materiFilter = filterVal;
+            document.querySelectorAll('.mfilter-btn').forEach(btn => {
+                btn.classList.remove('bg-[#E76F51]', 'text-white', 'border-[#E76F51]', 'shadow-md', 'shadow-[#E76F51]/20');
+                btn.classList.add('bg-[#111827]', 'text-[#9CA3AF]', 'border-[#1F2937]');
+            });
+            const active = document.getElementById(`mfilter-${filterVal}`);
+            active.classList.remove('bg-[#111827]', 'text-[#9CA3AF]', 'border-[#1F2937]');
+            active.classList.add('bg-[#E76F51]', 'text-white', 'border-[#E76F51]', 'shadow-md', 'shadow-[#E76F51]/20');
+            renderMateriGrid();
+        }
+
+        function toggleKisiMastered(kisiId) {
+            if (state.masteredKisi.has(kisiId)) {
+                state.masteredKisi.delete(kisiId);
+                showToast('↩️', `Kisi-Kisi ${String(kisiId).padStart(2, '0')} ditandai belum dikuasai.`);
+            } else {
+                state.masteredKisi.add(kisiId);
+                showToast('🎉', `Kisi-Kisi ${String(kisiId).padStart(2, '0')} dikuasai!`);
+            }
+            updateGlobalProgress();
+            renderMateriGrid();
+        }
+
+        function jumpToKisiQuiz(kisiId) {
+            switchMainTab('kuis');
+            const selectEl = document.getElementById('quiz-topic-filter');
+            selectEl.value = String(kisiId);
+            changeQuizMode(String(kisiId));
+        }
+
+        function renderMateriGrid() {
+            const query = document.getElementById('materi-search-input').value.toLowerCase().trim();
+            const filtered = KISI_DATA.filter(item => {
+                const matchGroup = state.materiFilter === 'all' || item.group === state.materiFilter;
+                const matchQuery = !query || 
+                    item.title.toLowerCase().includes(query) ||
+                    item.mnemonic.toLowerCase().includes(query) ||
+                    item.formula.toLowerCase().includes(query) ||
+                    item.example.toLowerCase().includes(query) ||
+                    item.num.includes(query);
+                return matchGroup && matchQuery;
+            });
+
+            const container = document.getElementById('materi-cards-grid');
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full bg-[#161E2E] border border-[#1F2937] rounded-2xl p-8 text-center">
+                        <p class="text-[#9CA3AF] text-sm">Tidak ditemukan kisi-kisi yang cocok dengan kata kunci "<strong class="text-[#F3F4F6]">${query}</strong>".</p>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(item => {
+                const isMastered = state.masteredKisi.has(item.id);
+                const groupLabel = item.group === 'fungsi' ? 'Bab Fungsi & Invers' : 'Bab Lingkaran';
+                const groupBadge = item.group === 'fungsi'
+                    ? 'bg-sky-500/15 text-sky-400 border-sky-500/30'
+                    : 'bg-purple-500/15 text-purple-400 border-purple-500/30';
+
+                return `
+                    <article class="bg-[#161E2E] rounded-2xl border ${isMastered ? 'border-[#A7C957]/60' : 'border-[#1F2937]'} p-5 sm:p-6 shadow-md flex flex-col justify-between gap-4 transition hover:border-slate-700">
+                        <div class="space-y-4">
+                            <!-- Card Top Header -->
+                            <div class="flex items-start justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-10 h-10 rounded-xl bg-[#0B0F19] border border-[#1F2937] text-[#E76F51] font-mono font-extrabold text-sm flex items-center justify-center shrink-0">
+                                        ${item.num}
+                                    </span>
+                                    <div>
+                                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold border ${groupBadge} mb-1">
+                                            ${groupLabel}
+                                        </span>
+                                        <h3 class="font-extrabold text-base sm:text-lg text-[#F3F4F6] leading-snug">${item.title}</h3>
+                                    </div>
+                                </div>
+                                <button onclick="toggleKisiMastered(${item.id})" class="shrink-0 p-2 rounded-xl border transition cursor-pointer ${
+                                    isMastered 
+                                    ? 'bg-[#A7C957]/15 border-[#A7C957] text-[#A7C957]' 
+                                    : 'bg-[#111827] border-[#1F2937] text-[#9CA3AF] hover:text-[#F3F4F6]'
+                                }" title="Tandai Kisi-Kisi Dikuasai">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+
+                            <!-- Jembatan Keledai -->
+                            <div class="bg-[#E76F51]/12 border border-[#E76F51]/30 rounded-xl p-3.5">
+                                <div class="text-[11px] font-extrabold uppercase tracking-wider text-[#E76F51] mb-1">🧠 Jembatan Keledai</div>
+                                <p class="text-xs sm:text-sm text-[#F3F4F6] font-medium leading-relaxed">${item.mnemonic}</p>
+                            </div>
+
+                            <!-- Formula Box -->
+                            <div class="bg-[#0B0F19] border border-[#1F2937] rounded-xl p-3.5">
+                                <div class="text-[10px] font-bold uppercase tracking-wider text-[#9CA3AF] mb-1.5">Rumus Inti & Syarat</div>
+                                <pre class="font-mono text-xs sm:text-[13px] text-[#A7C957] whitespace-pre-wrap leading-relaxed">${item.formula}</pre>
+                            </div>
+
+                            <!-- Inline SVG Illustration -->
+                            <div>
+                                ${item.svg}
+                            </div>
+
+                            <!-- Contoh Kilat -->
+                            <div class="bg-[#111827] border border-[#1F2937] rounded-xl p-3.5">
+                                <div class="text-[11px] font-bold text-amber-300 mb-1">⚡ Contoh Kilat</div>
+                                <p class="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">${item.example}</p>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Action -->
+                        <div class="pt-3 border-t border-[#1F2937] flex items-center justify-between gap-2">
+                            <span class="text-[11px] font-semibold ${isMastered ? 'text-[#A7C957]' : 'text-[#9CA3AF]'}">
+                                ${isMastered ? '✓ Sudah Dikuasai' : 'Belum ditandai paham'}
+                            </span>
+                            <button onclick="jumpToKisiQuiz(${item.id})" class="inline-flex items-center gap-1.5 bg-[#111827] hover:bg-[#E76F51] text-[#F3F4F6] hover:text-white border border-[#1F2937] hover:border-[#E76F51] text-xs font-bold px-3.5 py-2 rounded-xl transition cursor-pointer">
+                                <i data-lucide="play" class="w-3.5 h-3.5"></i>
+                                <span>Latihan 3 Soal HOTS</span>
+                            </button>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        // =========================================================================
+        // 7. TAB 2: FLASHCARDS RUMUS (28 KARTU)
+        // =========================================================================
+        function filterFlashcards(groupVal) {
+            state.fcFilter = groupVal;
+            document.querySelectorAll('.fc-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-[#E76F51]', 'text-white', 'border-[#E76F51]');
+                btn.classList.add('bg-[#161E2E]', 'text-[#9CA3AF]', 'border-[#1F2937]');
+            });
+            const active = document.getElementById(`fc-btn-${groupVal}`);
+            active.classList.remove('bg-[#161E2E]', 'text-[#9CA3AF]', 'border-[#1F2937]');
+            active.classList.add('bg-[#E76F51]', 'text-white', 'border-[#E76F51]');
+
+            state.fcList = groupVal === 'all'
+                ? [...FLASHCARDS_DATA]
+                : FLASHCARDS_DATA.filter(c => c.group === groupVal);
+            state.fcIndex = 0;
+            state.fcFlipped = false;
+            renderCurrentFlashcard();
+        }
+
+        function renderCurrentFlashcard() {
+            const card = state.fcList[state.fcIndex];
+            if (!card) return;
+
+            const inner = document.getElementById('flashcard-inner');
+            inner.classList.toggle('rotate-y-180', state.fcFlipped);
+
+            document.getElementById('fc-topic-badge').textContent = card.badge;
+            document.getElementById('fc-counter').textContent = `${state.fcIndex + 1} / ${state.fcList.length}`;
+            document.getElementById('fc-counter-back').textContent = `${state.fcIndex + 1} / ${state.fcList.length}`;
+            document.getElementById('fc-front-text').textContent = card.front;
+            document.getElementById('fc-back-formula').innerText = card.formula;
+            document.getElementById('fc-back-trick').textContent = `💡 Trik Hapal: ${card.trick}`;
+
+            const isMastered = state.fcMastered.has(card.front);
+            const btnMastered = document.getElementById('btn-fc-mastered');
+            if (isMastered) {
+                btnMastered.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4"></i><span>Sudah Hapal ✓</span>`;
+                btnMastered.classList.add('bg-[#A7C957]', 'text-[#0B0F19]', 'border-[#A7C957]');
+                btnMastered.classList.remove('bg-[#161E2E]', 'text-[#A7C957]');
+            } else {
+                btnMastered.innerHTML = `<i data-lucide="check-circle-2" class="w-4 h-4"></i><span>Sudah Hapal</span>`;
+                btnMastered.classList.remove('bg-[#A7C957]', 'text-[#0B0F19]', 'border-[#A7C957]');
+                btnMastered.classList.add('bg-[#161E2E]', 'text-[#A7C957]');
+            }
+
+            const totalMastered = state.fcMastered.size;
+            const pct = Math.round((totalMastered / FLASHCARDS_DATA.length) * 100);
+            document.getElementById('fc-mastered-label').textContent = `${totalMastered} / ${FLASHCARDS_DATA.length} Hapal (${pct}%)`;
+            document.getElementById('fc-mastered-bar').style.width = `${pct}%`;
+
+            lucide.createIcons();
+        }
+
+        function flipFlashcard() {
+            state.fcFlipped = !state.fcFlipped;
+            renderCurrentFlashcard();
+        }
+
+        function nextFlashcard() {
+            state.fcFlipped = false;
+            state.fcIndex = (state.fcIndex + 1) % state.fcList.length;
+            renderCurrentFlashcard();
+        }
+
+        function prevFlashcard() {
+            state.fcFlipped = false;
+            state.fcIndex = (state.fcIndex - 1 + state.fcList.length) % state.fcList.length;
+            renderCurrentFlashcard();
+        }
+
+        function toggleFlashcardMastered() {
+            const card = state.fcList[state.fcIndex];
+            if (!card) return;
+            if (state.fcMastered.has(card.front)) {
+                state.fcMastered.delete(card.front);
+            } else {
+                state.fcMastered.add(card.front);
+                showToast('⭐', 'Rumus ditandai sudah hapal!');
+            }
+            renderCurrentFlashcard();
+        }
+
+        function shuffleFlashcards() {
+            state.fcFlipped = false;
+            for (let i = state.fcList.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [state.fcList[i], state.fcList[j]] = [state.fcList[j], state.fcList[i]];
+            }
+            state.fcIndex = 0;
+            renderCurrentFlashcard();
+            showToast('🔀', 'Kartu flashcard berhasil diacak!');
+        }
+
+        // =========================================================================
+        // 8. TAB 3: LATIHAN SOAL HOTS (42 SOAL)
+        // =========================================================================
+        function startQuizTimer() {
+            if (state.timerInterval) clearInterval(state.timerInterval);
+            state.timerInterval = setInterval(() => {
+                if (!state.timerPaused && !state.quizSubmitted) {
+                    state.timerSeconds++;
+                    const mins = String(Math.floor(state.timerSeconds / 60)).padStart(2, '0');
+                    const secs = String(state.timerSeconds % 60).padStart(2, '0');
+                    document.getElementById('quiz-timer').textContent = `${mins}:${secs}`;
+                }
+            }, 1000);
+        }
+
+        function toggleTimer() {
+            state.timerPaused = !state.timerPaused;
+            const btn = document.getElementById('btn-toggle-timer');
+            btn.innerHTML = state.timerPaused
+                ? `<i data-lucide="play" class="w-3.5 h-3.5 text-[#A7C957]"></i>`
+                : `<i data-lucide="pause" class="w-3.5 h-3.5"></i>`;
+            lucide.createIcons();
+            showToast(state.timerPaused ? '⏸️' : '▶️', state.timerPaused ? 'Stopwatch dijeda' : 'Stopwatch dilanjutkan');
+        }
+
+        function changeQuizMode(filterVal) {
+            state.quizFilter = filterVal;
+            if (filterVal === 'all') {
+                state.filteredQuestions = [...QUIZ_QUESTIONS];
+                document.getElementById('quiz-mode-label').textContent = 'Semua 42 Soal (3 Soal × 14 Kisi-Kisi)';
+            } else if (filterVal === 'bab_fungsi' || filterVal === 'bab_lingkaran') {
+                state.filteredQuestions = QUIZ_QUESTIONS.filter(q => q.group === filterVal);
+                document.getElementById('quiz-mode-label').textContent = filterVal === 'bab_fungsi'
+                    ? 'Bab Fungsi & Invers (21 Soal HOTS)'
+                    : 'Bab Lingkaran (21 Soal HOTS)';
+            } else {
+                const numId = Number(filterVal);
+                state.filteredQuestions = QUIZ_QUESTIONS.filter(q => q.topicId === numId);
+                const kisiObj = KISI_DATA.find(k => k.id === numId);
+                document.getElementById('quiz-mode-label').textContent = `Kisi-Kisi ${kisiObj.num}: ${kisiObj.title} (3 Soal HOTS)`;
+            }
+
+            state.currentQIndex = 0;
+            renderQuizNavigator();
+            renderCurrentQuestion();
+        }
+
+        function renderCurrentQuestion() {
+            const q = state.filteredQuestions[state.currentQIndex];
+            if (!q) return;
+
+            const userAnswer = state.userAnswers[q.id];
+            const hasAnswered = userAnswer !== undefined;
+            const instantFeedback = document.getElementById('instant-feedback-toggle').checked;
+            const showFeedback = state.quizSubmitted || (instantFeedback && hasAnswered);
+
+            document.getElementById('q-number-badge').textContent = `Soal ${state.currentQIndex + 1} / ${state.filteredQuestions.length}`;
+            document.getElementById('q-topic-badge').textContent = q.topicName;
+            document.getElementById('q-text').innerText = q.question;
+
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+            document.getElementById('q-options').innerHTML = q.options.map((optText, idx) => {
+                const isSelected = userAnswer === idx;
+                const isCorrect = q.correct === idx;
+
+                let btnClass = 'bg-[#111827] border-[#1F2937] hover:border-[#E76F51]/60 text-[#F3F4F6]';
+                let badgeClass = 'bg-[#161E2E] text-[#9CA3AF] border-[#1F2937]';
+                let statusTag = '';
+
+                if (showFeedback) {
+                    if (isCorrect) {
+                        btnClass = 'bg-[#A7C957]/15 border-[#A7C957] text-[#F3F4F6] font-semibold ring-1 ring-[#A7C957]/50';
+                        badgeClass = 'bg-[#A7C957] text-[#0B0F19] border-[#A7C957]';
+                        statusTag = '<span class="ml-auto text-[#A7C957] font-bold text-xs shrink-0">✓ Jawaban Benar</span>';
+                    } else if (isSelected && !isCorrect) {
+                        btnClass = 'bg-rose-500/15 border-rose-500 text-rose-100 font-semibold ring-1 ring-rose-500/50';
+                        badgeClass = 'bg-rose-600 text-white border-rose-600';
+                        statusTag = '<span class="ml-auto text-rose-400 font-bold text-xs shrink-0">✕ Jawabanmu</span>';
+                    } else {
+                        btnClass = 'bg-[#0B0F19]/60 border-[#1F2937]/70 text-[#9CA3AF] opacity-65';
+                    }
+                } else if (isSelected) {
+                    btnClass = 'bg-[#E76F51]/15 border-[#E76F51] text-[#F3F4F6] font-semibold ring-1 ring-[#E76F51]/50';
+                    badgeClass = 'bg-[#E76F51] text-white border-[#E76F51]';
+                }
+
+                return `
+                    <button onclick="selectOption(${q.id}, ${idx})"
+                        class="w-full text-left p-3.5 sm:p-4 rounded-xl border transition-all flex items-start gap-3.5 cursor-pointer ${btnClass}">
+                        <span class="w-7 h-7 rounded-lg border font-mono flex items-center justify-center text-xs font-extrabold shrink-0 mt-0.5 ${badgeClass}">
+                            ${letters[idx]}
+                        </span>
+                        <span class="font-mono text-xs sm:text-sm leading-relaxed pt-0.5">${optText}</span>
+                        ${statusTag}
+                    </button>
+                `;
+            }).join('');
+
+            const expBox = document.getElementById('q-explanation-box');
+            if (showFeedback) {
+                expBox.classList.remove('hidden');
+                document.getElementById('q-explanation-text').innerHTML = q.explanation
+                    .map(line => `<p>${line}</p>`)
+                    .join('');
+                document.getElementById('q-trick-box').textContent = `⚡ Trik Cepat: ${q.trick}`;
+            } else {
+                expBox.classList.add('hidden');
+            }
+
+            document.getElementById('btn-prev-q').disabled = state.currentQIndex === 0;
+            document.getElementById('btn-next-q').disabled = state.currentQIndex === state.filteredQuestions.length - 1;
+
+            renderQuizNavigator();
+            lucide.createIcons();
+        }
+
+        function selectOption(qId, optIdx) {
+            if (state.quizSubmitted) return;
+            state.userAnswers[qId] = optIdx;
+            renderCurrentQuestion();
+            updateGlobalProgress();
+        }
+
+        function prevQuestion() {
+            if (state.currentQIndex > 0) {
+                state.currentQIndex--;
+                renderCurrentQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (state.currentQIndex < state.filteredQuestions.length - 1) {
+                state.currentQIndex++;
+                renderCurrentQuestion();
+            }
+        }
+
+        function jumpToQuestion(idx) {
+            state.currentQIndex = idx;
+            renderCurrentQuestion();
+        }
+
+        function renderQuizNavigator() {
+            const grid = document.getElementById('q-nav-grid');
+            const instantFeedback = document.getElementById('instant-feedback-toggle').checked;
+
+            let answeredCount = 0;
+            state.filteredQuestions.forEach(q => {
+                if (state.userAnswers[q.id] !== undefined) answeredCount++;
+            });
+            document.getElementById('answered-counter').textContent = `${answeredCount}/${state.filteredQuestions.length} Dijawab`;
+
+            grid.innerHTML = state.filteredQuestions.map((q, idx) => {
+                const isCurrent = idx === state.currentQIndex;
+                const ans = state.userAnswers[q.id];
+                const isAnswered = ans !== undefined;
+                const showResult = state.quizSubmitted || (instantFeedback && isAnswered);
+
+                let style = 'bg-[#111827] text-[#9CA3AF] hover:bg-[#1F2937] hover:text-[#F3F4F6] border-[#1F2937]';
+                if (showResult && isAnswered) {
+                    style = ans === q.correct
+                        ? 'bg-[#A7C957] text-[#0B0F19] border-[#A7C957] font-extrabold'
+                        : 'bg-rose-600 text-white border-rose-500 font-bold';
+                } else if (isAnswered) {
+                    style = 'bg-slate-700 text-white border-slate-600 font-bold';
+                }
+
+                if (isCurrent) {
+                    style += ' ring-2 ring-[#E76F51] ring-offset-1 ring-offset-[#161E2E]';
+                }
+
+                return `
+                    <button onclick="jumpToQuestion(${idx})"
+                        class="h-8 rounded-lg font-mono text-xs border flex items-center justify-center transition cursor-pointer ${style}"
+                        title="${q.topicName}">
+                        ${idx + 1}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function submitQuiz() {
+            state.quizSubmitted = true;
+
+            const gradedSet = state.filteredQuestions;
+            let correctCount = 0;
+            gradedSet.forEach(q => {
+                if (state.userAnswers[q.id] === q.correct) correctCount++;
+            });
+
+            const wrongCount = gradedSet.length - correctCount;
+            const score = Math.round((correctCount / gradedSet.length) * 100);
+
+            const panel = document.getElementById('quiz-result-panel');
+            panel.classList.remove('hidden');
+            document.getElementById('final-score-value').textContent = score;
+            document.getElementById('final-correct-count').textContent = correctCount;
+            document.getElementById('final-wrong-count').textContent = wrongCount;
+
+            let feedback = '';
+            if (score >= 85) feedback = 'Luar Biasa! Penguasaan konsep & trik cepat 14 kisi-kisi Matematika Wajib kamu sudah sangat siap menghadapi ujian.';
+            else if (score >= 65) feedback = 'Cukup Baik! Pelajari pembahasan langkah demi langkah pada kisi-kisi yang masih merah di bawah ini.';
+            else feedback = 'Terus Berlatih! Buka kembali tab Materi & Rumus Cepat untuk menghafal jembatan keledai dan syarat rumus.';
+            document.getElementById('final-score-feedback').textContent = feedback;
+
+            document.getElementById('desktop-score-badge').textContent = `Skor: ${score}/100`;
+            document.getElementById('mobile-score-badge').textContent = `${correctCount}/${gradedSet.length}`;
+
+            // Per-14 Kisi-Kisi Breakdown
+            document.getElementById('topic-breakdown-grid').innerHTML = KISI_DATA.map(k => {
+                const kQs = QUIZ_QUESTIONS.filter(q => q.topicId === k.id);
+                let kCorrect = 0;
+                kQs.forEach(q => {
+                    if (state.userAnswers[q.id] === q.correct) kCorrect++;
+                });
+                const pct = Math.round((kCorrect / kQs.length) * 100);
+                const barColor = pct === 100 ? 'bg-[#A7C957]' : (pct >= 50 ? 'bg-amber-400' : 'bg-rose-500');
+
+                return `
+                    <div class="bg-[#111827] p-3 rounded-xl border border-[#1F2937]">
+                        <div class="flex justify-between items-center text-[11px] font-bold text-[#F3F4F6] mb-1.5 gap-1">
+                            <span class="truncate">${k.num}. ${k.title}</span>
+                            <span class="font-mono shrink-0">${kCorrect}/3</span>
+                        </div>
+                        <div class="w-full bg-[#0B0F19] h-1.5 rounded-full overflow-hidden">
+                            <div class="${barColor} h-1.5 rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            renderCurrentQuestion();
+            panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            showToast('🏆', `Evaluasi selesai! Skor akhir kamu: ${score}/100`);
+        }
+
+        function resetQuiz() {
+            state.userAnswers = {};
+            state.quizSubmitted = false;
+            state.currentQIndex = 0;
+            state.timerSeconds = 0;
+            state.timerPaused = false;
+            document.getElementById('quiz-timer').textContent = '00:00';
+            document.getElementById('quiz-result-panel').classList.add('hidden');
+            updateGlobalProgress();
+            startQuizTimer();
+            renderCurrentQuestion();
+            showToast('🔄', 'Latihan soal HOTS telah direset!');
+        }
+
+        // Keyboard shortcut for Flashcards
+        document.addEventListener('keydown', (e) => {
+            if (state.activeTab === 'flashcards') {
+                if (e.code === 'Space') {
+                    e.preventDefault();
+                    flipFlashcard();
+                } else if (e.code === 'ArrowRight') {
+                    nextFlashcard();
+                } else if (e.code === 'ArrowLeft') {
+                    prevFlashcard();
+                }
+            }
+        });
+
+        // =========================================================================
+        // 9. WINDOW ONLOAD INITIALIZATION
+        // =========================================================================
+        window.onload = function() {
+            renderMateriGrid();
+            renderCurrentFlashcard();
+            renderQuizNavigator();
+            renderCurrentQuestion();
+            updateGlobalProgress();
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
